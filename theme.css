@@ -1,0 +1,112 @@
+/* ============================================================
+   Steven 戰報主題 v1（2026-09-06 欽定：黑＋金，Claude 感 serif）
+   全站共享：index.html／p1.html／p2.html＋之後所有新頁
+   ============================================================ */
+:root{
+  --bg:#111110; --card:#1a1916; --line:#2c2a24; --line2:#3d3a30;
+  --tx:#ede7d7; --tx2:#a79d87; --tx3:#71695a;
+  --gold:#d9a441; --gold2:#f0c05a; --golddim:#9a7c3c;
+  --up:#4cc07e; --dn:#e06552;
+  --deepG:#10733f; --liteG-bg:rgba(76,192,126,.15); --liteG-tx:#7fd7a6;
+  --deepR:#b8402f;  --liteR-bg:rgba(224,101,82,.15); --liteR-tx:#f09685;
+  --mliG-bg:rgba(76,192,126,.10); --mliG-tx:#6fbf94;
+  --mliR-bg:rgba(224,101,82,.10); --mliR-tx:#c98471;
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{
+  font-family:'Spectral','Noto Serif TC',Georgia,'Songti TC','PMingLiU',serif;
+  background:var(--bg); color:var(--tx);
+  padding:26px 20px 70px; max-width:1180px; margin:0 auto;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:rgba(217,164,65,.35); }
+
+h1{ font-size:26px; font-weight:800; margin-bottom:6px; letter-spacing:.2px; }
+h2{ font-size:17px; font-weight:700; margin:28px 0 12px; color:var(--tx); }
+.sub{ color:var(--tx2); font-size:13px; padding-bottom:12px; border-bottom:2px solid #6b5318; margin-bottom:18px; line-height:1.7; }
+.note{ color:var(--tx2); font-size:12.5px; line-height:1.8; margin-bottom:12px; }
+a{ color:var(--gold); text-decoration:none; }
+a:hover{ color:var(--gold2); text-decoration:underline; }
+
+/* ---- 導航 ---- */
+.nav{ font-size:13px; margin-bottom:14px; }
+.nav a{ color:var(--gold); text-decoration:none; margin-right:14px; }
+.nav a:hover{ color:var(--gold2); text-decoration:underline; }
+.nav .here{ color:var(--tx); font-weight:700; margin-right:14px; }
+
+/* ---- 表格 ---- */
+table{ width:100%; border-collapse:collapse; font-size:13px; }
+th{ text-align:right; font-weight:600; color:var(--golddim); padding:7px 8px; border-bottom:1.5px solid var(--line2); white-space:nowrap; font-size:12px; }
+th:first-child, td:first-child{ text-align:left; }
+td{ text-align:right; padding:6px 8px; border-bottom:1px solid var(--line); font-variant-numeric:tabular-nums; white-space:nowrap; }
+tr:hover td{ background:#1e1d19; }
+td.tk{ text-align:left; font-weight:700; }
+td.tk a, .tk a{ color:var(--tx); text-decoration:none; border-bottom:1px dotted var(--tx3); font-weight:700; }
+td.tk a:hover, .tk a:hover{ color:var(--gold); border-bottom-color:var(--gold); text-decoration:none; }
+
+/* ---- 色階（CupSir 規則 dark 版）---- */
+.up{ color:var(--up); } .dn{ color:var(--dn); }
+.c-deepG{ background:var(--deepG); color:#fff; font-weight:700; }
+.c-liteG{ background:var(--liteG-bg); color:var(--liteG-tx); }
+.c-deepR{ background:var(--deepR); color:#fff; font-weight:700; }
+.c-liteR{ background:var(--liteR-bg); color:var(--liteR-tx); }
+.c-mliG{ background:var(--mliG-bg); color:var(--mliG-tx); }
+.c-mliR{ background:var(--mliR-bg); color:var(--mliR-tx); }
+.exc-pos{ color:var(--up); font-weight:600; } .exc-neg{ color:var(--dn); }
+
+/* ---- 卡片 ---- */
+.cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-bottom:8px; }
+.card{ border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--card); }
+.card .lbl{ font-size:12px; color:#a39470; margin-bottom:6px; }
+.card .val{ font-size:26px; font-weight:800; letter-spacing:-.5px; }
+.card .val.small{ font-size:22px; }
+.card .sub2{ font-size:11.5px; color:var(--tx3); margin-top:4px; }
+
+/* ---- 圖/圖例 ---- */
+.legend{ font-size:11.5px; color:var(--tx3); margin-top:12px; line-height:2; }
+.legend .sw{ display:inline-block; width:10px; height:10px; border-radius:2px; margin:0 4px 0 12px; vertical-align:middle; }
+.legend .sw:first-child{ margin-left:0; }
+.pulse-wrap{ border:1px solid var(--line); border-radius:10px; padding:14px 12px 8px; margin-top:6px; background:var(--card); }
+.ibar-wrap{ position:relative; height:14px; background:transparent; width:100%; }
+.ibar{ position:absolute; left:0; top:2px; height:10px; background:var(--gold); border-radius:2px; min-width:2px; }
+.itick{ position:absolute; top:0; width:2px; height:14px; background:var(--tx3); }
+
+/* ---- 徽章/條 ---- */
+.badge{ display:inline-block; color:#fff; border-radius:6px; padding:3px 12px; font-weight:700; font-size:13px; }
+.b-green{ background:#14854e; } .b-red{ background:var(--deepR); }
+.stale, .warnbar{ background:#2b2110; border:1px solid #6b5318; border-radius:8px; padding:12px 16px; font-size:13px; color:#e8bd55; margin-bottom:16px; line-height:1.8; }
+.blindbar{ background:#181713; border:1px solid var(--line2); border-radius:8px; padding:10px 14px; font-size:12.5px; color:#b0a78f; margin-bottom:14px; line-height:1.8; }
+.battle{ background:var(--card); border:1px solid var(--line2); border-radius:12px; padding:18px; }
+.battle h2{ margin-top:0; }
+.battle ul{ padding-left:20px; font-size:13.5px; line-height:2.1; color:var(--tx); }
+.battle .tag{ display:inline-block; font-size:11px; background:var(--gold); color:#16140f; border-radius:4px; padding:1px 7px; margin-right:6px; vertical-align:1px; font-weight:700; }
+.sec-div{ margin-top:48px; }
+
+/* ---- P1/P2 頁專用 ---- */
+.cond{ border:1px solid var(--line); border-radius:8px; padding:12px 14px; margin-bottom:8px; display:flex; gap:12px; align-items:baseline; background:var(--card); }
+.cond .no{ font-weight:800; color:var(--gold); font-size:15px; min-width:22px; }
+.cond .tx{ font-size:13.5px; line-height:1.6; }
+.grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; }
+.grp{ margin-bottom:20px; }
+.grp-h{ font-size:14px; font-weight:700; margin-bottom:8px; padding:4px 10px; border-left:4px solid #4a463a; color:var(--tx2); }
+.grp-h.hot{ border-left-color:var(--gold); color:var(--tx); background:rgba(217,164,65,.09); border-radius:0 6px 6px 0; }
+.grp-h .rk{ color:var(--gold); margin-right:6px; }
+.grp-h .cnt{ color:var(--tx3); font-weight:400; font-size:12.5px; margin-left:6px; }
+.tkcell{ border:1px solid var(--line); border-radius:8px; padding:9px 12px; display:flex; justify-content:space-between; align-items:baseline; background:var(--card); }
+.tkcell a{ font-weight:700; color:var(--tx); text-decoration:none; font-size:15px; }
+.tkcell a:hover{ color:var(--gold); }
+.tkcell .px{ color:var(--tx2); font-size:13px; font-variant-numeric:tabular-nums; }
+.spec-note{ font-size:11px; color:var(--tx3); }
+.tag{ display:inline-block; font-size:10.5px; color:var(--tx3); border:1px solid var(--line2); border-radius:4px; padding:0 5px; margin-left:6px; vertical-align:1px; }
+.test-row td{ color:var(--tx3); }
+.g-ok{ color:var(--up); }
+.g-no{ color:var(--dn); }
+.pc{ color:var(--tx2); font-variant-numeric:tabular-nums; }
+.pc.hi{ color:var(--gold); font-weight:700; }
+.rr-na{ color:var(--up); font-size:12px; }
+
+@media (max-width:640px){
+  h1{ font-size:21px; } .card .val{ font-size:20px; }
+  td,th{ padding:5px 5px; font-size:11.5px; }
+  .grid{ grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); }
+}

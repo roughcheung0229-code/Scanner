@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 Scanner — Attack &amp; Defend</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700;800&family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<div class="nav"><a href="index.html">← 市寬動能表</a><a href="p1.html">← P1 Scanner</a><span class="here">P2 Scanner</span></div>
+
+<h1>P2 動能突破 · Scanner</h1>
+<div class="sub">Scanner v5「Attack &amp; Defend」｜驗證年操作手冊 v2.5.2 實行版（2026-08-31 → 2027-08-31）｜數據：Massive（同動能表同一條管線）｜業績日期：Yahoo</div>
+
+<div class="warnbar" id="pipebar" style="display:none"></div>
+
+<h2>P2 五條件（全過先入全池）</h2>
+<div id="conds"></div>
+
+<h2>每晚池量</h2>
+<div class="note">全池＝五條件全過嘅全輸出（唔准事後剔除）；可交易池＝全池再過五道機械閘。機械閘做咗約 97% 嘅篩選。</div>
+<div style="overflow-x:auto;">
+<table id="logtbl">
+  <thead><tr><th>日期</th><th>全池</th><th>可交易池</th><th>snapshot hash</th></tr></thead>
+  <tbody></tbody>
+</table>
+</div>
+
+<h2>最新可交易池 <span class="tag" id="asof"></span></h2>
+<div class="note">朝早窗 curation 用：字母序，唔加排序暗示。股數＝int($70 ÷ SL 距離)；RR 記 NA（新高豁免）＝創 60 日收市新高、冇前頂帽。揀定之後人手填 pick（real／shadow／quality_pass／size_veto／held／off-pool／re-entry／no-test／gap-invalid）。</div>
+<div style="overflow-x:auto;">
+<table id="pooltbl">
+  <thead><tr><th>股票</th><th>收市</th><th>EMA10 錨</th><th>建議 SL</th><th>SL 距(ATR)</th><th>RR</th><th>股數</th><th>名義</th><th>AMT20($M)</th><th>業績</th></tr></thead>
+  <tbody></tbody>
+</table>
+</div>
+
+<h2>全池（audit）</h2>
+<div class="note">全池一經寫入即凍結，唔准事後剔除。<b>通關數多嘅排前</b>——可交易欄嘅 X/5＝過咗五閘入面幾多閘；<span class="g-ok">✓</span>＝過　<span class="g-no">✗</span>＝唔過。</div>
+<div style="overflow-x:auto;">
+<table id="alltbl">
+  <thead><tr><th>股票</th><th>收市</th><th>①業績牆</th><th>②SL 距離</th><th>③RR 帽</th><th>④名義</th><th>⑤流動性</th><th>可交易</th></tr></thead>
+  <tbody></tbody>
+</table>
+</div>
+
+<script>
+const gateIcon = c => c==='1' ? '<span class="g-ok">✓</span>' : '<span class="g-no">✗</span>';
+fetch('scanners.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(S=>{
+  const P2=S.p2;
+  const cw=document.getElementById('conds');
+  P2.conditions.forEach((c,i)=>{
+    cw.insertAdjacentHTML('beforeend',`<div class="cond"><span class="no">${i+1}</span><span class="tx">${c}</span></div>`);
+  });
+  if(P2.status!=='live'){
+    const b=document.getElementById('pipebar');
+    b.style.display='block';
+    b.innerHTML=`⚠️ <b>每晚 snapshot 管線未接通呢個頁面。</b>最近紀錄：${P2.last_snapshot||'無'}。`;
+  }
+  document.getElementById('asof').textContent = P2.asof ? P2.asof : '';
+  const tb=document.querySelector('#logtbl tbody');
+  (P2.days||[]).slice().reverse().forEach(r=>{
+    const tag = r.test ? '<span class="tag">開機前 TEST</span>' : '';
+    tb.insertAdjacentHTML('beforeend',`<tr class="${r.test?'test-row':''}"><td>${r.date}${tag}</td><td>${r.pool_all}</td><td><b>${r.pool_tradable}</b></td><td style="color:var(--tx3);font-size:11.5px;">${r.hash||'—'}</td></tr>`);
+  });
+  if(!(P2.days||[]).length) tb.insertAdjacentHTML('beforeend','<tr><td colspan="4" style="text-align:center;color:var(--tx3);padding:14px;">未有紀錄</td></tr>');
+
+  const pb=document.querySelector('#pooltbl tbody');
+  if((P2.pool||[]).length){
+    P2.pool.forEach(x=>{
+      const rr = x.rr==='NA' ? '<span class="rr-na">NA（新高豁免）</span>' : x.rr;
+      const earn = x.earn ? x.earn : '—';
+      pb.insertAdjacentHTML('beforeend',`<tr><td class="tk"><a href="https://www.tradingview.com/chart/?symbol=${x.t}" target="_blank">${x.t}</a></td><td>${x.c.toFixed(2)}</td><td>${x.ema10.toFixed(2)}</td><td>${x.sl.toFixed(2)}</td><td>${x.sl_atr}</td><td>${rr}</td><td>${x.sh}</td><td>$${x.not.toLocaleString('en-US',{maximumFractionDigits:0})}</td><td>${x.amt.toLocaleString('en-US')}</td><td style="color:var(--tx2);font-size:12px;">${earn}</td></tr>`);
+    });
+  } else {
+    pb.insertAdjacentHTML('beforeend','<tr><td colspan="10" style="text-align:center;color:var(--tx3);padding:14px;">最新一晚可交易池為空（或者管線未接通）</td></tr>');
+  }
+
+  const ab=document.querySelector('#alltbl tbody');
+  if((P2.pool_all||[]).length){
+    P2.pool_all.forEach(x=>{
+      const g=[...x.g];
+      const verdict = x.ok ? '<b class="g-ok">✓</b>' : `<span class="pc${x.p>=4?' hi':''}">${x.p}/5</span>`;
+      ab.insertAdjacentHTML('beforeend',`<tr><td class="tk"><a href="https://www.tradingview.com/chart/?symbol=${x.t}" target="_blank">${x.t}</a></td><td>${x.c.toFixed(2)}</td><td>${gateIcon(g[0])}</td><td>${gateIcon(g[1])}</td><td>${gateIcon(g[2])}</td><td>${gateIcon(g[3])}</td><td>${gateIcon(g[4])}</td><td>${verdict}</td></tr>`);
+    });
+  } else {
+    ab.insertAdjacentHTML('beforeend','<tr><td colspan="8" style="text-align:center;color:var(--tx3);padding:14px;">未有紀錄</td></tr>');
+  }
+}).catch(e=>{
+  document.getElementById('pipebar').style.display='block';
+  document.getElementById('pipebar').textContent='⚠️ scanners.json load 唔到——同 Kimi 講聲。';
+});
+</script>
+</body>
+</html>

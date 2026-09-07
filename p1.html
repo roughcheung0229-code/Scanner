@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P1 Scanner — 箱底狙擊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700;800&family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<div class="nav"><a href="index.html">← 市寬動能表</a><span class="here">P1 Scanner</span><a href="p2.html">P2 Scanner →</a></div>
+
+<h1>P1 箱底狙擊 · Scanner</h1>
+<div class="sub" id="subline"></div>
+
+<div class="blindbar">
+  <b>盲視圖</b>（盲化協議）：呢版淨係得 <b>ticker＋訊號收市價＋行業＋圖表 link</b>。
+  分析欄（rr／MACD／20 日升幅／市值／箱內位置／順位）一個都唔上網——你嘅揀股就係被測試嘅嘢，見到分析欄嗰晚記 'N'。<br>
+  <b>排序（2026-09-06 Steven 欽定）</b>：行業跟動能表「行業組成」強弱榜（領導股數目降序）排；清單內同行業 ≥3 隻＝cluster 🔥 成組推前 3 位；組內字母序；榜外（冇領導股）行業墊底。行業係公開分類（SEC SIC），唔係分析欄。
+</div>
+
+<h2 id="latest-title"></h2>
+<div id="regime-line" style="margin-bottom:12px;"></div>
+<div id="blind"></div>
+
+<h2>每晚訊號量</h2>
+<div style="overflow-x:auto;">
+<table id="daytbl">
+  <thead><tr><th>日期</th><th>訊號隻數</th><th>規格</th><th>regime</th></tr></thead>
+  <tbody></tbody>
+</table>
+</div>
+
+<h2>紙上結算（聚合，唔指名）</h2>
+<div class="cards" id="cards"></div>
+<div class="note">指名邊隻贏緊會影響你之後揀股，所以呢度只有聚合數。逐隻明細喺紙上 CSV，分析日（12 月中）先開。</div>
+
+<script>
+fetch('scanners.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(S=>{
+  const P1=S.p1;
+  document.getElementById('subline').innerHTML=
+    `收市 <b>${P1.asof}</b>　宇宙：≥$5 · ≥60日 · DVOL20≥$10M · Vol60≥2M　訊號規格 <b>v1.2</b>　<a href="https://www.tradingview.com/">TradingView</a>`;
+  document.getElementById('latest-title').textContent=`${P1.asof} 訊號清單（${P1.blind_list.length} 隻）`;
+  const rb = P1.regime==='🟢'
+    ? '<span class="badge b-green">🟢 可開倉</span>'
+    : '<span class="badge b-red">🔴 停手</span>';
+  document.getElementById('regime-line').innerHTML=`${rb} <span style="font-size:13px;color:var(--tx2);">regime 由 SPY vs EMA10 決定；🔴 日訊號照記紙上、實盤唔開新倉</span>`;
+  const g=document.getElementById('blind');
+  (P1.groups||[]).forEach(gr=>{
+    const rk = gr.rank>=999 ? '榜外' : (gr.named ? ('#'+(gr.rank+1)) : ('#'+(gr.rank+1)+'（Other薄行業桶）'));
+    const hot = gr.hot ? ' 🔥 cluster' : '';
+    const cells = gr.items.map(x=>
+      `<div class="tkcell"><a href="https://www.tradingview.com/chart/?symbol=${x.t}" target="_blank">${x.t}</a><span class="px">${x.c}</span></div>`).join('');
+    g.insertAdjacentHTML('beforeend',
+      `<div class="grp"><div class="grp-h${gr.hot?' hot':''}"><span class="rk">${rk}</span>${gr.ind}<span class="cnt">${gr.n} 隻${hot}</span></div><div class="grid">${cells}</div></div>`);
+  });
+  const tb=document.querySelector('#daytbl tbody');
+  [...P1.days].reverse().forEach(d=>{
+    const sn = d.spec==='v1.1' ? ' <span class="spec-note">v1.1（冇U4/U5，唔入streak）</span>' : '';
+    tb.insertAdjacentHTML('beforeend',`<tr><td>${d.date}</td><td>${d.n}</td><td>${d.spec}${sn}</td><td>${d.regime}</td></tr>`);
+  });
+  const A=P1.agg;
+  document.getElementById('cards').innerHTML=`
+    <div class="card"><div class="lbl">紙上訊號總數</div><div class="val">${A.total_rows}</div><div class="sub2">8/31 起全量</div></div>
+    <div class="card"><div class="lbl">追蹤中（open）</div><div class="val">${A.open}</div><div class="sub2">未入場或未了結</div></div>
+    <div class="card"><div class="lbl">已入場（entered）</div><div class="val">${A.entered}</div><div class="sub2">翌日開市成交</div></div>
+    <div class="card"><div class="lbl">已了結（settled）</div><div class="val">${A.settled}</div><div class="sub2">${A.settled?('平均 '+A.mean_R+'R · 勝率 '+A.win_rate+'%'):'未有'}</div></div>`;
+}).catch(e=>{
+  document.getElementById('subline').textContent='⚠️ scanners.json load 唔到——同 Kimi 講聲。';
+});
+</script>
+</body>
+</html>
