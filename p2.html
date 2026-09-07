@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="nav"><a href="index.html">← 市寬動能表</a><a href="p1.html">← P1 Scanner</a><span class="here">P2 Scanner</span></div>
+<div class="nav"><a href="index.html">← 市寬動能表</a><a href="pool.html">← 可交易池</a><a href="p1.html">← P1 Scanner</a><span class="here">P2 Scanner</span></div>
 
 <h1>P2 動能突破 · Scanner</h1>
 <div class="sub">Scanner v5「Attack &amp; Defend」｜驗證年操作手冊 v2.5.2 實行版（2026-08-31 → 2027-08-31）｜數據：Massive（同動能表同一條管線）｜業績日期：Yahoo</div>
@@ -34,7 +34,7 @@
 <div class="note">朝早窗 curation 用：字母序，唔加排序暗示。股數＝int($70 ÷ SL 距離)；RR 記 NA（新高豁免）＝創 60 日收市新高、冇前頂帽。揀定之後人手填 pick（real／shadow／quality_pass／size_veto／held／off-pool／re-entry／no-test／gap-invalid）。</div>
 <div style="overflow-x:auto;">
 <table id="pooltbl">
-  <thead><tr><th>股票</th><th>收市</th><th>EMA10 錨</th><th>建議 SL</th><th>SL 距(ATR)</th><th>RR</th><th>股數</th><th>名義</th><th>AMT20($M)</th><th>業績</th></tr></thead>
+  <thead><tr><th>股票</th><th>收市</th><th>限價 ≤</th><th>EMA10 錨</th><th>建議 SL</th><th>SL 距(ATR)</th><th>RR</th><th>股數</th><th>名義</th><th>AMT20($M)</th><th>業績</th></tr></thead>
   <tbody></tbody>
 </table>
 </div>
@@ -74,7 +74,7 @@ fetch('scanners.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(S
     P2.pool.forEach(x=>{
       const rr = x.rr==='NA' ? '<span class="rr-na">NA（新高豁免）</span>' : x.rr;
       const earn = x.earn ? x.earn : '—';
-      pb.insertAdjacentHTML('beforeend',`<tr><td class="tk"><a href="https://www.tradingview.com/chart/?symbol=${x.t}" target="_blank">${x.t}</a></td><td>${x.c.toFixed(2)}</td><td>${x.ema10.toFixed(2)}</td><td>${x.sl.toFixed(2)}</td><td>${x.sl_atr}</td><td>${rr}</td><td>${x.sh}</td><td>$${x.not.toLocaleString('en-US',{maximumFractionDigits:0})}</td><td>${x.amt.toLocaleString('en-US')}</td><td style="color:var(--tx2);font-size:12px;">${earn}</td></tr>`);
+      pb.insertAdjacentHTML('beforeend',`<tr><td class="tk"><a href="https://www.tradingview.com/chart/?symbol=${x.t}" target="_blank">${x.t}</a></td><td>${x.c.toFixed(2)}</td><td><b>${(x.c*1.02).toFixed(2)}</b></td><td>${x.ema10.toFixed(2)}</td><td>${x.sl.toFixed(2)}</td><td>${x.sl_atr}</td><td>${rr}</td><td>${x.sh}</td><td>$${x.not.toLocaleString('en-US',{maximumFractionDigits:0})}</td><td>${x.amt.toLocaleString('en-US')}</td><td style="color:var(--tx2);font-size:12px;">${earn}</td></tr>`);
     });
   } else {
     pb.insertAdjacentHTML('beforeend','<tr><td colspan="10" style="text-align:center;color:var(--tx3);padding:14px;">最新一晚可交易池為空（或者管線未接通）</td></tr>');

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>可交易池 — 每日行動短名單</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700;800&family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<div class="nav"><a href="index.html">← 市寬動能表</a><span class="here">可交易池</span><a href="p1.html">P1 Scanner →</a><a href="p2.html">P2 Scanner →</a></div>
+
+<h1>可交易池</h1>
+<div class="sub" id="subline">每日行動短名單：P1、P2 各出頭 5 隻（2026-09-08 Steven 欽定）｜可交易日＝SPY 收 &gt; EMA10，唔係就紅字不交易日</div>
+
+<h2 id="p1-title">P1 箱底狙擊</h2>
+<div id="p1-regime" style="margin-bottom:10px;"></div>
+<div class="note" id="p1-note"></div>
+<div style="overflow-x:auto;" id="p1-tblwrap">
+<table id="p1tbl">
+  <thead><tr>
+    <th>#</th><th>股票</th><th>rr</th><th>Box</th><th>限價 ≤</th><th>SL</th><th>TP1</th><th>股數</th><th>名義$</th><th>風險$</th><th>累計名義$</th>
+  </tr></thead>
+  <tbody></tbody>
+</table>
+</div>
+<div class="note" id="p1-rest"></div>
+
+<h2 id="p2-title">P2 動能突破</h2>
+<div id="p2-regime" style="margin-bottom:10px;"></div>
+<div class="note" id="p2-note"></div>
+<div style="overflow-x:auto;" id="p2-tblwrap">
+<table id="p2tbl">
+  <thead><tr>
+    <th>股票</th><th>收市</th><th>限價 ≤</th><th>建議 SL</th><th>SL 距(ATR)</th><th>RR</th><th>股數</th><th>名義$</th><th>業績</th>
+  </tr></thead>
+  <tbody></tbody>
+</table>
+</div>
+
+<script>
+fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
+  const P1 = D.p1;
+  const p1t = document.getElementById('p1-title');
+  const p1r = document.getElementById('p1-regime');
+  const p1n = document.getElementById('p1-note');
+  const p1b = document.querySelector('#p1tbl tbody');
+  const restEl = document.getElementById('p1-rest');
+  if (!P1) {
+    p1t.textContent = 'P1 箱底狙擊 — 生成器未跑';
+    p1r.innerHTML = '<span style="font-size:13px;color:var(--tx3);">同 Kimi 講聲就得。</span>';
+    return;
+  }
+  const openDay = P1.actionable;   // 可交易日＝SPY 收 > EMA10（Steven 9/8 欽定，P1/P2 共用）
+  document.getElementById('subline').innerHTML =
+    `收市 <b>${P1.asof}</b>｜SPY ${P1.spy_close} vs EMA10 ${P1.spy_e10}｜每日行動短名單：P1、P2 各出頭 5 隻｜限價單＝前收×1.02，盤前 gap 超咗就唔追`;
+
+  // ===== P1 頭 5 =====
+  p1t.textContent = `P1 箱底狙擊 — ${P1.asof} 頭 5 隻（entry＝下一交易日開市）`;
+  const badge = openDay
+    ? '<span class="badge b-green">🟢 可開倉</span>'
+    : '<span class="badge b-red">🔴 不交易日</span>';
+  p1r.innerHTML = `${badge} <span style="font-size:13px;color:var(--tx2);">訊號 ${P1.signals_n} 隻（新 Box ${P1.fresh_n} 隻）｜閘：3R$＝$210、每倉 1R$＝$70</span>`;
+  if (openDay && P1.slots.length) {
+    P1.slots.forEach(p=>{
+      const boxTag = p.box_day===1
+        ? '<span style="display:inline-block;background:#d9a441;color:#16140f;border-radius:4px;padding:0 5px;font-size:11px;font-weight:700;">🆕D1</span>'
+        : `<span style="color:var(--tx3);font-size:12px;">D${p.box_day}</span>`;
+      const gateTag = p.in_gate ? '' : ' <span class="tag">閘外後備</span>';
+      p1b.insertAdjacentHTML('beforeend',`<tr class="${p.in_gate?'':'test-row'}">
+        <td><b>${p.rank}</b></td><td style="font-weight:700;">${p.ticker}${gateTag}</td><td><b>${p.rr}</b></td>
+        <td>${boxTag}</td>
+        <td>${p.chase_cap}</td><td>${p.sl0}</td><td>${p.tp1}</td>
+        <td>${p.shares}</td><td>${p.notional.toLocaleString()}</td><td>${p.risk_usd}</td>
+        <td style="color:var(--tx3);">${p.cum_notional.toLocaleString()}</td></tr>`);
+    });
+  } else if (openDay) {
+    p1b.insertAdjacentHTML('beforeend', '<tr><td colspan="11" style="text-align:center;color:var(--tx3);padding:14px;">今日零訊號——乜都唔使做。</td></tr>');
+  }
+  p1n.textContent = openDay ? P1.note : '🔴 不交易日——SPY 收唔穩 EMA10，P1/P2 都唔出貨；訊號照記紙上，實盤停手。';
+  const rest = P1.rest || [];
+  if (openDay && rest.length) {
+    const shown = rest.slice(0, 10)
+      .map(p=> p.box_day===1 ? `<b>${p.ticker}(${p.rr})🆕</b>` : `<span style="color:var(--tx3);">${p.ticker}(${p.rr})</span>`)
+      .join('、');
+    restEl.innerHTML = `第 6 隻起共 ${rest.length} 隻（其中新 Box ${P1.fresh_n} 隻），新 Box 排先：<br>${shown}${rest.length>10 ? ` <span style="color:var(--tx3);">…其餘 ${rest.length-10} 隻喺紙上 CSV</span>` : ''}`;
+  }
+
+  // ===== P2 頭 5（同 P1 共用開市燈）=====
+  fetch('scanners.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(S=>{
+    const p2t = document.getElementById('p2-title');
+    const p2r = document.getElementById('p2-regime');
+    const p2n = document.getElementById('p2-note');
+    const p2b = document.querySelector('#p2tbl tbody');
+    const P2 = S.p2;
+    if (!openDay) {
+      p2t.textContent = 'P2 動能突破';
+      p2r.innerHTML = '<span class="badge b-red">🔴 不交易日</span>';
+      return;
+    }
+    if (P2 && P2.status==='live' && P2.asof===P1.asof) {
+      p2t.textContent = `P2 動能突破 — ${P2.asof} 可交易池頭 5（entry＝下一交易日開市）`;
+      p2r.innerHTML = '<span class="badge b-green">🟢 可開倉</span>';
+      const top5 = [...P2.pool].sort((a,b)=>{
+        const ra = a.ex==='Y' ? Infinity : parseFloat(a.rr), rb = b.ex==='Y' ? Infinity : parseFloat(b.rr);
+        return rb - ra || (a.t < b.t ? -1 : 1);
+      }).slice(0, 5);
+      if (top5.length) {
+        top5.forEach(x=>{
+          const cap = (x.c*1.02).toFixed(2);   // 限價＝前收×1.02（9/8 Steven：盤前 gap 多，唔追價）
+          const rrCell = x.ex==='Y' ? '<span class="rr-na">NA（新高豁免）</span>' : `<b>${x.rr}</b>`;
+          p2b.insertAdjacentHTML('beforeend',`<tr>
+            <td style="font-weight:700;text-align:left;">${x.t}</td><td>${x.c}</td><td><b>${cap}</b></td><td>${x.sl}</td>
+            <td>${x.sl_atr}</td><td>${rrCell}</td><td>${x.sh}</td>
+            <td>${Math.round(x.not).toLocaleString()}</td><td style="color:var(--tx3);">${x.earn||'—'}</td></tr>`);
+        });
+        p2n.innerHTML = `全池五閘全過先入嚟（①業績牆 ②SL 距離 ③RR 帽 ④名義 ⑤流動性）｜顯示頭 5：新高豁免排先、其餘 RR 降序｜限價＝前收×1.02，盤前 gap 超咗就唔追｜股數＝int($70÷SL 距離)、名義 ≤$2,000｜全池 audit 同通關分數喺 <a href="p2.html">P2 Scanner →</a>`;
+      } else {
+        p2n.textContent = '今日可交易池係空——五閘冇貨過，唔使做嘢。';
+      }
+    } else {
+      p2t.textContent = 'P2 動能突破 — snapshot 未跑';
+      p2r.innerHTML = '<span style="font-size:13px;color:var(--tx3);">同 Kimi 講聲就得。</span>';
+    }
+  }).catch(()=>{ document.getElementById('p2-note').textContent='P2 數據 load 唔到。'; });
+}).catch(e=>{
+  document.getElementById('subline').textContent = '⚠️ 數據 load 唔到（'+(e&&e.message||e)+'）——試下重新整理；都係唔得就同 Kimi 講聲。';
+});
+</script>
+</body>
+</html>
