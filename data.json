@@ -2128,6 +2128,7 @@
     "perf20": 10.4,
     "mktcapB": "",
     "box_day": 5,
+    "in_gate": 1,
     "cum_notional": 2269.0
    },
    {
@@ -2150,6 +2151,7 @@
     "perf20": -4.9,
     "mktcapB": 0.74,
     "box_day": 2,
+    "in_gate": 1,
     "cum_notional": 3688.0
    },
    {
@@ -2172,7 +2174,54 @@
     "perf20": -2.1,
     "mktcapB": 10.8,
     "box_day": 6,
+    "in_gate": 1,
     "cum_notional": 5352.0
+   },
+   {
+    "rank": 4,
+    "ticker": "COUR",
+    "sig_close": 5.8,
+    "chase_cap": 5.92,
+    "sl0": 5.61,
+    "tp1": 6.64,
+    "rr": 4.42,
+    "shares": 368,
+    "risk_usd": 70.0,
+    "notional": 2134.0,
+    "pos_in_box": 0.056,
+    "atr": 0.28,
+    "dvol20M": 25.3,
+    "box_lo": 5.75,
+    "box_hi": 6.64,
+    "macd_pct": 1.9,
+    "perf20": -0.2,
+    "mktcapB": "",
+    "box_day": 4,
+    "in_gate": 0,
+    "cum_notional": 7486.0
+   },
+   {
+    "rank": 5,
+    "ticker": "BLMN",
+    "sig_close": 9.79,
+    "chase_cap": 9.99,
+    "sl0": 9.32,
+    "tp1": 11.75,
+    "rr": 4.17,
+    "shares": 148,
+    "risk_usd": 70.0,
+    "notional": 1449.0,
+    "pos_in_box": 0.088,
+    "atr": 0.56,
+    "dvol20M": 18.5,
+    "box_lo": 9.6,
+    "box_hi": 11.75,
+    "macd_pct": 0.86,
+    "perf20": -10.6,
+    "mktcapB": "",
+    "box_day": 3,
+    "in_gate": 0,
+    "cum_notional": 8935.0
    }
   ],
   "rest": [
@@ -2325,16 +2374,6 @@
     "ticker": "STLA",
     "rr": 0.02,
     "box_day": 1
-   },
-   {
-    "ticker": "COUR",
-    "rr": 4.42,
-    "box_day": 4
-   },
-   {
-    "ticker": "BLMN",
-    "rr": 4.17,
-    "box_day": 3
    },
    {
     "ticker": "ERAS",
@@ -3502,6 +3541,6 @@
     "box_day": 15
    }
   ],
-  "note": "規則：rr 降序、同 rr 字母序｜限價單＝chase_cap（前收×1.02）｜3R$=$210 風險閘滿即停｜名義閘＝你帳戶實際買力（IBKR 為準），累計名義欄超咗買力就停喺嗰格｜🆕＝新 Box 首日（未證實勝率更高，紙上記錄緊，三個月後數據答）｜skip 要記一句理由｜清单外唔入 P1 賬｜閘外全部入咗紙上 CSV，網頁只顯示頭 10"
+  "note": "規則：rr 降序、同 rr 字母序｜限價單＝chase_cap（前收×1.02）｜首頁顯示頭 5 隻俾你親自睇，其中金框頭幾格係 3R$=$210 閘內（真係落到嘅上限照舊 $210），灰階嗰啲係閘外後備｜名義閘＝你帳戶實際買力（IBKR 為準），累計名義欄超咗買力就停喺嗰格｜🆕＝新 Box 首日（未證實勝率更高，紙上記錄緊，三個月後數據答）｜skip 要記一句理由｜清单外唔入 P1 賬｜其餘全部入咗紙上 CSV"
  }
 }
