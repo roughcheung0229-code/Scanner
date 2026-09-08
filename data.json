@@ -2222,24 +2222,124 @@
     "box_day": 3,
     "in_gate": 0,
     "cum_notional": 8935.0
+   },
+   {
+    "rank": 6,
+    "ticker": "ERAS",
+    "sig_close": 16.19,
+    "chase_cap": 16.51,
+    "sl0": 15.18,
+    "tp1": 20.4,
+    "rr": 4.17,
+    "shares": 69,
+    "risk_usd": 70.0,
+    "notional": 1117.0,
+    "pos_in_box": 0.091,
+    "atr": 1.18,
+    "dvol20M": 63.0,
+    "box_lo": 15.77,
+    "box_hi": 20.4,
+    "macd_pct": -2.24,
+    "perf20": -12.1,
+    "mktcapB": "",
+    "box_day": 3,
+    "in_gate": 0,
+    "cum_notional": 10052.0
+   },
+   {
+    "rank": 7,
+    "ticker": "ADTN",
+    "sig_close": 7.1,
+    "chase_cap": 7.24,
+    "sl0": 6.87,
+    "tp1": 8.05,
+    "rr": 4.13,
+    "shares": 304,
+    "risk_usd": 70.0,
+    "notional": 2158.0,
+    "pos_in_box": 0.058,
+    "atr": 0.34,
+    "dvol20M": 13.7,
+    "box_lo": 7.04,
+    "box_hi": 8.05,
+    "macd_pct": -9.14,
+    "perf20": -6.1,
+    "mktcapB": "",
+    "box_day": 1,
+    "in_gate": 0,
+    "cum_notional": 12210.0
+   },
+   {
+    "rank": 8,
+    "ticker": "DYN",
+    "sig_close": 24.28,
+    "chase_cap": 24.77,
+    "sl0": 23.69,
+    "tp1": 26.69,
+    "rr": 4.08,
+    "shares": 118,
+    "risk_usd": 70.0,
+    "notional": 2865.0,
+    "pos_in_box": 0.055,
+    "atr": 0.9,
+    "dvol20M": 43.7,
+    "box_lo": 24.14,
+    "box_hi": 26.69,
+    "macd_pct": 0.16,
+    "perf20": -7.5,
+    "mktcapB": "",
+    "box_day": 3,
+    "in_gate": 0,
+    "cum_notional": 15075.0
+   },
+   {
+    "rank": 9,
+    "ticker": "KTOS",
+    "sig_close": 47.82,
+    "chase_cap": 48.78,
+    "sl0": 45.6,
+    "tp1": 56.7,
+    "rr": 4.0,
+    "shares": 31,
+    "risk_usd": 69.0,
+    "notional": 1482.0,
+    "pos_in_box": 0.092,
+    "atr": 2.64,
+    "dvol20M": 182.4,
+    "box_lo": 46.92,
+    "box_hi": 56.7,
+    "macd_pct": -3.41,
+    "perf20": -21.3,
+    "mktcapB": "",
+    "box_day": 1,
+    "in_gate": 0,
+    "cum_notional": 16557.0
+   },
+   {
+    "rank": 10,
+    "ticker": "DFTX",
+    "sig_close": 38.09,
+    "chase_cap": 38.85,
+    "sl0": 36.28,
+    "tp1": 45.31,
+    "rr": 3.99,
+    "shares": 38,
+    "risk_usd": 69.0,
+    "notional": 1447.0,
+    "pos_in_box": 0.096,
+    "atr": 2.08,
+    "dvol20M": 91.6,
+    "box_lo": 37.32,
+    "box_hi": 45.31,
+    "macd_pct": -2.91,
+    "perf20": -17.4,
+    "mktcapB": "",
+    "box_day": 1,
+    "in_gate": 0,
+    "cum_notional": 18004.0
    }
   ],
   "rest": [
-   {
-    "ticker": "ADTN",
-    "rr": 4.13,
-    "box_day": 1
-   },
-   {
-    "ticker": "KTOS",
-    "rr": 4.0,
-    "box_day": 1
-   },
-   {
-    "ticker": "DFTX",
-    "rr": 3.99,
-    "box_day": 1
-   },
    {
     "ticker": "QBTS",
     "rr": 3.7,
@@ -2374,16 +2474,6 @@
     "ticker": "STLA",
     "rr": 0.02,
     "box_day": 1
-   },
-   {
-    "ticker": "ERAS",
-    "rr": 4.17,
-    "box_day": 3
-   },
-   {
-    "ticker": "DYN",
-    "rr": 4.08,
-    "box_day": 3
    },
    {
     "ticker": "DJT",
@@ -3541,6 +3631,6 @@
     "box_day": 15
    }
   ],
-  "note": "規則：rr 降序、同 rr 字母序｜限價單＝chase_cap（前收×1.02）｜首頁顯示頭 5 隻俾你親自睇，其中金框頭幾格係 3R$=$210 閘內（真係落到嘅上限照舊 $210），灰階嗰啲係閘外後備｜名義閘＝你帳戶實際買力（IBKR 為準），累計名義欄超咗買力就停喺嗰格｜🆕＝新 Box 首日（未證實勝率更高，紙上記錄緊，三個月後數據答）｜skip 要記一句理由｜清单外唔入 P1 賬｜其餘全部入咗紙上 CSV"
+  "note": "規則：rr 降序、同 rr 字母序｜限價單＝chase_cap（前收×1.02）｜可交易池頁顯示頭 10 隻俾你親自睇，其中金框頭幾格係 3R$=$210 閘內（真係落到嘅上限照舊 $210），灰階嗰啲係閘外後備｜名義閘＝你帳戶實際買力（IBKR 為準），累計名義欄超咗買力就停喺嗰格｜🆕＝新 Box 首日（未證實勝率更高，紙上記錄緊，三個月後數據答）｜skip 要記一句理由｜清单外唔入 P1 賬｜其餘全部入咗紙上 CSV"
  }
 }

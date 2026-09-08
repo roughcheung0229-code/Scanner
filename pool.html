@@ -14,7 +14,7 @@
 <div class="nav"><a href="index.html">← 市寬動能表</a><span class="here">可交易池</span><a href="p1.html">P1 Scanner →</a><a href="p2.html">P2 Scanner →</a></div>
 
 <h1>可交易池</h1>
-<div class="sub" id="subline">每日行動短名單：P1、P2 各出頭 5 隻（2026-09-08 Steven 欽定）｜可交易日＝SPY 收 &gt; EMA10，唔係就紅字不交易日</div>
+<div class="sub" id="subline">每日行動短名單：P1、P2 各出頭 10 隻（2026-09-08 Steven 欽定，同日由 5 加碼到 10）｜可交易日＝SPY 收 &gt; EMA10，唔係就紅字不交易日</div>
 
 <h2 id="p1-title">P1 箱底狙擊</h2>
 <div id="p1-regime" style="margin-bottom:10px;"></div>
@@ -56,10 +56,10 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
   }
   const openDay = P1.actionable;   // 可交易日＝SPY 收 > EMA10（Steven 9/8 欽定，P1/P2 共用）
   document.getElementById('subline').innerHTML =
-    `收市 <b>${P1.asof}</b>｜SPY ${P1.spy_close} vs EMA10 ${P1.spy_e10}｜每日行動短名單：P1、P2 各出頭 5 隻｜限價單＝前收×1.02，盤前 gap 超咗就唔追`;
+    `收市 <b>${P1.asof}</b>｜SPY ${P1.spy_close} vs EMA10 ${P1.spy_e10}｜每日行動短名單：P1、P2 各出頭 10 隻｜限價單＝前收×1.02，盤前 gap 超咗就唔追`;
 
-  // ===== P1 頭 5 =====
-  p1t.textContent = `P1 箱底狙擊 — ${P1.asof} 頭 5 隻（entry＝下一交易日開市）`;
+  // ===== P1 頭 10 =====
+  p1t.textContent = `P1 箱底狙擊 — ${P1.asof} 頭 10 隻（entry＝下一交易日開市）`;
   const badge = openDay
     ? '<span class="badge b-green">🟢 可開倉</span>'
     : '<span class="badge b-red">🔴 不交易日</span>';
@@ -86,10 +86,10 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
     const shown = rest.slice(0, 10)
       .map(p=> p.box_day===1 ? `<b>${p.ticker}(${p.rr})🆕</b>` : `<span style="color:var(--tx3);">${p.ticker}(${p.rr})</span>`)
       .join('、');
-    restEl.innerHTML = `第 6 隻起共 ${rest.length} 隻（其中新 Box ${P1.fresh_n} 隻），新 Box 排先：<br>${shown}${rest.length>10 ? ` <span style="color:var(--tx3);">…其餘 ${rest.length-10} 隻喺紙上 CSV</span>` : ''}`;
+    restEl.innerHTML = `第 11 隻起共 ${rest.length} 隻（其中新 Box ${P1.fresh_n} 隻），新 Box 排先：<br>${shown}${rest.length>10 ? ` <span style="color:var(--tx3);">…其餘 ${rest.length-10} 隻喺紙上 CSV</span>` : ''}`;
   }
 
-  // ===== P2 頭 5（同 P1 共用開市燈）=====
+  // ===== P2 頭 10（同 P1 共用開市燈）=====
   fetch('scanners.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(S=>{
     const p2t = document.getElementById('p2-title');
     const p2r = document.getElementById('p2-regime');
@@ -102,12 +102,12 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
       return;
     }
     if (P2 && P2.status==='live' && P2.asof===P1.asof) {
-      p2t.textContent = `P2 動能突破 — ${P2.asof} 可交易池頭 5（entry＝下一交易日開市）`;
+      p2t.textContent = `P2 動能突破 — ${P2.asof} 可交易池頭 10（entry＝下一交易日開市）`;
       p2r.innerHTML = '<span class="badge b-green">🟢 可開倉</span>';
       const top5 = [...P2.pool].sort((a,b)=>{
         const ra = a.ex==='Y' ? Infinity : parseFloat(a.rr), rb = b.ex==='Y' ? Infinity : parseFloat(b.rr);
         return rb - ra || (a.t < b.t ? -1 : 1);
-      }).slice(0, 5);
+      }).slice(0, 10);
       if (top5.length) {
         top5.forEach(x=>{
           const cap = (x.c*1.02).toFixed(2);   // 限價＝前收×1.02（9/8 Steven：盤前 gap 多，唔追價）
@@ -117,7 +117,7 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
             <td>${x.sl_atr}</td><td>${rrCell}</td><td>${x.sh}</td>
             <td>${Math.round(x.not).toLocaleString()}</td><td style="color:var(--tx3);">${x.earn||'—'}</td></tr>`);
         });
-        p2n.innerHTML = `全池五閘全過先入嚟（①業績牆 ②SL 距離 ③RR 帽 ④名義 ⑤流動性）｜顯示頭 5：新高豁免排先、其餘 RR 降序｜限價＝前收×1.02，盤前 gap 超咗就唔追｜股數＝int($70÷SL 距離)、名義 ≤$2,000｜全池 audit 同通關分數喺 <a href="p2.html">P2 Scanner →</a>`;
+        p2n.innerHTML = `全池五閘全過先入嚟（①業績牆 ②SL 距離 ③RR 帽 ④名義 ⑤流動性）｜顯示頭 10：新高豁免排先、其餘 RR 降序｜限價＝前收×1.02，盤前 gap 超咗就唔追｜股數＝int($70÷SL 距離)、名義 ≤$2,000｜全池 audit 同通關分數喺 <a href="p2.html">P2 Scanner →</a>`;
       } else {
         p2n.textContent = '今日可交易池係空——五閘冇貨過，唔使做嘢。';
       }
