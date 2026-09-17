@@ -27,7 +27,7 @@
 <table id="dailytbl">
   <thead><tr>
     <th>日期</th><th>UP 4%</th><th>DN 4%</th><th>% &gt; 20D</th><th>% &gt; 50D</th>
-    <th>SPY ATR</th><th>QQQ ATR</th><th>MLI %</th><th>MLI 升%</th><th>MLI N</th><th>股票總數</th><th>S&amp;P 500</th>
+    <th>MLI %</th><th>MLI 升%</th><th>SPY ATR</th><th>QQQ ATR</th><th>MLI N</th><th>股票總數</th><th>S&amp;P 500</th>
   </tr></thead>
   <tbody></tbody>
 </table>
@@ -137,8 +137,8 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
     tb.insertAdjacentHTML('beforeend',`<tr>
       <td>${dt}</td><td class="${upCls}">${up}</td><td class="${dnCls}">${dn}</td>
       <td class="${pCls(p20,1)}">${p20}</td><td class="${pCls(p50,0)}">${p50}</td>
-      <td class="${aCls(sa)}">${sgn(sa)}</td><td class="${aCls(qa)}">${sgn(qa)}</td>
-      <td class="${mli>=0?'c-mliG':'c-mliR'}">${sgn(mli)}</td><td>${mliu}</td><td>${mlin}</td>
+      <td class="${mli>=0?'c-mliG':'c-mliR'}">${sgn(mli)}</td><td>${mliu}</td>
+      <td class="${aCls(sa)}">${sgn(sa)}</td><td class="${aCls(qa)}">${sgn(qa)}</td><td>${mlin}</td>
       <td>${tot.toLocaleString()}</td><td><b>${typeof spx==='number'?spx.toLocaleString():spx}</b></td></tr>`);
   });
 

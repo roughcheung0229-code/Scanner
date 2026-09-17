@@ -106,7 +106,12 @@ td.tk a:hover, .tk a:hover{ color:var(--gold); border-bottom-color:var(--gold); 
 .rr-na{ color:var(--up); font-size:12px; }
 
 @media (max-width:640px){
+  body{ padding:20px 6px 60px; }
   h1{ font-size:21px; } .card .val{ font-size:20px; }
   td,th{ padding:5px 5px; font-size:11.5px; }
   .grid{ grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); }
+  /* 每日監察表：手機一屏睇晒 12 欄（2026-09-17 Steven 要求） */
+  #dailytbl{ font-size:10px; zoom:0.8; }
+  #dailytbl th, #dailytbl td{ padding:4px 2.5px; font-size:10px; letter-spacing:-0.2px; }
+  #dailytbl th{ font-size:9.5px; }
 }
