@@ -110,8 +110,8 @@ td.tk a:hover, .tk a:hover{ color:var(--gold); border-bottom-color:var(--gold); 
   h1{ font-size:21px; } .card .val{ font-size:20px; }
   td,th{ padding:5px 5px; font-size:11.5px; }
   .grid{ grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); }
-  /* 每日監察表：手機一屏睇晒 12 欄（2026-09-17 Steven 要求；0.83 倍＋密 padding 微調） */
-  #dailytbl{ font-size:10px; zoom:0.82; }
-  #dailytbl th, #dailytbl td{ padding:4px 1.6px; font-size:10px; letter-spacing:-0.35px; }
-  #dailytbl th{ font-size:9.3px; }
+  /* 每日監察表手機版：方案 A 精簡 8 欄（2026-09-17 Steven 揀）——收埋 QQQ ATR／MLI N／股票總數／S&P 500 */
+  #dailytbl th:nth-child(n+9), #dailytbl td:nth-child(n+9){ display:none; }
+  #dailytbl th, #dailytbl td{ padding:6px 3px; font-size:12.5px; }
+  #dailytbl th{ font-size:11px; padding:6px 2px; }
 }
