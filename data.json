@@ -1,21 +1,35 @@
 {
- "asof": "2026-09-16",
+ "asof": "2026-09-17",
  "universe": "美國普通股 + ADR（不含 ETF）· 收市 ≥ $5 · 成交 ≥ 300,000 股",
  "source": "Massive consolidated tape",
- "sample_n": 2571,
+ "sample_n": 2576,
  "cards": {
-  "up4": 84,
-  "dn4": 172,
-  "dn_ratio": "跌係升嘅 2.0 倍",
-  "pct20d": 22.4,
-  "pct50d": 32.2,
-  "spy_atr": -0.91,
-  "qqq_atr": -0.83,
-  "mli_pct": -0.24,
-  "mli_n": 383,
-  "mli_up": 44.9
+  "up4": 304,
+  "dn4": 58,
+  "dn_ratio": "跌係升嘅 0.2 倍",
+  "pct20d": 28.8,
+  "pct50d": 35.2,
+  "spy_atr": 0.25,
+  "qqq_atr": 0.42,
+  "mli_pct": 2.2,
+  "mli_n": 444,
+  "mli_up": 68.7
  },
  "daily": [
+  [
+   "09-17",
+   304,
+   58,
+   28.8,
+   35.2,
+   0.25,
+   0.42,
+   2.2,
+   68.7,
+   444,
+   2576,
+   "—"
+  ],
   [
    "09-16",
    84,
@@ -28,7 +42,7 @@
    44.9,
    383,
    2571,
-   "—"
+   7551.81
   ],
   [
    "09-15",
@@ -281,32 +295,30 @@
    541,
    2469,
    7641.16
-  ],
-  [
-   "08-19",
-   417,
-   179,
-   56.8,
-   59.8,
-   2.27,
-   0.4,
-   2.23,
-   69.0,
-   675,
-   2530,
-   7707.98
   ]
  ],
  "p1_universe": {
   "note": "P1 宇宙口徑：收市 ≥ $5 · ≥60 日歷史 · DVOL20 ≥ $10M · mean(Vol,60) ≥ 2M 股（v5 試篩 0.4 節 979 隻＝呢個口徑，2026-09-02）",
   "cards": {
-   "n": 949,
-   "up4": 35,
-   "dn4": 70,
-   "pct20d": 23.1,
-   "pct50d": 33.3
+   "n": 954,
+   "up4": 138,
+   "dn4": 16,
+   "pct20d": 30.2,
+   "pct50d": 38.2
   },
   "daily": [
+   [
+    "09-17",
+    138,
+    16,
+    30.2,
+    38.2,
+    954,
+    1.4,
+    3.0,
+    1.1,
+    1.9
+   ],
    [
     "09-16",
     35,
@@ -534,27 +546,10 @@
     -0.7,
     2.1,
     -0.8
-   ],
-   [
-    "08-19",
-    174,
-    80,
-    59.0,
-    59.5,
-    1013,
-    2.2,
-    -0.3,
-    1.9,
-    -0.9
    ]
   ]
  },
  "pulse": [
-  [
-   "03-26",
-   86,
-   347
-  ],
   [
    "03-27",
    74,
@@ -1149,150 +1144,187 @@
    "09-16",
    84,
    172
+  ],
+  [
+   "09-17",
+   304,
+   58
   ]
  ],
  "breadth_pulse_note": "統計範圍為美國普通股與 ADR（已剔除全部 ETF）、當日收市 ≥ $5 且成交 ≥ 30 萬股。軸上為當日收市價較前一交易日升 4% 或以上嘅股票數，軸下為跌 4% 或以上。每條 bar 按自己嘅數目上色：≥300 深色、<300 淺色；虛線參考水平同為 ±300。最右一組為最新交易日。",
  "leaders": {
-  "asof": "2026-09-16",
-  "leaders_n": 383,
-  "pool_n": 2457,
-  "leaders_prev": "前一日 395（-12）",
-  "share_pct": 15.6,
-  "top3_conc": 60.8,
-  "industries_covered": 41,
+  "asof": "2026-09-17",
+  "leaders_n": 444,
+  "pool_n": 2442,
+  "leaders_prev": "前一日 383（+61）",
+  "share_pct": 18.2,
+  "top3_conc": 55.0,
+  "industries_covered": 43,
   "top_industry": "Software & IT Services",
-  "top_industry_share": 25.1,
-  "top_industry_pen": 43.0,
-  "top_industry_excess": "+16.0pp",
+  "top_industry_share": 23.4,
+  "top_industry_pen": 47.1,
+  "top_industry_excess": "+14.4pp",
   "conditions": "普通股 + ADR（不含 ETF）· 收市 ≥ $5 · 成交額 ≥ $5M · 季度升幅 ≥ 20%",
   "industries": [
    [
     "Software & IT Services",
-    96,
-    25.1,
-    9.1,
-    43.0,
-    16.0
+    104,
+    23.4,
+    9.0,
+    47.1,
+    14.4
    ],
    [
     "Biotech & Pharma",
-    84,
-    21.9,
+    90,
+    20.3,
     10.0,
-    34.3,
-    11.9
+    36.7,
+    10.3
    ],
    [
     "Other (thin sectors)",
-    53,
-    13.8,
-    40.3,
-    5.4,
-    -26.5
+    50,
+    11.3,
+    34.4,
+    5.9,
+    -23.1
    ],
    [
     "Healthcare Services",
     21,
-    5.5,
-    1.9,
-    45.7,
-    3.6
+    4.7,
+    1.8,
+    46.7,
+    2.9
    ],
    [
     "Medical Devices",
     21,
-    5.5,
+    4.7,
     2.3,
     36.8,
-    3.2
+    2.4
    ],
    [
     "Business Services",
-    18,
-    4.7,
+    20,
+    4.5,
     3.8,
-    19.4,
-    0.9
+    21.3,
+    0.7
+   ],
+   [
+    "Water Transportation",
+    18,
+    4.1,
+    1.3,
+    56.2,
+    2.8
+   ],
+   [
+    "Retail",
+    17,
+    3.8,
+    3.9,
+    17.9,
+    -0.1
    ],
    [
     "Oil & Gas E&P",
     14,
-    3.7,
-    2.2,
-    26.4,
-    1.5
-   ],
-   [
-    "Water Transportation",
-    14,
-    3.7,
-    1.3,
-    43.8,
-    2.4
+    3.2,
+    2.0,
+    29.2,
+    1.2
    ],
    [
     "Banking & Finance",
-    12,
-    3.1,
+    13,
+    2.9,
     2.7,
-    17.9,
+    19.7,
+    0.2
+   ],
+   [
+    "Instruments & Measurement",
+    12,
+    2.7,
+    2.3,
+    21.1,
     0.4
    ],
    [
     "Oil & Gas Refining",
-    10,
-    2.6,
+    11,
+    2.5,
     0.7,
-    55.6,
-    1.9
-   ],
-   [
-    "Retail",
-    9,
-    2.3,
-    3.7,
-    10.0,
-    -1.4
-   ],
-   [
-    "Instruments & Measurement",
-    9,
-    2.3,
-    2.3,
-    16.1,
-    0.0
+    61.1,
+    1.8
    ],
    [
     "Insurance",
-    9,
+    10,
     2.3,
-    3.1,
-    11.8,
-    -0.8
+    3.2,
+    12.8,
+    -0.9
+   ],
+   [
+    "Mining & Metals",
+    10,
+    2.3,
+    3.2,
+    12.7,
+    -0.9
    ],
    [
     "Industrial Machinery & Electronics",
-    6,
-    1.6,
-    4.8,
-    5.1,
-    -3.2
+    8,
+    1.8,
+    4.6,
+    7.1,
+    -2.8
    ],
    [
     "Computer Hardware",
-    6,
+    7,
     1.6,
-    0.7,
-    33.3,
-    0.9
+    0.8,
+    35.0,
+    0.8
+   ],
+   [
+    "Chemicals",
+    6,
+    1.4,
+    2.0,
+    12.2,
+    -0.6
+   ],
+   [
+    "Media & Broadcasting",
+    5,
+    1.1,
+    0.9,
+    23.8,
+    0.2
+   ],
+   [
+    "Capital Markets",
+    5,
+    1.1,
+    2.1,
+    9.6,
+    -1.0
    ],
    [
     "Unclassified",
-    1,
-    0.3,
-    1.3,
-    3.2,
-    -1.0
+    2,
+    0.5,
+    1.4,
+    5.7,
+    -0.9
    ]
   ],
   "trend_note": "領導股數目佔總分析股票數量嘅百分比。分母每日重新界定，所以呢條線量度嘅係「有條件跑出嘅股票入面實際有幾多跑咗出嚟」，唔受上市數目變化影響。",
@@ -2092,1329 +2124,1248 @@
    [
     "2026-09-16",
     15.6
+   ],
+   [
+    "2026-09-17",
+    18.2
    ]
   ]
  },
  "p1": {
-  "asof": "2026-09-16",
-  "regime": "🔴",
-  "spy_close": 754.0,
-  "spy_e10": 761.3,
-  "signals_n": 224,
-  "fresh_n": 28,
-  "actionable": false,
+  "asof": "2026-09-17",
+  "regime": "🟢",
+  "spy_close": 762.6,
+  "spy_e10": 761.6,
+  "signals_n": 207,
+  "fresh_n": 23,
+  "actionable": true,
   "slots": [
    {
     "rank": 1,
-    "ticker": "GO",
-    "sig_close": 11.46,
-    "chase_cap": 11.69,
-    "sl0": 10.76,
-    "tp1": 12.67,
-    "rr": 1.73,
-    "shares": 99,
-    "risk_usd": 69.0,
-    "notional": 1135.0,
-    "pos_in_box": 0.262,
-    "atr": 0.54,
-    "dvol20M": 29.0,
-    "box_lo": 11.03,
-    "box_hi": 12.67,
-    "macd_pct": 2.07,
-    "perf20": 3.6,
+    "ticker": "CRM",
+    "sig_close": 242.85,
+    "chase_cap": 247.71,
+    "sl0": 236.7,
+    "tp1": 268.27,
+    "rr": 4.13,
+    "shares": 11,
+    "risk_usd": 68.0,
+    "notional": 2671.0,
+    "pos_in_box": 0.05,
+    "atr": 9.64,
+    "dvol20M": 3978.1,
+    "box_lo": 241.52,
+    "box_hi": 268.27,
+    "macd_pct": 5.53,
+    "perf20": 17.8,
     "ma_press": 0,
-    "mktcapB": "",
-    "box_day": 1,
+    "mktcapB": 199.87,
+    "box_day": 3,
     "in_gate": 0,
-    "cum_notional": 1135.0
+    "cum_notional": 2671.0
    },
    {
     "rank": 2,
-    "ticker": "INFQ",
-    "sig_close": 12.84,
-    "chase_cap": 13.1,
-    "sl0": 11.78,
-    "tp1": 14.47,
-    "rr": 1.54,
-    "shares": 66,
-    "risk_usd": 70.0,
-    "notional": 847.0,
-    "pos_in_box": 0.282,
-    "atr": 0.83,
-    "dvol20M": 108.5,
-    "box_lo": 12.2,
-    "box_hi": 14.47,
-    "macd_pct": 1.49,
-    "perf20": -0.5,
-    "ma_press": 0,
-    "mktcapB": 2.89,
-    "box_day": 13,
-    "in_gate": 0,
-    "cum_notional": 1982.0
-   },
-   {
-    "rank": 3,
-    "ticker": "MIR",
-    "sig_close": 15.84,
-    "chase_cap": 16.16,
-    "sl0": 14.86,
-    "tp1": 17.32,
-    "rr": 1.51,
-    "shares": 71,
-    "risk_usd": 70.0,
-    "notional": 1125.0,
-    "pos_in_box": 0.299,
-    "atr": 0.71,
-    "dvol20M": 53.6,
-    "box_lo": 15.21,
-    "box_hi": 17.32,
-    "macd_pct": 0.45,
-    "perf20": 3.3,
-    "ma_press": 0,
-    "mktcapB": "",
-    "box_day": 2,
-    "in_gate": 0,
-    "cum_notional": 3107.0
-   },
-   {
-    "rank": 4,
-    "ticker": "AMLX",
-    "sig_close": 32.63,
-    "chase_cap": 33.28,
-    "sl0": 30.51,
-    "tp1": 35.48,
-    "rr": 1.34,
-    "shares": 33,
-    "risk_usd": 70.0,
-    "notional": 1077.0,
-    "pos_in_box": 0.307,
-    "atr": 1.72,
-    "dvol20M": 97.5,
-    "box_lo": 31.37,
-    "box_hi": 35.48,
-    "macd_pct": 5.04,
-    "perf20": -7.1,
+    "ticker": "ZETA",
+    "sig_close": 30.37,
+    "chase_cap": 30.98,
+    "sl0": 28.97,
+    "tp1": 32.81,
+    "rr": 1.74,
+    "shares": 49,
+    "risk_usd": 69.0,
+    "notional": 1488.0,
+    "pos_in_box": 0.22,
+    "atr": 1.41,
+    "dvol20M": 199.1,
+    "box_lo": 29.68,
+    "box_hi": 32.81,
+    "macd_pct": 3.76,
+    "perf20": 5.5,
     "ma_press": 0,
     "mktcapB": "",
     "box_day": 5,
     "in_gate": 0,
-    "cum_notional": 4184.0
+    "cum_notional": 4159.0
+   },
+   {
+    "rank": 3,
+    "ticker": "SRPT",
+    "sig_close": 20.67,
+    "chase_cap": 21.08,
+    "sl0": 18.75,
+    "tp1": 23.34,
+    "rr": 1.39,
+    "shares": 36,
+    "risk_usd": 69.0,
+    "notional": 744.0,
+    "pos_in_box": 0.303,
+    "atr": 1.52,
+    "dvol20M": 64.9,
+    "box_lo": 19.51,
+    "box_hi": 23.34,
+    "macd_pct": 3.03,
+    "perf20": 4.8,
+    "ma_press": 0,
+    "mktcapB": "",
+    "box_day": 1,
+    "in_gate": 0,
+    "cum_notional": 4903.0
+   },
+   {
+    "rank": 4,
+    "ticker": "PEGA",
+    "sig_close": 36.07,
+    "chase_cap": 36.79,
+    "sl0": 33.9,
+    "tp1": 38.96,
+    "rr": 1.33,
+    "shares": 32,
+    "risk_usd": 69.0,
+    "notional": 1154.0,
+    "pos_in_box": 0.331,
+    "atr": 1.49,
+    "dvol20M": 82.8,
+    "box_lo": 34.64,
+    "box_hi": 38.96,
+    "macd_pct": 3.02,
+    "perf20": 6.6,
+    "ma_press": 0,
+    "mktcapB": "",
+    "box_day": 3,
+    "in_gate": 0,
+    "cum_notional": 6057.0
    },
    {
     "rank": 5,
-    "ticker": "CRM",
-    "sig_close": 250.54,
-    "chase_cap": 255.55,
-    "sl0": 235.51,
-    "tp1": 268.27,
-    "rr": 1.18,
-    "shares": 4,
-    "risk_usd": 60.0,
-    "notional": 1002.0,
-    "pos_in_box": 0.331,
-    "atr": 12.48,
-    "dvol20M": 3960.4,
-    "box_lo": 241.75,
-    "box_hi": 268.27,
-    "macd_pct": 5.95,
-    "perf20": 27.7,
+    "ticker": "AESI",
+    "sig_close": 13.42,
+    "chase_cap": 13.69,
+    "sl0": 12.42,
+    "tp1": 14.72,
+    "rr": 1.3,
+    "shares": 70,
+    "risk_usd": 70.0,
+    "notional": 939.0,
+    "pos_in_box": 0.325,
+    "atr": 0.76,
+    "dvol20M": 39.5,
+    "box_lo": 12.8,
+    "box_hi": 14.72,
+    "macd_pct": 2.07,
+    "perf20": 3.0,
     "ma_press": 0,
-    "mktcapB": 206.19,
-    "box_day": 2,
+    "mktcapB": "",
+    "box_day": 1,
     "in_gate": 0,
-    "cum_notional": 5186.0
+    "cum_notional": 6996.0
    },
    {
     "rank": 6,
-    "ticker": "MGNI",
-    "sig_close": 23.78,
-    "chase_cap": 24.26,
-    "sl0": 21.97,
-    "tp1": 25.79,
-    "rr": 1.11,
-    "shares": 38,
-    "risk_usd": 69.0,
-    "notional": 904.0,
-    "pos_in_box": 0.4,
-    "atr": 0.93,
-    "dvol20M": 47.5,
-    "box_lo": 22.44,
-    "box_hi": 25.79,
-    "macd_pct": 1.71,
-    "perf20": -3.1,
+    "ticker": "NBIS",
+    "sig_close": 217.99,
+    "chase_cap": 222.35,
+    "sl0": 189.29,
+    "tp1": 254.74,
+    "rr": 1.28,
+    "shares": 2,
+    "risk_usd": 57.0,
+    "notional": 436.0,
+    "pos_in_box": 0.368,
+    "atr": 14.67,
+    "dvol20M": 3371.2,
+    "box_lo": 196.63,
+    "box_hi": 254.74,
+    "macd_pct": -0.21,
+    "perf20": -2.6,
     "ma_press": 0,
     "mktcapB": "",
-    "box_day": 9,
+    "box_day": 1,
     "in_gate": 0,
-    "cum_notional": 6090.0
+    "cum_notional": 7432.0
    },
    {
     "rank": 7,
-    "ticker": "QUBT",
-    "sig_close": 8.0,
-    "chase_cap": 8.16,
-    "sl0": 7.46,
-    "tp1": 8.6,
-    "rr": 1.11,
-    "shares": 129,
-    "risk_usd": 70.0,
-    "notional": 1032.0,
-    "pos_in_box": 0.383,
-    "atr": 0.35,
-    "dvol20M": 53.7,
-    "box_lo": 7.63,
-    "box_hi": 8.6,
-    "macd_pct": -2.28,
-    "perf20": -6.1,
+    "ticker": "CBRS",
+    "sig_close": 194.14,
+    "chase_cap": 198.02,
+    "sl0": 171.39,
+    "tp1": 222.5,
+    "rr": 1.25,
+    "shares": 3,
+    "risk_usd": 68.0,
+    "notional": 582.0,
+    "pos_in_box": 0.369,
+    "atr": 12.28,
+    "dvol20M": 1151.6,
+    "box_lo": 177.53,
+    "box_hi": 222.5,
+    "macd_pct": -2.32,
+    "perf20": -10.0,
     "ma_press": 0,
-    "mktcapB": 1.81,
-    "box_day": 9,
+    "mktcapB": "",
+    "box_day": 1,
     "in_gate": 0,
-    "cum_notional": 7122.0
+    "cum_notional": 8014.0
    },
    {
     "rank": 8,
-    "ticker": "ZETA",
-    "sig_close": 30.85,
-    "chase_cap": 31.47,
-    "sl0": 28.94,
-    "tp1": 32.81,
-    "rr": 1.03,
-    "shares": 36,
-    "risk_usd": 69.0,
-    "notional": 1111.0,
-    "pos_in_box": 0.374,
-    "atr": 1.47,
-    "dvol20M": 196.9,
-    "box_lo": 29.68,
-    "box_hi": 32.81,
-    "macd_pct": 4.06,
-    "perf20": 9.3,
+    "ticker": "GO",
+    "sig_close": 11.62,
+    "chase_cap": 11.85,
+    "sl0": 10.78,
+    "tp1": 12.67,
+    "rr": 1.25,
+    "shares": 83,
+    "risk_usd": 70.0,
+    "notional": 964.0,
+    "pos_in_box": 0.36,
+    "atr": 0.5,
+    "dvol20M": 28.5,
+    "box_lo": 11.03,
+    "box_hi": 12.67,
+    "macd_pct": 1.91,
+    "perf20": 2.8,
     "ma_press": 0,
     "mktcapB": "",
-    "box_day": 4,
+    "box_day": 2,
     "in_gate": 0,
-    "cum_notional": 8233.0
+    "cum_notional": 8978.0
    },
    {
     "rank": 9,
-    "ticker": "DAR",
-    "sig_close": 65.56,
-    "chase_cap": 66.87,
-    "sl0": 62.44,
-    "tp1": 68.65,
-    "rr": 0.99,
-    "shares": 22,
-    "risk_usd": 69.0,
-    "notional": 1442.0,
-    "pos_in_box": 0.377,
-    "atr": 2.5,
-    "dvol20M": 175.8,
-    "box_lo": 63.69,
-    "box_hi": 68.65,
-    "macd_pct": 1.23,
-    "perf20": -4.1,
+    "ticker": "PONY",
+    "sig_close": 6.88,
+    "chase_cap": 7.02,
+    "sl0": 6.35,
+    "tp1": 7.54,
+    "rr": 1.25,
+    "shares": 132,
+    "risk_usd": 70.0,
+    "notional": 908.0,
+    "pos_in_box": 0.368,
+    "atr": 0.29,
+    "dvol20M": 26.1,
+    "box_lo": 6.5,
+    "box_hi": 7.54,
+    "macd_pct": -3.98,
+    "perf20": -12.1,
     "ma_press": 0,
     "mktcapB": "",
-    "box_day": 4,
+    "box_day": 5,
     "in_gate": 0,
-    "cum_notional": 9675.0
+    "cum_notional": 9886.0
    },
    {
     "rank": 10,
-    "ticker": "PLTR",
-    "sig_close": 174.34,
-    "chase_cap": 177.83,
-    "sl0": 160.91,
-    "tp1": 185.83,
-    "rr": 0.86,
-    "shares": 5,
+    "ticker": "CF",
+    "sig_close": 133.82,
+    "chase_cap": 136.5,
+    "sl0": 127.11,
+    "tp1": 141.66,
+    "rr": 1.17,
+    "shares": 10,
     "risk_usd": 67.0,
-    "notional": 872.0,
-    "pos_in_box": 0.46,
-    "atr": 7.28,
-    "dvol20M": 5086.6,
-    "box_lo": 164.55,
-    "box_hi": 185.83,
-    "macd_pct": 1.83,
-    "perf20": 1.6,
+    "notional": 1338.0,
+    "pos_in_box": 0.327,
+    "atr": 5.78,
+    "dvol20M": 344.9,
+    "box_lo": 130.0,
+    "box_hi": 141.66,
+    "macd_pct": 2.34,
+    "perf20": 12.4,
     "ma_press": 0,
-    "mktcapB": "",
-    "box_day": 11,
+    "mktcapB": 20.25,
+    "box_day": 1,
     "in_gate": 0,
-    "cum_notional": 10547.0
+    "cum_notional": 11224.0
    }
   ],
   "rest": [
    {
-    "ticker": "GDDY",
-    "rr": 0.73,
+    "ticker": "NUAI",
+    "rr": 1.05,
     "box_day": 1
+   },
+   {
+    "ticker": "AMPX",
+    "rr": 1.04,
+    "box_day": 1
+   },
+   {
+    "ticker": "IREN",
+    "rr": 0.97,
+    "box_day": 1
+   },
+   {
+    "ticker": "BTG",
+    "rr": 0.64,
+    "box_day": 1
+   },
+   {
+    "ticker": "IONQ",
+    "rr": 0.63,
+    "box_day": 1
+   },
+   {
+    "ticker": "GTLB",
+    "rr": 0.08,
+    "box_day": 1
+   },
+   {
+    "ticker": "SSRM",
+    "rr": 1.17,
+    "box_day": 12
+   },
+   {
+    "ticker": "EQPT",
+    "rr": 1.16,
+    "box_day": 7
+   },
+   {
+    "ticker": "FSM",
+    "rr": 1.02,
+    "box_day": 8
    },
    {
     "ticker": "DXC",
-    "rr": 0.68,
-    "box_day": 1
-   },
-   {
-    "ticker": "TTD",
-    "rr": 0.67,
-    "box_day": 1
-   },
-   {
-    "ticker": "DOCN",
-    "rr": 0.48,
-    "box_day": 1
-   },
-   {
-    "ticker": "FSLY",
-    "rr": 0.4,
-    "box_day": 1
-   },
-   {
-    "ticker": "GH",
-    "rr": 0.18,
-    "box_day": 1
-   },
-   {
-    "ticker": "ACHC",
-    "rr": 0.84,
-    "box_day": 5
-   },
-   {
-    "ticker": "CLF",
-    "rr": 0.76,
-    "box_day": 9
-   },
-   {
-    "ticker": "RDW",
-    "rr": 0.76,
-    "box_day": 10
-   },
-   {
-    "ticker": "PEGA",
-    "rr": 0.72,
+    "rr": 0.98,
     "box_day": 2
    },
    {
-    "ticker": "PGY",
-    "rr": 0.71,
-    "box_day": 3
+    "ticker": "NEM",
+    "rr": 0.96,
+    "box_day": 2
    },
    {
-    "ticker": "AXTI",
-    "rr": 0.66,
-    "box_day": 5
+    "ticker": "OUST",
+    "rr": 0.95,
+    "box_day": 12
    },
    {
-    "ticker": "BILL",
-    "rr": 0.64,
-    "box_day": 10
+    "ticker": "SG",
+    "rr": 0.95,
+    "box_day": 12
    },
    {
-    "ticker": "P",
-    "rr": 0.64,
+    "ticker": "VSAT",
+    "rr": 0.95,
+    "box_day": 7
+   },
+   {
+    "ticker": "ONDS",
+    "rr": 0.92,
     "box_day": 4
    },
    {
-    "ticker": "TDAY",
-    "rr": 0.61,
+    "ticker": "EGO",
+    "rr": 0.9,
+    "box_day": 2
+   },
+   {
+    "ticker": "CRML",
+    "rr": 0.89,
+    "box_day": 4
+   },
+   {
+    "ticker": "EQX",
+    "rr": 0.89,
+    "box_day": 5
+   },
+   {
+    "ticker": "RUN",
+    "rr": 0.89,
+    "box_day": 13
+   },
+   {
+    "ticker": "TER",
+    "rr": 0.88,
+    "box_day": 4
+   },
+   {
+    "ticker": "USAS",
+    "rr": 0.86,
+    "box_day": 7
+   },
+   {
+    "ticker": "VSH",
+    "rr": 0.85,
+    "box_day": 4
+   },
+   {
+    "ticker": "INSM",
+    "rr": 0.84,
+    "box_day": 4
+   },
+   {
+    "ticker": "AGI",
+    "rr": 0.83,
+    "box_day": 12
+   },
+   {
+    "ticker": "MIR",
+    "rr": 0.81,
     "box_day": 3
    },
    {
     "ticker": "NOW",
-    "rr": 0.59,
-    "box_day": 5
-   },
-   {
-    "ticker": "TGTX",
-    "rr": 0.58,
-    "box_day": 9
-   },
-   {
-    "ticker": "OSCR",
-    "rr": 0.56,
-    "box_day": 2
-   },
-   {
-    "ticker": "DOCS",
-    "rr": 0.55,
+    "rr": 0.8,
     "box_day": 6
    },
    {
-    "ticker": "TDOC",
-    "rr": 0.55,
-    "box_day": 16
-   },
-   {
-    "ticker": "MRNA",
-    "rr": 0.53,
-    "box_day": 5
-   },
-   {
-    "ticker": "SNAP",
-    "rr": 0.52,
-    "box_day": 8
-   },
-   {
-    "ticker": "CLSK",
-    "rr": 0.5,
-    "box_day": 2
-   },
-   {
-    "ticker": "RDDT",
-    "rr": 0.48,
-    "box_day": 10
-   },
-   {
-    "ticker": "AVPT",
-    "rr": 0.46,
-    "box_day": 3
-   },
-   {
-    "ticker": "TEAM",
-    "rr": 0.4,
-    "box_day": 5
-   },
-   {
-    "ticker": "APP",
-    "rr": 0.35,
-    "box_day": 5
-   },
-   {
-    "ticker": "MRVL",
-    "rr": 0.35,
-    "box_day": 3
-   },
-   {
-    "ticker": "W",
-    "rr": 0.28,
-    "box_day": 2
-   },
-   {
-    "ticker": "AMPL",
-    "rr": 0.27,
-    "box_day": 2
-   },
-   {
-    "ticker": "TWLO",
-    "rr": 0.27,
-    "box_day": 8
-   },
-   {
-    "ticker": "SPCX",
-    "rr": 0.26,
-    "box_day": 6
-   },
-   {
-    "ticker": "FIVN",
-    "rr": 0.23,
-    "box_day": 4
-   },
-   {
-    "ticker": "MWH",
-    "rr": 0.23,
-    "box_day": 11
-   },
-   {
-    "ticker": "SRAD",
-    "rr": 0.2,
-    "box_day": 11
-   },
-   {
-    "ticker": "DDOG",
-    "rr": 0.18,
-    "box_day": 4
-   },
-   {
-    "ticker": "FROG",
-    "rr": 0.18,
-    "box_day": 3
-   },
-   {
-    "ticker": "RPD",
-    "rr": 0.18,
-    "box_day": 2
-   },
-   {
-    "ticker": "NEO",
-    "rr": 0.17,
-    "box_day": 9
-   },
-   {
-    "ticker": "ANET",
-    "rr": 0.16,
-    "box_day": 3
-   },
-   {
-    "ticker": "NTNX",
-    "rr": 0.14,
-    "box_day": 4
-   },
-   {
-    "ticker": "ABCL",
-    "rr": 0.09,
-    "box_day": 4
-   },
-   {
-    "ticker": "ZM",
-    "rr": 5.13,
-    "box_day": 1
-   },
-   {
-    "ticker": "CCJ",
-    "rr": 4.47,
-    "box_day": 1
-   },
-   {
-    "ticker": "DFNS",
-    "rr": 3.99,
-    "box_day": 1
-   },
-   {
-    "ticker": "SE",
-    "rr": 3.81,
-    "box_day": 1
-   },
-   {
-    "ticker": "DG",
-    "rr": 3.57,
-    "box_day": 1
-   },
-   {
-    "ticker": "NWL",
-    "rr": 3.35,
-    "box_day": 1
-   },
-   {
-    "ticker": "AAOI",
-    "rr": 3.33,
-    "box_day": 1
-   },
-   {
-    "ticker": "COGT",
-    "rr": 3.28,
-    "box_day": 1
-   },
-   {
-    "ticker": "FBIN",
-    "rr": 2.96,
-    "box_day": 1
-   },
-   {
-    "ticker": "EGO",
-    "rr": 2.73,
-    "box_day": 1
-   },
-   {
-    "ticker": "APLD",
-    "rr": 2.7,
-    "box_day": 1
-   },
-   {
-    "ticker": "MCHP",
-    "rr": 2.68,
-    "box_day": 1
-   },
-   {
-    "ticker": "NEM",
-    "rr": 2.28,
-    "box_day": 1
-   },
-   {
-    "ticker": "VG",
-    "rr": 2.23,
-    "box_day": 1
-   },
-   {
-    "ticker": "BTU",
-    "rr": 1.98,
-    "box_day": 1
-   },
-   {
-    "ticker": "ESTC",
-    "rr": 1.96,
-    "box_day": 1
-   },
-   {
-    "ticker": "ALAB",
-    "rr": 1.89,
-    "box_day": 1
-   },
-   {
-    "ticker": "SMCI",
-    "rr": 1.81,
-    "box_day": 1
-   },
-   {
-    "ticker": "TTWO",
-    "rr": 1.68,
-    "box_day": 1
-   },
-   {
-    "ticker": "FLYW",
-    "rr": 1.2,
-    "box_day": 1
-   },
-   {
-    "ticker": "AFRM",
-    "rr": 0.57,
-    "box_day": 1
-   },
-   {
-    "ticker": "CVNA",
-    "rr": 5.28,
-    "box_day": 3
-   },
-   {
-    "ticker": "Z",
-    "rr": 5.28,
-    "box_day": 6
-   },
-   {
-    "ticker": "PONY",
-    "rr": 4.95,
-    "box_day": 4
-   },
-   {
-    "ticker": "AA",
-    "rr": 4.9,
-    "box_day": 4
-   },
-   {
-    "ticker": "FSLR",
-    "rr": 4.88,
-    "box_day": 6
-   },
-   {
-    "ticker": "NXE",
-    "rr": 4.85,
-    "box_day": 10
-   },
-   {
-    "ticker": "RCAT",
-    "rr": 4.81,
-    "box_day": 3
-   },
-   {
-    "ticker": "STUB",
-    "rr": 4.8,
-    "box_day": 5
-   },
-   {
-    "ticker": "CHTR",
-    "rr": 4.79,
-    "box_day": 5
-   },
-   {
-    "ticker": "OCUL",
-    "rr": 4.74,
-    "box_day": 5
-   },
-   {
-    "ticker": "AMAT",
-    "rr": 4.69,
-    "box_day": 3
-   },
-   {
-    "ticker": "SNDK",
-    "rr": 4.53,
-    "box_day": 4
-   },
-   {
-    "ticker": "TOST",
-    "rr": 4.48,
-    "box_day": 4
-   },
-   {
-    "ticker": "KLAC",
-    "rr": 4.46,
-    "box_day": 6
-   },
-   {
-    "ticker": "CSIQ",
-    "rr": 4.38,
-    "box_day": 3
-   },
-   {
-    "ticker": "KSS",
-    "rr": 4.36,
-    "box_day": 2
-   },
-   {
-    "ticker": "WRD",
-    "rr": 4.27,
-    "box_day": 10
-   },
-   {
-    "ticker": "UPST",
-    "rr": 4.17,
-    "box_day": 3
-   },
-   {
-    "ticker": "ALGM",
-    "rr": 4.01,
-    "box_day": 12
-   },
-   {
-    "ticker": "KGC",
-    "rr": 4.0,
-    "box_day": 4
-   },
-   {
-    "ticker": "AG",
-    "rr": 3.98,
-    "box_day": 10
-   },
-   {
-    "ticker": "SVM",
-    "rr": 3.93,
-    "box_day": 13
-   },
-   {
-    "ticker": "TRVI",
-    "rr": 3.92,
-    "box_day": 10
-   },
-   {
-    "ticker": "HL",
-    "rr": 3.9,
-    "box_day": 13
-   },
-   {
-    "ticker": "RUN",
-    "rr": 3.9,
-    "box_day": 12
-   },
-   {
-    "ticker": "WOLF",
-    "rr": 3.84,
-    "box_day": 4
-   },
-   {
-    "ticker": "NVTS",
-    "rr": 3.77,
-    "box_day": 16
-   },
-   {
-    "ticker": "EQX",
-    "rr": 3.66,
-    "box_day": 4
-   },
-   {
-    "ticker": "DJT",
-    "rr": 3.65,
-    "box_day": 5
-   },
-   {
-    "ticker": "WDC",
-    "rr": 3.58,
-    "box_day": 12
-   },
-   {
-    "ticker": "AU",
-    "rr": 3.54,
-    "box_day": 3
-   },
-   {
-    "ticker": "MBLY",
-    "rr": 3.54,
-    "box_day": 5
-   },
-   {
-    "ticker": "XYZ",
-    "rr": 3.48,
-    "box_day": 2
-   },
-   {
-    "ticker": "TECK",
-    "rr": 3.45,
-    "box_day": 3
-   },
-   {
-    "ticker": "QS",
-    "rr": 3.43,
-    "box_day": 3
-   },
-   {
-    "ticker": "LBRT",
-    "rr": 3.42,
-    "box_day": 4
-   },
-   {
-    "ticker": "GLXY",
-    "rr": 3.41,
-    "box_day": 11
-   },
-   {
-    "ticker": "UEC",
-    "rr": 3.41,
-    "box_day": 2
-   },
-   {
-    "ticker": "HBM",
-    "rr": 3.35,
-    "box_day": 13
-   },
-   {
-    "ticker": "NRG",
-    "rr": 3.29,
-    "box_day": 6
-   },
-   {
-    "ticker": "ESI",
-    "rr": 3.26,
-    "box_day": 3
-   },
-   {
-    "ticker": "ACHR",
-    "rr": 3.22,
-    "box_day": 5
-   },
-   {
-    "ticker": "EQPT",
-    "rr": 3.2,
-    "box_day": 6
-   },
-   {
-    "ticker": "NTLA",
-    "rr": 3.15,
+    "ticker": "WPM",
+    "rr": 0.78,
     "box_day": 5
    },
    {
     "ticker": "BW",
-    "rr": 3.12,
+    "rr": 0.77,
+    "box_day": 3
+   },
+   {
+    "ticker": "ESTC",
+    "rr": 0.77,
     "box_day": 2
    },
    {
-    "ticker": "CCXI",
-    "rr": 3.09,
-    "box_day": 4
-   },
-   {
-    "ticker": "CDE",
-    "rr": 3.09,
+    "ticker": "ENTG",
+    "rr": 0.75,
     "box_day": 6
    },
    {
-    "ticker": "SBET",
-    "rr": 3.06,
-    "box_day": 8
+    "ticker": "SVM",
+    "rr": 0.75,
+    "box_day": 14
    },
    {
-    "ticker": "PRGO",
-    "rr": 3.04,
+    "ticker": "APLD",
+    "rr": 0.73,
+    "box_day": 2
+   },
+   {
+    "ticker": "LUNR",
+    "rr": 0.73,
     "box_day": 4
    },
    {
-    "ticker": "GAP",
-    "rr": 3.01,
-    "box_day": 2
+    "ticker": "TGB",
+    "rr": 0.73,
+    "box_day": 4
    },
    {
-    "ticker": "PAAS",
-    "rr": 3.01,
-    "box_day": 5
+    "ticker": "FLR",
+    "rr": 0.72,
+    "box_day": 4
    },
    {
-    "ticker": "STX",
-    "rr": 3.01,
-    "box_day": 5
+    "ticker": "SNAP",
+    "rr": 0.7,
+    "box_day": 9
    },
    {
-    "ticker": "BKD",
-    "rr": 3.0,
-    "box_day": 2
+    "ticker": "UMAC",
+    "rr": 0.68,
+    "box_day": 11
    },
    {
-    "ticker": "NXT",
-    "rr": 2.98,
+    "ticker": "AKAM",
+    "rr": 0.66,
     "box_day": 12
    },
    {
-    "ticker": "INTU",
-    "rr": 2.96,
+    "ticker": "ETN",
+    "rr": 0.64,
+    "box_day": 4
+   },
+   {
+    "ticker": "PLTR",
+    "rr": 0.63,
+    "box_day": 12
+   },
+   {
+    "ticker": "FLY",
+    "rr": 0.62,
+    "box_day": 13
+   },
+   {
+    "ticker": "WDAY",
+    "rr": 0.62,
+    "box_day": 15
+   },
+   {
+    "ticker": "WULF",
+    "rr": 0.62,
+    "box_day": 6
+   },
+   {
+    "ticker": "ASTS",
+    "rr": 0.61,
+    "box_day": 7
+   },
+   {
+    "ticker": "MWH",
+    "rr": 0.59,
+    "box_day": 12
+   },
+   {
+    "ticker": "AEM",
+    "rr": 0.58,
+    "box_day": 8
+   },
+   {
+    "ticker": "IAG",
+    "rr": 0.58,
+    "box_day": 11
+   },
+   {
+    "ticker": "ALAB",
+    "rr": 0.54,
+    "box_day": 2
+   },
+   {
+    "ticker": "W",
+    "rr": 0.54,
+    "box_day": 3
+   },
+   {
+    "ticker": "DAR",
+    "rr": 0.53,
     "box_day": 5
    },
    {
     "ticker": "RGTI",
-    "rr": 2.94,
+    "rr": 0.53,
     "box_day": 16
    },
    {
-    "ticker": "GENI",
-    "rr": 2.9,
-    "box_day": 3
-   },
-   {
-    "ticker": "VNET",
-    "rr": 2.9,
-    "box_day": 6
-   },
-   {
-    "ticker": "AGI",
-    "rr": 2.87,
-    "box_day": 11
-   },
-   {
-    "ticker": "FLUT",
-    "rr": 2.87,
-    "box_day": 3
-   },
-   {
-    "ticker": "WYFI",
-    "rr": 2.87,
-    "box_day": 10
-   },
-   {
-    "ticker": "LUNR",
-    "rr": 2.84,
-    "box_day": 3
-   },
-   {
-    "ticker": "FSM",
-    "rr": 2.83,
-    "box_day": 7
-   },
-   {
-    "ticker": "WDAY",
-    "rr": 2.83,
-    "box_day": 14
-   },
-   {
-    "ticker": "NESR",
-    "rr": 2.77,
-    "box_day": 16
-   },
-   {
-    "ticker": "HUN",
-    "rr": 2.76,
-    "box_day": 2
-   },
-   {
-    "ticker": "SOFI",
-    "rr": 2.75,
-    "box_day": 10
-   },
-   {
-    "ticker": "RVMD",
-    "rr": 2.73,
-    "box_day": 5
-   },
-   {
-    "ticker": "PTEN",
-    "rr": 2.67,
-    "box_day": 4
-   },
-   {
-    "ticker": "UMAC",
-    "rr": 2.67,
-    "box_day": 10
-   },
-   {
-    "ticker": "CAPR",
-    "rr": 2.65,
-    "box_day": 7
-   },
-   {
-    "ticker": "CC",
-    "rr": 2.61,
-    "box_day": 16
-   },
-   {
-    "ticker": "HNST",
-    "rr": 2.61,
-    "box_day": 4
-   },
-   {
-    "ticker": "MU",
-    "rr": 2.55,
-    "box_day": 5
-   },
-   {
-    "ticker": "AMKR",
-    "rr": 2.54,
-    "box_day": 3
-   },
-   {
-    "ticker": "QBTS",
-    "rr": 2.54,
-    "box_day": 8
-   },
-   {
-    "ticker": "PSNL",
-    "rr": 2.53,
-    "box_day": 5
-   },
-   {
-    "ticker": "INTR",
-    "rr": 2.52,
-    "box_day": 9
-   },
-   {
-    "ticker": "NEXT",
-    "rr": 2.52,
-    "box_day": 10
-   },
-   {
-    "ticker": "STNE",
-    "rr": 2.51,
-    "box_day": 2
-   },
-   {
-    "ticker": "WPM",
-    "rr": 2.51,
-    "box_day": 4
-   },
-   {
-    "ticker": "GFS",
-    "rr": 2.5,
-    "box_day": 3
-   },
-   {
-    "ticker": "RMBS",
-    "rr": 2.49,
-    "box_day": 12
-   },
-   {
-    "ticker": "BFLY",
-    "rr": 2.48,
-    "box_day": 6
-   },
-   {
-    "ticker": "TTMI",
-    "rr": 2.48,
-    "box_day": 6
-   },
-   {
-    "ticker": "FCX",
-    "rr": 2.46,
-    "box_day": 7
-   },
-   {
-    "ticker": "MAIR",
-    "rr": 2.45,
-    "box_day": 6
-   },
-   {
-    "ticker": "ABSI",
-    "rr": 2.43,
-    "box_day": 16
-   },
-   {
-    "ticker": "NVDA",
-    "rr": 2.39,
-    "box_day": 4
-   },
-   {
-    "ticker": "FLY",
-    "rr": 2.38,
-    "box_day": 12
-   },
-   {
-    "ticker": "NN",
-    "rr": 2.31,
-    "box_day": 10
-   },
-   {
-    "ticker": "SMPL",
-    "rr": 2.28,
-    "box_day": 2
-   },
-   {
-    "ticker": "POET",
-    "rr": 2.25,
-    "box_day": 5
-   },
-   {
-    "ticker": "NVT",
-    "rr": 2.24,
-    "box_day": 2
-   },
-   {
-    "ticker": "SSRM",
-    "rr": 2.24,
-    "box_day": 11
-   },
-   {
-    "ticker": "SOLS",
-    "rr": 2.22,
-    "box_day": 2
-   },
-   {
-    "ticker": "RIVN",
-    "rr": 2.19,
+    "ticker": "NXT",
+    "rr": 0.51,
     "box_day": 13
    },
    {
-    "ticker": "ASTS",
-    "rr": 2.05,
+    "ticker": "RMBS",
+    "rr": 0.46,
+    "box_day": 13
+   },
+   {
+    "ticker": "AMLX",
+    "rr": 0.4,
     "box_day": 6
    },
    {
-    "ticker": "SHLS",
-    "rr": 2.05,
+    "ticker": "CNC",
+    "rr": 0.39,
+    "box_day": 3
+   },
+   {
+    "ticker": "MGNI",
+    "rr": 0.39,
     "box_day": 10
    },
    {
-    "ticker": "SLS",
-    "rr": 2.01,
+    "ticker": "TGTX",
+    "rr": 0.39,
     "box_day": 10
    },
    {
-    "ticker": "IAG",
-    "rr": 2.0,
-    "box_day": 10
-   },
-   {
-    "ticker": "AEM",
-    "rr": 1.97,
-    "box_day": 7
-   },
-   {
-    "ticker": "CRML",
-    "rr": 1.97,
-    "box_day": 3
-   },
-   {
-    "ticker": "FLR",
-    "rr": 1.94,
-    "box_day": 3
-   },
-   {
-    "ticker": "ENPH",
-    "rr": 1.9,
-    "box_day": 2
-   },
-   {
-    "ticker": "OLN",
-    "rr": 1.9,
-    "box_day": 9
-   },
-   {
-    "ticker": "TGB",
-    "rr": 1.9,
-    "box_day": 3
-   },
-   {
-    "ticker": "FIG",
-    "rr": 1.84,
-    "box_day": 2
-   },
-   {
-    "ticker": "TER",
-    "rr": 1.8,
-    "box_day": 3
-   },
-   {
-    "ticker": "ENTG",
-    "rr": 1.78,
-    "box_day": 5
-   },
-   {
-    "ticker": "ADTN",
-    "rr": 1.77,
-    "box_day": 2
-   },
-   {
-    "ticker": "ONDS",
-    "rr": 1.74,
-    "box_day": 3
-   },
-   {
-    "ticker": "SG",
-    "rr": 1.73,
-    "box_day": 11
-   },
-   {
-    "ticker": "BTSG",
-    "rr": 1.72,
-    "box_day": 4
-   },
-   {
-    "ticker": "OUST",
-    "rr": 1.66,
-    "box_day": 11
-   },
-   {
-    "ticker": "REAL",
-    "rr": 1.63,
-    "box_day": 2
-   },
-   {
-    "ticker": "ETN",
-    "rr": 1.6,
-    "box_day": 3
-   },
-   {
-    "ticker": "LZ",
-    "rr": 1.59,
-    "box_day": 9
-   },
-   {
-    "ticker": "WULF",
-    "rr": 1.59,
-    "box_day": 5
-   },
-   {
-    "ticker": "BTDR",
-    "rr": 1.44,
+    "ticker": "ACHC",
+    "rr": 0.38,
     "box_day": 6
    },
    {
-    "ticker": "MRVI",
-    "rr": 1.43,
+    "ticker": "BB",
+    "rr": 0.38,
+    "box_day": 10
+   },
+   {
+    "ticker": "QBTS",
+    "rr": 0.34,
+    "box_day": 9
+   },
+   {
+    "ticker": "GFS",
+    "rr": 0.32,
     "box_day": 4
    },
    {
-    "ticker": "UPWK",
-    "rr": 1.43,
-    "box_day": 4
+    "ticker": "CAPR",
+    "rr": 0.31,
+    "box_day": 8
    },
    {
-    "ticker": "PYPL",
-    "rr": 1.42,
-    "box_day": 3
-   },
-   {
-    "ticker": "AKAM",
-    "rr": 1.41,
-    "box_day": 11
-   },
-   {
-    "ticker": "KD",
-    "rr": 1.41,
-    "box_day": 16
-   },
-   {
-    "ticker": "CMPS",
-    "rr": 1.4,
-    "box_day": 2
+    "ticker": "INFQ",
+    "rr": 0.31,
+    "box_day": 14
    },
    {
     "ticker": "ASX",
-    "rr": 1.38,
+    "rr": 0.3,
+    "box_day": 4
+   },
+   {
+    "ticker": "CLSK",
+    "rr": 0.27,
     "box_day": 3
    },
    {
-    "ticker": "CORZ",
-    "rr": 1.31,
+    "ticker": "MRVI",
+    "rr": 0.26,
+    "box_day": 5
+   },
+   {
+    "ticker": "TEAM",
+    "rr": 0.26,
     "box_day": 6
    },
    {
     "ticker": "ULCC",
-    "rr": 1.28,
-    "box_day": 15
-   },
-   {
-    "ticker": "CGNX",
-    "rr": 1.26,
-    "box_day": 2
-   },
-   {
-    "ticker": "PENG",
-    "rr": 1.25,
-    "box_day": 12
-   },
-   {
-    "ticker": "INSM",
-    "rr": 1.22,
-    "box_day": 3
-   },
-   {
-    "ticker": "ARM",
-    "rr": 1.2,
-    "box_day": 3
-   },
-   {
-    "ticker": "FCEL",
-    "rr": 1.2,
+    "rr": 0.25,
     "box_day": 16
    },
    {
-    "ticker": "FLEX",
-    "rr": 1.19,
-    "box_day": 3
+    "ticker": "ANET",
+    "rr": 0.24,
+    "box_day": 4
    },
    {
-    "ticker": "VSAT",
-    "rr": 1.19,
-    "box_day": 6
+    "ticker": "DOCS",
+    "rr": 0.24,
+    "box_day": 7
    },
    {
-    "ticker": "CSGP",
-    "rr": 1.11,
+    "ticker": "RIOT",
+    "rr": 0.24,
+    "box_day": 4
+   },
+   {
+    "ticker": "CLF",
+    "rr": 0.23,
+    "box_day": 10
+   },
+   {
+    "ticker": "GGB",
+    "rr": 0.21,
     "box_day": 2
    },
    {
-    "ticker": "VSH",
-    "rr": 1.11,
-    "box_day": 3
+    "ticker": "BLZE",
+    "rr": 0.2,
+    "box_day": 5
    },
    {
-    "ticker": "BB",
-    "rr": 1.03,
-    "box_day": 9
+    "ticker": "FROG",
+    "rr": 0.19,
+    "box_day": 4
    },
    {
-    "ticker": "SDOT",
-    "rr": 1.03,
-    "box_day": 2
-   },
-   {
-    "ticker": "IBRX",
-    "rr": 1.0,
-    "box_day": 13
-   },
-   {
-    "ticker": "UAA",
-    "rr": 1.0,
-    "box_day": 16
-   },
-   {
-    "ticker": "APPS",
-    "rr": 0.93,
+    "ticker": "SMCI",
+    "rr": 0.19,
     "box_day": 2
    },
    {
     "ticker": "CLBT",
-    "rr": 0.93,
-    "box_day": 10
+    "rr": 0.17,
+    "box_day": 11
    },
    {
-    "ticker": "MARA",
-    "rr": 0.92,
-    "box_day": 8
-   },
-   {
-    "ticker": "U",
-    "rr": 0.89,
+    "ticker": "BFLY",
+    "rr": 0.16,
     "box_day": 7
    },
    {
-    "ticker": "BLZE",
-    "rr": 0.81,
-    "box_day": 4
+    "ticker": "QUBT",
+    "rr": 0.16,
+    "box_day": 10
    },
    {
-    "ticker": "HIMS",
-    "rr": 0.73,
-    "box_day": 16
+    "ticker": "RDW",
+    "rr": 0.1,
+    "box_day": 11
    },
    {
-    "ticker": "RIOT",
-    "rr": 0.69,
-    "box_day": 3
+    "ticker": "PENG",
+    "rr": 0.08,
+    "box_day": 13
    },
    {
-    "ticker": "CNC",
-    "rr": 0.67,
+    "ticker": "TWLO",
+    "rr": 0.04,
+    "box_day": 9
+   },
+   {
+    "ticker": "P",
+    "rr": 0.03,
+    "box_day": 5
+   },
+   {
+    "ticker": "SHLS",
+    "rr": 0.02,
+    "box_day": 11
+   },
+   {
+    "ticker": "BBIO",
+    "rr": 5.52,
+    "box_day": 1
+   },
+   {
+    "ticker": "MGY",
+    "rr": 5.51,
+    "box_day": 1
+   },
+   {
+    "ticker": "MDLN",
+    "rr": 4.12,
+    "box_day": 1
+   },
+   {
+    "ticker": "ELF",
+    "rr": 3.92,
+    "box_day": 1
+   },
+   {
+    "ticker": "OI",
+    "rr": 3.64,
+    "box_day": 1
+   },
+   {
+    "ticker": "HOG",
+    "rr": 3.11,
+    "box_day": 1
+   },
+   {
+    "ticker": "SOUN",
+    "rr": 3.06,
+    "box_day": 1
+   },
+   {
+    "ticker": "NOG",
+    "rr": 2.51,
+    "box_day": 1
+   },
+   {
+    "ticker": "AHCO",
+    "rr": 2.38,
+    "box_day": 1
+   },
+   {
+    "ticker": "PCT",
+    "rr": 2.33,
+    "box_day": 1
+   },
+   {
+    "ticker": "WSC",
+    "rr": 2.27,
+    "box_day": 1
+   },
+   {
+    "ticker": "GFI",
+    "rr": 1.74,
+    "box_day": 1
+   },
+   {
+    "ticker": "CHTR",
+    "rr": 5.95,
+    "box_day": 6
+   },
+   {
+    "ticker": "SE",
+    "rr": 5.16,
     "box_day": 2
    },
    {
+    "ticker": "INTU",
+    "rr": 5.02,
+    "box_day": 6
+   },
+   {
+    "ticker": "RCAT",
+    "rr": 4.81,
+    "box_day": 4
+   },
+   {
+    "ticker": "UPST",
+    "rr": 4.78,
+    "box_day": 4
+   },
+   {
+    "ticker": "BKD",
+    "rr": 4.44,
+    "box_day": 3
+   },
+   {
+    "ticker": "LBRT",
+    "rr": 4.39,
+    "box_day": 5
+   },
+   {
+    "ticker": "CVNA",
+    "rr": 4.24,
+    "box_day": 4
+   },
+   {
+    "ticker": "XYZ",
+    "rr": 3.97,
+    "box_day": 3
+   },
+   {
+    "ticker": "HUN",
+    "rr": 3.95,
+    "box_day": 3
+   },
+   {
+    "ticker": "AMAT",
+    "rr": 3.89,
+    "box_day": 4
+   },
+   {
     "ticker": "DKNG",
-    "rr": 0.53,
+    "rr": 3.88,
+    "box_day": 11
+   },
+   {
+    "ticker": "NXE",
+    "rr": 3.83,
+    "box_day": 11
+   },
+   {
+    "ticker": "ALGM",
+    "rr": 3.65,
+    "box_day": 13
+   },
+   {
+    "ticker": "WOLF",
+    "rr": 3.61,
+    "box_day": 5
+   },
+   {
+    "ticker": "SOFI",
+    "rr": 3.54,
+    "box_day": 11
+   },
+   {
+    "ticker": "SRAD",
+    "rr": 3.44,
+    "box_day": 12
+   },
+   {
+    "ticker": "GLXY",
+    "rr": 3.38,
+    "box_day": 12
+   },
+   {
+    "ticker": "GENI",
+    "rr": 3.33,
+    "box_day": 4
+   },
+   {
+    "ticker": "DFNS",
+    "rr": 3.3,
+    "box_day": 2
+   },
+   {
+    "ticker": "VG",
+    "rr": 3.3,
+    "box_day": 2
+   },
+   {
+    "ticker": "NEXT",
+    "rr": 3.23,
+    "box_day": 11
+   },
+   {
+    "ticker": "CCXI",
+    "rr": 3.18,
+    "box_day": 5
+   },
+   {
+    "ticker": "KLAC",
+    "rr": 3.17,
+    "box_day": 7
+   },
+   {
+    "ticker": "HNST",
+    "rr": 3.14,
+    "box_day": 5
+   },
+   {
+    "ticker": "CSGP",
+    "rr": 3.11,
+    "box_day": 3
+   },
+   {
+    "ticker": "PRGO",
+    "rr": 3.1,
+    "box_day": 5
+   },
+   {
+    "ticker": "KSS",
+    "rr": 3.09,
+    "box_day": 3
+   },
+   {
+    "ticker": "FLUT",
+    "rr": 3.08,
+    "box_day": 4
+   },
+   {
+    "ticker": "AA",
+    "rr": 2.98,
+    "box_day": 5
+   },
+   {
+    "ticker": "PTEN",
+    "rr": 2.78,
+    "box_day": 5
+   },
+   {
+    "ticker": "STUB",
+    "rr": 2.76,
+    "box_day": 6
+   },
+   {
+    "ticker": "TRVI",
+    "rr": 2.67,
+    "box_day": 11
+   },
+   {
+    "ticker": "AAOI",
+    "rr": 2.58,
+    "box_day": 2
+   },
+   {
+    "ticker": "WDC",
+    "rr": 2.55,
+    "box_day": 13
+   },
+   {
+    "ticker": "VNET",
+    "rr": 2.44,
+    "box_day": 7
+   },
+   {
+    "ticker": "FBIN",
+    "rr": 2.42,
+    "box_day": 2
+   },
+   {
+    "ticker": "INTR",
+    "rr": 2.42,
     "box_day": 10
+   },
+   {
+    "ticker": "SLS",
+    "rr": 2.41,
+    "box_day": 11
+   },
+   {
+    "ticker": "DJT",
+    "rr": 2.38,
+    "box_day": 6
+   },
+   {
+    "ticker": "WRD",
+    "rr": 2.29,
+    "box_day": 11
+   },
+   {
+    "ticker": "STNE",
+    "rr": 2.28,
+    "box_day": 3
+   },
+   {
+    "ticker": "CC",
+    "rr": 2.25,
+    "box_day": 16
+   },
+   {
+    "ticker": "RVMD",
+    "rr": 2.23,
+    "box_day": 6
+   },
+   {
+    "ticker": "TTMI",
+    "rr": 2.18,
+    "box_day": 7
+   },
+   {
+    "ticker": "OCUL",
+    "rr": 2.16,
+    "box_day": 6
+   },
+   {
+    "ticker": "TECK",
+    "rr": 2.15,
+    "box_day": 4
+   },
+   {
+    "ticker": "BILL",
+    "rr": 2.14,
+    "box_day": 11
+   },
+   {
+    "ticker": "TTWO",
+    "rr": 2.04,
+    "box_day": 2
+   },
+   {
+    "ticker": "KGC",
+    "rr": 1.98,
+    "box_day": 5
+   },
+   {
+    "ticker": "OLN",
+    "rr": 1.97,
+    "box_day": 10
+   },
+   {
+    "ticker": "POET",
+    "rr": 1.94,
+    "box_day": 6
+   },
+   {
+    "ticker": "SOLS",
+    "rr": 1.93,
+    "box_day": 3
+   },
+   {
+    "ticker": "MAIR",
+    "rr": 1.92,
+    "box_day": 7
+   },
+   {
+    "ticker": "PGY",
+    "rr": 1.92,
+    "box_day": 4
+   },
+   {
+    "ticker": "STX",
+    "rr": 1.85,
+    "box_day": 6
+   },
+   {
+    "ticker": "BTDR",
+    "rr": 1.76,
+    "box_day": 7
+   },
+   {
+    "ticker": "ADTN",
+    "rr": 1.74,
+    "box_day": 3
+   },
+   {
+    "ticker": "REAL",
+    "rr": 1.71,
+    "box_day": 3
+   },
+   {
+    "ticker": "WYFI",
+    "rr": 1.7,
+    "box_day": 11
+   },
+   {
+    "ticker": "XPON",
+    "rr": 1.67,
+    "box_day": 3
+   },
+   {
+    "ticker": "TDAY",
+    "rr": 1.64,
+    "box_day": 4
+   },
+   {
+    "ticker": "AU",
+    "rr": 1.58,
+    "box_day": 4
+   },
+   {
+    "ticker": "LZ",
+    "rr": 1.57,
+    "box_day": 10
+   },
+   {
+    "ticker": "RIVN",
+    "rr": 1.57,
+    "box_day": 14
+   },
+   {
+    "ticker": "UPWK",
+    "rr": 1.56,
+    "box_day": 5
+   },
+   {
+    "ticker": "COGT",
+    "rr": 1.55,
+    "box_day": 2
+   },
+   {
+    "ticker": "ENPH",
+    "rr": 1.5,
+    "box_day": 3
+   },
+   {
+    "ticker": "ESI",
+    "rr": 1.45,
+    "box_day": 4
+   },
+   {
+    "ticker": "FIG",
+    "rr": 1.45,
+    "box_day": 3
+   },
+   {
+    "ticker": "FCX",
+    "rr": 1.43,
+    "box_day": 8
+   },
+   {
+    "ticker": "QS",
+    "rr": 1.41,
+    "box_day": 4
+   },
+   {
+    "ticker": "SDOT",
+    "rr": 1.41,
+    "box_day": 3
+   },
+   {
+    "ticker": "HL",
+    "rr": 1.39,
+    "box_day": 14
+   },
+   {
+    "ticker": "ACHR",
+    "rr": 1.37,
+    "box_day": 6
+   },
+   {
+    "ticker": "U",
+    "rr": 1.37,
+    "box_day": 8
+   },
+   {
+    "ticker": "MBLY",
+    "rr": 1.34,
+    "box_day": 6
+   },
+   {
+    "ticker": "HBM",
+    "rr": 1.3,
+    "box_day": 14
+   },
+   {
+    "ticker": "MCHP",
+    "rr": 1.3,
+    "box_day": 2
+   },
+   {
+    "ticker": "PYPL",
+    "rr": 1.25,
+    "box_day": 4
+   },
+   {
+    "ticker": "NESR",
+    "rr": 1.23,
+    "box_day": 16
+   },
+   {
+    "ticker": "AG",
+    "rr": 1.21,
+    "box_day": 11
+   },
+   {
+    "ticker": "GAP",
+    "rr": 1.21,
+    "box_day": 3
+   },
+   {
+    "ticker": "LWLG",
+    "rr": 1.21,
+    "box_day": 3
+   },
+   {
+    "ticker": "NVTS",
+    "rr": 1.21,
+    "box_day": 16
+   },
+   {
+    "ticker": "TTD",
+    "rr": 1.2,
+    "box_day": 2
+   },
+   {
+    "ticker": "CORZ",
+    "rr": 1.19,
+    "box_day": 7
+   },
+   {
+    "ticker": "NVT",
+    "rr": 1.15,
+    "box_day": 3
+   },
+   {
+    "ticker": "RDDT",
+    "rr": 1.14,
+    "box_day": 11
+   },
+   {
+    "ticker": "NN",
+    "rr": 1.13,
+    "box_day": 11
+   },
+   {
+    "ticker": "KD",
+    "rr": 1.1,
+    "box_day": 16
+   },
+   {
+    "ticker": "TDOC",
+    "rr": 1.1,
+    "box_day": 16
+   },
+   {
+    "ticker": "AMKR",
+    "rr": 1.07,
+    "box_day": 4
+   },
+   {
+    "ticker": "CDE",
+    "rr": 1.07,
+    "box_day": 7
+   },
+   {
+    "ticker": "PAAS",
+    "rr": 0.93,
+    "box_day": 6
+   },
+   {
+    "ticker": "FLEX",
+    "rr": 0.92,
+    "box_day": 4
+   },
+   {
+    "ticker": "APPS",
+    "rr": 0.9,
+    "box_day": 3
+   },
+   {
+    "ticker": "AFRM",
+    "rr": 0.89,
+    "box_day": 2
+   },
+   {
+    "ticker": "CGNX",
+    "rr": 0.85,
+    "box_day": 3
+   },
+   {
+    "ticker": "HIMS",
+    "rr": 0.85,
+    "box_day": 16
+   },
+   {
+    "ticker": "APP",
+    "rr": 0.57,
+    "box_day": 6
    }
   ],
   "note": "規則：MA 壓制（收<EMA9且<EMA21）排尾、其餘 rr 降序、同 rr 字母序｜限價單＝chase_cap（前收×1.02）｜可交易池頁顯示頭 10 隻俾你親自睇，其中金框頭幾格係 3R$=$210 閘內（真係落到嘅上限照舊 $210），灰階嗰啲係閘外後備｜名義閘＝你帳戶實際買力（IBKR 為準），累計名義欄超咗買力就停喺嗰格｜🆕＝新 Box 首日（未證實勝率更高，紙上記錄緊，三個月後數據答）｜skip 要記一句理由｜清单外唔入 P1 賬｜其餘全部入咗紙上 CSV"
