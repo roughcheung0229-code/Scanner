@@ -1,22 +1,35 @@
 {
- "asof": "2026-09-28",
+ "asof": "2026-09-29",
  "universe": "美國普通股 + ADR（不含 ETF）· 收市 ≥ $5 · 成交 ≥ 300,000 股",
  "source": "Massive consolidated tape",
- "sample_n": 2490,
+ "sample_n": 2501,
  "cards": {
-  "up4": 69,
-  "dn4": 220,
-  "dn_ratio": "跌係升嘅 3.2 倍",
-  "pct20d": 26.5,
-  "pct50d": 26.4,
-  "share_pct": 13.3,
-  "mli_n": 314,
-  "mli_pct": 0.68,
-  "mli_up": 44.9,
-  "spy_atr": 0.58,
-  "qqq_atr": 2.02
+  "up4": 82,
+  "dn4": 76,
+  "dn_ratio": "跌係升嘅 0.9 倍",
+  "pct20d": 25.9,
+  "pct50d": 26.0,
+  "share_pct": 12.7,
+  "mli_n": 303,
+  "mli_pct": 0.39,
+  "mli_up": 48.8,
+  "spy_atr": 0.25,
+  "qqq_atr": 1.91
  },
  "daily": [
+  [
+   "09-29",
+   82,
+   76,
+   25.9,
+   26.0,
+   0.25,
+   1.91,
+   12.7,
+   303,
+   2501,
+   "—"
+  ],
   [
    "09-28",
    69,
@@ -263,31 +276,30 @@
    464,
    2489,
    7631.47
-  ],
-  [
-   "08-31",
-   73,
-   94,
-   39.2,
-   48.7,
-   1.77,
-   0.13,
-   19.0,
-   460,
-   2536,
-   7686.14
   ]
  ],
  "p1_universe": {
   "note": "P1 宇宙口徑：收市 ≥ $5 · ≥60 日歷史 · DVOL20 ≥ $10M · mean(Vol,60) ≥ 2M 股（v5 試篩 0.4 節 979 隻＝呢個口徑，2026-09-02）",
   "cards": {
-   "n": 934,
-   "up4": 13,
-   "dn4": 109,
-   "pct20d": 28.3,
-   "pct50d": 28.9
+   "n": 936,
+   "up4": 32,
+   "dn4": 26,
+   "pct20d": 27.7,
+   "pct50d": 29.2
   },
   "daily": [
+   [
+    "09-29",
+    32,
+    26,
+    27.7,
+    29.2,
+    936,
+    1.8,
+    3.2,
+    2.9,
+    3.4
+   ],
    [
     "09-28",
     13,
@@ -515,27 +527,10 @@
     2.0,
     3.0,
     1.3
-   ],
-   [
-    "08-31",
-    27,
-    36,
-    43.2,
-    50.6,
-    974,
-    4.0,
-    1.9,
-    2.6,
-    1.1
    ]
   ]
  },
  "pulse": [
-  [
-   "04-08",
-   748,
-   112
-  ],
   [
    "04-09",
    180,
@@ -1130,166 +1125,163 @@
    "09-28",
    69,
    220
+  ],
+  [
+   "09-29",
+   82,
+   76
   ]
  ],
  "breadth_pulse_note": "統計範圍為美國普通股與 ADR（已剔除全部 ETF）、當日收市 ≥ $5 且成交 ≥ 30 萬股。軸上為當日收市價較前一交易日升 4% 或以上嘅股票數，軸下為跌 4% 或以上。每條 bar 按自己嘅數目上色：≥300 深色、<300 淺色；虛線參考水平同為 ±300。最右一組為最新交易日。",
  "leaders": {
-  "asof": "2026-09-28",
-  "leaders_n": 314,
-  "pool_n": 2367,
-  "leaders_prev": "前一日 319（-5）",
-  "share_pct": 13.3,
-  "top3_conc": 45.9,
-  "industries_covered": 35,
+  "asof": "2026-09-29",
+  "leaders_n": 303,
+  "pool_n": 2382,
+  "leaders_prev": "前一日 314（-11）",
+  "share_pct": 12.7,
+  "top3_conc": 47.2,
+  "industries_covered": 37,
   "top_industry": "Software & IT Services",
-  "top_industry_share": 21.3,
-  "top_industry_pen": 32.5,
-  "top_industry_excess": "+12.6pp",
+  "top_industry_share": 23.4,
+  "top_industry_pen": 32.9,
+  "top_industry_excess": "+14.3pp",
   "conditions": "普通股 + ADR（不含 ETF）· 收市 ≥ $5 · 成交額 ≥ $5M · 季度升幅 ≥ 20%",
   "industries": [
    [
     "Software & IT Services",
-    67,
-    21.3,
-    8.7,
-    32.5,
-    12.6
+    71,
+    23.4,
+    9.1,
+    32.9,
+    14.3
    ],
    [
     "Biotech & Pharma",
-    42,
-    13.4,
+    40,
+    13.2,
     10.1,
-    17.5,
-    3.3
+    16.7,
+    3.1
    ],
    [
     "Other (thin sectors)",
-    35,
-    11.1,
-    23.8,
-    6.2,
-    -12.7
-   ],
-   [
-    "Banking & Finance",
-    19,
-    6.1,
-    2.9,
-    27.9,
-    3.2
+    32,
+    10.6,
+    28.6,
+    4.7,
+    -18.0
    ],
    [
     "Water Transportation",
-    17,
-    5.4,
-    1.3,
-    56.7,
-    4.1
+    20,
+    6.6,
+    1.4,
+    60.6,
+    5.2
+   ],
+   [
+    "Banking & Finance",
+    18,
+    5.9,
+    2.8,
+    26.9,
+    3.1
    ],
    [
     "Medical Devices",
     16,
-    5.1,
+    5.3,
     2.2,
     30.2,
-    2.9
-   ],
-   [
-    "Mining & Metals",
-    15,
-    4.8,
-    3.1,
-    20.3,
-    1.7
-   ],
-   [
-    "Oil & Gas E&P",
-    14,
-    4.5,
-    2.0,
-    29.2,
-    2.5
+    3.1
    ],
    [
     "Business Services",
-    14,
-    4.5,
-    4.1,
-    14.6,
-    0.4
+    15,
+    5.0,
+    4.0,
+    15.6,
+    1.0
    ],
    [
-    "Industrial Machinery & Electronics",
+    "Oil & Gas E&P",
     13,
-    4.1,
-    5.1,
-    10.8,
-    -1.0
+    4.3,
+    2.0,
+    27.1,
+    2.3
+   ],
+   [
+    "Mining & Metals",
+    12,
+    4.0,
+    3.1,
+    16.4,
+    0.9
    ],
    [
     "Instruments & Measurement",
     12,
-    3.8,
+    4.0,
     2.3,
     22.2,
-    1.5
+    1.7
    ],
    [
     "Oil & Gas Refining",
     11,
-    3.5,
+    3.6,
     0.8,
     61.1,
-    2.7
+    2.8
    ],
    [
-    "Healthcare Services",
+    "Industrial Machinery & Electronics",
     10,
-    3.2,
-    1.8,
-    23.8,
-    1.4
-   ],
-   [
-    "Capital Markets",
-    8,
-    2.5,
-    2.3,
-    14.8,
-    0.2
-   ],
-   [
-    "Computer Hardware",
-    7,
-    2.2,
-    0.7,
-    43.8,
-    1.5
+    3.3,
+    4.7,
+    8.9,
+    -1.4
    ],
    [
     "Retail",
-    7,
-    2.2,
+    10,
+    3.3,
     3.7,
-    8.0,
-    -1.5
+    11.4,
+    -0.4
    ],
    [
-    "Chemicals",
-    6,
+    "Healthcare Services",
+    9,
+    3.0,
     1.9,
+    19.6,
+    1.1
+   ],
+   [
+    "Capital Markets",
+    7,
+    2.3,
+    2.2,
+    13.2,
+    0.1
+   ],
+   [
+    "Computer Hardware",
+    6,
     2.0,
-    12.5,
-    -0.1
+    0.7,
+    35.3,
+    1.3
    ],
    [
     "Unclassified",
     1,
     0.3,
-    1.2,
-    3.4,
-    -0.9
+    1.4,
+    3.0,
+    -1.1
    ]
   ],
   "trend_note": "領導股數目佔總分析股票數量嘅百分比。分母每日重新界定，所以呢條線量度嘅係「有條件跑出嘅股票入面實際有幾多跑咗出嚟」，唔受上市數目變化影響。",
@@ -2121,7 +2113,905 @@
    [
     "2026-09-28",
     13.3
+   ],
+   [
+    "2026-09-29",
+    12.7
    ]
   ]
+ },
+ "p1": {
+  "asof": "2026-09-29",
+  "regime": "🔴",
+  "spy_close": 764.2,
+  "spy_e10": 766.4,
+  "signals_n": 138,
+  "fresh_n": 24,
+  "actionable": false,
+  "slots": [
+   {
+    "rank": 1,
+    "ticker": "FCEL",
+    "sig_close": 16.9,
+    "chase_cap": 17.24,
+    "sl0": 14.52,
+    "tp1": 18.87,
+    "rr": 0.83,
+    "shares": 29,
+    "risk_usd": 69.0,
+    "notional": 490.0,
+    "pos_in_box": 0.479,
+    "atr": 1.14,
+    "dvol20M": 109.9,
+    "box_lo": 15.09,
+    "box_hi": 18.87,
+    "macd_pct": -3.08,
+    "perf20": -1.9,
+    "ma_press": 0,
+    "mktcapB": "",
+    "box_day": 8,
+    "in_gate": 0,
+    "cum_notional": 490.0
+   },
+   {
+    "rank": 2,
+    "ticker": "ANET",
+    "sig_close": 202.86,
+    "chase_cap": 206.92,
+    "sl0": 189.25,
+    "tp1": 212.0,
+    "rr": 0.67,
+    "shares": 5,
+    "risk_usd": 68.0,
+    "notional": 1014.0,
+    "pos_in_box": 0.519,
+    "atr": 7.45,
+    "dvol20M": 942.1,
+    "box_lo": 192.98,
+    "box_hi": 212.0,
+    "macd_pct": 1.96,
+    "perf20": 3.7,
+    "ma_press": 0,
+    "mktcapB": 255.85,
+    "box_day": 2,
+    "in_gate": 0,
+    "cum_notional": 1504.0
+   },
+   {
+    "rank": 3,
+    "ticker": "W",
+    "sig_close": 101.95,
+    "chase_cap": 103.99,
+    "sl0": 91.76,
+    "tp1": 108.68,
+    "rr": 0.66,
+    "shares": 6,
+    "risk_usd": 61.0,
+    "notional": 612.0,
+    "pos_in_box": 0.534,
+    "atr": 4.97,
+    "dvol20M": 243.4,
+    "box_lo": 94.25,
+    "box_hi": 108.68,
+    "macd_pct": 0.24,
+    "perf20": 2.7,
+    "ma_press": 0,
+    "mktcapB": "",
+    "box_day": 5,
+    "in_gate": 0,
+    "cum_notional": 2116.0
+   },
+   {
+    "rank": 4,
+    "ticker": "FLEX",
+    "sig_close": 113.83,
+    "chase_cap": 116.11,
+    "sl0": 103.1,
+    "tp1": 120.76,
+    "rr": 0.65,
+    "shares": 6,
+    "risk_usd": 64.0,
+    "notional": 683.0,
+    "pos_in_box": 0.535,
+    "atr": 5.49,
+    "dvol20M": 366.0,
+    "box_lo": 105.85,
+    "box_hi": 120.76,
+    "macd_pct": -0.53,
+    "perf20": 4.2,
+    "ma_press": 0,
+    "mktcapB": 42.05,
+    "box_day": 12,
+    "in_gate": 0,
+    "cum_notional": 2799.0
+   },
+   {
+    "rank": 5,
+    "ticker": "INFQ",
+    "sig_close": 13.84,
+    "chase_cap": 14.12,
+    "sl0": 11.92,
+    "tp1": 15.06,
+    "rr": 0.64,
+    "shares": 36,
+    "risk_usd": 69.0,
+    "notional": 498.0,
+    "pos_in_box": 0.547,
+    "atr": 0.88,
+    "dvol20M": 110.0,
+    "box_lo": 12.36,
+    "box_hi": 15.06,
+    "macd_pct": 3.1,
+    "perf20": 5.9,
+    "ma_press": 0,
+    "mktcapB": 3.12,
+    "box_day": 1,
+    "in_gate": 0,
+    "cum_notional": 3297.0
+   },
+   {
+    "rank": 6,
+    "ticker": "DOCS",
+    "sig_close": 26.52,
+    "chase_cap": 27.05,
+    "sl0": 24.82,
+    "tp1": 27.48,
+    "rr": 0.56,
+    "shares": 41,
+    "risk_usd": 70.0,
+    "notional": 1087.0,
+    "pos_in_box": 0.553,
+    "atr": 1.02,
+    "dvol20M": 71.6,
+    "box_lo": 25.33,
+    "box_hi": 27.48,
+    "macd_pct": 1.67,
+    "perf20": -0.7,
+    "ma_press": 0,
+    "mktcapB": "",
+    "box_day": 6,
+    "in_gate": 0,
+    "cum_notional": 4384.0
+   },
+   {
+    "rank": 7,
+    "ticker": "ESTC",
+    "sig_close": 88.8,
+    "chase_cap": 90.58,
+    "sl0": 81.88,
+    "tp1": 92.64,
+    "rr": 0.55,
+    "shares": 10,
+    "risk_usd": 69.0,
+    "notional": 888.0,
+    "pos_in_box": 0.573,
+    "atr": 3.56,
+    "dvol20M": 190.2,
+    "box_lo": 83.66,
+    "box_hi": 92.64,
+    "macd_pct": 2.2,
+    "perf20": -9.0,
+    "ma_press": 0,
+    "mktcapB": "",
+    "box_day": 3,
+    "in_gate": 0,
+    "cum_notional": 5272.0
+   },
+   {
+    "rank": 8,
+    "ticker": "FRSH",
+    "sig_close": 12.58,
+    "chase_cap": 12.83,
+    "sl0": 11.73,
+    "tp1": 13.04,
+    "rr": 0.54,
+    "shares": 82,
+    "risk_usd": 70.0,
+    "notional": 1032.0,
+    "pos_in_box": 0.571,
+    "atr": 0.46,
+    "dvol20M": 53.4,
+    "box_lo": 11.96,
+    "box_hi": 13.04,
+    "macd_pct": 0.43,
+    "perf20": -9.6,
+    "ma_press": 0,
+    "mktcapB": "",
+    "box_day": 8,
+    "in_gate": 0,
+    "cum_notional": 6304.0
+   },
+   {
+    "rank": 9,
+    "ticker": "HPE",
+    "sig_close": 61.49,
+    "chase_cap": 62.72,
+    "sl0": 53.16,
+    "tp1": 65.65,
+    "rr": 0.5,
+    "shares": 8,
+    "risk_usd": 67.0,
+    "notional": 492.0,
+    "pos_in_box": 0.609,
+    "atr": 3.73,
+    "dvol20M": 1564.5,
+    "box_lo": 55.02,
+    "box_hi": 65.65,
+    "macd_pct": 4.0,
+    "perf20": 17.7,
+    "ma_press": 0,
+    "mktcapB": 81.43,
+    "box_day": 2,
+    "in_gate": 0,
+    "cum_notional": 6796.0
+   },
+   {
+    "rank": 10,
+    "ticker": "REPL",
+    "sig_close": 13.0,
+    "chase_cap": 13.26,
+    "sl0": 11.67,
+    "tp1": 13.64,
+    "rr": 0.48,
+    "shares": 52,
+    "risk_usd": 69.0,
+    "notional": 676.0,
+    "pos_in_box": 0.594,
+    "atr": 0.81,
+    "dvol20M": 27.9,
+    "box_lo": 12.07,
+    "box_hi": 13.64,
+    "macd_pct": -2.32,
+    "perf20": -15.0,
+    "ma_press": 0,
+    "mktcapB": "",
+    "box_day": 8,
+    "in_gate": 0,
+    "cum_notional": 7472.0
+   }
+  ],
+  "rest": [
+   {
+    "ticker": "ATEC",
+    "rr": 0.44,
+    "box_day": 1
+   },
+   {
+    "ticker": "SMCI",
+    "rr": 0.4,
+    "box_day": 1
+   },
+   {
+    "ticker": "LEGN",
+    "rr": 0.36,
+    "box_day": 1
+   },
+   {
+    "ticker": "MRVI",
+    "rr": 0.1,
+    "box_day": 1
+   },
+   {
+    "ticker": "RBRK",
+    "rr": 0.08,
+    "box_day": 1
+   },
+   {
+    "ticker": "SEI",
+    "rr": 0.48,
+    "box_day": 5
+   },
+   {
+    "ticker": "DJT",
+    "rr": 0.44,
+    "box_day": 14
+   },
+   {
+    "ticker": "VSH",
+    "rr": 0.43,
+    "box_day": 12
+   },
+   {
+    "ticker": "FTNT",
+    "rr": 0.41,
+    "box_day": 2
+   },
+   {
+    "ticker": "APPS",
+    "rr": 0.39,
+    "box_day": 11
+   },
+   {
+    "ticker": "ULCC",
+    "rr": 0.39,
+    "box_day": 2
+   },
+   {
+    "ticker": "TGB",
+    "rr": 0.38,
+    "box_day": 3
+   },
+   {
+    "ticker": "SHLS",
+    "rr": 0.36,
+    "box_day": 5
+   },
+   {
+    "ticker": "AEHR",
+    "rr": 0.32,
+    "box_day": 2
+   },
+   {
+    "ticker": "BHC",
+    "rr": 0.32,
+    "box_day": 6
+   },
+   {
+    "ticker": "NBIS",
+    "rr": 0.32,
+    "box_day": 9
+   },
+   {
+    "ticker": "NET",
+    "rr": 0.32,
+    "box_day": 3
+   },
+   {
+    "ticker": "HBM",
+    "rr": 0.31,
+    "box_day": 16
+   },
+   {
+    "ticker": "MAIR",
+    "rr": 0.29,
+    "box_day": 3
+   },
+   {
+    "ticker": "LPTH",
+    "rr": 0.27,
+    "box_day": 3
+   },
+   {
+    "ticker": "CLS",
+    "rr": 0.25,
+    "box_day": 2
+   },
+   {
+    "ticker": "NVT",
+    "rr": 0.24,
+    "box_day": 2
+   },
+   {
+    "ticker": "ELF",
+    "rr": 0.19,
+    "box_day": 6
+   },
+   {
+    "ticker": "GLW",
+    "rr": 0.13,
+    "box_day": 8
+   },
+   {
+    "ticker": "KSS",
+    "rr": 0.09,
+    "box_day": 11
+   },
+   {
+    "ticker": "UMAC",
+    "rr": 0.02,
+    "box_day": 16
+   },
+   {
+    "ticker": "WPM",
+    "rr": 4.69,
+    "box_day": 1
+   },
+   {
+    "ticker": "MOS",
+    "rr": 3.93,
+    "box_day": 1
+   },
+   {
+    "ticker": "FLR",
+    "rr": 3.69,
+    "box_day": 1
+   },
+   {
+    "ticker": "DXC",
+    "rr": 3.53,
+    "box_day": 1
+   },
+   {
+    "ticker": "MP",
+    "rr": 3.23,
+    "box_day": 1
+   },
+   {
+    "ticker": "ADSK",
+    "rr": 2.93,
+    "box_day": 1
+   },
+   {
+    "ticker": "RUN",
+    "rr": 2.8,
+    "box_day": 1
+   },
+   {
+    "ticker": "CTSH",
+    "rr": 2.76,
+    "box_day": 1
+   },
+   {
+    "ticker": "SEDG",
+    "rr": 2.7,
+    "box_day": 1
+   },
+   {
+    "ticker": "SOUN",
+    "rr": 2.53,
+    "box_day": 1
+   },
+   {
+    "ticker": "CMG",
+    "rr": 2.45,
+    "box_day": 1
+   },
+   {
+    "ticker": "RDDT",
+    "rr": 2.2,
+    "box_day": 1
+   },
+   {
+    "ticker": "DYN",
+    "rr": 2.12,
+    "box_day": 1
+   },
+   {
+    "ticker": "RIOT",
+    "rr": 1.79,
+    "box_day": 1
+   },
+   {
+    "ticker": "FIG",
+    "rr": 1.75,
+    "box_day": 1
+   },
+   {
+    "ticker": "PATH",
+    "rr": 1.61,
+    "box_day": 1
+   },
+   {
+    "ticker": "MARA",
+    "rr": 1.21,
+    "box_day": 1
+   },
+   {
+    "ticker": "PCOR",
+    "rr": 1.07,
+    "box_day": 1
+   },
+   {
+    "ticker": "TDOC",
+    "rr": 5.4,
+    "box_day": 16
+   },
+   {
+    "ticker": "IREN",
+    "rr": 4.81,
+    "box_day": 5
+   },
+   {
+    "ticker": "BTDR",
+    "rr": 4.52,
+    "box_day": 5
+   },
+   {
+    "ticker": "AA",
+    "rr": 4.31,
+    "box_day": 4
+   },
+   {
+    "ticker": "ACHR",
+    "rr": 4.11,
+    "box_day": 14
+   },
+   {
+    "ticker": "ALOY",
+    "rr": 3.94,
+    "box_day": 6
+   },
+   {
+    "ticker": "PRMB",
+    "rr": 3.92,
+    "box_day": 4
+   },
+   {
+    "ticker": "AMLX",
+    "rr": 3.8,
+    "box_day": 2
+   },
+   {
+    "ticker": "EXK",
+    "rr": 3.78,
+    "box_day": 8
+   },
+   {
+    "ticker": "SSRM",
+    "rr": 3.75,
+    "box_day": 5
+   },
+   {
+    "ticker": "NXE",
+    "rr": 3.68,
+    "box_day": 2
+   },
+   {
+    "ticker": "WULF",
+    "rr": 3.51,
+    "box_day": 5
+   },
+   {
+    "ticker": "INSM",
+    "rr": 3.31,
+    "box_day": 12
+   },
+   {
+    "ticker": "JOBY",
+    "rr": 3.05,
+    "box_day": 8
+   },
+   {
+    "ticker": "CNH",
+    "rr": 3.0,
+    "box_day": 7
+   },
+   {
+    "ticker": "TPG",
+    "rr": 2.73,
+    "box_day": 3
+   },
+   {
+    "ticker": "SVM",
+    "rr": 2.68,
+    "box_day": 16
+   },
+   {
+    "ticker": "ASM",
+    "rr": 2.62,
+    "box_day": 5
+   },
+   {
+    "ticker": "NN",
+    "rr": 2.55,
+    "box_day": 7
+   },
+   {
+    "ticker": "NWL",
+    "rr": 2.5,
+    "box_day": 6
+   },
+   {
+    "ticker": "OWL",
+    "rr": 2.49,
+    "box_day": 2
+   },
+   {
+    "ticker": "REAL",
+    "rr": 2.44,
+    "box_day": 11
+   },
+   {
+    "ticker": "NEM",
+    "rr": 2.42,
+    "box_day": 2
+   },
+   {
+    "ticker": "SOLS",
+    "rr": 2.42,
+    "box_day": 11
+   },
+   {
+    "ticker": "PAAS",
+    "rr": 2.41,
+    "box_day": 14
+   },
+   {
+    "ticker": "SNAP",
+    "rr": 2.41,
+    "box_day": 16
+   },
+   {
+    "ticker": "AG",
+    "rr": 2.37,
+    "box_day": 16
+   },
+   {
+    "ticker": "AEM",
+    "rr": 2.31,
+    "box_day": 2
+   },
+   {
+    "ticker": "NUVB",
+    "rr": 2.21,
+    "box_day": 4
+   },
+   {
+    "ticker": "AU",
+    "rr": 2.18,
+    "box_day": 5
+   },
+   {
+    "ticker": "HUT",
+    "rr": 2.15,
+    "box_day": 3
+   },
+   {
+    "ticker": "BRZE",
+    "rr": 2.13,
+    "box_day": 5
+   },
+   {
+    "ticker": "AI",
+    "rr": 2.11,
+    "box_day": 7
+   },
+   {
+    "ticker": "NOW",
+    "rr": 2.04,
+    "box_day": 2
+   },
+   {
+    "ticker": "SRPT",
+    "rr": 1.99,
+    "box_day": 6
+   },
+   {
+    "ticker": "ACN",
+    "rr": 1.96,
+    "box_day": 2
+   },
+   {
+    "ticker": "GO",
+    "rr": 1.95,
+    "box_day": 10
+   },
+   {
+    "ticker": "TEAM",
+    "rr": 1.94,
+    "box_day": 14
+   },
+   {
+    "ticker": "IOT",
+    "rr": 1.91,
+    "box_day": 5
+   },
+   {
+    "ticker": "ZETA",
+    "rr": 1.91,
+    "box_day": 13
+   },
+   {
+    "ticker": "HNST",
+    "rr": 1.9,
+    "box_day": 4
+   },
+   {
+    "ticker": "INTR",
+    "rr": 1.85,
+    "box_day": 4
+   },
+   {
+    "ticker": "SGI",
+    "rr": 1.77,
+    "box_day": 4
+   },
+   {
+    "ticker": "STNE",
+    "rr": 1.7,
+    "box_day": 3
+   },
+   {
+    "ticker": "CAPR",
+    "rr": 1.67,
+    "box_day": 15
+   },
+   {
+    "ticker": "RDW",
+    "rr": 1.67,
+    "box_day": 16
+   },
+   {
+    "ticker": "CELH",
+    "rr": 1.65,
+    "box_day": 8
+   },
+   {
+    "ticker": "AHCO",
+    "rr": 1.58,
+    "box_day": 3
+   },
+   {
+    "ticker": "ASTS",
+    "rr": 1.57,
+    "box_day": 15
+   },
+   {
+    "ticker": "WAY",
+    "rr": 1.57,
+    "box_day": 6
+   },
+   {
+    "ticker": "TECK",
+    "rr": 1.55,
+    "box_day": 12
+   },
+   {
+    "ticker": "APLD",
+    "rr": 1.52,
+    "box_day": 5
+   },
+   {
+    "ticker": "RPD",
+    "rr": 1.51,
+    "box_day": 2
+   },
+   {
+    "ticker": "CLSK",
+    "rr": 1.49,
+    "box_day": 5
+   },
+   {
+    "ticker": "CCXI",
+    "rr": 1.44,
+    "box_day": 3
+   },
+   {
+    "ticker": "FSM",
+    "rr": 1.44,
+    "box_day": 16
+   },
+   {
+    "ticker": "ALM",
+    "rr": 1.43,
+    "box_day": 3
+   },
+   {
+    "ticker": "HIMS",
+    "rr": 1.43,
+    "box_day": 5
+   },
+   {
+    "ticker": "CLBT",
+    "rr": 1.42,
+    "box_day": 16
+   },
+   {
+    "ticker": "POET",
+    "rr": 1.4,
+    "box_day": 6
+   },
+   {
+    "ticker": "BLZE",
+    "rr": 1.24,
+    "box_day": 5
+   },
+   {
+    "ticker": "AFRM",
+    "rr": 1.2,
+    "box_day": 3
+   },
+   {
+    "ticker": "OKLO",
+    "rr": 1.19,
+    "box_day": 2
+   },
+   {
+    "ticker": "LBRT",
+    "rr": 1.17,
+    "box_day": 3
+   },
+   {
+    "ticker": "GTLB",
+    "rr": 1.16,
+    "box_day": 2
+   },
+   {
+    "ticker": "LUNR",
+    "rr": 1.1,
+    "box_day": 5
+   },
+   {
+    "ticker": "NXT",
+    "rr": 1.1,
+    "box_day": 16
+   },
+   {
+    "ticker": "RGTI",
+    "rr": 1.07,
+    "box_day": 5
+   },
+   {
+    "ticker": "WDAY",
+    "rr": 1.07,
+    "box_day": 16
+   },
+   {
+    "ticker": "ACHC",
+    "rr": 1.05,
+    "box_day": 14
+   },
+   {
+    "ticker": "CBRS",
+    "rr": 1.03,
+    "box_day": 2
+   },
+   {
+    "ticker": "CVNA",
+    "rr": 1.01,
+    "box_day": 12
+   },
+   {
+    "ticker": "AAOI",
+    "rr": 0.98,
+    "box_day": 10
+   },
+   {
+    "ticker": "FCX",
+    "rr": 0.95,
+    "box_day": 16
+   },
+   {
+    "ticker": "SNOW",
+    "rr": 0.89,
+    "box_day": 8
+   },
+   {
+    "ticker": "WYFI",
+    "rr": 0.88,
+    "box_day": 3
+   },
+   {
+    "ticker": "TENB",
+    "rr": 0.86,
+    "box_day": 2
+   },
+   {
+    "ticker": "FROG",
+    "rr": 0.83,
+    "box_day": 12
+   },
+   {
+    "ticker": "BTG",
+    "rr": 0.79,
+    "box_day": 9
+   },
+   {
+    "ticker": "SLS",
+    "rr": 0.74,
+    "box_day": 3
+   },
+   {
+    "ticker": "ONDS",
+    "rr": 0.72,
+    "box_day": 12
+   },
+   {
+    "ticker": "TTMI",
+    "rr": 0.57,
+    "box_day": 2
+   },
+   {
+    "ticker": "RHI",
+    "rr": 0.52,
+    "box_day": 7
+   },
+   {
+    "ticker": "VRT",
+    "rr": 0.43,
+    "box_day": 3
+   }
+  ],
+  "note": "規則：MA 壓制（收<EMA9且<EMA21）排尾、其餘 rr 降序、同 rr 字母序｜限價單＝chase_cap（前收×1.02）｜可交易池頁顯示頭 10 隻俾你親自睇，其中金框頭幾格係 3R$=$210 閘內（真係落到嘅上限照舊 $210），灰階嗰啲係閘外後備｜名義閘＝你帳戶實際買力（IBKR 為準），累計名義欄超咗買力就停喺嗰格｜🆕＝新 Box 首日（未證實勝率更高，紙上記錄緊，三個月後數據答）｜skip 要記一句理由｜清单外唔入 P1 賬｜其餘全部入咗紙上 CSV"
  }
 }

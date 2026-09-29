@@ -67,7 +67,8 @@ fetch('scanners.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(S
     <div class="card"><div class="lbl">紙上訊號總數</div><div class="val">${A.total_rows}</div><div class="sub2">8/31 起全量</div></div>
     <div class="card"><div class="lbl">追蹤中（open）</div><div class="val">${A.open}</div><div class="sub2">未入場或未了結</div></div>
     <div class="card"><div class="lbl">已入場（entered）</div><div class="val">${A.entered}</div><div class="sub2">翌日開市成交</div></div>
-    <div class="card"><div class="lbl">已了結（settled）</div><div class="val">${A.settled}</div><div class="sub2">${A.settled?('平均 '+A.mean_R+'R · 勝率 '+A.win_rate+'%'):'未有'}</div></div>`;
+    <div class="card"><div class="lbl">已了結（settled）</div><div class="val">${A.settled}</div><div class="sub2">${A.settled?('平均 '+A.mean_R+'R · 勝率 '+A.win_rate+'%'):'未有'}</div></div>
+    <div class="card"><div class="lbl">MTM 口徑（了結＋浮動）</div><div class="val">${A.mtm_n?(A.mtm_mean_R+'R'):'—'}</div><div class="sub2">${A.mtm_n?('n='+A.mtm_n+' · 正回報率 '+A.mtm_win_rate+'% · 計到 '+A.mtm_asof+'<br>修正左截尾：止蝕即結、到價要時間，齋計了結會冤枉近期'):'未有'}</div></div>`;
 }).catch(e=>{
   document.getElementById('subline').textContent='⚠️ scanners.json load 唔到——同 Kimi 講聲。';
 });
