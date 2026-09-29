@@ -46,6 +46,9 @@ td.tk a:hover, .tk a:hover{ color:var(--gold); border-bottom-color:var(--gold); 
 
 /* ---- 色階（CupSir 規則 dark 版）---- */
 .up{ color:var(--up); } .dn{ color:var(--dn); }
+/* summary card 深字版色階（2026-09-29 CupSir 版：%線上低＝綠、動力股佔比低＝紅） */
+.DG{ color:var(--up); font-weight:800; } .G{ color:var(--up); font-weight:800; }
+.DR{ color:var(--dn); font-weight:800; } .R{ color:var(--dn); font-weight:800; }
 .c-deepG{ background:var(--deepG); color:#fff; font-weight:700; }
 .c-liteG{ background:var(--liteG-bg); color:var(--liteG-tx); }
 .c-deepR{ background:var(--deepR); color:#fff; font-weight:700; }

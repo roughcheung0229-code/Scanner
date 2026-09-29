@@ -27,7 +27,7 @@
 <table id="dailytbl">
   <thead><tr>
     <th>日期</th><th>UP 4%</th><th>DN 4%</th><th>% &gt; 20D</th><th>% &gt; 50D</th>
-    <th>MLI %</th><th>MLI 升%</th><th>SPY ATR</th><th>QQQ ATR</th><th>MLI N</th><th>股票總數</th><th>S&amp;P 500</th>
+    <th>SPY ATR</th><th>QQQ ATR</th><th>動力股佔比</th><th>MLI N</th><th>股票總數</th><th>S&amp;P 500</th>
   </tr></thead>
   <tbody></tbody>
 </table>
@@ -42,7 +42,9 @@
   <span class="sw" style="background:rgba(224,101,82,.18)"></span>%線上 ≥70
   <span class="sw" style="background:#b8402f"></span>%線上極高（20d ≥90、50d ≥80）<br>
   <span class="sw" style="background:#b8402f"></span>ATR ≥ +5 過度伸展
-  <span class="sw" style="background:rgba(76,192,126,.18)"></span>ATR ≤ −5 過度超賣
+  <span class="sw" style="background:rgba(76,192,126,.18)"></span>ATR ≤ −5 過度超賣<br>
+  <span class="sw" style="background:rgba(224,101,82,.18)"></span>動力股佔比 &lt;20%
+  <span class="sw" style="background:#b8402f"></span>動力股佔比 &lt;10%
 </div>
 
 <h2>每日監察表 · P1 宇宙版</h2>
@@ -117,28 +119,33 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
 
   const C=D.cards;
   const sgn=(v,d=2)=> (v>=0?'+':'')+v.toFixed(d);
+  // 2026-09-29 跟 CupSir 改版：summary 四盒（刪 SPY/QQQ 離 50D EMA 兩盒；「領導股指數 MLI」盒→「動力股佔比」）
+  const PV=D.daily[1];   // 前一交易日（D.daily 新→舊）
+  const d20=PV?(C.pct20d-PV[3]).toFixed(1):null, d50=PV?(C.pct50d-PV[4]).toFixed(1):null;
+  const dShare=PV?(C.share_pct-PV[7]).toFixed(1):null;
+  const pClsT=(v,is20)=> v<=(is20?10:20)?'DG' : v<=30?'G' : v>=(is20?90:80)?'DR' : v>=70?'R' : '';
+  const upWin=C.up4>=C.dn4;
   document.getElementById('cards').innerHTML = `
-    <div class="card"><div class="lbl">UP 4% / DOWN 4%</div><div class="val"><span class="up">${C.up4}</span> / <span class="dn">${C.dn4}</span></div><div class="sub2">${C.dn_ratio}</div></div>
-    <div class="card"><div class="lbl">% 企穩 20 日線</div><div class="val">${C.pct20d}</div></div>
-    <div class="card"><div class="lbl">% 企穩 50 日線</div><div class="val">${C.pct50d}</div></div>
-    <div class="card"><div class="lbl">SPY 離 50D EMA</div><div class="val small ${C.spy_atr>=5?'dn':C.spy_atr<=-5?'up':''}">${sgn(C.spy_atr)}</div><div class="sub2">單位：14 日 ATR</div></div>
-    <div class="card"><div class="lbl">QQQ 離 50D EMA</div><div class="val small ${C.qqq_atr>=5?'dn':C.qqq_atr<=-5?'up':''}">${sgn(C.qqq_atr)}</div><div class="sub2">單位：14 日 ATR</div></div>
-    <div class="card"><div class="lbl">領導股指數 MLI</div><div class="val small ${C.mli_pct>=0?'up':'dn'}">${sgn(C.mli_pct)}%</div><div class="sub2">${C.mli_n} 隻成員 · ${C.mli_up}% 上升</div></div>`;
+    <div class="card"><div class="lbl">UP 4% / DOWN 4%</div><div class="val"><span class="${upWin?'up':'dn'}">${C.up4} / ${C.dn4}</span></div><div class="sub2">${C.dn_ratio}</div></div>
+    <div class="card"><div class="lbl">% 企穩 20 日線</div><div class="val ${pClsT(C.pct20d,1)}">${C.pct20d}</div><div class="sub2">${PV?`前一日 ${PV[3]}（${d20>=0?'+':''}${d20}）`:''}</div></div>
+    <div class="card"><div class="lbl">% 企穩 50 日線</div><div class="val ${pClsT(C.pct50d,0)}">${C.pct50d}</div><div class="sub2">${PV?`前一日 ${PV[4]}（${d50>=0?'+':''}${d50}）`:''}</div></div>
+    <div class="card"><div class="lbl">動力股佔比</div><div class="val ${C.share_pct<10?'DR':C.share_pct<20?'R':''}">${C.share_pct}%</div><div class="sub2">${C.mli_n} 隻動力股${PV?` · 前一日 ${PV[7]}%（${dShare>=0?'+':''}${dShare}）`:''}</div></div>`;
 
-  // 每日監察表
+  // 每日監察表（2026-09-29 跟 CupSir 改版：11 欄——MLI 升% 刪、MLI %→動力股佔比、搬去 QQQ ATR 之後）
   const tb=document.querySelector('#dailytbl tbody');
   D.daily.forEach(r=>{
-    const [dt,up,dn,p20,p50,sa,qa,mli,mliu,mlin,tot,spx]=r;
+    const [dt,up,dn,p20,p50,sa,qa,share,mlin,tot,spx]=r;
     const upWin=up>=dn;
     const upCls = upWin ? (up>=300?'c-deepG':'c-liteG') : (up>=300?'c-deepR':'c-liteR');
     const dnCls = !upWin ? (dn>=300?'c-deepR':'c-liteR') : (dn>=300?'c-deepG':'c-liteG');
     const pCls=(v,is20)=> v<=(is20?10:20)?'c-deepG' : v<=30?'c-liteG' : v>=(is20?90:80)?'c-deepR' : v>=70?'c-liteR' : '';
     const aCls=v=> v>=5?'c-deepR' : v<=-5?'c-deepG' : '';
+    const sCls=v=> v<10?'c-deepR' : v<20?'c-liteR' : '';
     tb.insertAdjacentHTML('beforeend',`<tr>
       <td>${dt}</td><td class="${upCls}">${up}</td><td class="${dnCls}">${dn}</td>
       <td class="${pCls(p20,1)}">${p20}</td><td class="${pCls(p50,0)}">${p50}</td>
-      <td class="${mli>=0?'c-mliG':'c-mliR'}">${sgn(mli)}</td><td>${mliu}</td>
-      <td class="${aCls(sa)}">${sgn(sa)}</td><td class="${aCls(qa)}">${sgn(qa)}</td><td>${mlin}</td>
+      <td class="${aCls(sa)}">${sgn(sa)}</td><td class="${aCls(qa)}">${sgn(qa)}</td>
+      <td class="${sCls(share)}"><b>${share}</b></td><td>${mlin}</td>
       <td>${tot.toLocaleString()}</td><td><b>${typeof spx==='number'?spx.toLocaleString():spx}</b></td></tr>`);
   });
 
