@@ -152,9 +152,12 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
     const names = ['① 沽壓收乾','② 企穩線 hook','③ 領導股返隊','④ 指數企穩（確認）'];
     const L = [l1,l2,l3,l4];
     const sig = L.slice(0,3).filter(Boolean).length;
-    const verdict = l4 ? '🟢 轉勢確認——regime 開閘，先郁手'
-                 : sig>=2 ? '🟡 跡象浮現（'+sig+'/3）——開始留意，等 ④ 確認'
-                 : '⚪ 未見跡象——繼續等';
+    // 【2026-10-01 Steven 要求】verdict 要似一句總結，唔係齋狀態
+    const verdict = l4 ? '🟢 轉勢確認：SPY 企返 EMA10 樓上，regime 開閘，照規矩郁手'
+                 : sig>=3 ? '🟡 跡象齊晒（3/3）：萬事俱備只欠指數——SPY 收返 EMA10 先係確認，未住'
+                 : sig==2 ? '🟡 跡象浮現（2/3）：有回暖苗頭但未夠，繼續觀察，唔好住撈'
+                 : sig==1 ? '⚪ 依然不樂觀：只有一盞跡象燈，唔足以講轉勢，唔適合撈底住'
+                 : '⚪ 依然不樂觀：四盞全灰，未見轉勢跡象，唔適合撈底住，繼續等';
     document.getElementById('radar').innerHTML =
       '<div class="radar-head">轉勢雷達 <span class="radar-verdict">'+verdict+'</span></div>' +
       '<div class="radar-row">' + names.map((n,i)=>
