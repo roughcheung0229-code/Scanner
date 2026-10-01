@@ -21,6 +21,9 @@
 <h2 id="read-title"></h2>
 <div class="cards" id="cards"></div>
 
+<!-- 【2026-10-01 Steven 批准】轉勢雷達：四盞燈（①②③跡象 → ④確認），唔郁 CupSir 原裝色階，獨立一條 -->
+<div class="radar" id="radar"></div>
+
 <h2>每日監察表</h2>
 <div class="note">SPY／QQQ 一欄為（收市 − 50 日 EMA）÷ 14 日 ATR，即係現價離 50 日線幾多個 ATR。表格只畫最近 20 個交易日。</div>
 <div style="overflow-x:auto;">
@@ -130,6 +133,34 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
     <div class="card"><div class="lbl">% 企穩 20 日線</div><div class="val ${pClsT(C.pct20d,1)}">${C.pct20d}</div><div class="sub2">${PV?`前一日 ${PV[3]}（${d20>=0?'+':''}${d20}）`:''}</div></div>
     <div class="card"><div class="lbl">% 企穩 50 日線</div><div class="val ${pClsT(C.pct50d,0)}">${C.pct50d}</div><div class="sub2">${PV?`前一日 ${PV[4]}（${d50>=0?'+':''}${d50}）`:''}</div></div>
     <div class="card"><div class="lbl">動力股佔比</div><div class="val ${C.share_pct<10?'DR':C.share_pct<20?'R':''}">${C.share_pct}%</div><div class="sub2">${C.mli_n} 隻動力股${PV?` · 前一日 ${PV[7]}%（${dShare>=0?'+':''}${dShare}）`:''}</div></div>`;
+
+  // 【2026-10-01 Steven 批准】轉勢雷達：①②③＝跡象、④＝確認（regime 開閘）。每日監察表色階唔郁。
+  (function(){
+    const r0=D.daily[0], r1=D.daily[1], r2=D.daily[2];
+    if(!r0) return;
+    const p1=D.p1||{};
+    const l1 = r0[2] < r0[1];                                        // ① 沽壓收乾：DN4 唔再大過 UP4
+    const l2 = !!(r1&&r2) && r0[3]>r1[3] && r1[3]>r2[3] && r0[3]<=40; // ② %20S 低位 hook：連升兩日且未離低位區
+    const l3 = r0[7] >= 20;                                          // ③ 領導股返隊：動力股佔比 ≥20%
+    const l4 = p1.spy_close!=null && p1.spy_close > p1.spy_e10;      // ④ 指數企穩：SPY 收 > EMA10
+    const subs = [
+      `DN4 ${r0[2]} ${l1?'<':'≥'} UP4 ${r0[1]}`,
+      r1&&r2 ? `${r2[3]} → ${r1[3]} → ${r0[3]}` : '數據唔夠三日',
+      `${r0[7]}%（要 ≥20%）`,
+      p1.spy_close!=null ? `SPY ${p1.spy_close} vs EMA10 ${p1.spy_e10}` : 'P1 未跑',
+    ];
+    const names = ['① 沽壓收乾','② 企穩線 hook','③ 領導股返隊','④ 指數企穩（確認）'];
+    const L = [l1,l2,l3,l4];
+    const sig = L.slice(0,3).filter(Boolean).length;
+    const verdict = l4 ? '🟢 轉勢確認——regime 開閘，先郁手'
+                 : sig>=2 ? '🟡 跡象浮現（'+sig+'/3）——開始留意，等 ④ 確認'
+                 : '⚪ 未見跡象——繼續等';
+    document.getElementById('radar').innerHTML =
+      '<div class="radar-head">轉勢雷達 <span class="radar-verdict">'+verdict+'</span></div>' +
+      '<div class="radar-row">' + names.map((n,i)=>
+        `<div class="rl ${L[i]?'on':''} ${i===3&&L[i]?'confirm':''}"><span class="dot"></span><div><div class="rl-name">${n}</div><div class="rl-sub">${subs[i]}</div></div></div>`
+      ).join('') + '</div>';
+  })();
 
   // 每日監察表（2026-09-29 跟 CupSir 改版：11 欄——MLI 升% 刪、MLI %→動力股佔比、搬去 QQQ ATR 之後）
   const tb=document.querySelector('#dailytbl tbody');
