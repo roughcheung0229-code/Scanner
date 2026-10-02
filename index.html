@@ -24,6 +24,9 @@
 <!-- 【2026-10-01 Steven 批准】轉勢雷達：四盞燈（①②③跡象 → ④確認），唔郁 CupSir 原裝色階，獨立一條 -->
 <div class="radar" id="radar"></div>
 
+<!-- 【2026-10-02 Steven 批准】Qullamaggie 市場濾網：SPY 10/20 日線三色帶（來自 Claude 筆記 p.16-17 嘅模擬圖，呢度用真 SPY 每日自動更新） -->
+<div class="qqf" id="qqf"></div>
+
 <h2>每日監察表</h2>
 <div class="note">SPY／QQQ 一欄為（收市 − 50 日 EMA）÷ 14 日 ATR，即係現價離 50 日線幾多個 ATR。表格只畫最近 20 個交易日。</div>
 <div style="overflow-x:auto;">
@@ -163,6 +166,78 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
       '<div class="radar-row">' + names.map((n,i)=>
         `<div class="rl ${L[i]?'on':''} ${i===3&&L[i]?'confirm':''}"><span class="dot"></span><div><div class="rl-name">${n}</div><div class="rl-sub">${subs[i]}</div></div></div>`
       ).join('') + '</div>';
+  })();
+
+  // 【2026-10-02 Steven 批准】Qullamaggie 市場濾網圖：SPY 10/20 日線三色帶＋每日「有咩新發現」短評
+  // 色帶＝市況狀態（綠＝10>20 兩線齊升｜紅＝10<20｜黃＝未齊），唔係開倉許可——郁手唯獨睇 regime 閘
+  (function(){
+    const q=D.qqf;
+    if(!q||!q.length) return;
+    const n=q.length, cur=q[n-1], prev=q[n-2];
+    let streak=1; for(let i=n-2;i>=0&&q[i][4]===cur[4];i--) streak++;
+    const stName={g:'綠',y:'黃',r:'紅'}, stIcon={g:'🟢',y:'🟡',r:'🔴'};
+    const box=document.getElementById('qqf');
+
+    function draw(){
+      const W=Math.max(300,Math.floor(box.clientWidth||360)), H=210, PL=4, PR=42, PT=12, PB=20;
+      let lo=Infinity,hi=-Infinity;
+      q.forEach(p=>{lo=Math.min(lo,p[1],p[2],p[3]);hi=Math.max(hi,p[1],p[2],p[3]);});
+      const pad=(hi-lo)*0.05; lo-=pad; hi+=pad;
+      const X=i=>PL+i*(W-PL-PR)/(n-1);
+      const Y=v=>PT+(hi-v)/(hi-lo)*(H-PT-PB);
+      const bw=(W-PL-PR)/n;
+      let s='';
+      q.forEach((p,i)=>{
+        const col=p[4]==='g'?'rgba(76,192,126,.12)':p[4]==='r'?'rgba(224,101,82,.12)':'rgba(217,164,65,.08)';
+        s+=`<rect x="${(X(i)-bw/2).toFixed(1)}" y="${PT}" width="${(bw+0.5).toFixed(1)}" height="${H-PT-PB}" fill="${col}"/>`;
+      });
+      for(let g=1;g<=4;g++){
+        const v=lo+(hi-lo)*g/5, y=Y(v).toFixed(1);
+        s+=`<line x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}" stroke="rgba(237,231,215,.09)" stroke-width="1"/>`;
+        s+=`<text x="${W-PR+5}" y="${+y+3}" fill="rgba(167,157,135,.8)" font-size="10">${v.toFixed(0)}</text>`;
+      }
+      const step=Math.ceil(n/6);
+      for(let i=0;i<n;i+=step){
+        const first=i===0;
+        s+=`<text x="${first?PL:X(i).toFixed(1)}" y="${H-5}" fill="rgba(167,157,135,.7)" font-size="9.5" text-anchor="${first?'start':'middle'}">${q[i][0].slice(2,7)}</text>`;
+      }
+      const path=idx=>q.map((p,i)=>`${i?'L':'M'}${X(i).toFixed(1)},${Y(p[idx]).toFixed(1)}`).join('');
+      s+=`<path d="${path(3)}" fill="none" stroke="#d9a441" stroke-width="1.3" stroke-dasharray="5,4"/>`;
+      s+=`<path d="${path(2)}" fill="none" stroke="#4cc07e" stroke-width="1.3"/>`;
+      s+=`<path d="${path(1)}" fill="none" stroke="#ede7d7" stroke-width="1.7"/>`;
+      return `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" class="qqf-svg">${s}</svg>`;
+    }
+
+    const bits=[];
+    if(prev&&prev[4]!==cur[4]){
+      bits.push(cur[4]==='g'?'色帶啱啱轉綠：10 日線升穿 20 日線兼兩線齊向上，QQ 口徑＝可以做多'
+        :cur[4]==='r'?'色帶啱啱轉紅：10 日線跌穿 20 日線，QQ 口徑＝唔掂，坐現金、少做'
+        :'色帶啱啱轉黃：條件未齊，QQ 口徑＝細注、少做，自己決定');
+    }else{
+      bits.push(`色帶冇變：連續第 ${streak} 日${stName[cur[4]]}區`);
+    }
+    if(prev){
+      const c=cur[1],a=cur[2],b=cur[3];
+      if(c>a&&c>b&&(prev[1]<=prev[2]||prev[1]<=prev[3])) bits.push('價格啱啱站返兩線之上');
+      if(c<a&&c<b&&(prev[1]>=prev[2]||prev[1]>=prev[3])) bits.push('價格啱啱跌穿兩線之下');
+      const gap=(a-b)/b*100, pg=(prev[2]-prev[3])/prev[3]*100;
+      if(Math.abs(gap)<0.15) bits.push('兩線貼到好埋（差距唔到 0.2%），隨時交叉——而家係轉色邊緣');
+      else if(Math.abs(gap)>Math.abs(pg)+0.05) bits.push(`兩線差距${gap>0?'擴闊':'加深'}緊（${gap.toFixed(2)}%）`);
+    }
+    const p1=D.p1||{};
+    if(p1.regime){
+      const rg=p1.regime.includes('🔴');
+      if(rg&&cur[4]==='g') bits.push('要留意：濾網綠咗但 regime 仲係 🔴——兩個 lens 背馳，開倉唯獨睇 regime 閘');
+      if(!rg&&cur[4]==='r') bits.push('要留意：濾網紅咗但 regime 仲係 🟢——兩個 lens 背馳，開倉唯獨睇 regime 閘');
+    }
+    box.innerHTML=
+      `<div class="qqf-head">市場濾網 · SPY 10/20 日線 <span class="qqf-pill ${cur[4]}">${stIcon[cur[4]]} ${stName[cur[4]]}區・第 ${streak} 日</span></div>`+
+      draw()+
+      `<div class="qqf-find"><b>有咩新發現？</b> ${bits.slice(0,3).join('；')}</div>`+
+      `<div class="qqf-note">色帶＝市況狀態，唔係開倉許可——郁手唯獨睇 regime 閘。綠＝10&gt;20 且兩線齊升｜紅＝10&lt;20｜黃＝未齊條件。白線＝收市 · 綠線＝10 日 · 金虛線＝20 日 · 一年窗（${n} 交易日）。</div>`;
+    let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{
+      const sv=box.querySelector('.qqf-svg'); if(sv){const tmp=document.createElement('div');tmp.innerHTML=draw();sv.replaceWith(tmp.firstChild);}
+    },200);});
   })();
 
   // 每日監察表（2026-09-29 跟 CupSir 改版：11 欄——MLI 升% 刪、MLI %→動力股佔比、搬去 QQQ ATR 之後）

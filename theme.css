@@ -131,3 +131,15 @@ td.tk a:hover, .tk a:hover{ color:var(--gold); border-bottom-color:var(--gold); 
 .rl.confirm .dot{ background:var(--gold,#c9a227); box-shadow:0 0 10px var(--gold,#c9a227); }
 .rl-name{ font-size:13px; font-weight:600; line-height:1.35; }
 .rl-sub{ font-size:11px; opacity:.7; margin-top:2px; line-height:1.35; }
+
+/* ---- 2026-10-02 Qullamaggie 市場濾網（SPY 10/20 三色帶）---- */
+.qqf{ margin:12px 0 8px; padding:11px 14px; border:1px solid rgba(217,164,65,.35); border-radius:10px; background:rgba(255,255,255,.02); }
+.qqf-head{ font-weight:700; letter-spacing:.5px; color:var(--gold); font-size:15px; line-height:1.55; margin-bottom:8px; }
+.qqf-pill{ font-size:12px; font-weight:600; margin-left:8px; padding:2px 8px; border-radius:20px; vertical-align:2px; }
+.qqf-pill.g{ background:rgba(76,192,126,.15); color:#7fd7a6; }
+.qqf-pill.y{ background:rgba(217,164,65,.15); color:var(--gold2); }
+.qqf-pill.r{ background:rgba(224,101,82,.15); color:#f09685; }
+.qqf-svg{ display:block; }
+.qqf-find{ font-size:12.5px; line-height:1.7; color:var(--tx); margin-top:8px; padding:6px 9px; background:rgba(217,164,65,.07); border-left:2.5px solid var(--gold); border-radius:0 6px 6px 0; }
+.qqf-find b{ color:var(--gold); }
+.qqf-note{ font-size:11px; line-height:1.6; color:var(--tx3); margin-top:7px; }
