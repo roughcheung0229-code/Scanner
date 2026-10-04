@@ -244,7 +244,7 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
       `<div class="qqf-head">市場濾網 · SPY 10/20 日線 <span class="qqf-pill ${cur[4]}">${stIcon[cur[4]]} ${stName[cur[4]]}區・第 ${streak} 日</span></div>`+
       draw()+
       `<div class="qqf-find"><b>有咩新發現？</b> ${bits.slice(0,3).join('；')}</div>`+
-      `<div class="qqf-note">色帶＝市況狀態，唔係開倉許可——郁手唯獨睇 regime 閘。綠＝10&gt;20 且兩線齊升｜紅＝10&lt;20｜黃＝未齊條件。白線＝收市 · 綠線＝10 日 · 金虛線＝20 日 · 一年窗（${n} 交易日）。</div>`;
+      `<div class="qqf-note">色帶＝市況狀態，唔係開倉許可——郁手唯獨睇 regime 閘。綠＝10&gt;20 且兩線齊升｜紅＝10&lt;20｜黃＝未齊條件。白線＝收市 · 綠線＝10 日 · 金虛線＝20 日 · 半年窗（${n} 交易日）。</div>`;
     let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{
       const sv=box.querySelector('.qqf-svg'); if(sv){const tmp=document.createElement('div');tmp.innerHTML=draw();sv.replaceWith(tmp.firstChild);}
     },200);});
