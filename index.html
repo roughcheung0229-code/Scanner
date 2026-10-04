@@ -54,7 +54,7 @@
   <span class="sw" style="background:rgba(224,101,82,.18)"></span>10日比率 &lt;1（最近 10 日 Dn4 總數 &gt; Up4 總數，跌市廣度佔優）
 </div>
 
-<h2>10 日比率走勢（Up4 ÷ Dn4）</h2>
+<h2>10 日比率走勢（Up4 ÷ Dn4）<span id="r10-pill" class="qqf-pill"></span></h2>
 <div class="note" id="r10-note"></div>
 <div class="note" id="r10-streak" style="background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;"></div>
 <div class="pulse-wrap"><svg id="r10chart" width="100%" height="240" viewBox="0 0 1100 240" preserveAspectRatio="none"></svg></div>
@@ -111,12 +111,10 @@
 <div class="battle">
   <h2>🎯 我哋戰況（驗證年）</h2>
   <ul id="battlelist">
-    <li><span class="tag">✅ 8/31 已完成</span>TQQQ 26 股 ATO 全走 @71.40（開盤競價準時成交，<b>+$931.52</b> 落袋）——出場路徑全通，日後 IBKR 出場可前一晚掛 MOO 單</li>
-    <li><span class="tag">Tiger 清倉</span>死線 <b>9/8</b>（剩 6 個美股交易日）｜淨值跌穿 <b>$6,865</b> 當日市價全清｜期間唔准新增／加碼／roll</li>
-    <li><span class="tag">⏳ 9/5 照測</span>週六 ATO 測試維持——理由更新（v2.5.1）：唔係測「星期六窗」，係測<b>跨週末＋跨假期四日生存</b>：9/5（六）07:00 HK＝週五 19:00 ET 遞單，目標 9/8（二）開盤（9/7 Labor Day 休市），張單要掛足四個曆日，中間冇窗檢查。TQQQ 嗰次驗證嘅係成交質素，未驗證跨週末留存</li>
-    <li><span class="tag">IBKR 開機</span>TQQQ 結案後現金回正 ~+$725（margin 停用停息）；Tiger 過數未完成前，揀股繼續照寫 shadow（買力以 IBKR 顯示為準）</li>
+    <li><span class="tag">✅ 戰績</span>TQQQ 26 股 ATO 全走 @71.40，<b>+$931.52</b> 落袋——出場路徑全通，IBKR 出場可前一晚掛 MOO 單</li>
     <li><span class="tag">風控閘</span>7R$ 總曝露上限 <b>$490</b>（1R$＝$70）｜單倉名義 ≤$2,000｜總倉 ≤8 且未到 TP1 ≤6｜否決線 −25R$（−$1,750）</li>
-    <li><span class="tag">數據接管</span>已駁通 Massive.com（CupSir 同源水喉）。驗證狀態（v2.5.1 誠實版）：8/28 抽驗 3 項通過（UP4=47、DN4=350、S&amp;P=7,711.76）——<b>唔係全中</b>；20 日表逐格對照發現 UP4 有 12/20 日偏細 1–5（adjusted 價＋宇宙邊界差異），完整吻合率統計進行中；已課金——收市後 15 分鐘（HKT 04:15）即有數據，每日 HKT 07:00 朝早鏈更新</li>
+    <li><span class="tag">規則</span>雷達、色帶、10日比率＝市況狀態，<b>唔係開倉許可</b>——郁手唯獨睇 regime 閘（SPY 收市企返 EMA10 樓上先開，即轉勢雷達第 ④ 燈）</li>
+    <li><span class="tag">數據</span>Massive consolidated tape（CupSir 同源）· 收市後 HKT 04:15 有數 · 朝早鏈 HKT 07:00 自動更新 · UP4/DN4 同 CupSir 有 ±1–5 邊界差（詳見頁尾）</li>
   </ul>
 </div>
 
@@ -206,10 +204,12 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
         s+=`<line x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}" stroke="rgba(237,231,215,.09)" stroke-width="1"/>`;
         s+=`<text x="${W-PR+5}" y="${+y+3}" fill="rgba(167,157,135,.8)" font-size="10">${v.toFixed(0)}</text>`;
       }
-      const step=Math.ceil(n/6);
-      for(let i=0;i<n;i+=step){
+      let lastM='';   // 每個月第一個交易日標一次，短窗唔會重複月標（2026-10-04 優化）
+      for(let i=0;i<n;i++){
+        const m=q[i][0].slice(2,7);
+        if(m===lastM) continue; lastM=m;
         const first=i===0;
-        s+=`<text x="${first?PL:X(i).toFixed(1)}" y="${H-5}" fill="rgba(167,157,135,.7)" font-size="9.5" text-anchor="${first?'start':'middle'}">${q[i][0].slice(2,7)}</text>`;
+        s+=`<text x="${first?PL:X(i).toFixed(1)}" y="${H-5}" fill="rgba(167,157,135,.7)" font-size="9.5" text-anchor="${first?'start':'middle'}">${m}</text>`;
       }
       const path=idx=>q.map((p,i)=>`${i?'L':'M'}${X(i).toFixed(1)},${Y(p[idx]).toFixed(1)}`).join('');
       s+=`<path d="${path(3)}" fill="none" stroke="#d9a441" stroke-width="1.3" stroke-dasharray="5,4"/>`;
@@ -244,7 +244,7 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
       `<div class="qqf-head">市場濾網 · SPY 10/20 日線 <span class="qqf-pill ${cur[4]}">${stIcon[cur[4]]} ${stName[cur[4]]}區・第 ${streak} 日</span></div>`+
       draw()+
       `<div class="qqf-find"><b>有咩新發現？</b> ${bits.slice(0,3).join('；')}</div>`+
-      `<div class="qqf-note">色帶＝市況狀態，唔係開倉許可——郁手唯獨睇 regime 閘。綠＝10&gt;20 且兩線齊升｜紅＝10&lt;20｜黃＝未齊條件。白線＝收市 · 綠線＝10 日 · 金虛線＝20 日 · 半年窗（${n} 交易日）。</div>`;
+      `<div class="qqf-note">色帶＝市況狀態，唔係開倉許可——郁手唯獨睇 regime 閘。綠＝10&gt;20 且兩線齊升｜紅＝10&lt;20｜黃＝未齊條件。白線＝收市 · 綠線＝10 日 · 金虛線＝20 日 · 三個月窗（${n} 交易日）。</div>`;
     let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{
       const sv=box.querySelector('.qqf-svg'); if(sv){const tmp=document.createElement('div');tmp.innerHTML=draw();sv.replaceWith(tmp.firstChild);}
     },200);});
@@ -321,6 +321,9 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
     else sh+=`<div><b>而家：</b>比率企返 ≥1（最新 ${Number(D.r10[D.r10.length-1][1]).toFixed(2)}），唔喺 &lt;1 連段入面。</div>`;
     if(M.top&&M.top.length) sh+=`<div style="margin-top:4px;"><b>最長 &lt;1 連段</b>（${(M.coverage||'').replace(' 起','')} 起計）：<br>`+M.top.map((s,i)=>`${i+1}. ${s.start} 至 ${s.end}：<b>${s.days} 日</b>`).join('　｜　')+`</div>`;
     document.getElementById('r10-streak').innerHTML=sh;
+    const pl=document.getElementById('r10-pill');
+    if(M.current){ pl.className='qqf-pill r'; pl.textContent=`<1・連續第 ${M.current.days} 日`; }
+    else{ pl.className='qqf-pill g'; pl.textContent=`≥1・${Number(D.r10[D.r10.length-1][1]).toFixed(2)}`; }
     const rs=D.r10, n2=rs.length, W2=1100, H2=240, pL=46, pT=16, pB=26;
     const vals=rs.map(r=>r[1]);
     let lo=Math.min(...vals,0.99), hi=Math.max(...vals,1.01);
