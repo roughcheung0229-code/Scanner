@@ -32,7 +32,7 @@
 <div style="overflow-x:auto;">
 <table id="dailytbl">
   <thead><tr>
-    <th>日期</th><th>UP 4%</th><th>DN 4%</th><th>% &gt; 20D</th><th>% &gt; 50D</th>
+    <th>日期</th><th>UP 4%</th><th>DN 4%</th><th>10日比率</th><th>% &gt; 20D</th><th>% &gt; 50D</th>
     <th>SPY ATR</th><th>QQQ ATR</th><th>動力股佔比</th><th>MLI N</th><th>股票總數</th><th>S&amp;P 500</th>
   </tr></thead>
   <tbody></tbody>
@@ -50,7 +50,17 @@
   <span class="sw" style="background:#b8402f"></span>ATR ≥ +5 過度伸展
   <span class="sw" style="background:rgba(76,192,126,.18)"></span>ATR ≤ −5 過度超賣<br>
   <span class="sw" style="background:rgba(224,101,82,.18)"></span>動力股佔比 &lt;20%
-  <span class="sw" style="background:#b8402f"></span>動力股佔比 &lt;10%
+  <span class="sw" style="background:#b8402f"></span>動力股佔比 &lt;10%<br>
+  <span class="sw" style="background:rgba(224,101,82,.18)"></span>10日比率 &lt;1（最近 10 日 Dn4 總數 &gt; Up4 總數，跌市廣度佔優）
+</div>
+
+<h2>10 日比率走勢（Up4 ÷ Dn4）</h2>
+<div class="note" id="r10-note"></div>
+<div class="note" id="r10-streak" style="background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;"></div>
+<div class="pulse-wrap"><svg id="r10chart" width="100%" height="240" viewBox="0 0 1100 240" preserveAspectRatio="none"></svg></div>
+<div class="legend">
+  <span class="sw" style="background:#3e7cb1"></span>≥1（Up4 佔優）
+  <span class="sw" style="background:#b8402f"></span>&lt;1（Dn4 佔優）　虛線＝1.0 分界
 </div>
 
 <h2>每日監察表 · P1 宇宙版</h2>
@@ -110,7 +120,7 @@
   </ul>
 </div>
 
-<div class="note" style="margin-top:26px;">市寬與動能監察表＋動力股分析嘅指標定義、色階規則、統計範圍<b>盡量跟足</b> CupSir 原版（2026-08-28 期），已知差異：①行業分類用 SEC EDGAR SIC（CupSir 來源對 20-F 外國發行人係空→佢有 Unclassified 行，我冇）②UP4/DN4 用 adjusted 價，同 CupSir 有 ±1–5 隻邊界差 ③S&P 500 用 FRED 官方收市。教育與資訊用途，唔係買賣訊號。</div>
+<div class="note" style="margin-top:26px;">市寬與動能監察表＋動力股分析嘅指標定義、色階規則、統計範圍<b>盡量跟足</b> CupSir 原版（2026-08-28 期），已知差異：①行業分類用 SEC EDGAR SIC（CupSir 來源對 20-F 外國發行人係空→佢有 Unclassified 行，我冇）②UP4/DN4 用 adjusted 價，同 CupSir 有 ±1–5 隻邊界差 ③S&P 500 用 FRED 官方收市 ④10 日比率（2026-10-04 新增）同樣受 ② 嘅宇宙差異影響，數值同 CupSir 有 ±0.02–0.05 出入，&lt;1 連段起訖亦可有幾日偏差，歷來最長表只計 2025-12 起嘅數據。教育與資訊用途，唔係買賣訊號。</div>
 
 <script>
 const DG='#10733f', DR='#b8402f';
@@ -243,7 +253,7 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
   // 每日監察表（2026-09-29 跟 CupSir 改版：11 欄——MLI 升% 刪、MLI %→動力股佔比、搬去 QQQ ATR 之後）
   const tb=document.querySelector('#dailytbl tbody');
   D.daily.forEach(r=>{
-    const [dt,up,dn,p20,p50,sa,qa,share,mlin,tot,spx]=r;
+    const [dt,up,dn,p20,p50,sa,qa,share,mlin,tot,spx,r10]=r;
     const upWin=up>=dn;
     const upCls = upWin ? (up>=300?'c-deepG':'c-liteG') : (up>=300?'c-deepR':'c-liteR');
     const dnCls = !upWin ? (dn>=300?'c-deepR':'c-liteR') : (dn>=300?'c-deepG':'c-liteG');
@@ -252,6 +262,7 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
     const sCls=v=> v<10?'c-deepR' : v<20?'c-liteR' : '';
     tb.insertAdjacentHTML('beforeend',`<tr>
       <td>${dt}</td><td class="${upCls}">${up}</td><td class="${dnCls}">${dn}</td>
+      <td class="${r10!=null&&r10<1?'c-liteR':''}" style="font-weight:700;">${r10==null?'—':Number(r10).toFixed(2)}</td>
       <td class="${pCls(p20,1)}">${p20}</td><td class="${pCls(p50,0)}">${p50}</td>
       <td class="${aCls(sa)}">${sgn(sa)}</td><td class="${aCls(qa)}">${sgn(qa)}</td>
       <td class="${sCls(share)}"><b>${share}</b></td><td>${mlin}</td>
@@ -299,6 +310,46 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
     }
   });
   svg.innerHTML=s;
+
+  // 10 日比率走勢（2026-10-04 跟 CupSir 新指標：ΣUp4(10日)÷ΣDn4(10日)，<1 紅）
+  if(D.r10 && D.r10.length){
+    const M=D.r10_meta||{};
+    document.getElementById('r10-note').textContent =
+      (M.note||'')+(M.coverage?` 我哋數據由 ${M.coverage}，未覆更早歷史（CupSir 嘅歷來表計到 2018 年）；宇宙口徑差異會令數值有 ±0.05 以內出入、連段起訖亦可有幾日偏差（例如佢哋計呢段由 08-26 起，我哋 09-04 起）。`:'');
+    let sh='';
+    if(M.current) sh+=`<div><b>而家呢段 &lt;1：</b>${M.current.start} 至 ${M.current.end}，<b style="color:${DR};">${M.current.days} 日</b>（未完）</div>`;
+    else sh+=`<div><b>而家：</b>比率企返 ≥1（最新 ${Number(D.r10[D.r10.length-1][1]).toFixed(2)}），唔喺 &lt;1 連段入面。</div>`;
+    if(M.top&&M.top.length) sh+=`<div style="margin-top:4px;"><b>最長 &lt;1 連段</b>（${(M.coverage||'').replace(' 起','')} 起計）：<br>`+M.top.map((s,i)=>`${i+1}. ${s.start} 至 ${s.end}：<b>${s.days} 日</b>`).join('　｜　')+`</div>`;
+    document.getElementById('r10-streak').innerHTML=sh;
+    const rs=D.r10, n2=rs.length, W2=1100, H2=240, pL=46, pT=16, pB=26;
+    const vals=rs.map(r=>r[1]);
+    let lo=Math.min(...vals,0.99), hi=Math.max(...vals,1.01);
+    lo=Math.floor((lo-0.02)*20)/20; hi=Math.ceil((hi+0.02)*20)/20;
+    const X2=i=>pL+i*(W2-pL-16)/(n2-1), Y2=v=>pT+(hi-v)*(H2-pT-pB)/(hi-lo);
+    const seg=(x1,y1,x2,y2,bad)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${bad?DR:'#3e7cb1'}" stroke-width="2"/>`;
+    let s2='';
+    const gStep=(hi-lo)>2.5?0.5:((hi-lo)>1.2?0.2:0.1);
+    for(let g=Math.ceil(lo/gStep)*gStep; g<=hi+1e-9; g+=gStep){
+      const gv=Math.round(g/gStep)*gStep;
+      if(Math.abs(gv-1)<1e-9) continue;
+      s2+=`<line x1="${pL}" y1="${Y2(gv)}" x2="${W2-10}" y2="${Y2(gv)}" stroke="#3a372e" stroke-width="1"/>`;
+      s2+=`<text x="8" y="${Y2(gv)+4}" font-size="11" fill="#8a8474">${gv.toFixed(1)}</text>`;
+    }
+    s2+=`<line x1="${pL}" y1="${Y2(1)}" x2="${W2-10}" y2="${Y2(1)}" stroke="#8a8474" stroke-width="1.2" stroke-dasharray="6,4"/>`;
+    s2+=`<text x="8" y="${Y2(1)+4}" font-size="11" font-weight="700" fill="#8a8474">1.0</text>`;
+    for(let i=0;i<n2-1;i++){
+      const x1=X2(i),y1=Y2(vals[i]),x2=X2(i+1),y2=Y2(vals[i+1]),v1=vals[i],v2=vals[i+1];
+      if((v1<1)===(v2<1)) s2+=seg(x1,y1,x2,y2,v1<1);
+      else{ const t=(1-v1)/(v2-v1),xm=x1+t*(x2-x1),ym=y1+t*(y2-y1);
+        s2+=seg(x1,y1,xm,ym,v1<1)+seg(xm,ym,x2,y2,v2<1); }
+    }
+    const step=Math.max(1,Math.round(n2/9));
+    for(let i=0;i<n2;i+=step) s2+=`<text x="${X2(i)}" y="${H2-6}" font-size="10.5" fill="#8a8474" text-anchor="middle">${rs[i][0]}</text>`;
+    const lv=vals[n2-1];
+    s2+=`<circle cx="${X2(n2-1)}" cy="${Y2(lv)}" r="3.5" fill="${lv<1?DR:'#3e7cb1'}"/>`;
+    s2+=`<text x="${X2(n2-1)-8}" y="${Y2(lv)-8}" font-size="13" font-weight="700" fill="${lv<1?DR:'#3e7cb1'}" text-anchor="end">${lv.toFixed(2)}</text>`;
+    document.getElementById('r10chart').innerHTML=s2;
+  }
 
   // 動力股分析
   const L=D.leaders;
