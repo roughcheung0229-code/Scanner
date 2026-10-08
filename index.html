@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="nav"><span class="here">市寬動能表</span><a href="pool.html">可交易池 →</a><a href="p1.html">P1 Scanner →</a><a href="p2.html">P2 Scanner →</a></div>
+<div class="nav"><span class="here">市寬動能表</span><a href="p2.html">P2 Scanner →</a></div>
 
 <h1>市寬與動能監察表</h1>
 <div class="sub" id="subline"></div>
@@ -92,16 +92,16 @@
 <div class="cards" id="cards2"></div>
 
 <h2>行業組成</h2>
-<div class="note">只睇「佔比」會被大行業誤導——一個行業喺榜上多，可能純粹因為佢本身就大。滲透率同超額兩欄係基數修正：滲透率＝該行業入選領導股數 ÷ 該行業喺總分析股票入面嘅數目；超額＝佔比 − 池內佔比，正數代表跑贏自己嘅體重。<span id="sic-note" style="color:#b08b3e;"></span></div>
+<div class="note">跟 CupSir 2026-10-07 方法論：<b>lift</b>＝滲透率 ÷ 整體滲透率（幅度，唔受行業大細影響）；<b>z</b>＝偏離隨機嘅顯著性（&gt;1.96 先計數，多重檢驗下單日過關唔等於穩陣）；<b>季度 median</b>＝行業全部股票季度回報中位數（深度——lift 高但 median 負＝少數股爆升）；<b>Δlift</b>＝今日 lift 減 21 日前（固定同一批股票，相對份額變化）；<b>pace</b>＝21 日 median − 季度 median÷3（絕對加速度）。base&lt;20 隻嘅行業唔入排名。<span id="sic-note" style="color:#b08b3e;"></span></div>
 <div style="overflow-x:auto;">
 <table id="indtbl">
   <thead><tr>
-    <th>行業</th><th style="text-align:left;min-width:180px;">佔比</th><th>數量</th><th>佔比%</th><th>池內%</th><th>滲透率%</th><th>超額PP</th>
+    <th>#</th><th>行業</th><th>LIFT</th><th>季度MEDIAN</th><th>ΔLIFT</th><th>PACE</th><th>滲透率%</th><th>動力股</th><th>BASE</th><th>Z</th>
   </tr></thead>
   <tbody></tbody>
 </table>
 </div>
-<div class="legend"><span class="sw" style="background:#d9a441"></span>橫條長度 ＝ 佔全部領導股嘅百分比　<span class="sw" style="background:#71695a"></span>灰色刻度 ＝ 該行業喺總分析股票入面嘅佔比（自己嘅體重）　橫條越過刻度 ＝ 跑贏體重</div>
+<div class="legend">Δlift 用今日宇宙倒推 21 日前身分，有輕微 look-ahead——適合量度相對轉動，唔好當可以回測嘅歷史訊號；單一 21 日比較只係兩點連線，分唔開趨勢同噪音。</div>
 
 <h2>領導股數目走勢</h2>
 <div class="note" id="trend-note"></div>
@@ -118,7 +118,7 @@
   </ul>
 </div>
 
-<div class="note" style="margin-top:26px;">市寬與動能監察表＋動力股分析嘅指標定義、色階規則、統計範圍<b>盡量跟足</b> CupSir 原版（2026-08-28 期），已知差異：①行業分類用 SEC EDGAR SIC（CupSir 來源對 20-F 外國發行人係空→佢有 Unclassified 行，我冇）②UP4/DN4 用 adjusted 價，同 CupSir 有 ±1–5 隻邊界差 ③S&P 500 用 FRED 官方收市 ④10 日比率（2026-10-04 新增）同樣受 ② 嘅宇宙差異影響，數值同 CupSir 有 ±0.02–0.05 出入，&lt;1 連段起訖亦可有幾日偏差，歷來最長表只計 2025-12 起嘅數據。教育與資訊用途，唔係買賣訊號。</div>
+<div class="note" style="margin-top:26px;">市寬與動能監察表＋動力股分析嘅指標定義、色階規則、統計範圍<b>盡量跟足</b> CupSir 原版（市寬＋動力股跟 2026-08-28 期；行業組成跟 2026-10-07 期方法論：lift／z／季度 median／Δlift／pace），已知差異：①行業分類用 SEC EDGAR SIC（同 CupSir 嘅對照表覆蓋唔同，未分類比例會有出入）②UP4/DN4 用 adjusted 價，同 CupSir 有 ±1–5 隻邊界差 ③S&P 500 用 FRED 官方收市 ④10 日比率（2026-10-04 新增）同樣受 ② 嘅宇宙差異影響，數值同 CupSir 有 ±0.02–0.05 出入，&lt;1 連段起訖亦可有幾日偏差，歷來最長表只計 2025-12 起嘅數據。教育與資訊用途，唔係買賣訊號。</div>
 
 <script>
 const DG='#10733f', DR='#b8402f';
@@ -363,19 +363,25 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
     <div class="card"><div class="lbl">領導股數目</div><div class="val">${L.leaders_n}</div><div class="sub2">${L.leaders_prev}</div></div>
     <div class="card"><div class="lbl">佔總分析股票數量比率</div><div class="val">${Number(L.share_pct).toFixed(1)}%</div><div class="sub2">分母 ${L.pool_n.toLocaleString()} 隻</div></div>
     <div class="card"><div class="lbl">頭三大行業集中度</div><div class="val">${Number(L.top3_conc).toFixed(1)}%</div><div class="sub2">覆蓋 ${L.industries_covered} 個行業</div></div>
-    <div class="card"><div class="lbl">最強行業</div><div class="val">${L.top_industry_share}%</div><div class="sub2">${L.top_industry}　滲透率 ${L.top_industry_pen}%　超額 ${L.top_industry_excess}</div></div>`;
+    <div class="card"><div class="lbl">最強行業（lift）</div><div class="val">${L.top_industry_lift}x</div><div class="sub2">${L.top_industry}　滲透率 ${L.top_industry_pen}%　Δlift ${L.top_industry_dlift}</div></div>`;
 
   const ib=document.querySelector('#indtbl tbody');
-  const maxShare=Math.max(...L.industries.map(x=>x[2]));
-  L.industries.forEach(x=>{
-    const [name,n,share,pool,pen,exc]=x;
-    const w=share/maxShare*100, t=pool/maxShare*100;
+  const fmts=v=>v==null?'—':(v>0?'+':'')+v+'%';
+  L.industries.forEach((x,k)=>{
+    const [name,lift,qmed,dlift,pace,pen,n,base,z,sig]=x;
     ib.insertAdjacentHTML('beforeend',`<tr>
-      <td style="text-align:left;font-weight:600;">${name}</td>
-      <td style="text-align:left;"><div class="ibar-wrap"><div class="ibar" style="width:${w}%"></div><div class="itick" style="left:${t}%"></div></div></td>
-      <td>${n}</td><td>${share}</td><td>${pool}</td><td>${pen}</td>
-      <td class="${exc>=0?'exc-pos':'exc-neg'}">${exc>=0?'+':''}${exc}</td></tr>`);
+      <td>${k+1}</td><td style="text-align:left;font-weight:600;">${name}</td>
+      <td style="font-weight:700;${lift>=1?'color:#d9a441':'color:#8a8474'}">${lift.toFixed(2)}</td>
+      <td class="${qmed>=0?'exc-pos':'exc-neg'}">${fmts(qmed)}</td>
+      <td class="${dlift>=0?'exc-pos':'exc-neg'}">${dlift==null?'—':(dlift>0?'+':'')+dlift.toFixed(2)}</td>
+      <td class="${pace>=0?'exc-pos':'exc-neg'}">${fmts(pace)}</td>
+      <td>${pen}</td><td>${n}</td><td>${base}</td>
+      <td>${z>0?'+':''}${z.toFixed(2)}${sig?' <b style="color:#d9a441">'+sig+'</b>':''}</td></tr>`);
   });
+  const ft=[];
+  if(L.excluded_small) ft.push(`${L.excluded_small} 個行業 base 少過 20 隻，波動太大，唔入排名`);
+  if(L.unclassified) ft.push(`未分類 ${L.unclassified.n} 隻（滲透率 ${L.unclassified.pen}%、季度 median ${L.unclassified.qmed==null?'—':L.unclassified.qmed+'%'}）——行業對照表覆蓋缺口，唔當行業處理`);
+  if(ft.length) ib.insertAdjacentHTML('beforeend',`<tr><td colspan="10" style="text-align:left;color:#8a8474;font-size:12px;">${ft.join('｜')}</td></tr>`);
 
   // 領導股走勢（多點面積圖）
   document.getElementById('trend-note').textContent = L.trend_note;
