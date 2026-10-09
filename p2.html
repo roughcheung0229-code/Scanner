@@ -38,7 +38,7 @@
   <tbody></tbody>
 </table>
 </div>
-<div class="legend">排序＝距掛線近遠。「旗」＝63日升≥15%、EMA21向上、企喺EMA50上；「底」＝126日內曾回撤≥30%、近40日range≤25%、EMA21走平/向上、40日低位喺≥15日前（冇新低）、重上EMA21。候選多係正常——寬入嚴出，人眼嗰關先係篩選。</div>
+<div class="legend">排序＝距掛線近遠。「旗」＝63日升≥15%、EMA21向上、企喺EMA50上；「底」＝126日內曾回撤≥30%、近40日range≤25%、EMA21走平/向上、40日低位喺≥15日前（冇新低）、重上EMA21。候選多係正常——寬入嚴出，人眼嗰關先係篩選。<span style="color:#d9a441;">★Nd</span>＝旗桶強勢股<b>首次回9EMA</b>（之前 N 個交易日 low 冇掂過9線，N≥10 先標）——Steven 實戰觀察呢類成功率高，落單前優先睇。</div>
 
 <script>
 Promise.all([
@@ -63,7 +63,7 @@ Promise.all([
       <td>${x.b==='旗'?'<span style="color:#d9a441;font-weight:700">旗</span>':'<span style="color:#7a9cc6;font-weight:700">底</span>'}</td>
       <td style="font-weight:700;text-align:left">${x.t}</td>
       <td>${x.c}</td>
-      <td>${x.ln}</td>
+      <td>${x.ln}${(x.b==='旗'&&x.ln==='9EMA'&&x.f9>=10)?` <span style="color:#d9a441;font-weight:700" title="首次回9EMA：之前 ${x.f9} 個交易日冇掂過9線">★${x.f9}d</span>`:''}</td>
       <td class="${x.dist>=0?'exc-pos':'exc-neg'}">${x.dist>=0?'+':''}${x.dist}</td>
       <td style="font-weight:700;color:#d9a441">${x.buy}</td>
       <td style="color:#c66">${x.sl}</td>
