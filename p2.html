@@ -13,54 +13,68 @@
 
 <div class="nav"><a href="index.html">← 市寬動能表</a><span class="here">落單紙</span></div>
 
-<h1>落單紙 · 9/21 EMA 回踩（一招 v2.0）</h1>
-<div class="sub">每日 06:30 朝早鏈自動更新｜數據：Massive（同動能表同一條管線）｜業績日期：Yahoo（11 交易日內有業績已剔除）</div>
+<h1>落單紙 · 9/21 EMA 回踩（一招 v2.1）</h1>
+<div class="sub">每日 06:30 朝早鏈自動更新｜定位：<b>減量輔助</b>（唔係白名單）——你 TV Scanner／CupSir 圖揀嘅一樣做得，三行記錄標「來源」｜數據：Massive adjusted｜業績：Yahoo</div>
 
-<h2>用法（三步）</h2>
+<div class="warnbar" id="expobar" style="display:block;background:#2a2417;border:1px solid #b08b3e;padding:10px 14px;border-radius:6px;margin:14px 0;"></div>
+
+<h2>用法（四步）</h2>
 <div class="note">
-<b>① 人眼揀：</b>下表只係寬條件機選（「旗」＝上升後整固、「底」＝大跌後長期整固），<b>逐隻開圖睇</b>——強／靜／貼／乾淨／市，睇圖感覺，唔使計數。<br>
-<b>② 掛單：</b>揀中就照表掛 <b>Buy Limit＝「買入」欄</b>（即 9/21EMA 邊條近邊條），SL＝線下 0.5×ATR，TP1＝+3R 賣一半。股數已按 R＝$50 計好。<br>
-<b>③ TP1 後：</b>賣咗一半，SL 即刻推 BE；9EMA 升穿 BE 後，stop 改跟 9EMA（每日更新，盘中掂即走）。<br>
-<span style="color:#8a8474;">規格唯一依據：《一招SOP_v2_20261009》。每股風險 &lt;0.75% 價位嘅 M&A 釘死股已機械剔除（stop 喺 spread 入面做唔到，唔係選股閘）。</span>
+<b>① 睇曝露：</b>頂部「總曝露 X／6R」——會爆就先減掛單，新單會令總數 &gt;6R 就唔掛。<br>
+<b>② 人眼揀：</b>「旗」＝上升後整固、「底」＝大跌後長期整固，<b>逐隻開圖</b>：強／靜／貼／乾淨／市。「距60日高」「高E50」兩欄係俾你眼判嘅輔助，唔係閘。<br>
+<b>③ 掛單：</b>照「掛線」欄掛 Buy Limit＝「買入」價（SL＝線−0.5×ATR、TP1＝+3R 賣半，已計好）。<b>開市後如現價已跌穿掛線 → 唔掛</b>（防 limit 高過市價即刻成交）。<br>
+<b>④ TP1 後：</b>賣半，SL 即刻推 BE；9EMA 升穿 BE 後 stop 改跟 9EMA（每日更新，盘中掂即走）。<b>持倉撞業績：一律業績前一交易日收市前全走。</b><br>
+<span style="color:#8a8474;">規格唯一依據：《一招SOP_v2_20261009》v2.1。入場線決策樹：收市喺 9EMA 上→掛 9；穿 9 仲喺 21 上→掛 21；兩條都喺下→唔掛；9&lt;21 排列（* 標記）→掛 21（較高嗰條）；收市重上 9（修復）→翌日返掛 9。每股風險 &lt;1% 價位嘅 M&A 釘死股、60 日內拆股股已機械剔除。</span>
 </div>
 
 <h2>候選落單紙 <span class="tag" id="asof"></span></h2>
 <div class="note" id="sumline"></div>
-<div class="note">📥 <a href="tv_import_latest.txt" download style="color:#d9a441;">下載 TradingView Import List</a>（一行一 ticker，TV watchlist 右上角 → Import list 直接匯入，逐隻開圖人眼判）</div>
+<div class="note">📥 <a href="tv_import_latest.txt" download style="color:#d9a441;">下載 TradingView Import List</a>（同頁面同一批，TV watchlist → Import list 直接匯入）</div>
 <div style="overflow-x:auto;">
 <table id="boxtbl">
   <thead><tr>
-    <th>#</th><th>類</th><th>股票</th><th>收市</th><th>距近線</th><th>近線</th>
-    <th>買入</th><th>SL</th><th>TP1</th><th>R/股</th><th>股數</th><th>名義</th><th>E9</th><th>E21</th><th>ATR</th><th>63日%</th>
+    <th>#</th><th>類</th><th>股票</th><th>收市</th><th>掛線</th><th>距線</th>
+    <th>買入</th><th>SL</th><th>TP1</th><th>R/股</th><th>股數</th><th>名義</th><th>距60日高</th><th>高E50(ATR)</th><th>ATR</th><th>63日%</th>
   </tr></thead>
   <tbody></tbody>
 </table>
 </div>
-<div class="legend">排序＝距近線近遠（最貼線排最前）。「旗」＝63 日升 ≥15%、EMA21 向上、企喺 EMA50 上、而家貼線；「底」＝126 日內曾回撤 ≥30%、近 40 日 range ≤25%、EMA21 走平/向上、重上 EMA21 貼線。候選多係正常——寬入嚴出，人眼嗰關先係篩選。</div>
+<div class="legend">排序＝距掛線近遠。「旗」＝63日升≥15%、EMA21向上、企喺EMA50上；「底」＝126日內曾回撤≥30%、近40日range≤25%、EMA21走平/向上、40日低位喺≥15日前（冇新低）、重上EMA21。候選多係正常——寬入嚴出，人眼嗰關先係篩選。</div>
 
 <script>
-fetch('box_scanner.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
+Promise.all([
+  fetch('box_scanner.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()),
+  fetch('exposure.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).catch(()=>null)
+]).then(([D,X])=>{
   document.getElementById('asof').textContent = D.asof+' 收市';
   const qi=D.rows.filter(x=>x.b==='旗').length, di=D.rows.filter(x=>x.b==='底').length;
   document.getElementById('sumline').innerHTML =
-    `候選 <b>${D.n}</b> 隻（旗 ${qi}｜底 ${di}）｜業績牆剔咗 ${D.blocked} 隻｜R＝$${D.risk}／單`;
+    `顯示頭 <b>${D.n}</b>／${D.total} 隻（旗 ${qi}｜底 ${di}）｜業績牆剔 ${D.blocked} 隻｜R＝$${D.risk}／單`;
+  const eb=document.getElementById('expobar');
+  if(X && X.updated){
+    const tot=(X.positions_r+X.pending_orders_r).toFixed(1);
+    eb.innerHTML=`📊 <b>總曝露 ${tot}／6R</b>（持倉 ${X.positions_r}R＋未成交掛單 ${X.pending_orders_r}R）｜更新：${X.updated}${tot>=6?'｜<b style="color:#c66">已滿——新單唔掛</b>':''}`;
+  } else {
+    eb.innerHTML='📊 <b>總曝露 未申報／6R</b>——夜晚窗三行記錄時報持倉＋掛單俾軍師，呢度先會有數。未申報期間：自己心算 ≤6R。';
+  }
   const tb=document.querySelector('#boxtbl tbody');
   D.rows.forEach((x,i)=>{
-    const dcls=x.dist>=0?'exc-pos':'exc-neg';
     tb.insertAdjacentHTML('beforeend',`<tr>
       <td>${i+1}</td>
       <td>${x.b==='旗'?'<span style="color:#d9a441;font-weight:700">旗</span>':'<span style="color:#7a9cc6;font-weight:700">底</span>'}</td>
       <td style="font-weight:700;text-align:left">${x.t}</td>
       <td>${x.c}</td>
-      <td class="${dcls}">${x.dist>=0?'+':''}${x.dist}</td>
-      <td>${x.near}</td>
+      <td>${x.ln}</td>
+      <td class="${x.dist>=0?'exc-pos':'exc-neg'}">${x.dist>=0?'+':''}${x.dist}</td>
       <td style="font-weight:700;color:#d9a441">${x.buy}</td>
       <td style="color:#c66">${x.sl}</td>
       <td style="color:#6a6">${x.tp1}</td>
       <td>${x.r}</td>
       <td>${x.sh}</td>
       <td>$${x.notional.toLocaleString()}</td>
-      <td>${x.e9}</td><td>${x.e21}</td><td>${x.atr}</td>
+      <td class="${x.d60hi>=-10?'':'exc-neg'}">${x.d60hi}%</td>
+      <td>${x.e50a}</td>
+      <td>${x.atr}</td>
       <td class="${x.r63>=0?'exc-pos':'exc-neg'}">${x.r63>=0?'+':''}${x.r63}%</td></tr>`);
   });
 }).catch(e=>{

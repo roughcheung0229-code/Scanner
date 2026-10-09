@@ -1,0 +1,6 @@
+{
+  "updated": null,
+  "positions_r": 0,
+  "pending_orders_r": 0,
+  "note": "Steven 夜晚窗申報持倉＋未成交掛單後由軍師更新。計法：持倉風險＝剩餘股數×(入場−止蝕)÷$50（止蝕≥成本計 0R）；未成交 limit 單每張計 1R。上限 6R。"
+}
