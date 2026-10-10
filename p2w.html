@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>觀察名單落單紙 — MAIN FOCUS LIST</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700;800&family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<div class="nav"><a href="index.html">← 市寬動能表</a><a href="p2.html">落單紙</a><span class="here">觀察名單</span></div>
+
+<h1>觀察名單落單紙 · MAIN FOCUS LIST（45 隻）</h1>
+<div class="sub">Steven TradingView「MAIN FOCUS LIST」｜每日 06:30 朝早鏈自動更新｜<b>工具擴展，唔係改規格，五十單照計</b>（Claude 第二回合提議，Steven 2026-10-11 批准）｜名單檔：watchlist_tickers.txt</div>
+
+<div class="warnbar" id="expobar" style="display:block;background:#2a2417;border:1px solid #b08b3e;padding:10px 14px;border-radius:6px;margin:14px 0;"></div>
+
+<h2>用法</h2>
+<div class="note">
+<b>同主落單紙完全同一套計法</b>（決策樹揀線、SL＝線−0.5×ATR、TP1＝+3R、向下取整到 cent、整數仙股數、R＝$50）；分別只在：<b>唔套用旗／底桶篩選、唔截頭 40</b>——45 隻全部列出，按「距線」由近到遠排序。<br>
+<b>照套共同閘：</b>價 ≥$10｜1% 操作下限（每股風險 ≥1% 買入價）｜業績牆 11 個交易日（呢頁用<b>交易日</b>計，寫埋「第幾個交易日解禁」；公佈日後第一個交易日先准掛）。<br>
+<span style="color:#d9a441;">⚡本週有機會成交</span>＝距線 ≤1.0 ATR、唔喺業績牆內、過晒共同閘——夜晚窗優先睇呢批。<span style="color:#c66;">🚧業績牆內</span>＝11 個交易日內出業績，唔准掛，等到解禁日。<span style="color:#8a8474;">兩線下</span>＝決策樹無位（收市喺兩條線下面），冇價位，排最底。<br>
+<span style="color:#8a8474;">注意：呢頁業績牆用交易日計，主落單紙 code 用緊曆日做 proxy——牆邊股（如 BE／CAKE）兩頁可能唔同判法，以呢頁交易日計法為準，差異已交 Steven 裁決係咪統一。業績日期嚟自 Yahoo，標「估」＝官方未公佈係推算；個別股 Yahoo 未更新下次日期（顯示「上次」），自己上 IR 頁核實。</span>
+</div>
+
+<h2>45 隻總覽 <span class="tag" id="asof"></span></h2>
+<div class="note" id="sumline"></div>
+<div style="overflow-x:auto;">
+<table id="wtbl">
+  <thead><tr>
+    <th>#</th><th>股票</th><th>收市</th><th>掛線</th><th>距線</th><th>標記</th>
+    <th>買入</th><th>SL</th><th>TP1</th><th>R/股</th><th>股數</th><th>名義</th>
+    <th>後備21買入</th><th>後備21SL</th><th>後備21TP1</th><th>後備21股數</th>
+    <th>業績</th><th>交易日倒數</th><th>解禁日</th>
+  </tr></thead>
+  <tbody></tbody>
+</table>
+</div>
+<div class="legend">距線＝（收市−掛線）÷ATR14，正數＝收市喺線上方。掛線決策樹：9≥21——喺9上掛9／穿9企21掛21／兩條下無位；9&lt;21（* 標記）——企21上掛21、21下無位。「後備21」四欄＝掛 9EMA 嘅股先會有：夜晚窗開市穿 9 要轉掛 21 嗰陣照抄（「—」＝操作下限唔過）。名義＝股數×買入價。規格依據：《一招SOP_v2.2_封裝正本_補6.md》v2.2 補1–6（工具擴展唔改規格）。</div>
+
+<script>
+Promise.all([
+  fetch('watchlist.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()),
+  fetch('exposure.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).catch(()=>null)
+]).then(([D,X])=>{
+  document.getElementById('asof').textContent = D.asof+' 收市';
+  document.getElementById('sumline').innerHTML =
+    `共 <b>${D.n}</b> 隻｜⚡本週有機會成交 <b style="color:#d9a441">${D.n_chance}</b>｜🚧業績牆內 <b style="color:#c66">${D.n_earn_blocked}</b>｜兩線下 ${D.n_below}｜R＝$${D.risk}／單`;
+  function expAsof(){const hk=new Date(Date.now()+8*3600e3);const e=new Date(Date.UTC(hk.getUTCFullYear(),hk.getUTCMonth(),hk.getUTCDate()));if(hk.getUTCHours()*60+hk.getUTCMinutes()<390)e.setUTCDate(e.getUTCDate()-1);do{e.setUTCDate(e.getUTCDate()-1)}while(e.getUTCDay()%6===0);return e.toISOString().slice(0,10);}
+  if(D.asof<expAsof()) document.getElementById('sumline').insertAdjacentHTML('afterbegin','<b style="color:#c66">⚠️ 數據日期 '+D.asof+' 唔係最新（應為 '+expAsof()+'）——美股假期可以唔理，否則同 Kimi 講，唔好照抄價位</b><br>');
+  const eb=document.getElementById('expobar');
+  if(X && X.updated){
+    const used=(+X.positions_r)+(+X.pending_orders_r);
+    const room=Math.floor(6-used+1e-9);
+    eb.innerHTML=`📊 <b>總曝露 ${used.toFixed(2)}／6R</b>（持倉 ${(+X.positions_r).toFixed(2)}R＋未成交掛單 ${X.pending_orders_r}R）｜更新：${X.updated}｜`
+      +(room>=1?`今晚最多再掛 <b>${room}</b> 張新單`:`<b style="color:#c66">再掛一張就 >6R——今晚唔開新單</b>`)
+      +((X.updated+'').slice(0,10)<expAsof()?`｜<b style="color:#c66">⚠️ 曝露係 ${(X.updated+'').slice(0,10)} 嘅數，唔係最新——自己心算 ≤6R</b>`:'');
+  } else {
+    eb.innerHTML='📊 <b>總曝露 未申報／6R</b>——夜晚窗三行記錄時報持倉＋掛單俾軍師，呢度先會有數。未申報期間：自己心算 ≤6R。';
+  }
+  const tb=document.querySelector('#wtbl tbody');
+  D.rows.forEach((x,i)=>{
+    let badge='';
+    if(x.earn_blocked) badge='<span style="color:#c66;font-weight:700">🚧業績牆內</span>';
+    else if(x.dist===null) badge='<span style="color:#8a8474">兩線下·無位</span>';
+    else if(x.px_lt10) badge='<span style="color:#c66">價<$10</span>';
+    else if(x.buy===null) badge='<span style="color:#c66">1%下限唔過</span>';
+    else if(x.dist<=1.0) badge='<span style="color:#d9a441;font-weight:700">⚡本週有機會成交</span>';
+    else badge='<span style="color:#8a8474">超帶（距線>1）</span>';
+    const earnCell = x.earn ? `${x.earn}${x.earn_est?' <span style="color:#8a8474">估</span>':''}`
+                    : (x.earn_stale ? `<span style="color:#8a8474">Yahoo未更新（上次 ${x.earn_stale}）</span>` : '—');
+    const tdCell = x.earn_td===null?'—':`${x.earn_td}`;
+    const f=v=>v===null||v===undefined?'—':v.toFixed(2);
+    const fi=v=>v===null||v===undefined?'—':v;
+    tb.insertAdjacentHTML('beforeend',`<tr${x.earn_blocked?' style="opacity:.55"':''}>
+      <td>${i+1}</td>
+      <td style="font-weight:700;text-align:left">${x.t}</td>
+      <td>${x.c}</td>
+      <td>${x.ln}</td>
+      <td class="${x.dist!==null&&x.dist<=1.0?'exc-pos':''}">${x.dist===null?'—':(x.dist>=0?'+':'')+x.dist}</td>
+      <td style="white-space:nowrap">${badge}</td>
+      <td style="font-weight:700;color:#d9a441">${f(x.buy)}</td>
+      <td style="color:#c66">${f(x.sl)}</td>
+      <td style="color:#6a6">${f(x.tp1)}</td>
+      <td>${f(x.r)}</td>
+      <td>${fi(x.sh)}</td>
+      <td>${x.buy!==null&&x.sh!==null?'$'+(Math.round(x.sh*x.buy)).toLocaleString():'—'}</td>
+      <td>${f(x.b21b)}</td><td>${f(x.b21s)}</td><td>${f(x.b21t)}</td><td>${fi(x.b21sh)}</td>
+      <td style="white-space:nowrap">${earnCell}</td>
+      <td>${tdCell}</td>
+      <td>${x.unblock||'—'}</td>
+    </tr>`);
+  });
+}).catch(e=>{document.getElementById('sumline').textContent='watchlist.json 載入失敗：'+e;});
+</script>
+</body>
+</html>
