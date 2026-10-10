@@ -20,10 +20,10 @@
 
 <h2>用法（朝早計劃 → 夜晚落單）</h2>
 <div class="note">
-<b>① 朝早（呢度）：</b>睇曝露（頂部 X／6R）→ 逐隻<b>開圖人眼判</b>：強／靜／貼／乾淨／市（「距60日高」「高E50」兩欄係眼判輔助唔係閘）→ 寫低今晚計劃。<b>🔴 新單唔准預掛隔夜。</b><br>
-<b>② 夜晚（美股開市：夏令 21:30／冬令 22:30 HKT；2026-11-02 起冬令）先落單：</b>先睇持倉——TP1 有冇喺正常時段以外成交（盤後／夜盤／盤前）？有 → <b>即刻推 BE</b>。再睇開市價：高過掛線 → 照表掛 Buy Limit＝「買入」價（SL＝線−0.5×ATR、TP1＝+3R 賣半）；開市穿 9 企 21 上 → 轉掛 21（價位重計）；穿晒 → 唔掛。<b>入場單同 SL 只限正常時段（美東 09:30–16:00），唔剔 outside RTH／夜盤；TP1 限價賣單例外，任何時段可成交。</b><br>
+<b>① 朝早（呢度）：</b>睇曝露（頂部 X／6R）→ 持倉維護（TP1？BE？9EMA stop 更新？持倉撞業績？）→ 逐隻<b>開圖人眼判</b>：強／靜／貼／乾淨／市（「距60日高」「高E50」兩欄係眼判輔助唔係閘）→ 寫低今晚計劃。<b>🔴 新單唔准預掛隔夜。</b><br>
+<b>② 夜晚（美股開市：夏令 21:30／冬令 22:30 HKT；2026-11-02 起冬令）先落單：</b>先睇持倉——TP1 有冇喺正常時段以外成交（盤後／夜盤／盤前）？有 → <b>即刻推 BE</b>。再睇開市價：高過掛線 → 照表掛 Buy Limit＝「買入」價（bracket：SL 全倉＋TP1 賣半，OCA；SL＝線−0.5×ATR、TP1＝+3R）；開市穿 9 企 21 上 → 轉掛 21（照抄「後備21」四欄，唔使自己計）；穿晒 → 唔掛。<b>入場單同 SL 只限正常時段（美東 09:30–16:00），唔剔 outside RTH／夜盤；TP1 限價賣單例外，任何時段可成交。</b><br>
 <b>③ TP1 後：</b>賣半，SL 推 BE；9EMA 升穿 BE 後 stop 改跟 9EMA（朝早窗改，盤中掂即走）。<b>持倉撞業績：公佈日前一交易日 MOC／開市全走。</b><br>
-<span style="color:#8a8474;">規格唯一依據：《一招SOP_v2.2_封裝正本_20261010.md》v2.2 補1–5。掛線決策樹（先睇排列）：9≥21——喺9上掛9／穿9企21掛21／兩條下唔掛／重上9翌日返掛9；9&lt;21（* 標記）——企21上掛21、21下唔掛。操作下限：每股風險 ≥1% 價位（連帶名義 ≤$5,000），所有來源適用；M&A 釘死股、60 日內拆股股已機械剔除。</span>
+<span style="color:#8a8474;">規格唯一依據：《一招SOP_v2.2_封裝正本_補6.md》v2.2 補1–6。掛線決策樹（先睇排列）：9≥21——喺9上掛9／穿9企21掛21／兩條下唔掛／重上9翌日返掛9；9&lt;21（* 標記）——企21上掛21、21下唔掛。操作下限：每股風險 ≥1% 價位（連帶名義 ≤$5,000），所有來源適用；M&A 釘死股、60 日內拆股股已機械剔除。</span>
 </div>
 
 <h2>候選落單紙 <span class="tag" id="asof"></span></h2>
@@ -34,11 +34,12 @@
   <thead><tr>
     <th>#</th><th>類</th><th>股票</th><th>收市</th><th>掛線</th><th>距線</th>
     <th>買入</th><th>SL</th><th>TP1</th><th>R/股</th><th>股數</th><th>名義</th><th>距60日高</th><th>高E50(ATR)</th><th>ATR</th><th>63日%</th>
+    <th>後備21買入</th><th>後備21SL</th><th>後備21TP1</th><th>後備21股數</th>
   </tr></thead>
   <tbody></tbody>
 </table>
 </div>
-<div class="legend">排序＝<b>★／◆標記優先</b>，其餘按代碼 A–Z。「旗」＝63日升≥15%、EMA21向上、企喺EMA50上；「底」＝126日內曾回撤≥30%、近40日range≤25%、EMA21走平/向上、40日低位喺≥15日前（冇新低）、重上EMA21。候選多係正常——寬入嚴出，人眼嗰關先係篩選。<span style="color:#d9a441;">★Nd</span>＝旗桶強勢股<b>首次回9EMA</b>（之前 N 個交易日 low 冇掂過9線，N≥10 先標）——Steven 實戰觀察呢類成功率高，落單前優先睇。<span style="color:#7ab8d9;">◆破回</span>＝<b>突破後首次回踩9線</b>（最近10日內有放量大陽燭〔升≥5%＋成交≥1.5×20日均量〕收穿9線，之後冇掂過）——FSLY 型；同★首回係兩類 setup，分開落賬。</div>
+<div class="legend">入圍頭 40 只按「距線近遠」；顯示次序＝<b>★／◆標記優先</b>，其餘按代碼 A–Z（標記唔影響邊 40 隻入圍）。「旗」＝63日升≥15%、EMA21向上、企喺EMA50上；「底」＝126日內曾回撤≥30%、近40日range≤25%、EMA21走平/向上、40日低位喺≥15日前（冇新低）、重上EMA21。候選多係正常——寬入嚴出，人眼嗰關先係篩選。<span style="color:#d9a441;">★Nd</span>＝旗桶強勢股<b>首次回9EMA</b>（之前 N 個交易日 low 冇掂過9線，N≥10 先標）——Steven 實戰觀察呢類成功率高，落單前優先睇。<span style="color:#7ab8d9;">◆破回</span>＝<b>突破後首次回踩9線</b>（最近10日內有放量大陽燭〔升≥5%＋成交≥1.5×20日均量〕收穿9線，之後冇掂過）——FSLY 型；同★首回係兩類 setup，分開落賬。<b>★／◆ 只係眼判輔助：唔參與篩選、唔參與排序入圍，唔係買入指標；兩個同中就兩個都顯示。</b>「後備21」四欄＝掛 9EMA 嘅股先會有：夜晚窗開市穿 9 要轉掛 21 嗰陣照抄就得（用 asof 收市嘅 21EMA 計好；「—」＝操作下限唔過，唔可以轉掛）。</div>
 
 <script>
 Promise.all([
@@ -49,10 +50,15 @@ Promise.all([
   const qi=D.rows.filter(x=>x.b==='旗').length, di=D.rows.filter(x=>x.b==='底').length;
   document.getElementById('sumline').innerHTML =
     `顯示頭 <b>${D.n}</b>／${D.total} 隻（旗 ${qi}｜底 ${di}）｜業績牆剔 ${D.blocked} 隻｜R＝$${D.risk}／單`;
+  function expAsof(){const hk=new Date(Date.now()+8*3600e3);const e=new Date(Date.UTC(hk.getUTCFullYear(),hk.getUTCMonth(),hk.getUTCDate()));if(hk.getUTCHours()*60+hk.getUTCMinutes()<390)e.setUTCDate(e.getUTCDate()-1);do{e.setUTCDate(e.getUTCDate()-1)}while(e.getUTCDay()%6===0);return e.toISOString().slice(0,10);}
+  if(D.asof<expAsof()) document.getElementById('sumline').insertAdjacentHTML('afterbegin','<b style="color:#c66">⚠️ 數據日期 '+D.asof+' 唔係最新（應為 '+expAsof()+'）——美股假期可以唔理，否則同 Kimi 講，唔好照抄價位</b><br>');
   const eb=document.getElementById('expobar');
   if(X && X.updated){
-    const tot=(X.positions_r+X.pending_orders_r).toFixed(1);
-    eb.innerHTML=`📊 <b>總曝露 ${tot}／6R</b>（持倉 ${X.positions_r}R＋未成交掛單 ${X.pending_orders_r}R）｜更新：${X.updated}${tot>=6?'｜<b style="color:#c66">已滿——新單唔掛</b>':''}`;
+    const used=(+X.positions_r)+(+X.pending_orders_r);
+    const room=Math.floor(6-used+1e-9);
+    eb.innerHTML=`📊 <b>總曝露 ${used.toFixed(2)}／6R</b>（持倉 ${(+X.positions_r).toFixed(2)}R＋未成交掛單 ${X.pending_orders_r}R）｜更新：${X.updated}｜`
+      +(room>=1?`今晚最多再掛 <b>${room}</b> 張新單`:`<b style="color:#c66">再掛一張就 >6R——今晚唔開新單</b>`)
+      +((X.updated+'').slice(0,10)<expAsof()?`｜<b style="color:#c66">⚠️ 曝露係 ${(X.updated+'').slice(0,10)} 嘅數，唔係最新——自己心算 ≤6R</b>`:'');
   } else {
     eb.innerHTML='📊 <b>總曝露 未申報／6R</b>——夜晚窗三行記錄時報持倉＋掛單俾軍師，呢度先會有數。未申報期間：自己心算 ≤6R。';
   }
@@ -63,7 +69,7 @@ Promise.all([
       <td>${x.b==='旗'?'<span style="color:#d9a441;font-weight:700">旗</span>':'<span style="color:#7a9cc6;font-weight:700">底</span>'}</td>
       <td style="font-weight:700;text-align:left">${x.t}</td>
       <td>${x.c}</td>
-      <td>${x.ln}${(x.b==='旗'&&x.ln==='9EMA'&&x.f9>=10)?` <span style="color:#d9a441;font-weight:700" title="首次回9EMA：之前 ${x.f9} 個交易日冇掂過9線">★${x.f9}d</span>`:((x.b==='旗'&&x.ln==='9EMA'&&x.bo)?` <span style="color:#7ab8d9;font-weight:700" title="突破後首次回踩：最近10日內放量大陽燭（升≥5%＋成交≥1.5×20日均量）收穿9線，之後冇掂過">◆破回</span>`:'')}</td>
+      <td>${x.ln}${(x.b==='旗'&&x.ln==='9EMA'&&x.f9>=10)?` <span style="color:#d9a441;font-weight:700" title="首次回9EMA：之前 ${x.f9} 個交易日冇掂過9線">★${x.f9}d</span>`:''}${(x.b==='旗'&&x.ln==='9EMA'&&x.bo)?` <span style="color:#7ab8d9;font-weight:700" title="突破後首次回踩：最近10日內放量大陽燭（升≥5%＋成交≥1.5×20日均量）收穿9線，之後冇掂過">◆破回</span>`:''}</td>
       <td class="${x.dist>=0?'exc-pos':'exc-neg'}">${x.dist>=0?'+':''}${x.dist}</td>
       <td style="font-weight:700;color:#d9a441">${x.buy}</td>
       <td style="color:#c66">${x.sl}</td>
@@ -74,7 +80,11 @@ Promise.all([
       <td class="${x.d60hi>=-10?'':'exc-neg'}">${x.d60hi}%</td>
       <td>${x.e50a}</td>
       <td>${x.atr}</td>
-      <td class="${x.r63>=0?'exc-pos':'exc-neg'}">${x.r63>=0?'+':''}${x.r63}%</td></tr>`);
+      <td class="${x.r63>=0?'exc-pos':'exc-neg'}">${x.r63>=0?'+':''}${x.r63}%</td>
+      <td>${x.b21b!=null?x.b21b:'—'}</td>
+      <td style="color:#c66">${x.b21s!=null?x.b21s:'—'}</td>
+      <td style="color:#6a6">${x.b21t!=null?x.b21t:'—'}</td>
+      <td>${x.b21sh!=null?x.b21sh:'—'}</td></tr>`);
   });
 }).catch(e=>{
   document.getElementById('sumline').textContent='⚠️ box_scanner.json load 唔到——同 Kimi 講聲。';
