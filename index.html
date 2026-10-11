@@ -63,17 +63,6 @@
   <span class="sw" style="background:#b8402f"></span>&lt;1（Dn4 佔優）　虛線＝1.0 分界
 </div>
 
-<h2>每日監察表 · P1 宇宙版</h2>
-<div class="note" id="p1u-note">同上表一樣嘅指標，但入池條件改用 P1 宇宙（收市 ≥ $5 · ≥60 日歷史 · DVOL20 ≥ $10M · mean(Vol,60) ≥ 2M 股）。regime 燈決定 P1 做唔做，呢組數先係 P1 實際面對嘅市場。Δ 欄＝P1% − 寬宇宙%（pp），MA5＝5 日移動平均；Δ 長期為正係預期（P1 偏動能股），要留意嘅係背馳（Δ 收窄／轉負）嗰陣。</div>
-<div style="overflow-x:auto;">
-<table id="p1utbl">
-  <thead><tr>
-    <th>日期</th><th>UP 4%</th><th>DN 4%</th><th>% &gt; 20D</th><th>% &gt; 50D</th><th>P1 宇宙隻數</th><th>Δ20D</th><th>MA5</th><th>Δ50D</th><th>MA5</th>
-  </tr></thead>
-  <tbody></tbody>
-</table>
-</div>
-
 <h2>4% 動量脈搏</h2>
 <div class="note" id="pulse-note"></div>
 <div class="pulse-wrap"><svg id="pulse" width="100%" height="260" viewBox="0 0 1100 260" preserveAspectRatio="none"></svg></div>
@@ -91,17 +80,31 @@
 <h2 id="read-title2"></h2>
 <div class="cards" id="cards2"></div>
 
-<h2>行業組成</h2>
-<div class="note">跟 CupSir 2026-10-07 方法論：<b>lift</b>＝滲透率 ÷ 整體滲透率（幅度，唔受行業大細影響）；<b>z</b>＝偏離隨機嘅顯著性（&gt;1.96 先計數，多重檢驗下單日過關唔等於穩陣）；<b>季度 median</b>＝行業全部股票季度回報中位數（深度——lift 高但 median 負＝少數股爆升）；<b>Δlift</b>＝今日 lift 減 21 日前（固定同一批股票，相對份額變化）；<b>pace</b>＝21 日 median − 季度 median÷3（絕對加速度）。base&lt;20 隻嘅行業唔入排名。<span id="sic-note" style="color:#b08b3e;"></span></div>
+<h2>行業動能：水平 vs 方向</h2>
+<div class="note" id="ind-sub"></div>
+
+<h3 style="margin:18px 0 6px;color:#d9a441;">動能明顯變強</h3>
+<div class="note">Δlift＝今日 lift 減 21 日前 lift，固定同一批股票計，量度行業喺動力股池入面嘅相對份額變化。</div>
 <div style="overflow-x:auto;">
-<table id="indtbl">
+<table id="indup">
   <thead><tr>
-    <th>#</th><th>行業</th><th>LIFT</th><th>季度MEDIAN</th><th>ΔLIFT</th><th>PACE</th><th>滲透率%</th><th>動力股</th><th>BASE</th><th>Z</th>
+    <th>#</th><th>行業</th><th>ΔLIFT</th><th>21 日前</th><th>今日</th><th>PACE</th><th>21 日 MEDIAN</th><th>5 日 MEDIAN</th><th>BASE</th>
   </tr></thead>
   <tbody></tbody>
 </table>
 </div>
-<div class="legend">Δlift 用今日宇宙倒推 21 日前身分，有輕微 look-ahead——適合量度相對轉動，唔好當可以回測嘅歷史訊號；單一 21 日比較只係兩點連線，分唔開趨勢同噪音。</div>
+
+<h3 style="margin:18px 0 6px;color:#b8402f;">動能明顯變弱</h3>
+<div style="overflow-x:auto;">
+<table id="inddn">
+  <thead><tr>
+    <th>#</th><th>行業</th><th>ΔLIFT</th><th>21 日前</th><th>今日</th><th>PACE</th><th>21 日 MEDIAN</th><th>5 日 MEDIAN</th><th>BASE</th>
+  </tr></thead>
+  <tbody></tbody>
+</table>
+</div>
+
+<div class="legend"><b>兩個方向指標唔係同一回事：</b>Δlift 係<b>相對</b>變化——行業喺動力股池入面佔幾多份額（今日全市場動力股比例見頂部「X% → Y%」，Δlift 答嘅係邊個行業份額升咗）；pace＝21 日 median − 63 日 median÷3，係<b>絕對</b>加速度——過去一個月嘅步速有冇快過成季嘅平均月步速，唔使歷史數據日日計到。<span id="ind-corr"></span>相關系數低嘅時候，代表有行業係「跌得少過人」而唔係真係升緊，兩欄要一齊睇。Δlift 用咗今日嘅宇宙倒推 21 日前嘅身分，有輕微 look-ahead；好處係成分唔會飄移，適合量度變化。<span id="ind-drop"></span>單一個 21 日比較只係兩點之間連線，分唔開趨勢同噪音。base&lt;20 隻嘅行業唔入排名。<span id="sic-note" style="color:#b08b3e;"></span></div>
 
 <h2>領導股數目走勢</h2>
 <div class="note" id="trend-note"></div>
@@ -118,7 +121,7 @@
   </ul>
 </div>
 
-<div class="note" style="margin-top:26px;">市寬與動能監察表＋動力股分析嘅指標定義、色階規則、統計範圍<b>盡量跟足</b> CupSir 原版（市寬＋動力股跟 2026-08-28 期；行業組成跟 2026-10-07 期方法論：lift／z／季度 median／Δlift／pace），已知差異：①行業分類用 SEC EDGAR SIC（同 CupSir 嘅對照表覆蓋唔同，未分類比例會有出入）②UP4/DN4 用 adjusted 價，同 CupSir 有 ±1–5 隻邊界差 ③S&P 500 用 FRED 官方收市 ④10 日比率（2026-10-04 新增）同樣受 ② 嘅宇宙差異影響，數值同 CupSir 有 ±0.02–0.05 出入，&lt;1 連段起訖亦可有幾日偏差，歷來最長表只計 2025-12 起嘅數據。教育與資訊用途，唔係買賣訊號。</div>
+<div class="note" style="margin-top:26px;">市寬與動能監察表＋動力股分析嘅指標定義、色階規則、統計範圍<b>盡量跟足</b> CupSir 原版（市寬＋動力股跟 2026-08-28 期；行業動能跟 2026-10-09 期「水平 vs 方向」方法論：Δlift／lift 水平／pace／21日・5日 median），已知差異：①行業分類用 SEC EDGAR SIC（同 CupSir 嘅對照表覆蓋唔同，未分類比例會有出入）②UP4/DN4 用 adjusted 價，同 CupSir 有 ±1–5 隻邊界差 ③S&P 500 用 FRED 官方收市 ④10 日比率（2026-10-04 新增）同樣受 ② 嘅宇宙差異影響，數值同 CupSir 有 ±0.02–0.05 出入，&lt;1 連段起訖亦可有幾日偏差，歷來最長表只計 2025-12 起嘅數據。教育與資訊用途，唔係買賣訊號。</div>
 
 <script>
 const DG='#10733f', DR='#b8402f';
@@ -269,26 +272,7 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
       <td>${tot.toLocaleString()}</td><td><b>${typeof spx==='number'?spx.toLocaleString():spx}</b></td></tr>`);
   });
 
-  // P1 宇宙每日監察表
-  if(D.p1_universe && D.p1_universe.daily){
-    document.getElementById('p1u-note').textContent = D.p1_universe.note;
-    const tb2=document.querySelector('#p1utbl tbody');
-    D.p1_universe.daily.forEach(r=>{
-      const [dt,up,dn,p20,p50,np1,df20,df50,m20,m50]=r;
-      const upWin=up>=dn;
-      const upCls = upWin ? (up>=300?'c-deepG':'c-liteG') : (up>=300?'c-deepR':'c-liteR');
-      const dnCls = !upWin ? (dn>=300?'c-deepR':'c-liteR') : (dn>=300?'c-deepG':'c-liteG');
-      const pCls=(v,is20)=> v<=(is20?10:20)?'c-deepG' : v<=30?'c-liteG' : v>=(is20?90:80)?'c-deepR' : v>=70?'c-liteR' : '';
-      const fmtD=v=>v==null?'—':(v>0?'+'+v:''+v);
-      const dCls=v=>v==null?'':(v<0?'c-liteR':'');
-      tb2.insertAdjacentHTML('beforeend',`<tr>
-        <td>${dt}</td><td class="${upCls}">${up}</td><td class="${dnCls}">${dn}</td>
-        <td class="${pCls(p20,1)}">${p20}</td><td class="${pCls(p50,0)}">${p50}</td>
-        <td>${np1.toLocaleString()}</td>
-        <td class="${dCls(df20)}">${fmtD(df20)}</td><td class="${dCls(m20)}">${fmtD(m20)}</td>
-        <td class="${dCls(df50)}">${fmtD(df50)}</td><td class="${dCls(m50)}">${fmtD(m50)}</td></tr>`);
-    });
-  }
+  // （P1 宇宙每日監察表 2026-10-11 收埋——P1 已封存，頁面唔再顯示；data.json 嘅 p1_universe 照舊每日計，歷史唔斷）
 
   // 4% 動量脈搏
   document.getElementById('pulse-note').textContent = D.breadth_pulse_note;
@@ -365,23 +349,34 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
     <div class="card"><div class="lbl">頭三大行業集中度</div><div class="val">${Number(L.top3_conc).toFixed(1)}%</div><div class="sub2">覆蓋 ${L.industries_covered} 個行業</div></div>
     <div class="card"><div class="lbl">最強行業（lift）</div><div class="val">${L.top_industry_lift}x</div><div class="sub2">${L.top_industry}　滲透率 ${L.top_industry_pen}%　Δlift ${L.top_industry_dlift}</div></div>`;
 
-  const ib=document.querySelector('#indtbl tbody');
-  const fmts=v=>v==null?'—':(v>0?'+':'')+v+'%';
-  L.industries.forEach((x,k)=>{
-    const [name,lift,qmed,dlift,pace,pen,n,base,z,sig]=x;
-    ib.insertAdjacentHTML('beforeend',`<tr>
+  // 行業動能：水平 vs 方向（2026-10-11 跟 CupSir 2026-10-09 期改版：變強／變弱兩表，Δlift 主打）
+  document.getElementById('ind-sub').innerHTML =
+    `收市 <b>${L.asof}</b>　對照 <b>21</b> 個交易日前　固定同一批 <b>${(L.fixed_n||0).toLocaleString()}</b> 隻　動力股比例 <b>${L.motors_pct_prev==null?'—':L.motors_pct_prev+'%'}</b> → <b>${Number(L.share_pct).toFixed(1)}%</b>`;
+  if(L.corr_dlift_pace!=null) document.getElementById('ind-corr').textContent = `兩者今日相關系數 ${L.corr_dlift_pace}。`;
+  if(L.dropped_n) document.getElementById('ind-drop').textContent = `${L.dropped_n} 隻股票因為對照日未上市（或歷史唔夠）而撤除。`;
+  const fmts=v=>v==null?'—':(v>0?'+':'')+v.toFixed(1)+'%';
+  const rowHtml=(x,k)=>{
+    const [name,lift,qmed,dlift,pace,pen,n,base,z,sig,liftp,med21,med5]=x;
+    return `<tr>
       <td>${k+1}</td><td style="text-align:left;font-weight:600;">${name}</td>
-      <td style="font-weight:700;${lift>=1?'color:#d9a441':'color:#8a8474'}">${lift.toFixed(2)}</td>
-      <td class="${qmed>=0?'exc-pos':'exc-neg'}">${fmts(qmed)}</td>
-      <td class="${dlift>=0?'exc-pos':'exc-neg'}">${dlift==null?'—':(dlift>0?'+':'')+dlift.toFixed(2)}</td>
-      <td class="${pace>=0?'exc-pos':'exc-neg'}">${fmts(pace)}</td>
-      <td>${pen}</td><td>${n}</td><td>${base}</td>
-      <td>${z>0?'+':''}${z.toFixed(2)}${sig?' <b style="color:#d9a441">'+sig+'</b>':''}</td></tr>`);
-  });
+      <td class="${dlift>=0?'c-deepG':'c-deepR'}">${dlift>0?'+':''}${dlift.toFixed(2)}</td>
+      <td>${liftp==null?'—':liftp.toFixed(2)}</td>
+      <td>${lift.toFixed(2)}</td>
+      <td class="${pace==null?'':(pace>=0?'c-liteG':'c-liteR')}">${fmts(pace)}</td>
+      <td>${fmts(med21)}</td><td>${fmts(med5)}</td><td>${base}</td></tr>`;
+  };
+  const withD=L.industries.filter(x=>x[3]!=null);
+  const up=withD.filter(x=>x[3]>0).sort((a,b)=>b[3]-a[3]);
+  const dn=withD.filter(x=>x[3]<0).sort((a,b)=>a[3]-b[3]);
+  const upShow=up.slice(0,7), dnShow=dn.slice(0,7);
+  const iu=document.querySelector('#indup tbody'), idn=document.querySelector('#inddn tbody');
+  upShow.forEach((x,k)=>iu.insertAdjacentHTML('beforeend',rowHtml(x,k)));
+  dnShow.forEach((x,k)=>idn.insertAdjacentHTML('beforeend',rowHtml(x,k)));
   const ft=[];
+  if(up.length-upShow.length+dn.length-dnShow.length>0) ft.push(`其餘 ${up.length-upShow.length+dn.length-dnShow.length} 個行業變化較細，唔入兩表（每表限頭 7）`);
   if(L.excluded_small) ft.push(`${L.excluded_small} 個行業 base 少過 20 隻，波動太大，唔入排名`);
   if(L.unclassified) ft.push(`未分類 ${L.unclassified.n} 隻（滲透率 ${L.unclassified.pen}%、季度 median ${L.unclassified.qmed==null?'—':L.unclassified.qmed+'%'}）——行業對照表覆蓋缺口，唔當行業處理`);
-  if(ft.length) ib.insertAdjacentHTML('beforeend',`<tr><td colspan="10" style="text-align:left;color:#8a8474;font-size:12px;">${ft.join('｜')}</td></tr>`);
+  if(ft.length) idn.insertAdjacentHTML('beforeend',`<tr><td colspan="9" style="text-align:left;color:#8a8474;font-size:12px;">${ft.join('｜')}</td></tr>`);
 
   // 領導股走勢（多點面積圖）
   document.getElementById('trend-note').textContent = L.trend_note;
