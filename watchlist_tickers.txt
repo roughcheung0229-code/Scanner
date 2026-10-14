@@ -1,8 +1,17 @@
-# Steven TradingView「MAIN FOCUS LIST」觀察名單（2026-10-12 週）
+# Steven TradingView「MAIN FOCUS LIST」觀察名單（2026-10-14 對照 TV 更新）
 # box_scanner_watchlist.py 讀呢個檔；改名單＝改呢度（一行一隻，# 開頭係註解）
+# 來源：https://www.tradingview.com/watchlists/348280185/ （Steven 每日 send 一次，Kimi 對照更新）
+CAI
+KVYO
+RELY
+MIR
+CHYM
+ZETA
+BE
+TEM
+SN
 CRDO
 SHOP
-ZETA
 SPCX
 AMD
 RBLX
@@ -10,7 +19,6 @@ APPN
 FROG
 GAP
 DDOG
-TEM
 MRVL
 HPE
 IOVA
@@ -20,8 +28,6 @@ S
 CRWD
 PANW
 GME
-VIAV
-FPS
 MSTR
 DHT
 LITE
@@ -30,18 +36,19 @@ ACN
 AMAT
 SMCI
 AFRM
-KLAC
 SNOW
 NOW
 LRCX
 PINS
-BE
 CAKE
 CLMT
 NOG
-SN
 VCTR
 W
 WDAY
 REPL
 AVAH
+P
+CDNA
+CPRI
+CTRI
