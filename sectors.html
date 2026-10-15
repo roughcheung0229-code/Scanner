@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sector SPDR 11 隻行業 ETF 日線一覽</title>
+<style>
+  :root{ --ink:#1a1f2b; --mut:#8a93a6; --up:#2fa97c; --dn:#e4574f; --e21:#3d9e6e; --e50:#d95f57; }
+  *{box-sizing:border-box}
+  body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,"PingFang HK","PingFang SC","Microsoft JhengHei",sans-serif;}
+  .wrap{max-width:1500px;margin:0 auto;padding:28px 34px 40px;}
+  .back{font-size:13px;color:var(--mut);text-decoration:none}
+  .back:hover{color:var(--ink)}
+  h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+  h1 .en{font-weight:800}
+  .sub{color:var(--mut);font-size:15px;margin-bottom:4px}
+  .desc{font-size:14.5px;color:#4a5261;margin:12px 0 22px;line-height:1.7}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 22px}
+  @media(max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  .card .hd{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .tk{font-weight:800;font-size:16px;color:#1d6f4e}
+  .nm{font-size:13px;color:#6b7280}
+  .px{margin-left:auto;font-weight:700;font-size:15px}
+  .up{color:var(--up)} .dn{color:var(--dn)}
+  .meta{font-size:11.5px;color:var(--mut);margin:2px 0 6px}
+  svg{width:100%;height:auto;display:block}
+  .tbl{font-size:12.5px;width:100%;border-collapse:collapse}
+  .tbl th{color:var(--mut);font-weight:600;text-align:right;padding:3px 6px;border-bottom:1px solid #e5e8ee}
+  .tbl th:first-child,.tbl td:first-child{text-align:left}
+  .tbl td{padding:3.5px 6px;text-align:right;border-bottom:1px solid #f1f3f7;font-variant-numeric:tabular-nums}
+  .tbl .rt{font-weight:700}
+  .foot{margin-top:26px;color:var(--mut);font-size:12px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← 返主頁</a>
+  <h1><span class="en">Sector SPDR</span>&nbsp;&nbsp;11 隻行業 ETF 日線一覽</h1>
+  <div class="sub">類別：ETF　｜　State Street Select Sector SPDR ETF</div>
+  <div class="desc">11 隻 ETF 分別追蹤 S&amp;P 500 入面 11 個 GICS 行業嘅成分股；每格係約 3 個月日線，按 RSI(14) 由高至低排列，右下角係 RSI 同 1 日、1 個月、3 個月回報一覽。</div>
+  <div class="grid" id="grid"></div>
+  <div class="foot" id="foot"></div>
+</div>
+<script>
+fetch('sectors.json?'+Date.now()).then(r=>r.json()).then(D=>{
+  const grid=document.getElementById('grid');
+  const W=340,H=210,VH=34;   // 圖區 + 成交量區
+  D.rows.forEach(r=>{
+    const card=document.createElement('div');card.className='card';
+    const cls=r.chg1d>=0?'up':'dn', sign=r.chg1d>=0?'+':'';
+    card.innerHTML=`<div class="hd"><span class="tk">${r.t}</span><span class="nm">${r.name}</span>
+      <span class="px ${cls}">${r.c.toFixed(2)} ${sign}${r.chg1d.toFixed(2)}%</span></div>
+      <div class="meta">RSI(14) ${r.rsi}&nbsp;&nbsp;3 個月 ${(r.r3m>=0?'+':'')+r.r3m.toFixed(1)}%</div>`;
+    // 畫圖
+    const bars=r.bars, n=bars.length;
+    let hi=-1e9,lo=1e9,vmax=0;
+    bars.forEach(b=>{hi=Math.max(hi,b[2]);lo=Math.min(lo,b[3]);vmax=Math.max(vmax,b[5]);});
+    r.e21.forEach(x=>{hi=Math.max(hi,x);lo=Math.min(lo,x);});
+    r.e50.forEach(x=>{hi=Math.max(hi,x);lo=Math.min(lo,x);});
+    const pad=(hi-lo)*0.04; hi+=pad; lo-=pad;
+    const X=i=>6+i*(W-12)/(n-1), Y=p=>8+(hi-p)/(hi-lo)*(H-VH-16), YV=v=>H-2-(v/vmax)*(VH-4);
+    let s=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">`;
+    // 網格線
+    for(let g=0;g<=3;g++){const p=lo+(hi-lo)*g/3,y=Y(p);
+      s+=`<line x1="6" y1="${y}" x2="${W-6}" y2="${y}" stroke="#eef1f5" stroke-width="1"/>
+          <text x="${W-8}" y="${y-2}" font-size="8.5" fill="#aab1bf" text-anchor="end">${p.toFixed(Math.abs(p)<100?1:0)}</text>`;}
+    // 成交量
+    bars.forEach((b,i)=>{const up=b[4]>=b[1];
+      s+=`<line x1="${X(i)}" y1="${YV(b[5])}" x2="${X(i)}" y2="${H-2}" stroke="${up?'#9fd8c0':'#f0b6b2'}" stroke-width="2.4"/>`;});
+    // EMA 線
+    const path=a=>'M'+a.map((p,i)=>`${X(i).toFixed(1)},${Y(p).toFixed(1)}`).join(' L');
+    s+=`<path d="${path(r.e50)}" fill="none" stroke="var(--e50)" stroke-width="1.2" opacity=".85"/>`;
+    s+=`<path d="${path(r.e21)}" fill="none" stroke="var(--e21)" stroke-width="1.2" opacity=".9"/>`;
+    // 蠟燭
+    bars.forEach((b,i)=>{const[ ,o,h,l,c]=b,up=c>=o,col=up?'#2fa97c':'#e4574f',x=X(i);
+      s+=`<line x1="${x}" y1="${Y(h)}" x2="${x}" y2="${Y(l)}" stroke="${col}" stroke-width="1"/>`;
+      const y1=Y(Math.max(o,c)),y2=Y(Math.min(o,c));
+      s+=`<rect x="${(x-1.9).toFixed(1)}" y="${y1.toFixed(1)}" width="3.8" height="${Math.max(y2-y1,0.8).toFixed(1)}" fill="${up?'#fff':col}" stroke="${col}" stroke-width="1.1"/>`;});
+    s+='</svg>';
+    card.innerHTML+=s;
+    grid.appendChild(card);
+  });
+  // 排名表（最後一格）
+  const t=document.createElement('div');t.className='card';
+  let rows=D.rows.map(r=>`<tr><td class="rt">${r.t}</td><td style="text-align:left;color:#6b7280">${r.name}</td>
+    <td><b>${r.rsi.toFixed(1)}</b></td>
+    <td class="${r.chg1d>=0?'up':'dn'}">${(r.chg1d>=0?'+':'')+r.chg1d.toFixed(1)}%</td>
+    <td class="${r.r1m>=0?'up':'dn'}">${(r.r1m>=0?'+':'')+r.r1m.toFixed(1)}%</td>
+    <td class="${r.r3m>=0?'up':'dn'}">${(r.r3m>=0?'+':'')+r.r3m.toFixed(1)}%</td></tr>`).join('');
+  t.innerHTML=`<div class="hd"><span class="tk">RSI(14) 排序</span></div>
+    <table class="tbl" style="margin-top:8px"><tr><th></th><th style="text-align:left"></th><th>RSI</th><th>1 日</th><th>1 個月</th><th>3 個月</th></tr>${rows}</table>`;
+  grid.appendChild(t);
+  document.getElementById('foot').innerHTML=
+    `日線，約 3 個月；按 RSI(14) 由高至低排列；EMA21 <span style="color:var(--e21)">綠</span>、EMA50 <span style="color:var(--e50)">紅</span>；數據截至 ${D.asof} 收市。歷史價格不代表未來表現。數據：Massive.com（經調整）。`;
+});
+</script>
+</body>
+</html>
