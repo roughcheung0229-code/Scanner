@@ -8,11 +8,15 @@
 <style>
   .wrap{}
   h2{margin:6px 0 2px}
-  .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 12px;margin-top:10px}
+  .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 12px;margin-top:10px;direction:rtl}
   @media(max-width:1100px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
   @media(max-width:820px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.px{flex:0 0 100%;margin-left:0;text-align:right}}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:7px 9px 5px;min-width:0;overflow:hidden}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:7px 9px 5px;min-width:0;overflow:hidden;direction:ltr}
   .hd{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+  .rk{font-size:11px;color:var(--golddim);font-weight:700;font-variant-numeric:tabular-nums}
+  .swp{cursor:pointer;font-size:10.5px;color:var(--tx3);border:1px solid var(--line2);border-radius:10px;padding:1px 8px;margin-left:auto}
+  .swp+.swp{margin-left:4px}
+  .swp.on{color:var(--gold);border-color:var(--golddim)}
   .tk2{font-weight:800;font-size:13.5px;color:var(--gold)}
   .nm{font-size:11px;color:var(--tx2);white-space:nowrap}
   .px{margin-left:auto;font-weight:700;font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -30,7 +34,7 @@
 <div class="wrap">
   <div class="nav"><a href="index.html">市寬動能表</a><span class="here">行業 ETF</span><a href="p2.html">落單紙</a><a href="p2w.html">觀察名單</a></div>
   <h2>Sector SPDR　11 隻行業 ETF 日線一覽</h2>
-  <div class="sub">類別：ETF ｜ State Street Select Sector SPDR ETF——追蹤 S&amp;P 500 入面 11 個 GICS 行業成分股；每格約 3 個月日線，按 RSI(14) 由高至低排列；右下角係 RSI 同 1 日、1 個月、3 個月回報一覽。</div>
+  <div class="sub">類別：ETF ｜ State Street Select Sector SPDR ETF——追蹤 S&amp;P 500 入面 11 個 GICS 行業成分股；每格約 3 個月日線，按 1 日升幅由大至細排（最強喺右上角，右至左讀落去）；最後嗰格係排名表，預設跟 RSI(14)，可以切換 1 星期。</div>
   <div class="grid" id="grid"></div>
   <div class="foot" id="foot"></div>
 </div>
@@ -38,10 +42,11 @@
 fetch('sectors.json?'+Date.now()).then(r=>r.json()).then(D=>{
   const grid=document.getElementById('grid');
   const W=300,H=132,VH=22;
-  D.rows.forEach(r=>{
+  const cards=[...D.rows].sort((a,b)=>b.chg1d-a.chg1d);
+  cards.forEach((r,idx)=>{
     const card=document.createElement('div');card.className='card';
     const cls=r.chg1d>=0?'up':'dn', sign=r.chg1d>=0?'+':'';
-    card.innerHTML=`<div class="hd"><span class="tk2">${r.t}</span><span class="nm">${r.name}</span>
+    card.innerHTML=`<div class="hd"><span class="rk">${idx+1}</span><span class="tk2">${r.t}</span><span class="nm">${r.name}</span>
       <span class="px ${cls}">${r.c.toFixed(2)} ${sign}${r.chg1d.toFixed(2)}%</span></div>
       <div class="meta">RSI(14) ${r.rsi}　3 個月 ${(r.r3m>=0?'+':'')+r.r3m.toFixed(1)}%</div>`;
     const bars=r.bars, n=bars.length;
@@ -69,16 +74,27 @@ fetch('sectors.json?'+Date.now()).then(r=>r.json()).then(D=>{
     grid.appendChild(card);
   });
   const t=document.createElement('div');t.className='card';
-  let rows=D.rows.map(r=>`<tr><td><b>${r.t}</b></td><td style="text-align:left;color:var(--tx2)">${r.name}</td>
-    <td><b style="color:var(--gold2)">${r.rsi.toFixed(1)}</b></td>
-    <td class="${r.chg1d>=0?'up':'dn'}">${(r.chg1d>=0?'+':'')+r.chg1d.toFixed(1)}%</td>
-    <td class="${r.r1m>=0?'up':'dn'}">${(r.r1m>=0?'+':'')+r.r1m.toFixed(1)}%</td>
-    <td class="${r.r3m>=0?'up':'dn'}">${(r.r3m>=0?'+':'')+r.r3m.toFixed(1)}%</td></tr>`).join('');
-  t.innerHTML=`<div class="hd"><span class="tk2">RSI(14) 排序</span></div>
-    <table class="tbl"><tr><th></th><th style="text-align:left"></th><th>RSI</th><th>1 日</th><th>1 個月</th><th>3 個月</th></tr>${rows}</table>`;
+  t.innerHTML=`<div class="hd"><span class="tk2">排名表</span><span class="swp on" id="sw-rsi">RSI(14)</span><span class="swp" id="sw-1w">1星期</span></div><div id="tb"></div>`;
   grid.appendChild(t);
+  let mode='rsi';
+  const renderTbl=()=>{
+    const arr=[...D.rows].sort((a,b)=>mode==='rsi'?b.rsi-a.rsi:(b.r1w??-999)-(a.r1w??-999));
+    const rows=arr.map(r=>{
+      const m=mode==='rsi'?`<b style="color:var(--gold2)">${r.rsi.toFixed(1)}</b>`
+        :`<b class="${r.r1w>=0?'up':'dn'}">${(r.r1w>=0?'+':'')+r.r1w.toFixed(1)}%</b>`;
+      return `<tr><td><b>${r.t}</b></td><td style="text-align:left;color:var(--tx2)">${r.name}</td><td>${m}</td>
+        <td class="${r.chg1d>=0?'up':'dn'}">${(r.chg1d>=0?'+':'')+r.chg1d.toFixed(1)}%</td>
+        <td class="${r.r1m>=0?'up':'dn'}">${(r.r1m>=0?'+':'')+r.r1m.toFixed(1)}%</td>
+        <td class="${r.r3m>=0?'up':'dn'}">${(r.r3m>=0?'+':'')+r.r3m.toFixed(1)}%</td></tr>`;}).join('');
+    document.getElementById('tb').innerHTML=`<table class="tbl"><tr><th></th><th style="text-align:left"></th><th>${mode==='rsi'?'RSI':'1星期'}</th><th>1 日</th><th>1 個月</th><th>3 個月</th></tr>${rows}</table>`;
+  };
+  const setSw=()=>{document.getElementById('sw-rsi').className='swp'+(mode==='rsi'?' on':'');
+    document.getElementById('sw-1w').className='swp'+(mode==='1w'?' on':'');};
+  document.getElementById('sw-rsi').onclick=()=>{mode='rsi';setSw();renderTbl();};
+  document.getElementById('sw-1w').onclick=()=>{mode='1w';setSw();renderTbl();};
+  renderTbl();
   document.getElementById('foot').innerHTML=
-    `日線，約 3 個月；按 RSI(14) 由高至低排列；EMA9 <span class="lg9">金</span>、EMA21 <span class="lg21">綠</span>、EMA50 <span class="lg50">紅</span>；數據截至 ${D.asof} 收市。歷史價格不代表未來表現。數據：Massive.com（經調整）。`;
+    `日線，約 3 個月；ETF 卡按 1 日升幅由大至細排（最強喺右上角，右至左讀落去）；EMA9 <span class="lg9">金</span>、EMA21 <span class="lg21">綠</span>、EMA50 <span class="lg50">紅</span>；數據截至 ${D.asof} 收市。歷史價格不代表未來表現。數據：Massive.com（經調整）。`;
 });
 </script>
 </body>
