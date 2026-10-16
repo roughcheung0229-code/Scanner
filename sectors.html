@@ -8,10 +8,10 @@
 <style>
   .wrap{}
   h2{margin:6px 0 2px}
-  .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 12px;margin-top:10px;direction:rtl}
+  .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 12px;margin-top:10px}
   @media(max-width:1100px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
   @media(max-width:820px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.px{flex:0 0 100%;margin-left:0;text-align:right}}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:7px 9px 5px;min-width:0;overflow:hidden;direction:ltr}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:7px 9px 5px;min-width:0;overflow:hidden}
   .hd{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
   .rk{font-size:11px;color:var(--golddim);font-weight:700;font-variant-numeric:tabular-nums}
   .swp{cursor:pointer;font-size:10.5px;color:var(--tx3);border:1px solid var(--line2);border-radius:10px;padding:1px 8px;margin-left:auto}
@@ -34,7 +34,7 @@
 <div class="wrap">
   <div class="nav"><a href="index.html">市寬動能表</a><span class="here">行業 ETF</span><a href="p2.html">落單紙</a><a href="p2w.html">觀察名單</a></div>
   <h2>Sector SPDR　11 隻行業 ETF 日線一覽</h2>
-  <div class="sub">類別：ETF ｜ State Street Select Sector SPDR ETF——追蹤 S&amp;P 500 入面 11 個 GICS 行業成分股；每格約 3 個月日線，按 1 日升幅由大至細排（最強喺右上角，右至左讀落去）；最後嗰格係排名表，預設跟 RSI(14)，可以切換 1 星期。</div>
+  <div class="sub">類別：ETF ｜ State Street Select Sector SPDR ETF——追蹤 S&amp;P 500 入面 11 個 GICS 行業成分股；每格約 3 個月日線，按 1 日升幅由大至細排（最強喺左上角，左至右讀落去）；最後嗰格係排名表，預設跟 RSI(14)，可以切換 1 星期。</div>
   <div class="grid" id="grid"></div>
   <div class="foot" id="foot"></div>
 </div>
@@ -94,7 +94,7 @@ fetch('sectors.json?'+Date.now()).then(r=>r.json()).then(D=>{
   document.getElementById('sw-1w').onclick=()=>{mode='1w';setSw();renderTbl();};
   renderTbl();
   document.getElementById('foot').innerHTML=
-    `日線，約 3 個月；ETF 卡按 1 日升幅由大至細排（最強喺右上角，右至左讀落去）；EMA9 <span class="lg9">金</span>、EMA21 <span class="lg21">綠</span>、EMA50 <span class="lg50">紅</span>；數據截至 ${D.asof} 收市。歷史價格不代表未來表現。數據：Massive.com（經調整）。`;
+    `日線，約 3 個月；ETF 卡按 1 日升幅由大至細排（最強喺左上角，左至右讀落去）；EMA9 <span class="lg9">金</span>、EMA21 <span class="lg21">綠</span>、EMA50 <span class="lg50">紅</span>；數據截至 ${D.asof} 收市。歷史價格不代表未來表現。數據：Massive.com（經調整）。`;
 });
 </script>
 </body>
