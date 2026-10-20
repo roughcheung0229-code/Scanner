@@ -27,6 +27,9 @@
 <!-- 【2026-10-02 Steven 批准】Qullamaggie 市場濾網：SPY 10/20 日線三色帶（來自 Claude 筆記 p.16-17 嘅模擬圖，呢度用真 SPY 每日自動更新） -->
 <div class="qqf" id="qqf"></div>
 
+<!-- 【2026-10-18 Claude 指令第 3 點】持倉業績提醒：業績前一交易日 MOC 全走，朝早鏈 earn_reminder.py 每日寫入 data.json -->
+<div class="qqf" id="earnAlerts" style="display:none"></div>
+
 <h2>每日監察表</h2>
 <div class="note">SPY／QQQ 一欄為（收市 − 50 日 EMA）÷ 14 日 ATR，即係現價離 50 日線幾多個 ATR。表格只畫最近 20 個交易日。</div>
 <div style="overflow-x:auto;">
@@ -251,6 +254,16 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
     let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{
       const sv=box.querySelector('.qqf-svg'); if(sv){const tmp=document.createElement('div');tmp.innerHTML=draw();sv.replaceWith(tmp.firstChild);}
     },200);});
+  })();
+
+  // 【2026-10-18 Claude 指令第 3 點】持倉業績提醒（朝早鏈 earn_reminder.py 每日更新；冇提醒就隱藏）
+  (function(){
+    const ea=D.earn_alerts;
+    if(!ea||!ea.items||!ea.items.length) return;
+    const box=document.getElementById('earnAlerts');
+    box.style.display='';
+    box.innerHTML=`<div class="qqf-head">持倉業績提醒 <span style="opacity:.65;font-size:.85em">（${ea.asof} HKT 更新 · 規則：業績前一交易日 MOC 全走，唔准揹業績過夜）</span></div>`+
+      ea.items.map(m=>`<div class="qqf-find">${m}</div>`).join('');
   })();
 
   // 每日監察表（2026-09-29 跟 CupSir 改版：11 欄——MLI 升% 刪、MLI %→動力股佔比、搬去 QQQ ATR 之後）
