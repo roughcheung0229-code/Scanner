@@ -1,7 +1,7 @@
 {
- "updated": "2026-10-20 21:55 HKT",
- "positions_r": 0.0,
+ "updated": "2026-10-20 22:40 HKT",
+ "positions_r": 0.97,
  "pending_orders_r": 0,
  "note": "Steven 夜晚窗申報持倉＋未成交掛單後由軍師更新。計法：持倉風險＝剩餘股數×(入場−止蝕)÷$50（止蝕≥成本計 0R）；未成交 limit 單每張計 1R；上限 6R。補5 情境寫明：TP1 喺正常時段以外成交（盤後／夜盤／盤前）、BE 未推 → 剩低半倉仍按現 SL（原 SL）計，即 剩餘股數×(入場−原SL)÷$50 ≈ 0.5R；夜晚窗推咗 BE 之後先計 0R。updated 格式固定「YYYY-MM-DD HH:MM HKT」（例：2026-10-12 23:05 HKT）——落單紙嘅過期提示用頭 10 個字做日期比較，格式唔啱會誤報。",
- "detail": "**全部持倉 0R 保險狀態**（兩個 runner 嘅 stop 都企喺成本樓上，最差都贏）：ADMA runner 145股@10.11 SL **10.51**（runner 最差 +1.18R，連已鎖半倉合計最差 +2.68R；MFE +6.06R）｜KVYO runner 50股@16.81 SL **17.20**（10-20 盤前 TP1 @17.94 賣半後推 9EMA；runner 最差 +0.56R，合計最差 +2.17R；MFE +2.23R）。**CAI 已全走（10-20 09:47:43 ET SL 30.10 觸發，runner 25 股冇滑價）→ 結算 +$107.00＝+2.14R**。已結：GAP −1.15R／PURR 系外 −1.02R／MRVL −0.06R（打和・偏離：開市時已生效單）／VCTR −1.23R／SPCX −1.01R／SNOW −1.02R／CAI +2.14R。SOP 線累計 +2.52R（8 單，含 KVYO 偏離單——Steven 定性特別例子）。"
+ "detail": "持倉風險 0.97R：SSL 180股@15.50 SL 15.23（10-20 盤中 10:34:59 ET 成交，風險 $48.60；10-22 有 Q1 FY27 營運數據更新）｜**ADMA／KVYO 兩個 runner 0R 保險**（stop 企喺成本樓上）：ADMA runner 145股@10.11 SL 10.51（合計最差 +2.68R；MFE +6.06R）｜KVYO runner 50股@16.81 SL 17.20（合計最差 +2.17R；MFE +2.23R）。CAI 已全走（10-20 SL 30.10，+2.14R）。已結：GAP −1.15R／PURR 系外 −1.02R／MRVL −0.06R（打和・偏離：開市時已生效單）／VCTR −1.23R／SPCX −1.01R／SNOW −1.02R／CAI +2.14R。SOP 線累計 +2.52R（8 單，含 KVYO 偏離單；SSL 定性＝計 SOP 線，Steven 無異議）。"
 }
