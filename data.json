@@ -4278,8 +4278,7 @@
  "earn_alerts": {
   "asof": "2026-10-20",
   "items": [
-   "📅 CAI 11-03 MOC 全走（含 runner）——仲有 14 日（業績 2026-11-04（scanner earn_prefetch））",
-   "📅 KVYO 11-03 MOC 全走（含 runner）——仲有 14 日（業績 2026-11-04（scanner earn_prefetch；同 CAI 同一日，2026-10-19 新持倉加入））",
+   "📅 KVYO 11-03 MOC 全走（含 runner）——仲有 14 日（業績 2026-11-04（scanner earn_prefetch，2026-10-19 新持倉加入））",
    "📅 ADMA 11-06 MOC 全走（含 runner）——仲有 17 日（暫定——待公司公布確實日期後更新（Claude 指令原註））"
   ]
  }
