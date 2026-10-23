@@ -35,11 +35,16 @@
   <div class="nav"><a href="index.html">市寬動能表</a><span class="here">行業 ETF</span><a href="p2.html">落單紙</a><a href="p2w.html">觀察名單</a></div>
   <h2>Sector SPDR　11 隻行業 ETF 日線一覽</h2>
   <div class="sub">類別：ETF ｜ State Street Select Sector SPDR ETF——追蹤 S&amp;P 500 入面 11 個 GICS 行業成分股；每格約 3 個月日線，按 1 日升幅由大至細排（最強喺左上角，左至右讀落去）；最後嗰格係排名表，預設跟 RSI(14)，可以切換 1 星期。</div>
+  <div id="sec-hl"></div>
   <div class="grid" id="grid"></div>
   <div class="foot" id="foot"></div>
 </div>
 <script>
 fetch('sectors.json?'+Date.now()).then(r=>r.json()).then(D=>{
+  // 【2026-10-23 Steven 指令】headline 短評（gen_sectors.py 每日生成；同首頁「有咩新發現？」同款）
+  if(D.headline&&D.headline.length){
+    document.getElementById('sec-hl').innerHTML=`<div class="qqf-find"><b>琴日行業點行？</b> ${D.headline.join('；')}</div>`;
+  }
   const grid=document.getElementById('grid');
   const W=300,H=132,VH=22;
   const cards=[...D.rows].sort((a,b)=>b.chg1d-a.chg1d);
