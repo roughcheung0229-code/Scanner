@@ -1,27 +1,41 @@
-# Steven TradingView「MAIN FOCUS LIST」觀察名單（2026-10-21 對照 TV 更新，55 隻）
+# Steven TradingView「MAIN FOCUS LIST」觀察名單（2026-10-23 對照 TV 更新，63 隻）
 # box_scanner_watchlist.py 讀呢個檔；改名單＝改呢度（一行一隻，# 開頭係註解）
 # 來源：https://www.tradingview.com/watchlists/348280185/（Steven 每日 send 一次，Kimi 對照更新）
+# 10-23 變動：+GTLB +CRGY +HPQ +PATH +ROIV +SAIL +CRCL +ADBE +SIG +TOST +ADSK +ACI（12 隻）；−STNE −PCVX −SOLS −PTEN（4 隻）
 # 10-21 變動：+A +DKS +HAFN +MDT +MAT +TXG（A/DKS/HAFN/MDT 係 10-20 期落單紙掛單股；MAT 係 10-19 期；TXG 新面孔）
 # 10-20 變動：+SSL +AEO +KSS +M +CTSH +DOCU +PTEN +KOD +TENB +SWKS；−MIR −TEM −CLMT −GFS −PBF −COIN −GRAL −SONO
+SM
+GTLB
+CRGY
+HPQ
+PATH
+ROIV
+SAIL
+CRCL
+SHOP
+HAFN
+ADBE
+CAI
+SIG
+DKS
+TOST
+MAT
+CHYM
+CHWY
 SSL
 AEO
 KSS
 GME
-SM
 M
 GAP
-STNE
 PR
-CAI
 RBLX
 NOG
 AVAH
 KVYO
 RELY
-CHYM
 ZETA
 SN
-SHOP
 APPN
 IOVA
 DOCS
@@ -34,27 +48,22 @@ WDAY
 CDNA
 CPRI
 GMAB
-PCVX
-SOLS
 SG
 FIGS
 NAVN
 TEAM
 ASAN
 PCOR
-CHWY
 OSCR
 INTU
 XP
 CTSH
 DOCU
-PTEN
 KOD
 TENB
 SWKS
 A
-DKS
-HAFN
 MDT
-MAT
 TXG
+ADSK
+ACI
