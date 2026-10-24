@@ -10,7 +10,7 @@
   h2{margin:6px 0 2px}
   .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 12px;margin-top:10px}
   @media(max-width:1100px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-  @media(max-width:820px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.px{flex:0 0 100%;margin-left:0;text-align:right}}
+  @media(max-width:820px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.px{flex:0 0 100%;margin-left:0;text-align:right}.tblcard{grid-column:1/-1}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:7px 9px 5px;min-width:0;overflow:hidden}
   .hd{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
   .rk{font-size:11px;color:var(--golddim);font-weight:700;font-variant-numeric:tabular-nums}
@@ -22,10 +22,10 @@
   .px{margin-left:auto;font-weight:700;font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
   .meta{font-size:10.5px;color:var(--tx3);margin:1px 0 3px;font-variant-numeric:tabular-nums}
   svg{width:100%;height:auto;display:block}
-  .tbl{font-size:11px;width:100%;border-collapse:collapse;margin-top:4px}
-  .tbl th{color:var(--golddim);font-weight:600;text-align:right;padding:2px 4px;border-bottom:1px solid var(--line2)}
+  .tbl{font-size:10px;width:100%;border-collapse:collapse;margin-top:4px}
+  .tbl th{color:var(--golddim);font-weight:600;text-align:right;padding:2px 2px;border-bottom:1px solid var(--line2)}
   .tbl th:first-child,.tbl td:first-child{text-align:left}
-  .tbl td{padding:2.5px 4px;text-align:right;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;color:var(--tx)}
+  .tbl td{padding:2.5px 2px;text-align:right;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;color:var(--tx);white-space:nowrap}
   .foot{margin-top:12px;color:var(--tx3);font-size:11px;line-height:1.6}
   .lg9{color:var(--gold)} .lg21{color:var(--up)} .lg50{color:var(--dn)}
 </style>
@@ -78,7 +78,7 @@ fetch('sectors.json?'+Date.now()).then(r=>r.json()).then(D=>{
     card.innerHTML+=s;
     grid.appendChild(card);
   });
-  const t=document.createElement('div');t.className='card';
+  const t=document.createElement('div');t.className='card tblcard';
   t.innerHTML=`<div class="hd"><span class="tk2">排名表</span><span class="swp on" id="sw-rsi">RSI(14)</span><span class="swp" id="sw-1w">1星期</span></div><div id="tb"></div>`;
   grid.appendChild(t);
   let mode='rsi';
@@ -91,7 +91,7 @@ fetch('sectors.json?'+Date.now()).then(r=>r.json()).then(D=>{
         <td class="${r.chg1d>=0?'up':'dn'}">${(r.chg1d>=0?'+':'')+r.chg1d.toFixed(1)}%</td>
         <td class="${r.r1m>=0?'up':'dn'}">${(r.r1m>=0?'+':'')+r.r1m.toFixed(1)}%</td>
         <td class="${r.r3m>=0?'up':'dn'}">${(r.r3m>=0?'+':'')+r.r3m.toFixed(1)}%</td></tr>`;}).join('');
-    document.getElementById('tb').innerHTML=`<table class="tbl"><tr><th></th><th style="text-align:left"></th><th>${mode==='rsi'?'RSI':'1星期'}</th><th>1 日</th><th>1 個月</th><th>3 個月</th></tr>${rows}</table>`;
+    document.getElementById('tb').innerHTML=`<div style="overflow-x:auto"><table class="tbl"><tr><th></th><th style="text-align:left"></th><th>${mode==='rsi'?'RSI':'1星期'}</th><th>1 日</th><th>1 個月</th><th>3 個月</th></tr>${rows}</table></div>`;
   };
   const setSw=()=>{document.getElementById('sw-rsi').className='swp'+(mode==='rsi'?' on':'');
     document.getElementById('sw-1w').className='swp'+(mode==='1w'?' on':'');};
