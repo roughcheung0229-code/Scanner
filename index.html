@@ -246,8 +246,20 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
       if(rg&&cur[4]==='g') bits.push('要留意：濾網綠咗但 regime 仲係 🔴——兩個 lens 背馳，開倉唯獨睇 regime 閘');
       if(!rg&&cur[4]==='r') bits.push('要留意：濾網紅咗但 regime 仲係 🟢——兩個 lens 背馳，開倉唯獨睇 regime 閘');
     }
+    // 【2026-10-27 Steven 批准】快燈欄：資訊溫度計，唔係開倉閘——閘唯獨睇 SMA10/20 色帶（補8）
+    const fl=D.fast_light;
+    let flHtml='';
+    if(fl){
+      const fp=(st,t)=>`<span class="qqf-pill ${st}" style="font-size:.78em">${stIcon[st]} ${t}</span>`;
+      const fb=[];
+      if(fl.spy_fast) fb.push(fp(fl.spy_fast,`SPY vs 21EMA ${fl.spy_vs_ema21_pct>0?'+':''}${fl.spy_vs_ema21_pct}%`));
+      if(fl.r10_fast) fb.push(fp(fl.r10_fast,`Up4÷Dn4 ${fl.r10}`));
+      if(fl.pct20d!=null){const dir=fl.pct20d_prev!=null?(fl.pct20d>fl.pct20d_prev?'↗':fl.pct20d<fl.pct20d_prev?'↘':'→'):'';fb.push(`<span class="qqf-pill y" style="font-size:.78em">宇宙>SMA20 ${fl.pct20d}%${dir}</span>`);}
+      flHtml=`<div style="margin:0 0 6px">快燈（資訊・唔係閘）：${fb.join(' ')}</div>`;
+    }
     box.innerHTML=
       `<div class="qqf-head">市場濾網 · SPY 10/20 日線 <span class="qqf-pill ${cur[4]}">${stIcon[cur[4]]} ${stName[cur[4]]}區・第 ${streak} 日</span></div>`+
+      flHtml+
       draw()+
       `<div class="qqf-find"><b>有咩新發現？</b> ${bits.slice(0,3).join('；')}</div>`+
       `<div class="qqf-note">色帶＝市況狀態，唔係開倉許可——郁手唯獨睇 regime 閘。綠＝10&gt;20 且兩線齊升｜紅＝10&lt;20｜黃＝未齊條件。白線＝收市 · 綠線＝10 日 · 金虛線＝20 日 · 三個月窗（${n} 交易日）。</div>`;
