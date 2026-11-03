@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
 <title>市寬與動能監察表</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,7 +118,7 @@
 <div class="battle">
   <h2>🎯 我哋戰況（驗證年）</h2>
   <ul id="battlelist">
-    <li><span class="tag">✅ 戰績</span>一招 v2 五十單挑戰進行中（6 開 5 結）：<b>ADMA 首次先 TP1</b> 賣半 +3R（+$73.95）落袋、runner 推 9EMA 保險持倉；系外 CAI 同食 TP1（+$75）。連蝕 5 停手兩日機制首次啟動（US 10-15／10-16，10-19 恢復）</li>
+    <li><span class="tag">✅ 戰績</span>一招 v2 五十單挑戰：SOP 主表 19 單 <b>+3.04R</b>｜全部單線 20 單 <b>+2.02R</b>（未扣成本）。11-02 SSL 全單 <b>+$143.99＝+2.96R</b>、ADMA〔重入〕<b>+$120.02＝+2.46R</b>，兩單都係 TP1 後由 runner SL 結清；<b>短線系統空手、連敗 0、曝露 0R</b>，冇新 9EMA SL 要推</li>
     <li><span class="tag">風控閘</span>1R＝<b>$50</b>｜總曝露上限 6R（$300）｜每單風險 ≤1R｜連蝕 5 單停手兩個交易日｜五十單判法：平均 &gt;+0.5R 繼續、&lt;−0.5R 停、中間做到 100 單再判</li>
     <li><span class="tag">規則</span>9/21EMA 貼線 limit 接（0~+1.0 ATR 帶，穿 9 轉掛 21 後備機制）｜SL＝線−0.5×ATR14 固定｜TP1＝買入價+3R 賣半、推 BE／9EMA 跟蹤｜入場同 SL 只限正常時段（TP1 limit 任何時段合法）｜業績牆前 11 交易日唔碰</li>
     <li><span class="tag">數據</span>Massive consolidated tape（CupSir 同源）· 收市後 HKT 04:15 有數 · 朝早鏈 HKT 07:00 自動更新 · UP4/DN4 同 CupSir 有 ±1–5 邊界差（詳見頁尾）</li>
@@ -155,16 +156,16 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
   (function(){
     const r0=D.daily[0], r1=D.daily[1], r2=D.daily[2];
     if(!r0) return;
-    const p1=D.p1||{};
+    const fl=D.fast_light||{};
     const l1 = r0[2] < r0[1];                                        // ① 沽壓收乾：DN4 唔再大過 UP4
     const l2 = !!(r1&&r2) && r0[3]>r1[3] && r1[3]>r2[3] && r0[3]<=40; // ② %20S 低位 hook：連升兩日且未離低位區
     const l3 = r0[7] >= 20;                                          // ③ 領導股返隊：動力股佔比 ≥20%
-    const l4 = p1.spy_close!=null && p1.spy_close > p1.spy_e10;      // ④ 指數企穩：SPY 收 > EMA10
+    const l4 = fl.spy_close!=null && fl.spy_close > fl.ema10;        // ④ 指數企穩：SPY 收 > EMA10
     const subs = [
       `DN4 ${r0[2]} ${l1?'<':'≥'} UP4 ${r0[1]}`,
       r1&&r2 ? `${r2[3]} → ${r1[3]} → ${r0[3]}` : '數據唔夠三日',
       `${r0[7]}%（要 ≥20%）`,
-      p1.spy_close!=null ? `SPY ${p1.spy_close} vs EMA10 ${p1.spy_e10}` : 'P1 未跑',
+      fl.spy_close!=null ? `SPY ${fl.spy_close} vs EMA10 ${fl.ema10}` : 'SPY 數據未跑',
     ];
     const names = ['① 沽壓收乾','② 企穩線 hook','③ 領導股返隊','④ 指數企穩（確認）'];
     const L = [l1,l2,l3,l4];
