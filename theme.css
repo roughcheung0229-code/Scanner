@@ -143,3 +143,74 @@ td.tk a:hover, .tk a:hover{ color:var(--gold); border-bottom-color:var(--gold); 
 .qqf-find{ font-size:12.5px; line-height:1.7; color:var(--tx); margin-top:8px; padding:6px 9px; background:rgba(217,164,65,.07); border-left:2.5px solid var(--gold); border-radius:0 6px 6px 0; }
 .qqf-find b{ color:var(--gold); }
 .qqf-note{ font-size:11px; line-height:1.6; color:var(--tx3); margin-top:7px; }
+
+
+/* ---- 研究覆盤（2026-11-04）：可展開研究檔案＋長文閱讀 ---- */
+a:focus-visible, summary:focus-visible{ outline:2px solid var(--gold2); outline-offset:4px; border-radius:3px; }
+.prose{ max-width:75ch; }
+.prose p{ font-size:16px; line-height:1.75; margin:10px 0; }
+.prose h3{ font-size:15px; color:var(--gold2); margin:22px 0 6px; }
+.research-hero{ padding:22px 0 18px; border-bottom:1px solid var(--line2); margin-bottom:18px; }
+.research-quote{ max-width:27ch; font-size:26px; line-height:1.55; font-weight:800; color:var(--gold2); letter-spacing:.1px; }
+.research-cards .card{ min-height:142px; }
+.research-cards .val.small{ font-size:20px; line-height:1.35; letter-spacing:0; }
+.research-cards .sub2{ font-size:12px; line-height:1.55; margin-top:10px; }
+.research-jump{ display:flex; flex-wrap:wrap; gap:8px 20px; padding:12px 0 18px; border-bottom:1px solid var(--line); }
+.research-jump a{ min-height:44px; display:inline-flex; align-items:center; font-size:14px; font-weight:700; }
+.study{ border-top:1px solid var(--line2); background:rgba(255,255,255,.012); }
+.study:last-of-type{ border-bottom:1px solid var(--line2); }
+.study>summary{ min-height:72px; padding:16px 12px; cursor:pointer; list-style:none; display:grid; grid-template-columns:38px minmax(0,1fr) auto; gap:12px; align-items:center; transition:background-color .18s ease-out; }
+.study>summary::-webkit-details-marker{ display:none; }
+.study>summary:hover{ background:#1e1d19; }
+.study-no{ color:var(--golddim); font-size:14px; font-weight:700; font-variant-numeric:tabular-nums; }
+.study-title{ font-size:17px; font-weight:800; line-height:1.45; }
+.study-title small{ display:block; color:var(--tx2); font-size:12.5px; font-weight:400; margin-top:3px; }
+.study-status{ color:var(--gold2); font-size:12px; line-height:1.45; text-align:right; max-width:180px; }
+.study-status::after{ content:'＋'; color:var(--tx2); font-size:18px; margin-left:12px; }
+.study[open]>summary .study-status::after{ content:'−'; }
+.study-body{ padding:2px 62px 24px 62px; }
+.study-body .report-link{ display:inline-flex; align-items:center; min-height:44px; margin-top:12px; font-size:13px; font-weight:700; }
+.verdict{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:12px 0; color:var(--tx); }
+.table-scroll{ overflow-x:auto; margin:12px 0; }
+.research-table{ font-size:13px; min-width:0; width:100%; }
+.research-table th, .research-table td{ text-align:left; padding:8px 10px; white-space:normal; line-height:1.5; }
+.research-table td:not(:first-child){ font-variant-numeric:tabular-nums; }
+.research-list{ padding-left:22px; font-size:15px; line-height:1.8; }
+.research-list li{ margin:7px 0; }
+.letter{ border-left:2px solid var(--gold); padding:4px 0 4px 22px; margin:18px 0 26px; }
+.letter-lead{ color:var(--gold2); font-size:21px !important; font-weight:800; line-height:1.6 !important; }
+.letter blockquote{ margin:20px 0; padding:16px 18px; background:var(--card); border:1px solid var(--line); border-radius:8px; color:var(--gold2); font-size:18px; line-height:1.75; font-weight:700; }
+.glossary{ border-top:1px solid var(--line2); }
+.glossary details{ border-bottom:1px solid var(--line); }
+.glossary summary{ min-height:52px; display:flex; align-items:center; cursor:pointer; list-style:none; padding:10px 6px; color:var(--tx); font-size:15px; font-weight:700; }
+.glossary summary::-webkit-details-marker{ display:none; }
+.glossary summary::after{ content:'＋'; margin-left:auto; color:var(--golddim); font-size:17px; }
+.glossary details[open] summary::after{ content:'−'; }
+.glossary summary:hover{ color:var(--gold2); }
+.glossary p{ max-width:75ch; color:var(--tx2); font-size:15px; line-height:1.75; padding:0 28px 16px 6px; }
+.action-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; margin-top:12px; }
+.action-grid section{ border-top:2px solid var(--golddim); padding-top:8px; }
+.action-grid h3{ font-size:16px; color:var(--gold2); }
+.research-footnote{ color:var(--tx2); border-top:1px solid var(--line2); margin-top:34px; padding-top:16px; font-size:12.5px; line-height:1.8; }
+.research-update{ margin:12px 0 16px; }
+.research-update a{ font-weight:800; margin-left:6px; }
+@media (max-width:640px){
+  .research-quote{ font-size:22px; max-width:24ch; }
+  .cards.research-cards{ grid-template-columns:1fr; }
+  .research-cards .card{ min-height:0; }
+  .research-cards .val.small{ font-size:18px; }
+  .study>summary{ grid-template-columns:28px minmax(0,1fr); gap:8px; padding:14px 8px; }
+  .study-status{ grid-column:2; text-align:left; max-width:none; }
+  .study-status::after{ float:right; }
+  .study-body{ padding:2px 10px 22px 36px; }
+  .prose p{ font-size:15.5px; }
+  .research-table{ min-width:0; width:100%; font-size:12px; }
+  .research-table th, .research-table td{ padding:7px 5px; overflow-wrap:anywhere; }
+  .letter{ padding-left:16px; }
+  .letter-lead{ font-size:19px !important; }
+  .letter blockquote{ font-size:16px; padding:14px; }
+  .action-grid{ grid-template-columns:1fr; gap:20px; }
+}
+@media (prefers-reduced-motion:reduce){
+  .study>summary{ transition:none; }
+}
