@@ -110,7 +110,7 @@ td.tk a:hover, .tk a:hover{ color:var(--gold); border-bottom-color:var(--gold); 
 
 @media (max-width:640px){
   body{ padding:20px 6px 60px; }
-  h1{ font-size:21px; } .card .val{ font-size:20px; }
+  h1{ font-size:19px; overflow-wrap:anywhere; } .card .val{ font-size:20px; }
   td,th{ padding:5px 5px; font-size:11.5px; }
   .grid{ grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); }
   /* 每日監察表手機版：方案 A 精簡 8 欄（2026-09-17 Steven 揀）——收埋 QQQ ATR／MLI N／股票總數／S&P 500 */
