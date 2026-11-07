@@ -24,6 +24,9 @@
 <h2 id="read-title"></h2>
 <div class="cards" id="cards"></div>
 
+<!-- 【2026-11-07 Steven 批准】Capitulation 雙層燈：出清事件＋出清後轉趨勢；RECORD-ONLY，唔接開倉閘 -->
+<div class="cap-panel" id="capRadar" aria-live="polite"></div>
+
 <!-- 【2026-10-01 Steven 批准】轉勢雷達：四盞燈（①②③跡象 → ④確認），唔郁 CupSir 原裝色階，獨立一條 -->
 <div class="radar" id="radar"></div>
 
@@ -153,6 +156,56 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
     <div class="card"><div class="lbl">% 企穩 20 日線</div><div class="val ${pClsT(C.pct20d,1)}">${C.pct20d}</div><div class="sub2">${PV?`前一日 ${PV[3]}（${d20>=0?'+':''}${d20}）`:''}</div></div>
     <div class="card"><div class="lbl">% 企穩 50 日線</div><div class="val ${pClsT(C.pct50d,0)}">${C.pct50d}</div><div class="sub2">${PV?`前一日 ${PV[4]}（${d50>=0?'+':''}${d50}）`:''}</div></div>
     <div class="card"><div class="lbl">動力股佔比</div><div class="val ${C.share_pct<10?'DR':C.share_pct<20?'R':''}">${C.share_pct}%</div><div class="sub2">${C.mli_n} 隻動力股${PV?` · 前一日 ${PV[7]}%（${dShare>=0?'+':''}${dShare}）`:''}</div></div>`;
+
+  // 【2026-11-07 Steven 批准】Capitulation 雙層燈；只讀新 JSON，唔改下面原有雷達。
+  (function(){
+    const box=document.getElementById('capRadar'), cap=D.capitulation, post=D.post_cap;
+    const f=(v,d=2)=>v==null||Number.isNaN(Number(v))?'—':Number(v).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+    const fi=v=>v==null?'—':Number(v).toLocaleString('en-US',{maximumFractionDigits:0});
+    const head='<div class="cap-top"><div><div class="cap-kicker">CAPITULATION</div><div class="cap-title">出清與修復監察</div></div><span class="cap-record">RECORD-ONLY（只記錄，唔改開倉閘）</span></div>';
+    if(!cap||!post){
+      box.innerHTML=head+'<div class="cap-empty">⚪ Capitulation 數據未生成；原有轉勢雷達照常使用。</div>';
+      return;
+    }
+    const metric=(label,value)=>'<span class="cap-metric"><span>'+label+'</span><b>'+value+'</b></span>';
+    const evIcon=cap.state==='purple'?'🟣':cap.state==='yellow'?'🟡':'⚪';
+    const evName=cap.state==='purple'?'放量出清':cap.state==='yellow'?'極端沽壓':cap.reason==='window_expired'?'出清觀察窗完結':'無出清';
+    const evSub=cap.active
+      ? `${cap.event_date}｜T+${cap.days_since}／${cap.window}`
+      : cap.event_date ? `最近事件 ${cap.event_date}｜T+${cap.days_since}，已離開 ${cap.window} 日窗` : `最近 ${cap.window} 日觀察窗內未見核心出清`;
+    let evMetrics='';
+    if(cap.active){
+      const drop=cap.p20_drop==null?'—':(cap.p20_drop>=0?'−':'+')+f(Math.abs(cap.p20_drop),1)+'pp';
+      const ret=cap.spy_ret==null?'—':(cap.spy_ret>0?'+':'')+f(cap.spy_ret)+'%';
+      evMetrics='<div class="cap-metrics">'+
+        metric('DN4',fi(cap.dn4))+metric('DN4／UP4',(cap.ratio==null?'∞':f(cap.ratio))+'×')+
+        metric('%20D 單日',drop)+metric('SPY 回報',ret)+metric('SPY量／20日中位數',f(cap.vol_ratio)+'×')+'</div>';
+    }
+    const eventBlock=`<div class="cap-layer cap-event"><div class="cap-layer-head"><div class="cap-layer-label">① 出清事件</div><div class="cap-event-state ${cap.state}">${evIcon} ${evName}</div></div><div class="cap-subline">${evSub}</div>${evMetrics}</div>`;
+
+    let repairBlock='';
+    if(post.active){
+      const m=post.metrics||{}, L=post.conditions||[];
+      const postName={red:'本次修復失效',green:'轉勢確認',orange:'接近確認',yellow:'止跌觀察',gray:'未見修復'}[post.state]||'未見修復';
+      const postIcon={red:'🔴',green:'🟢',orange:'🟠',yellow:'🟡',gray:'⚪'}[post.state]||'⚪';
+      const names=['① 沽壓收乾','② 市寬修復','③ 領導股返隊','④ 指數確認'];
+      const subs=[
+        `DN4 ${fi(m.dn4)} ${m.dn4<m.up4?'<':'≥'} UP4 ${fi(m.up4)}｜R10 ${f(m.r10)}`,
+        `${f(m.p20_prev2,1)} → ${f(m.p20_prev,1)} → ${f(m.p20,1)}｜Cap ${f(m.cap_p20,1)}＋3pp`,
+        `${f(m.share_pct,1)}%｜門檻 ≥20%`,
+        `昨 ${f(m.spy_prev_close)}／${f(m.spy_prev_ema10)}<br>今 ${f(m.spy_close)}／${f(m.spy_ema10)}（收市／EMA10）`
+      ];
+      const conditions=names.map((n,i)=>`<div class="cap-condition ${L[i]?'ok':''}"><div class="cap-cond-name"><span class="cap-check">${L[i]?'✓':'×'}</span>${n}</div><div class="cap-cond-sub">${subs[i]}</div></div>`).join('');
+      const statusNote=post.invalid
+        ? `SPY 收市跌穿 Cap 日收市價 ${f(m.cap_close)}；失效日 ${post.invalid_date||'—'}。等新出清重置。`
+        : post.state==='green' ? '四條件齊，但每日重計；呢盞綠燈仍然唔係開倉許可。' : '每日按最新收市數據重計，唔會因曾經亮燈而鎖死。';
+      repairBlock=`<div class="cap-layer"><div class="cap-layer-head"><div class="cap-layer-label">② 出清後轉趨勢</div><div class="cap-post-state ${post.state}">${postIcon} ${postName} ${post.score}/4</div></div><div class="cap-subline">基準 ${post.event_date}｜T+${post.days_since}／${post.window}｜${statusNote}</div><div class="cap-conditions">${conditions}</div></div>`;
+    }else{
+      repairBlock=`<div class="cap-layer"><div class="cap-layer-label">② 出清後轉趨勢</div><div class="cap-empty">${cap.reason==='window_expired'?'⚪ 觀察窗已完結；等待新出清事件。':'⚪ 等待出清事件，未開啟修復計分。'}</div></div>`;
+    }
+    const method=`<details class="cap-method"><summary>門檻同狀態定義</summary><div class="cap-method-body"><p><b>出清核心：</b>DN4 ≥500、DN4 ÷ UP4 ≥3，並且 %20D ≤45% 或單日急跌 ≥10 個百分點。符合核心＝🟡 極端沽壓；再符合 SPY 當日回報 ≤−1% 及成交量 ≥之前 20 個交易日中位數 ×1.1＝🟣 放量出清。</p><p><b>修復四條件：</b>① DN4＜UP4 且 R10 ≥1；② %20D 連升兩日，並較 Cap 日高 ≥3pp；③ 動力股佔比 ≥20%；④ SPY 連續兩日收市高於各自交易日 EMA10。最新出清後觀察 T+0 至 T+10，新出清會重置基準。</p><p><b>狀態：</b>0/4 未見修復、1–2/4 止跌觀察、3/4 接近確認、4/4 轉勢確認。首次確認前，SPY 收市跌穿 Cap 日收市價即令本次修復失效；確認後仍每日重計。Capitulation 係事件描述，唔係見底或買入保證；首版只作記錄，門檻屬初步校準，唔係正式 OOS 回測結論。</p></div></details>`;
+    box.innerHTML=head+eventBlock+repairBlock+method;
+  })();
 
   // 【2026-10-01 Steven 批准】轉勢雷達：①②③＝跡象、④＝確認（regime 開閘）。每日監察表色階唔郁。
   (function(){

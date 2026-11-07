@@ -119,6 +119,68 @@ td.tk a:hover, .tk a:hover{ color:var(--gold); border-bottom-color:var(--gold); 
   #dailytbl th{ font-size:11px; padding:6px 2px; }
 }
 
+/* ---- 2026-11-07 Capitulation 雙層燈：hairline 分層、語義色、RECORD-ONLY ---- */
+.cap-panel{
+  --cap-mint:#34d399; --cap-amber:#fbbf24; --cap-red:#f87171;
+  --cap-magenta:#e879f9; --cap-orange:#fb923c;
+  margin:14px 0 10px; padding:13px 14px 4px; border:1px solid rgba(232,121,249,.25);
+  border-radius:10px; background:rgba(255,255,255,.018);
+}
+.cap-top{ display:flex; justify-content:space-between; align-items:center; gap:12px; padding-bottom:11px; }
+.cap-kicker{ color:var(--tx2); font-size:10px; font-weight:700; letter-spacing:.18em; line-height:1.4; }
+.cap-title{ color:var(--tx); font-size:16px; font-weight:800; line-height:1.45; }
+.cap-record{ color:var(--tx2); border:1px solid var(--line2); border-radius:20px; padding:3px 9px; font-size:10.5px; line-height:1.5; text-align:center; overflow-wrap:anywhere; }
+.cap-layer{ border-top:1px solid var(--line); padding:12px 0; }
+.cap-layer-head{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:5px 12px; }
+.cap-layer-label{ color:var(--tx2); font-size:12px; font-weight:700; letter-spacing:.04em; }
+.cap-event-state, .cap-post-state{ font-size:16px; font-weight:800; line-height:1.5; font-variant-numeric:tabular-nums; }
+.cap-event-state.purple{ color:var(--cap-magenta); }
+.cap-event-state.yellow, .cap-post-state.yellow{ color:var(--cap-amber); }
+.cap-event-state.none, .cap-post-state.gray{ color:var(--tx2); }
+.cap-post-state.orange{ color:var(--cap-orange); }
+.cap-post-state.green{ color:var(--cap-mint); }
+.cap-post-state.red{ color:var(--cap-red); }
+.cap-subline{ color:var(--tx2); font-size:11.5px; line-height:1.65; margin-top:3px; overflow-wrap:anywhere; }
+.cap-metrics{ display:flex; flex-wrap:wrap; gap:7px 20px; margin-top:10px; }
+.cap-metric{ display:inline-flex; align-items:baseline; gap:6px; color:var(--tx3); font-size:10.5px; font-variant-numeric:tabular-nums; }
+.cap-metric b{ color:var(--tx); font-size:12px; font-weight:700; }
+.cap-conditions{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:11px; border-top:1px solid var(--line); }
+.cap-condition{ min-width:0; padding:10px 11px 3px; border-left:1px solid var(--line); opacity:.55; }
+.cap-condition:first-child{ border-left:0; padding-left:0; }
+.cap-condition.ok{ opacity:1; }
+.cap-cond-name{ color:var(--tx); font-size:12px; font-weight:700; line-height:1.45; }
+.cap-check{ display:inline-block; width:18px; color:var(--tx3); font-size:13px; font-weight:800; }
+.cap-condition.ok .cap-check{ color:var(--cap-mint); }
+.cap-cond-sub{ color:var(--tx2); font-size:10.5px; line-height:1.55; margin-top:4px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+.cap-method{ border-top:1px solid var(--line); }
+.cap-method>summary{ min-height:44px; display:flex; align-items:center; cursor:pointer; list-style:none; color:var(--tx2); font-size:11.5px; font-weight:700; }
+.cap-method>summary::-webkit-details-marker{ display:none; }
+.cap-method>summary::after{ content:'＋'; margin-left:auto; color:var(--golddim); font-size:15px; }
+.cap-method[open]>summary::after{ content:'−'; }
+.cap-method>summary:hover{ color:var(--gold2); }
+.cap-method-body{ padding:0 4px 12px 0; max-width:90ch; }
+.cap-method-body p{ color:var(--tx2); font-size:11.5px; line-height:1.75; margin:5px 0; }
+.cap-method-body b{ color:var(--tx); }
+.cap-empty{ color:var(--tx2); font-size:12px; line-height:1.7; padding:12px 0; }
+@media (max-width:640px){
+  .cap-panel{ padding:12px 10px 3px; }
+  .cap-top{ flex-direction:column; align-items:flex-start; gap:7px; }
+  .cap-title{ font-size:15px; }
+  .cap-record{ text-align:left; }
+  .cap-event-state, .cap-post-state{ font-size:14px; }
+  .cap-subline{ font-size:11px; }
+  .cap-metrics{ gap:6px 13px; }
+  .cap-metric{ font-size:10px; }
+  .cap-metric b{ font-size:11px; }
+  .cap-conditions{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .cap-condition{ padding:10px 8px 9px; }
+  .cap-condition:nth-child(odd){ border-left:0; padding-left:0; }
+  .cap-condition:nth-child(even){ padding-right:0; }
+  .cap-condition:nth-child(n+3){ border-top:1px solid var(--line); }
+  .cap-cond-name{ font-size:11.5px; }
+  .cap-cond-sub{ font-size:10px; }
+}
+
 /* 【2026-10-01 v2】轉勢雷達——中等版：比 compact 大返 ~20%，手機保持 2×2 一屏睇晒（Steven 裁決：一開望到成個框） */
 .radar{ margin:12px 0 8px; padding:11px 14px; border:1px solid rgba(201,162,39,.35); border-radius:10px; background:rgba(255,255,255,.02); }
 .radar-head{ font-weight:700; letter-spacing:.5px; margin-bottom:8px; color:var(--gold,#c9a227); font-size:15px; line-height:1.55; }

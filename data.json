@@ -2159,6 +2159,120 @@
   "pct20d": 51.7,
   "pct20d_prev": 51.6
  },
+ "capitulation": {
+  "event_date": "2026-11-05",
+  "state": "purple",
+  "dn4": 1066,
+  "up4": 90,
+  "ratio": 11.84,
+  "p20": 51.6,
+  "p20_drop": 14.0,
+  "spy_ret": -4.41,
+  "vol_ratio": 3.35,
+  "cap_close": 733,
+  "asof": "2026-11-06",
+  "active": true,
+  "days_since": 1,
+  "window": 10,
+  "record_only": true,
+  "event_log": [
+   {
+    "event_date": "2026-02-23",
+    "state": "purple",
+    "dn4": 562,
+    "up4": 103,
+    "ratio": 5.46,
+    "p20": 45.9,
+    "p20_drop": 10.0,
+    "spy_ret": -1.02,
+    "vol_ratio": 1.13,
+    "cap_close": 682.39
+   },
+   {
+    "event_date": "2026-03-12",
+    "state": "purple",
+    "dn4": 591,
+    "up4": 75,
+    "ratio": 7.88,
+    "p20": 24.2,
+    "p20_drop": 8.0,
+    "spy_ret": -1.52,
+    "vol_ratio": 1.32,
+    "cap_close": 666.06
+   },
+   {
+    "event_date": "2026-06-05",
+    "state": "purple",
+    "dn4": 754,
+    "up4": 52,
+    "ratio": 14.5,
+    "p20": 46.1,
+    "p20_drop": 10.5,
+    "spy_ret": -2.58,
+    "vol_ratio": 2.06,
+    "cap_close": 737.55
+   },
+   {
+    "event_date": "2026-10-14",
+    "state": "purple",
+    "dn4": 500,
+    "up4": 41,
+    "ratio": 12.2,
+    "p20": 37.9,
+    "p20_drop": 7.0,
+    "spy_ret": -1.08,
+    "vol_ratio": 1.27,
+    "cap_close": 769.6
+   },
+   {
+    "event_date": "2026-11-05",
+    "state": "purple",
+    "dn4": 1066,
+    "up4": 90,
+    "ratio": 11.84,
+    "p20": 51.6,
+    "p20_drop": 14.0,
+    "spy_ret": -4.41,
+    "vol_ratio": 3.35,
+    "cap_close": 733
+   }
+  ]
+ },
+ "post_cap": {
+  "asof": "2026-11-06",
+  "state": "yellow",
+  "active": true,
+  "score": 1,
+  "conditions": [
+   true,
+   false,
+   false,
+   false
+  ],
+  "invalid": false,
+  "invalid_date": null,
+  "confirmed_once": false,
+  "confirmed_date": null,
+  "event_date": "2026-11-05",
+  "days_since": 1,
+  "window": 10,
+  "record_only": true,
+  "metrics": {
+   "up4": 485,
+   "dn4": 178,
+   "r10": 1.0,
+   "p20": 51.7,
+   "p20_prev": 51.6,
+   "p20_prev2": 65.6,
+   "cap_p20": 51.6,
+   "share_pct": 8.1,
+   "spy_close": 735.29,
+   "spy_ema10": 753.45,
+   "spy_prev_close": 733,
+   "spy_prev_ema10": 757.49,
+   "cap_close": 733
+  }
+ },
  "breadth_pulse_note": "統計範圍為美國普通股與 ADR（已剔除全部 ETF）、當日收市 ≥ $5 且成交 ≥ 30 萬股。軸上為當日收市價較前一交易日升 4% 或以上嘅股票數，軸下為跌 4% 或以上。每條 bar 按自己嘅數目上色：≥300 深色、<300 淺色；虛線參考水平同為 ±300。最右一組為最新交易日。",
  "leaders": {
   "asof": "2026-11-06",
@@ -3163,6 +3277,10 @@
     8.1
    ]
   ]
+ },
+ "earn_alerts": {
+  "asof": "2026-11-07",
+  "items": []
  },
  "p1": {
   "asof": "2026-10-07",
@@ -4312,9 +4430,5 @@
    }
   ],
   "note": "規則：MA 壓制（收<EMA9且<EMA21）排尾、其餘 rr 降序、同 rr 字母序｜限價單＝chase_cap（前收×1.02）｜可交易池頁顯示頭 10 隻俾你親自睇，其中金框頭幾格係 3R$=$210 閘內（真係落到嘅上限照舊 $210），灰階嗰啲係閘外後備｜名義閘＝你帳戶實際買力（IBKR 為準），累計名義欄超咗買力就停喺嗰格｜🆕＝新 Box 首日（未證實勝率更高，紙上記錄緊，三個月後數據答）｜skip 要記一句理由｜清单外唔入 P1 賬｜其餘全部入咗紙上 CSV"
- },
- "earn_alerts": {
-  "asof": "2026-11-07",
-  "items": []
  }
 }
