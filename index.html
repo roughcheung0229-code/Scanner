@@ -23,6 +23,14 @@
 
 <h2 id="read-title"></h2>
 <div class="cards" id="cards"></div>
+<details class="metric-method">
+  <summary>門檻同狀態定義</summary>
+  <div class="metric-method-body">
+    <p><b>共同宇宙：</b>美國普通股＋ADR（剔除 ETF），當日收市 ≥$5、成交 ≥300,000 股。UP4／DN4 分別係 adjusted 收市價較前一交易日升 ≥4%／跌 ≥4% 嘅股票數；卡上綠色代表 UP4 ≥DN4，紅色代表 DN4 佔優。</p>
+    <p><b>% 企穩 20／50 日線：</b>有足夠歷史嘅股票入面，收市高於各自 SMA20／SMA50 嘅百分比。20D ≤10%／50D ≤20%＝綠色極低區；其餘 ≤30%＝綠色低位區；20D ≥90%／50D ≥80%＝紅色極高區；其餘 ≥70%＝紅色高位區。呢度綠色係 CupSir 超賣色階，唔係安全或買入保證。</p>
+    <p><b>動力股佔比：</b>領導股數 ÷ 合資格動力股池 ×100%。動力股池先要求成交額 ≥$5M，領導股再要求過去 63 個交易日升幅 ≥20%。佔比 &lt;10%＝紅色極低警示、10%至&lt;20%＝紅色偏低警示、≥20%＝無紅色警示；MLI N 就係領導股實際隻數。</p>
+  </div>
+</details>
 
 <!-- 【2026-11-07 Steven 批准】Capitulation 雙層燈：出清事件＋出清後轉趨勢；RECORD-ONLY，唔接開倉閘 -->
 <div class="cap-panel" id="capRadar" aria-live="polite"></div>
@@ -62,6 +70,15 @@
   <span class="sw" style="background:#b8402f"></span>動力股佔比 &lt;10%<br>
   <span class="sw" style="background:rgba(224,101,82,.18)"></span>10日比率 &lt;1（最近 10 日 Dn4 總數 &gt; Up4 總數，跌市廣度佔優）
 </div>
+<details class="metric-method">
+  <summary>門檻同狀態定義</summary>
+  <div class="metric-method-body">
+    <p><b>UP4／DN4 兩格：</b>先比較邊個佔優；UP4 ≥DN4 時兩格用綠色系，否則兩格用紅色系。每格再按自己數目分深淺：≥300＝深色、&lt;300＝淺色。所以深淺係強度，綠紅先係當日邊邊佔優。</p>
+    <p><b>10 日比率：</b>最近 10 個交易日 ΣUP4 ÷ ΣDN4；&lt;1＝淺紅，代表跌 4% 廣度總量佔優；≥1＝不加紅色。未夠 10 日或分母係 0 會顯示「—」。</p>
+    <p><b>%20D／%50D：</b>20D ≤10%／50D ≤20%＝深綠極低；≤30%＝淺綠；20D ≥90%／50D ≥80%＝深紅極高；≥70%＝淺紅。<b>SPY／QQQ ATR</b>＝（收市 − EMA50）÷ ATR14；≥+5＝深紅過度伸展，≤−5＝深綠過度超賣。</p>
+    <p><b>其餘欄：</b>動力股佔比 &lt;10%＝深紅、10%至&lt;20%＝淺紅；MLI N＝領導股隻數；股票總數＝當日通過共同宇宙門檻嘅股票數；S&amp;P 500＝收市參考值。手機版目前收起第 9 欄起（動力股佔比、MLI N、股票總數、S&amp;P 500），QQQ ATR 仍會顯示；電腦版保留完整欄位。</p>
+  </div>
+</details>
 
 <h2>10 日比率走勢（Up4 ÷ Dn4）<span id="r10-pill" class="qqf-pill"></span></h2>
 <div class="note" id="r10-note"></div>
@@ -71,6 +88,14 @@
   <span class="sw" style="background:#3e7cb1"></span>≥1（Up4 佔優）
   <span class="sw" style="background:#b8402f"></span>&lt;1（Dn4 佔優）　虛線＝1.0 分界
 </div>
+<details class="metric-method">
+  <summary>門檻同狀態定義</summary>
+  <div class="metric-method-body">
+    <p><b>計法：</b>每一日取最近 10 個交易日嘅 UP4 總和 ÷ DN4 總和，唔係將每日比率再平均。1.0 係兩種廣度力量嘅分界；&lt;1 代表 DN4 總量較大，≥1 代表 UP4 總量唔再處於劣勢。</p>
+    <p><b>顏色同連段：</b>走勢線 ≥1 用藍色、&lt;1 用紅色；標題 pill 就 ≥1 用綠色、&lt;1 用紅色。連續 &lt;1 會計入「目前連段」，返回 ≥1 就中斷。最長連段榜只計我哋本地數據覆蓋期，唔係 CupSir 由 2018 年起嘅完整歷史。</p>
+    <p><b>點樣讀：</b>R10 係 10 日累積廣度，唔係單日 UP4／DN4 比，所以單日反彈可以令當日燈號改善，但 R10 仍未即時回到 1。佢係狀態指標，唔係獨立買賣訊號。</p>
+  </div>
+</details>
 
 <h2>4% 動量脈搏</h2>
 <div class="note" id="pulse-note"></div>
@@ -81,6 +106,14 @@
   <span class="sw" style="background:rgba(224,101,82,.45)"></span>Down 4% &lt;300
   <span class="sw" style="background:#b8402f"></span>Down 4% ≥300
 </div>
+<details class="metric-method">
+  <summary>門檻同狀態定義</summary>
+  <div class="metric-method-body">
+    <p><b>每支 bar：</b>中軸向上係當日 UP4 隻數，向下係 DN4 隻數；兩者都係 adjusted 收市價相對前一交易日升／跌至少 4%，股票宇宙同頂部讀數卡一致。圖顯示最近 21 個交易日，虛線係 +300／−300 參考位。</p>
+    <p><b>深淺色：</b>每支 bar 獨立按自己數目上色，UP4 或 DN4 ≥300 就用深色，&lt;300 就用淺色。呢度唔會先比較邊邊佔優再將兩支 bar 染成同色，所以同每日監察表嘅「兩格同色」規則唔一樣。</p>
+    <p><b>點樣讀：</b>佢顯示極端升跌股票嘅數目同強度，唔係全市場淨上升／下跌家數，亦唔係 R10 比率。單一支大 bar 只係當日脈衝，唔獨立構成趨勢確認。</p>
+  </div>
+</details>
 
 <div class="sec-div"></div>
 <h1>動力股分析</h1>
@@ -88,6 +121,14 @@
 
 <h2 id="read-title2"></h2>
 <div class="cards" id="cards2"></div>
+<details class="metric-method">
+  <summary>門檻同狀態定義</summary>
+  <div class="metric-method-body">
+    <p><b>領導股數目：</b>共同宇宙入面，成交額 ≥$5M 並且過去 63 個交易日升幅 ≥20% 嘅股票數。總分析股票數量（pool）係通過共同宇宙及 $5M 成交額門檻嘅分母；動力股佔比＝領導股 ÷ pool ×100%。</p>
+    <p><b>頭三大行業集中度：</b>lift 排名最高嘅三個合資格行業，其領導股數總和 ÷ 全市場領導股數 ×100%。佢量度領導股係咪集中喺少數行業，唔係市值集中度，亦冇預設紅綠安全線。</p>
+    <p><b>最強行業（lift）：</b>按 lift 排名第一嘅合資格行業。行業滲透率＝該行業領導股 ÷ 該行業 base；lift＝行業滲透率 ÷ 全市場動力股比例。lift＞1 代表行業領導股密度高過全市場平均，base＝該行業有 63 日回報資料嘅合資格股票數。</p>
+  </div>
+</details>
 
 <h2>行業動能：水平 vs 方向</h2>
 <div class="note" id="ind-sub"></div>
@@ -115,9 +156,26 @@
 
 <div class="legend"><b>兩個方向指標唔係同一回事：</b>Δlift 係<b>相對</b>變化——行業喺動力股池入面佔幾多份額（今日全市場動力股比例見頂部「X% → Y%」，Δlift 答嘅係邊個行業份額升咗）；pace＝21 日 median − 63 日 median÷3，係<b>絕對</b>加速度——過去一個月嘅步速有冇快過成季嘅平均月步速，唔使歷史數據日日計到。<span id="ind-corr"></span>相關系數低嘅時候，代表有行業係「跌得少過人」而唔係真係升緊，兩欄要一齊睇。Δlift 用咗今日嘅宇宙倒推 21 日前嘅身分，有輕微 look-ahead；好處係成分唔會飄移，適合量度變化。<span id="ind-drop"></span>單一個 21 日比較只係兩點之間連線，分唔開趨勢同噪音。base&lt;20 隻嘅行業唔入排名。<span id="sic-note" style="color:#b08b3e;"></span></div>
 
+<details class="metric-method">
+  <summary>門檻同狀態定義</summary>
+  <div class="metric-method-body">
+    <p><b>水平：</b>今日 lift＝今日行業滲透率 ÷ 今日全市場動力股比例；21 日前 lift 用同一批今日池內股票，回溯佢哋喺 21 個交易日前嘅領導股身分。Δlift＝今日 lift − 21 日前 lift，量度行業喺領導股池入面嘅相對份額變化。</p>
+    <p><b>方向：</b>21 日 median＝行業股票 21 日回報中位數；5 日 median＝5 日回報中位數；63 日 median＝季度回報中位數。pace＝21 日 median −（63 日 median ÷3），即近一個月速度相對成季平均月速嘅差異；pace ≥0 用淺綠，&lt;0 用淺紅。</p>
+    <p><b>兩表狀態：</b>Δlift＞0 入「動能明顯變強」，按升幅由大至細排；Δlift＜0 入「動能明顯變弱」，按跌幅由大至細排。每表最多 7 行；Δlift＝0 或冇足夠對照資料唔入兩表。Δlift 正數用深綠、負數用深紅。</p>
+    <p><b>資格同限制：</b>base &lt;20 隻嘅行業唔入排名；Unclassified 只作註腳。對照日未上市或歷史唔夠嘅股票會撤除。Δlift 用今日宇宙倒推歷史，有輕微 look-ahead；兩指標相關系數只描述線性同向程度，唔代表因果。</p>
+  </div>
+</details>
+
 <h2>領導股數目走勢</h2>
 <div class="note" id="trend-note"></div>
 <div class="pulse-wrap"><svg id="trend" width="100%" height="240" viewBox="0 0 1100 240" preserveAspectRatio="none"></svg></div>
+<details class="metric-method">
+  <summary>門檻同狀態定義</summary>
+  <div class="metric-method-body">
+    <p><b>走勢線：</b>每日動力股佔比＝當日領導股數 ÷ 當日合資格動力股池 ×100%，圖示最近約 120 個交易日。領導股要求成交額 ≥$5M 及 63 日升幅 ≥20%；分母每日重新界定，所以唔受整體上市股票數目變化直接影響。</p>
+    <p><b>狀態門檻：</b>呢張面積圖本身冇獨立紅綠燈；原有轉勢雷達③會用 ≥20% 作「領導股返隊」，&lt;20% 喺每日表係淺紅、&lt;10% 係深紅。走勢向上升只代表領導股比例增加，唔會自動等同指數或出清後轉勢確認。</p>
+  </div>
+</details>
 
 <div class="sec-div"></div>
 <div class="battle">
@@ -235,7 +293,12 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
       '<div class="radar-head">轉勢雷達 <span class="radar-verdict">'+verdict+'</span></div>' +
       '<div class="radar-row">' + names.map((n,i)=>
         `<div class="rl ${L[i]?'on':''} ${i===3&&L[i]?'confirm':''}"><span class="dot"></span><div><div class="rl-name">${n}</div><div class="rl-sub">${subs[i]}</div></div></div>`
-      ).join('') + '</div>';
+      ).join('') + '</div>' +
+      '<details class="metric-method"><summary>門檻同狀態定義</summary><div class="metric-method-body">' +
+      '<p><b>① 沽壓收乾：</b>DN4＜UP4。<b>② 企穩線 hook：</b>%20D 連續兩日上升（三日讀數逐日高過前一日），而且最新 %20D ≤40%。<b>③ 領導股返隊：</b>動力股佔比 ≥20%。呢三盞只係跡象燈。</p>' +
+      '<p><b>④ 指數企穩（確認）：</b>最新 SPY 收市＞EMA10；呢個舊雷達以④作確認，未過④時就按①至③嘅亮燈數顯示 0–3 個跡象。④成立時，④嘅圓點用金色，其餘成立條件用綠色；未成立條件會淡化。</p>' +
+      '<p><b>同新雙層燈嘅分別：</b>舊雷達④只睇一日 SPY＞EMA10；出清後轉趨勢④要連續兩日，而且綠燈要出清後四條件齊。兩套口徑獨立計算，唔會互相加分或改閘。</p>' +
+      '</div></details>';
   })();
 
   // 【2026-10-02 Steven 批准】Qullamaggie 市場濾網圖：SPY 10/20 日線三色帶＋每日「有咩新發現」短評
@@ -318,7 +381,12 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
       flHtml+
       draw()+
       `<div class="qqf-find"><b>有咩新發現？</b> ${bits.slice(0,3).join('；')}</div>`+
-      `<div class="qqf-note">色帶＝市況狀態，唔係開倉許可——郁手唯獨睇 regime 閘。綠＝10&gt;20 且兩線齊升｜紅＝10&lt;20｜黃＝未齊條件。白線＝收市 · 綠線＝10 日 · 金虛線＝20 日 · 三個月窗（${n} 交易日）。</div>`;
+      `<div class="qqf-note">色帶＝市況狀態，唔係開倉許可——郁手唯獨睇 regime 閘。綠＝10&gt;20 且兩線齊升｜紅＝10&lt;20｜黃＝未齊條件。白線＝收市 · 綠線＝10 日 · 金虛線＝20 日 · 三個月窗（${n} 交易日）。</div>`+
+      '<details class="metric-method"><summary>門檻同狀態定義</summary><div class="metric-method-body">'+
+      '<p><b>三色帶（SMA）：</b>🟢 綠區＝SMA10＞SMA20，而且兩條線都高過各自前一交易日數值；🔴 紅區＝SMA10＜SMA20，唔再額外要求斜率；🟡 黃區＝其餘組合，包括兩線未齊升或兩線相等。色帶日數係目前同色狀態連續出現幾多個交易日。</p>'+
+      '<p><b>快燈（資訊・唔係閘）：</b>SPY vs 21EMA＝收市相對 EMA21 嘅百分比，收市＞EMA21 為綠，否則為紅；Up4÷Dn4 即 R10，≥1 為綠、&lt;1 為紅；宇宙＞SMA20 顯示最新 %20D，箭嘴只係同前一交易日比較方向，呢一粒維持黃色資訊燈。</p>'+
+      '<p><b>用途：</b>白線係 SPY 收市、綠線係 SMA10、金虛線係 SMA20。色帶同快燈都係市況描述，唔等於新 Capitulation 燈，亦唔會自動改變正式 regime 開倉閘。</p>'+
+      '</div></details>';
     let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{
       const sv=box.querySelector('.qqf-svg'); if(sv){const tmp=document.createElement('div');tmp.innerHTML=draw();sv.replaceWith(tmp.firstChild);}
     },200);});

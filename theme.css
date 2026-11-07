@@ -152,15 +152,17 @@ td.tk a:hover, .tk a:hover{ color:var(--gold); border-bottom-color:var(--gold); 
 .cap-check{ display:inline-block; width:18px; color:var(--tx3); font-size:13px; font-weight:800; }
 .cap-condition.ok .cap-check{ color:var(--cap-mint); }
 .cap-cond-sub{ color:var(--tx2); font-size:10.5px; line-height:1.55; margin-top:4px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
-.cap-method{ border-top:1px solid var(--line); }
-.cap-method>summary{ min-height:44px; display:flex; align-items:center; cursor:pointer; list-style:none; color:var(--tx2); font-size:11.5px; font-weight:700; }
-.cap-method>summary::-webkit-details-marker{ display:none; }
-.cap-method>summary::after{ content:'＋'; margin-left:auto; color:var(--golddim); font-size:15px; }
-.cap-method[open]>summary::after{ content:'−'; }
-.cap-method>summary:hover{ color:var(--gold2); }
-.cap-method-body{ padding:0 4px 12px 0; max-width:90ch; }
-.cap-method-body p{ color:var(--tx2); font-size:11.5px; line-height:1.75; margin:5px 0; }
-.cap-method-body b{ color:var(--tx); }
+.cap-method, .metric-method{ border-top:1px solid var(--line); }
+.cap-method>summary, .metric-method>summary{ min-height:44px; display:flex; align-items:center; cursor:pointer; list-style:none; color:var(--tx2); font-size:11.5px; font-weight:700; }
+.cap-method>summary::-webkit-details-marker, .metric-method>summary::-webkit-details-marker{ display:none; }
+.cap-method>summary::after, .metric-method>summary::after{ content:'＋'; margin-left:auto; color:var(--golddim); font-size:15px; }
+.cap-method[open]>summary::after, .metric-method[open]>summary::after{ content:'−'; }
+.cap-method>summary:hover, .metric-method>summary:hover{ color:var(--gold2); }
+.cap-method-body, .metric-method-body{ padding:0 4px 12px 0; max-width:90ch; }
+.cap-method-body p, .metric-method-body p{ color:var(--tx2); font-size:11.5px; line-height:1.75; margin:5px 0; }
+.cap-method-body b, .metric-method-body b{ color:var(--tx); }
+.metric-method{ margin:10px 0 14px; padding:0 6px; border-bottom:1px solid var(--line); }
+.radar .metric-method, .qqf .metric-method{ margin:10px 0 0; padding:0; border-bottom:0; }
 .cap-empty{ color:var(--tx2); font-size:12px; line-height:1.7; padding:12px 0; }
 @media (max-width:640px){
   .cap-panel{ padding:12px 10px 3px; }
