@@ -1,0 +1,2010 @@
+{
+ "asof": "2026-11-09",
+ "generated_at": "2026-11-11T00:01:46+08:00",
+ "review_status": "Kimi 已覆核",
+ "reviewed": true,
+ "previous_leader_date": "2026-10-09",
+ "universe_n": 476,
+ "metrics_n": 476,
+ "shortlist_n": 20,
+ "n": 8,
+ "category_counts": {
+  "resilient": 6,
+  "fading": 2,
+  "rotation": 6
+ },
+ "qqq": {
+  "ret5": -0.26,
+  "ret21": -9.57,
+  "close": 679.35,
+  "ema21": 700.13
+ },
+ "items": [
+  {
+   "t": "BSY",
+   "industry": "Software & IT Services",
+   "is_tech": true,
+   "is_current_leader": true,
+   "was_leader_21d": false,
+   "close": 45.4,
+   "ret5": 7.08,
+   "ret21": 29.83,
+   "qqq_ret5": -0.26,
+   "qqq_ret21": -9.57,
+   "rs5": 7.33,
+   "rs21": 39.4,
+   "ema21": 40.29,
+   "ema50": 37.41,
+   "above_ema21": true,
+   "above_ema50": true,
+   "dist60h": -5.75,
+   "dollar_vol20_m": 116.9,
+   "defense": {
+    "wins": 10,
+    "n": 10,
+    "rate": 100.0,
+    "records": [
+     {
+      "date": "2026-10-14",
+      "stock_ret": 0.09,
+      "qqq_ret": -1.97,
+      "win": true
+     },
+     {
+      "date": "2026-10-15",
+      "stock_ret": 3.25,
+      "qqq_ret": -0.13,
+      "win": true
+     },
+     {
+      "date": "2026-10-16",
+      "stock_ret": -2.37,
+      "qqq_ret": -2.5,
+      "win": true
+     },
+     {
+      "date": "2026-10-20",
+      "stock_ret": 3.81,
+      "qqq_ret": -0.1,
+      "win": true
+     },
+     {
+      "date": "2026-10-22",
+      "stock_ret": 2.74,
+      "qqq_ret": -2.86,
+      "win": true
+     },
+     {
+      "date": "2026-10-23",
+      "stock_ret": 0.74,
+      "qqq_ret": -0.01,
+      "win": true
+     },
+     {
+      "date": "2026-10-29",
+      "stock_ret": 0.57,
+      "qqq_ret": -1.42,
+      "win": true
+     },
+     {
+      "date": "2026-10-30",
+      "stock_ret": 3.14,
+      "qqq_ret": -3.47,
+      "win": true
+     },
+     {
+      "date": "2026-11-02",
+      "stock_ret": 3.67,
+      "qqq_ret": -1.36,
+      "win": true
+     },
+     {
+      "date": "2026-11-05",
+      "stock_ret": 2.98,
+      "qqq_ret": -6.49,
+      "win": true
+     }
+    ]
+   },
+   "chart20": [
+    [
+     "2026-10-12",
+     100.0,
+     100.0
+    ],
+    [
+     "2026-10-13",
+     99.74,
+     99.67
+    ],
+    [
+     "2026-10-14",
+     99.83,
+     97.71
+    ],
+    [
+     "2026-10-15",
+     103.07,
+     97.58
+    ],
+    [
+     "2026-10-16",
+     100.63,
+     95.14
+    ],
+    [
+     "2026-10-19",
+     104.5,
+     96.29
+    ],
+    [
+     "2026-10-20",
+     108.48,
+     96.19
+    ],
+    [
+     "2026-10-21",
+     109.13,
+     97.21
+    ],
+    [
+     "2026-10-22",
+     112.12,
+     94.43
+    ],
+    [
+     "2026-10-23",
+     112.94,
+     94.42
+    ],
+    [
+     "2026-10-26",
+     113.34,
+     95.46
+    ],
+    [
+     "2026-10-27",
+     111.86,
+     96.68
+    ],
+    [
+     "2026-10-28",
+     112.18,
+     97.26
+    ],
+    [
+     "2026-10-29",
+     112.82,
+     95.88
+    ],
+    [
+     "2026-10-30",
+     116.36,
+     92.55
+    ],
+    [
+     "2026-11-02",
+     120.63,
+     91.29
+    ],
+    [
+     "2026-11-03",
+     119.86,
+     91.86
+    ],
+    [
+     "2026-11-04",
+     124.15,
+     92.75
+    ],
+    [
+     "2026-11-05",
+     127.85,
+     86.73
+    ],
+    [
+     "2026-11-06",
+     127.03,
+     87.94
+    ],
+    [
+     "2026-11-09",
+     129.16,
+     91.06
+    ]
+   ],
+   "rank": 1,
+   "primary": "rotation",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "category_label": "輪動線索",
+   "reason": "5 日 +7.08%（QQQ -0.26%），RS5 +7.33 個百分點；最近 10 個 QQQ 下跌日跑贏 10 次（100.0%）。 Software & IT Services 有 24 隻股票同時符合「5 日正回報、RS5 ≥ +2 個百分點、收市在 EMA21 上」；同業確認：APP, TEM, RBLX, TYL。",
+   "peers": [
+    "APP",
+    "TEM",
+    "RBLX",
+    "TYL",
+    "HNGE"
+   ],
+   "setup": false,
+   "watchlist": false,
+   "first_seen": "2026-11-09",
+   "days_following": 1,
+   "review_note": "科技強勢代表：10／10 防守，軟件同業有 24 隻確認；保留佢而唔係短線升幅最誇張嘅股票，重點係可持續性。",
+   "scenario_a": "擴散劇本：至少兩隻同業保持 RS5 為正並守住 EMA21，再對照行業 ETF，確認係咪由個股升級為板塊線索。",
+   "scenario_b": "假輪動劇本：得返一隻維持強勢，或同業快速跌返 EMA21 下，將線索降級為個股事件。",
+   "invalid": "觀察失效：同業確認少於兩隻，或代表股 RS5 轉負兼收穿 EMA21；唔等同交易止損。"
+  },
+  {
+   "t": "SPOT",
+   "industry": "Communications",
+   "is_tech": false,
+   "is_current_leader": true,
+   "was_leader_21d": false,
+   "close": 609.1,
+   "ret5": 2.54,
+   "ret21": 15.11,
+   "qqq_ret5": -0.26,
+   "qqq_ret21": -9.57,
+   "rs5": 2.79,
+   "rs21": 24.68,
+   "ema21": 571.61,
+   "ema50": 545.1,
+   "above_ema21": true,
+   "above_ema50": true,
+   "dist60h": -4.08,
+   "dollar_vol20_m": 1015.5,
+   "defense": {
+    "wins": 10,
+    "n": 10,
+    "rate": 100.0,
+    "records": [
+     {
+      "date": "2026-10-14",
+      "stock_ret": -0.66,
+      "qqq_ret": -1.97,
+      "win": true
+     },
+     {
+      "date": "2026-10-15",
+      "stock_ret": 1.8,
+      "qqq_ret": -0.13,
+      "win": true
+     },
+     {
+      "date": "2026-10-16",
+      "stock_ret": -0.55,
+      "qqq_ret": -2.5,
+      "win": true
+     },
+     {
+      "date": "2026-10-20",
+      "stock_ret": 1.41,
+      "qqq_ret": -0.1,
+      "win": true
+     },
+     {
+      "date": "2026-10-22",
+      "stock_ret": 11.1,
+      "qqq_ret": -2.86,
+      "win": true
+     },
+     {
+      "date": "2026-10-23",
+      "stock_ret": 0.1,
+      "qqq_ret": -0.01,
+      "win": true
+     },
+     {
+      "date": "2026-10-29",
+      "stock_ret": 3.5,
+      "qqq_ret": -1.42,
+      "win": true
+     },
+     {
+      "date": "2026-10-30",
+      "stock_ret": 6.5,
+      "qqq_ret": -3.47,
+      "win": true
+     },
+     {
+      "date": "2026-11-02",
+      "stock_ret": 0.1,
+      "qqq_ret": -1.36,
+      "win": true
+     },
+     {
+      "date": "2026-11-05",
+      "stock_ret": -2.11,
+      "qqq_ret": -6.49,
+      "win": true
+     }
+    ]
+   },
+   "chart20": [
+    [
+     "2026-10-12",
+     100.0,
+     100.0
+    ],
+    [
+     "2026-10-13",
+     99.74,
+     99.67
+    ],
+    [
+     "2026-10-14",
+     99.08,
+     97.71
+    ],
+    [
+     "2026-10-15",
+     100.86,
+     97.58
+    ],
+    [
+     "2026-10-16",
+     100.31,
+     95.14
+    ],
+    [
+     "2026-10-19",
+     98.1,
+     96.29
+    ],
+    [
+     "2026-10-20",
+     99.49,
+     96.19
+    ],
+    [
+     "2026-10-21",
+     99.35,
+     97.21
+    ],
+    [
+     "2026-10-22",
+     110.37,
+     94.43
+    ],
+    [
+     "2026-10-23",
+     110.48,
+     94.42
+    ],
+    [
+     "2026-10-26",
+     108.24,
+     95.46
+    ],
+    [
+     "2026-10-27",
+     105.04,
+     96.68
+    ],
+    [
+     "2026-10-28",
+     101.82,
+     97.26
+    ],
+    [
+     "2026-10-29",
+     105.38,
+     95.88
+    ],
+    [
+     "2026-10-30",
+     112.22,
+     92.55
+    ],
+    [
+     "2026-11-02",
+     112.34,
+     91.29
+    ],
+    [
+     "2026-11-03",
+     113.48,
+     91.86
+    ],
+    [
+     "2026-11-04",
+     118.7,
+     92.75
+    ],
+    [
+     "2026-11-05",
+     116.19,
+     86.73
+    ],
+    [
+     "2026-11-06",
+     114.03,
+     87.94
+    ],
+    [
+     "2026-11-09",
+     115.19,
+     91.06
+    ]
+   ],
+   "rank": 2,
+   "primary": "rotation",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "category_label": "輪動線索",
+   "reason": "5 日 +2.54%（QQQ -0.26%），RS5 +2.79 個百分點；最近 10 個 QQQ 下跌日跑贏 10 次（100.0%）。 Communications 有 2 隻股票同時符合「5 日正回報、RS5 ≥ +2 個百分點、收市在 EMA21 上」；同業確認：AEHL。",
+   "peers": [
+    "AEHL"
+   ],
+   "setup": false,
+   "watchlist": false,
+   "first_seen": "2026-11-09",
+   "days_following": 1,
+   "review_note": "RS5 只屬溫和正值，但 10／10 防守有辨識度；用嚟觀察抗跌可唔可以延續，而唔係當佢突破訊號。",
+   "scenario_a": "擴散劇本：至少兩隻同業保持 RS5 為正並守住 EMA21，再對照行業 ETF，確認係咪由個股升級為板塊線索。",
+   "scenario_b": "假輪動劇本：得返一隻維持強勢，或同業快速跌返 EMA21 下，將線索降級為個股事件。",
+   "invalid": "觀察失效：同業確認少於兩隻，或代表股 RS5 轉負兼收穿 EMA21；唔等同交易止損。"
+  },
+  {
+   "t": "BBY",
+   "industry": "Retail",
+   "is_tech": false,
+   "is_current_leader": true,
+   "was_leader_21d": false,
+   "close": 106.28,
+   "ret5": 10.55,
+   "ret21": 22.15,
+   "qqq_ret5": -0.26,
+   "qqq_ret21": -9.57,
+   "rs5": 10.8,
+   "rs21": 31.72,
+   "ema21": 96.67,
+   "ema50": 92.57,
+   "above_ema21": true,
+   "above_ema50": true,
+   "dist60h": -0.51,
+   "dollar_vol20_m": 272.9,
+   "defense": {
+    "wins": 9,
+    "n": 10,
+    "rate": 90.0,
+    "records": [
+     {
+      "date": "2026-10-14",
+      "stock_ret": 1.3,
+      "qqq_ret": -1.97,
+      "win": true
+     },
+     {
+      "date": "2026-10-15",
+      "stock_ret": 5.69,
+      "qqq_ret": -0.13,
+      "win": true
+     },
+     {
+      "date": "2026-10-16",
+      "stock_ret": -1.64,
+      "qqq_ret": -2.5,
+      "win": true
+     },
+     {
+      "date": "2026-10-20",
+      "stock_ret": 3.03,
+      "qqq_ret": -0.1,
+      "win": true
+     },
+     {
+      "date": "2026-10-22",
+      "stock_ret": 6.07,
+      "qqq_ret": -2.86,
+      "win": true
+     },
+     {
+      "date": "2026-10-23",
+      "stock_ret": 0.04,
+      "qqq_ret": -0.01,
+      "win": true
+     },
+     {
+      "date": "2026-10-29",
+      "stock_ret": 3.54,
+      "qqq_ret": -1.42,
+      "win": true
+     },
+     {
+      "date": "2026-10-30",
+      "stock_ret": -4.72,
+      "qqq_ret": -3.47,
+      "win": false
+     },
+     {
+      "date": "2026-11-02",
+      "stock_ret": 0.51,
+      "qqq_ret": -1.36,
+      "win": true
+     },
+     {
+      "date": "2026-11-05",
+      "stock_ret": -1.93,
+      "qqq_ret": -6.49,
+      "win": true
+     }
+    ]
+   },
+   "chart20": [
+    [
+     "2026-10-12",
+     100.0,
+     100.0
+    ],
+    [
+     "2026-10-13",
+     101.12,
+     99.67
+    ],
+    [
+     "2026-10-14",
+     102.43,
+     97.71
+    ],
+    [
+     "2026-10-15",
+     108.25,
+     97.58
+    ],
+    [
+     "2026-10-16",
+     106.48,
+     95.14
+    ],
+    [
+     "2026-10-19",
+     104.76,
+     96.29
+    ],
+    [
+     "2026-10-20",
+     107.93,
+     96.19
+    ],
+    [
+     "2026-10-21",
+     108.2,
+     97.21
+    ],
+    [
+     "2026-10-22",
+     114.76,
+     94.43
+    ],
+    [
+     "2026-10-23",
+     114.81,
+     94.42
+    ],
+    [
+     "2026-10-26",
+     112.6,
+     95.46
+    ],
+    [
+     "2026-10-27",
+     113.23,
+     96.68
+    ],
+    [
+     "2026-10-28",
+     111.46,
+     97.26
+    ],
+    [
+     "2026-10-29",
+     115.4,
+     95.88
+    ],
+    [
+     "2026-10-30",
+     109.96,
+     92.55
+    ],
+    [
+     "2026-11-02",
+     110.52,
+     91.29
+    ],
+    [
+     "2026-11-03",
+     107.91,
+     91.86
+    ],
+    [
+     "2026-11-04",
+     116.52,
+     92.75
+    ],
+    [
+     "2026-11-05",
+     114.27,
+     86.73
+    ],
+    [
+     "2026-11-06",
+     114.53,
+     87.94
+    ],
+    [
+     "2026-11-09",
+     122.17,
+     91.06
+    ]
+   ],
+   "rank": 3,
+   "primary": "rotation",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "category_label": "輪動線索",
+   "reason": "5 日 +10.55%（QQQ -0.26%），RS5 +10.80 個百分點；最近 10 個 QQQ 下跌日跑贏 9 次（90.0%）。 Retail 有 15 隻股票同時符合「5 日正回報、RS5 ≥ +2 個百分點、收市在 EMA21 上」；同業確認：ULTA, CDW, GME, VSXY。",
+   "peers": [
+    "ULTA",
+    "CDW",
+    "GME",
+    "VSXY",
+    "OLLI"
+   ],
+   "setup": false,
+   "watchlist": false,
+   "first_seen": "2026-11-09",
+   "days_following": 1,
+   "review_note": "零售有 15 隻同步符合輪動條件；BBY 防守 9／10，用嚟睇升勢能否由高 Beta 擴散至消費零售。",
+   "scenario_a": "擴散劇本：至少兩隻同業保持 RS5 為正並守住 EMA21，再對照行業 ETF，確認係咪由個股升級為板塊線索。",
+   "scenario_b": "假輪動劇本：得返一隻維持強勢，或同業快速跌返 EMA21 下，將線索降級為個股事件。",
+   "invalid": "觀察失效：同業確認少於兩隻，或代表股 RS5 轉負兼收穿 EMA21；唔等同交易止損。"
+  },
+  {
+   "t": "HCA",
+   "industry": "Healthcare Services",
+   "is_tech": false,
+   "is_current_leader": true,
+   "was_leader_21d": false,
+   "close": 504.89,
+   "ret5": 7.94,
+   "ret21": 11.93,
+   "qqq_ret5": -0.26,
+   "qqq_ret21": -9.57,
+   "rs5": 8.2,
+   "rs21": 21.5,
+   "ema21": 473.01,
+   "ema50": 451.82,
+   "above_ema21": true,
+   "above_ema50": true,
+   "dist60h": -3.18,
+   "dollar_vol20_m": 567.6,
+   "defense": {
+    "wins": 9,
+    "n": 10,
+    "rate": 90.0,
+    "records": [
+     {
+      "date": "2026-10-14",
+      "stock_ret": 2.1,
+      "qqq_ret": -1.97,
+      "win": true
+     },
+     {
+      "date": "2026-10-15",
+      "stock_ret": -0.41,
+      "qqq_ret": -0.13,
+      "win": false
+     },
+     {
+      "date": "2026-10-16",
+      "stock_ret": -2.06,
+      "qqq_ret": -2.5,
+      "win": true
+     },
+     {
+      "date": "2026-10-20",
+      "stock_ret": 2.39,
+      "qqq_ret": -0.1,
+      "win": true
+     },
+     {
+      "date": "2026-10-22",
+      "stock_ret": 1.72,
+      "qqq_ret": -2.86,
+      "win": true
+     },
+     {
+      "date": "2026-10-23",
+      "stock_ret": 0.37,
+      "qqq_ret": -0.01,
+      "win": true
+     },
+     {
+      "date": "2026-10-29",
+      "stock_ret": 3.21,
+      "qqq_ret": -1.42,
+      "win": true
+     },
+     {
+      "date": "2026-10-30",
+      "stock_ret": -1.02,
+      "qqq_ret": -3.47,
+      "win": true
+     },
+     {
+      "date": "2026-11-02",
+      "stock_ret": -1.15,
+      "qqq_ret": -1.36,
+      "win": true
+     },
+     {
+      "date": "2026-11-05",
+      "stock_ret": -0.63,
+      "qqq_ret": -6.49,
+      "win": true
+     }
+    ]
+   },
+   "chart20": [
+    [
+     "2026-10-12",
+     100.0,
+     100.0
+    ],
+    [
+     "2026-10-13",
+     100.47,
+     99.67
+    ],
+    [
+     "2026-10-14",
+     102.58,
+     97.71
+    ],
+    [
+     "2026-10-15",
+     102.16,
+     97.58
+    ],
+    [
+     "2026-10-16",
+     100.05,
+     95.14
+    ],
+    [
+     "2026-10-19",
+     99.19,
+     96.29
+    ],
+    [
+     "2026-10-20",
+     101.56,
+     96.19
+    ],
+    [
+     "2026-10-21",
+     100.17,
+     97.21
+    ],
+    [
+     "2026-10-22",
+     101.9,
+     94.43
+    ],
+    [
+     "2026-10-23",
+     102.27,
+     94.42
+    ],
+    [
+     "2026-10-26",
+     101.45,
+     95.46
+    ],
+    [
+     "2026-10-27",
+     98.12,
+     96.68
+    ],
+    [
+     "2026-10-28",
+     101.01,
+     97.26
+    ],
+    [
+     "2026-10-29",
+     104.25,
+     95.88
+    ],
+    [
+     "2026-10-30",
+     103.18,
+     92.55
+    ],
+    [
+     "2026-11-02",
+     101.99,
+     91.29
+    ],
+    [
+     "2026-11-03",
+     100.93,
+     91.86
+    ],
+    [
+     "2026-11-04",
+     111.36,
+     92.75
+    ],
+    [
+     "2026-11-05",
+     110.66,
+     86.73
+    ],
+    [
+     "2026-11-06",
+     107.94,
+     87.94
+    ],
+    [
+     "2026-11-09",
+     110.09,
+     91.06
+    ]
+   ],
+   "rank": 4,
+   "primary": "rotation",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "category_label": "輪動線索",
+   "reason": "5 日 +7.94%（QQQ -0.26%），RS5 +8.20 個百分點；最近 10 個 QQQ 下跌日跑贏 9 次（90.0%）。 Healthcare Services 有 12 隻股票同時符合「5 日正回報、RS5 ≥ +2 個百分點、收市在 EMA21 上」；同業確認：SGRY, ACHC, CON, LFST。",
+   "peers": [
+    "SGRY",
+    "ACHC",
+    "CON",
+    "LFST",
+    "TDOC"
+   ],
+   "setup": false,
+   "watchlist": false,
+   "first_seen": "2026-11-09",
+   "days_following": 1,
+   "review_note": "醫療服務有 12 隻同步確認；RS5＋8.20 個百分點、防守 9／10，留意防禦型行業接力可持續幾耐。",
+   "scenario_a": "擴散劇本：至少兩隻同業保持 RS5 為正並守住 EMA21，再對照行業 ETF，確認係咪由個股升級為板塊線索。",
+   "scenario_b": "假輪動劇本：得返一隻維持強勢，或同業快速跌返 EMA21 下，將線索降級為個股事件。",
+   "invalid": "觀察失效：同業確認少於兩隻，或代表股 RS5 轉負兼收穿 EMA21；唔等同交易止損。"
+  },
+  {
+   "t": "EXEL",
+   "industry": "Biotech & Pharma",
+   "is_tech": false,
+   "is_current_leader": true,
+   "was_leader_21d": false,
+   "close": 71.74,
+   "ret5": 2.3,
+   "ret21": 19.85,
+   "qqq_ret5": -0.26,
+   "qqq_ret21": -9.57,
+   "rs5": 2.55,
+   "rs21": 29.42,
+   "ema21": 66.57,
+   "ema50": 62.47,
+   "above_ema21": true,
+   "above_ema50": true,
+   "dist60h": -2.65,
+   "dollar_vol20_m": 159.9,
+   "defense": {
+    "wins": 9,
+    "n": 10,
+    "rate": 90.0,
+    "records": [
+     {
+      "date": "2026-10-14",
+      "stock_ret": 2.49,
+      "qqq_ret": -1.97,
+      "win": true
+     },
+     {
+      "date": "2026-10-15",
+      "stock_ret": 3.02,
+      "qqq_ret": -0.13,
+      "win": true
+     },
+     {
+      "date": "2026-10-16",
+      "stock_ret": -0.95,
+      "qqq_ret": -2.5,
+      "win": true
+     },
+     {
+      "date": "2026-10-20",
+      "stock_ret": 2.73,
+      "qqq_ret": -0.1,
+      "win": true
+     },
+     {
+      "date": "2026-10-22",
+      "stock_ret": 1.13,
+      "qqq_ret": -2.86,
+      "win": true
+     },
+     {
+      "date": "2026-10-23",
+      "stock_ret": -1.19,
+      "qqq_ret": -0.01,
+      "win": false
+     },
+     {
+      "date": "2026-10-29",
+      "stock_ret": -0.12,
+      "qqq_ret": -1.42,
+      "win": true
+     },
+     {
+      "date": "2026-10-30",
+      "stock_ret": 4.82,
+      "qqq_ret": -3.47,
+      "win": true
+     },
+     {
+      "date": "2026-11-02",
+      "stock_ret": 1.07,
+      "qqq_ret": -1.36,
+      "win": true
+     },
+     {
+      "date": "2026-11-05",
+      "stock_ret": -5.55,
+      "qqq_ret": -6.49,
+      "win": true
+     }
+    ]
+   },
+   "chart20": [
+    [
+     "2026-10-12",
+     100.0,
+     100.0
+    ],
+    [
+     "2026-10-13",
+     99.48,
+     99.67
+    ],
+    [
+     "2026-10-14",
+     101.96,
+     97.71
+    ],
+    [
+     "2026-10-15",
+     105.03,
+     97.58
+    ],
+    [
+     "2026-10-16",
+     104.03,
+     95.14
+    ],
+    [
+     "2026-10-19",
+     104.78,
+     96.29
+    ],
+    [
+     "2026-10-20",
+     107.64,
+     96.19
+    ],
+    [
+     "2026-10-21",
+     107.96,
+     97.21
+    ],
+    [
+     "2026-10-22",
+     109.18,
+     94.43
+    ],
+    [
+     "2026-10-23",
+     107.87,
+     94.42
+    ],
+    [
+     "2026-10-26",
+     108.84,
+     95.46
+    ],
+    [
+     "2026-10-27",
+     109.24,
+     96.68
+    ],
+    [
+     "2026-10-28",
+     110.8,
+     97.26
+    ],
+    [
+     "2026-10-29",
+     110.67,
+     95.88
+    ],
+    [
+     "2026-10-30",
+     116.0,
+     92.55
+    ],
+    [
+     "2026-11-02",
+     117.24,
+     91.29
+    ],
+    [
+     "2026-11-03",
+     120.88,
+     91.86
+    ],
+    [
+     "2026-11-04",
+     121.61,
+     92.75
+    ],
+    [
+     "2026-11-05",
+     114.86,
+     86.73
+    ],
+    [
+     "2026-11-06",
+     116.3,
+     87.94
+    ],
+    [
+     "2026-11-09",
+     119.93,
+     91.06
+    ]
+   ],
+   "rank": 5,
+   "primary": "rotation",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "category_label": "輪動線索",
+   "reason": "5 日 +2.30%（QQQ -0.26%），RS5 +2.55 個百分點；最近 10 個 QQQ 下跌日跑贏 9 次（90.0%）。 Biotech & Pharma 有 37 隻股票同時符合「5 日正回報、RS5 ≥ +2 個百分點、收市在 EMA21 上」；同業確認：MRNA, CRL, IDXX, BIIB。",
+   "peers": [
+    "MRNA",
+    "CRL",
+    "IDXX",
+    "BIIB",
+    "VTRS"
+   ],
+   "setup": false,
+   "watchlist": false,
+   "first_seen": "2026-11-09",
+   "days_following": 1,
+   "review_note": "生物科技有 37 隻同步，但只留一隻代表；EXEL 短線升幅相對溫和、防守 9／10，避免焦點頁變成極端異動榜。",
+   "scenario_a": "擴散劇本：至少兩隻同業保持 RS5 為正並守住 EMA21，再對照行業 ETF，確認係咪由個股升級為板塊線索。",
+   "scenario_b": "假輪動劇本：得返一隻維持強勢，或同業快速跌返 EMA21 下，將線索降級為個股事件。",
+   "invalid": "觀察失效：同業確認少於兩隻，或代表股 RS5 轉負兼收穿 EMA21；唔等同交易止損。"
+  },
+  {
+   "t": "MORN",
+   "industry": "Capital Markets",
+   "is_tech": false,
+   "is_current_leader": true,
+   "was_leader_21d": false,
+   "close": 246.15,
+   "ret5": 3.11,
+   "ret21": 20.4,
+   "qqq_ret5": -0.26,
+   "qqq_ret21": -9.57,
+   "rs5": 3.36,
+   "rs21": 29.97,
+   "ema21": 225.8,
+   "ema50": 213.13,
+   "above_ema21": true,
+   "above_ema50": true,
+   "dist60h": -1.1,
+   "dollar_vol20_m": 62.3,
+   "defense": {
+    "wins": 10,
+    "n": 10,
+    "rate": 100.0,
+    "records": [
+     {
+      "date": "2026-10-14",
+      "stock_ret": -0.2,
+      "qqq_ret": -1.97,
+      "win": true
+     },
+     {
+      "date": "2026-10-15",
+      "stock_ret": 2.59,
+      "qqq_ret": -0.13,
+      "win": true
+     },
+     {
+      "date": "2026-10-16",
+      "stock_ret": -0.89,
+      "qqq_ret": -2.5,
+      "win": true
+     },
+     {
+      "date": "2026-10-20",
+      "stock_ret": 2.97,
+      "qqq_ret": -0.1,
+      "win": true
+     },
+     {
+      "date": "2026-10-22",
+      "stock_ret": 4.46,
+      "qqq_ret": -2.86,
+      "win": true
+     },
+     {
+      "date": "2026-10-23",
+      "stock_ret": 0.7,
+      "qqq_ret": -0.01,
+      "win": true
+     },
+     {
+      "date": "2026-10-29",
+      "stock_ret": 3.57,
+      "qqq_ret": -1.42,
+      "win": true
+     },
+     {
+      "date": "2026-10-30",
+      "stock_ret": 1.64,
+      "qqq_ret": -3.47,
+      "win": true
+     },
+     {
+      "date": "2026-11-02",
+      "stock_ret": 5.54,
+      "qqq_ret": -1.36,
+      "win": true
+     },
+     {
+      "date": "2026-11-05",
+      "stock_ret": 1.2,
+      "qqq_ret": -6.49,
+      "win": true
+     }
+    ]
+   },
+   "chart20": [
+    [
+     "2026-10-12",
+     100.0,
+     100.0
+    ],
+    [
+     "2026-10-13",
+     100.03,
+     99.67
+    ],
+    [
+     "2026-10-14",
+     99.83,
+     97.71
+    ],
+    [
+     "2026-10-15",
+     102.42,
+     97.58
+    ],
+    [
+     "2026-10-16",
+     101.5,
+     95.14
+    ],
+    [
+     "2026-10-19",
+     100.67,
+     96.29
+    ],
+    [
+     "2026-10-20",
+     103.65,
+     96.19
+    ],
+    [
+     "2026-10-21",
+     104.65,
+     97.21
+    ],
+    [
+     "2026-10-22",
+     109.31,
+     94.43
+    ],
+    [
+     "2026-10-23",
+     110.08,
+     94.42
+    ],
+    [
+     "2026-10-26",
+     110.27,
+     95.46
+    ],
+    [
+     "2026-10-27",
+     105.62,
+     96.68
+    ],
+    [
+     "2026-10-28",
+     105.17,
+     97.26
+    ],
+    [
+     "2026-10-29",
+     108.93,
+     95.88
+    ],
+    [
+     "2026-10-30",
+     110.71,
+     92.55
+    ],
+    [
+     "2026-11-02",
+     116.85,
+     91.29
+    ],
+    [
+     "2026-11-03",
+     115.86,
+     91.86
+    ],
+    [
+     "2026-11-04",
+     119.55,
+     92.75
+    ],
+    [
+     "2026-11-05",
+     120.98,
+     86.73
+    ],
+    [
+     "2026-11-06",
+     119.51,
+     87.94
+    ],
+    [
+     "2026-11-09",
+     120.48,
+     91.06
+    ]
+   ],
+   "rank": 6,
+   "primary": "rotation",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "category_label": "輪動線索",
+   "reason": "5 日 +3.11%（QQQ -0.26%），RS5 +3.36 個百分點；最近 10 個 QQQ 下跌日跑贏 10 次（100.0%）。 Capital Markets 有 2 隻股票同時符合「5 日正回報、RS5 ≥ +2 個百分點、收市在 EMA21 上」；同業確認：PS。",
+   "peers": [
+    "PS"
+   ],
+   "setup": false,
+   "watchlist": false,
+   "first_seen": "2026-11-09",
+   "days_following": 1,
+   "review_note": "金融線索代表：防守 10／10、RS5＋3.36 個百分點；同業 TW 亦強，睇資本市場強勢能否延續。",
+   "scenario_a": "擴散劇本：至少兩隻同業保持 RS5 為正並守住 EMA21，再對照行業 ETF，確認係咪由個股升級為板塊線索。",
+   "scenario_b": "假輪動劇本：得返一隻維持強勢，或同業快速跌返 EMA21 下，將線索降級為個股事件。",
+   "invalid": "觀察失效：同業確認少於兩隻，或代表股 RS5 轉負兼收穿 EMA21；唔等同交易止損。"
+  },
+  {
+   "t": "MRVL",
+   "industry": "Semiconductors",
+   "is_tech": true,
+   "is_current_leader": false,
+   "was_leader_21d": true,
+   "close": 154.6,
+   "ret5": -9.81,
+   "ret21": -43.84,
+   "qqq_ret5": -0.26,
+   "qqq_ret21": -9.57,
+   "rs5": -9.55,
+   "rs21": -34.27,
+   "ema21": 202.29,
+   "ema50": 222.34,
+   "above_ema21": false,
+   "above_ema50": false,
+   "dist60h": -48.68,
+   "dollar_vol20_m": 5070.2,
+   "defense": {
+    "wins": 2,
+    "n": 10,
+    "rate": 20.0,
+    "records": [
+     {
+      "date": "2026-10-14",
+      "stock_ret": -8.72,
+      "qqq_ret": -1.97,
+      "win": false
+     },
+     {
+      "date": "2026-10-15",
+      "stock_ret": -1.65,
+      "qqq_ret": -0.13,
+      "win": false
+     },
+     {
+      "date": "2026-10-16",
+      "stock_ret": -5.56,
+      "qqq_ret": -2.5,
+      "win": false
+     },
+     {
+      "date": "2026-10-20",
+      "stock_ret": 1.4,
+      "qqq_ret": -0.1,
+      "win": true
+     },
+     {
+      "date": "2026-10-22",
+      "stock_ret": -8.7,
+      "qqq_ret": -2.86,
+      "win": false
+     },
+     {
+      "date": "2026-10-23",
+      "stock_ret": 2.26,
+      "qqq_ret": -0.01,
+      "win": true
+     },
+     {
+      "date": "2026-10-29",
+      "stock_ret": -13.24,
+      "qqq_ret": -1.42,
+      "win": false
+     },
+     {
+      "date": "2026-10-30",
+      "stock_ret": -10.05,
+      "qqq_ret": -3.47,
+      "win": false
+     },
+     {
+      "date": "2026-11-02",
+      "stock_ret": -12.72,
+      "qqq_ret": -1.36,
+      "win": false
+     },
+     {
+      "date": "2026-11-05",
+      "stock_ret": -16.43,
+      "qqq_ret": -6.49,
+      "win": false
+     }
+    ]
+   },
+   "chart20": [
+    [
+     "2026-10-12",
+     100.0,
+     100.0
+    ],
+    [
+     "2026-10-13",
+     101.08,
+     99.67
+    ],
+    [
+     "2026-10-14",
+     92.26,
+     97.71
+    ],
+    [
+     "2026-10-15",
+     90.74,
+     97.58
+    ],
+    [
+     "2026-10-16",
+     85.7,
+     95.14
+    ],
+    [
+     "2026-10-19",
+     89.18,
+     96.29
+    ],
+    [
+     "2026-10-20",
+     90.43,
+     96.19
+    ],
+    [
+     "2026-10-21",
+     92.06,
+     97.21
+    ],
+    [
+     "2026-10-22",
+     84.06,
+     94.43
+    ],
+    [
+     "2026-10-23",
+     85.95,
+     94.42
+    ],
+    [
+     "2026-10-26",
+     87.93,
+     95.46
+    ],
+    [
+     "2026-10-27",
+     91.62,
+     96.68
+    ],
+    [
+     "2026-10-28",
+     94.66,
+     97.26
+    ],
+    [
+     "2026-10-29",
+     82.13,
+     95.88
+    ],
+    [
+     "2026-10-30",
+     73.87,
+     92.55
+    ],
+    [
+     "2026-11-02",
+     64.47,
+     91.29
+    ],
+    [
+     "2026-11-03",
+     64.68,
+     91.86
+    ],
+    [
+     "2026-11-04",
+     60.11,
+     92.75
+    ],
+    [
+     "2026-11-05",
+     50.23,
+     86.73
+    ],
+    [
+     "2026-11-06",
+     53.11,
+     87.94
+    ],
+    [
+     "2026-11-09",
+     58.15,
+     91.06
+    ]
+   ],
+   "rank": 7,
+   "primary": "fading",
+   "categories": [
+    "fading"
+   ],
+   "category_label": "強者失勢",
+   "reason": "21 個交易日前屬領導股，現時已跌出現行領導股名單；RS21 -34.27 個百分點，距 60 日高位 -48.68%。",
+   "peers": [],
+   "setup": false,
+   "watchlist": false,
+   "first_seen": "2026-11-09",
+   "days_following": 1,
+   "review_note": "舊科技領導失勢警報：RS21−34.27 個百分點、防守 2／10，距 60 日高位近腰斬；先睇風險，唔預設低吸。",
+   "scenario_a": "修復劇本：重新收上 EMA21、RS5 轉正，再有同業同步轉強，先將失勢降級為觀察中的修復。",
+   "scenario_b": "退潮劇本：RS21 維持負值並繼續遠離 60 日高位，優先提防舊領導退潮，而唔係假設一定可低吸。",
+   "invalid": "觀察失效：收市重新站上 EMA21 且 RS5 轉正；呢個係觀察理由失效，唔係交易止損。"
+  },
+  {
+   "t": "PLTR",
+   "industry": "Software & IT Services",
+   "is_tech": true,
+   "is_current_leader": false,
+   "was_leader_21d": true,
+   "close": 169.2,
+   "ret5": -5.13,
+   "ret21": -19.06,
+   "qqq_ret5": -0.26,
+   "qqq_ret21": -9.57,
+   "rs5": -4.87,
+   "rs21": -9.49,
+   "ema21": 182.56,
+   "ema50": 181.53,
+   "above_ema21": false,
+   "above_ema50": false,
+   "dist60h": -20.54,
+   "dollar_vol20_m": 4388.3,
+   "defense": {
+    "wins": 3,
+    "n": 10,
+    "rate": 30.0,
+    "records": [
+     {
+      "date": "2026-10-14",
+      "stock_ret": -3.69,
+      "qqq_ret": -1.97,
+      "win": false
+     },
+     {
+      "date": "2026-10-15",
+      "stock_ret": -0.23,
+      "qqq_ret": -0.13,
+      "win": false
+     },
+     {
+      "date": "2026-10-16",
+      "stock_ret": -7.22,
+      "qqq_ret": -2.5,
+      "win": false
+     },
+     {
+      "date": "2026-10-20",
+      "stock_ret": -0.8,
+      "qqq_ret": -0.1,
+      "win": false
+     },
+     {
+      "date": "2026-10-22",
+      "stock_ret": -2.74,
+      "qqq_ret": -2.86,
+      "win": true
+     },
+     {
+      "date": "2026-10-23",
+      "stock_ret": 0.29,
+      "qqq_ret": -0.01,
+      "win": true
+     },
+     {
+      "date": "2026-10-29",
+      "stock_ret": -0.2,
+      "qqq_ret": -1.42,
+      "win": true
+     },
+     {
+      "date": "2026-10-30",
+      "stock_ret": -6.27,
+      "qqq_ret": -3.47,
+      "win": false
+     },
+     {
+      "date": "2026-11-02",
+      "stock_ret": -3.13,
+      "qqq_ret": -1.36,
+      "win": false
+     },
+     {
+      "date": "2026-11-05",
+      "stock_ret": -9.73,
+      "qqq_ret": -6.49,
+      "win": false
+     }
+    ]
+   },
+   "chart20": [
+    [
+     "2026-10-12",
+     100.0,
+     100.0
+    ],
+    [
+     "2026-10-13",
+     99.84,
+     99.67
+    ],
+    [
+     "2026-10-14",
+     96.16,
+     97.71
+    ],
+    [
+     "2026-10-15",
+     95.93,
+     97.58
+    ],
+    [
+     "2026-10-16",
+     89.01,
+     95.14
+    ],
+    [
+     "2026-10-19",
+     92.89,
+     96.29
+    ],
+    [
+     "2026-10-20",
+     92.15,
+     96.19
+    ],
+    [
+     "2026-10-21",
+     96.52,
+     97.21
+    ],
+    [
+     "2026-10-22",
+     93.87,
+     94.43
+    ],
+    [
+     "2026-10-23",
+     94.14,
+     94.42
+    ],
+    [
+     "2026-10-26",
+     95.14,
+     95.46
+    ],
+    [
+     "2026-10-27",
+     95.09,
+     96.68
+    ],
+    [
+     "2026-10-28",
+     94.17,
+     97.26
+    ],
+    [
+     "2026-10-29",
+     93.98,
+     95.88
+    ],
+    [
+     "2026-10-30",
+     88.09,
+     92.55
+    ],
+    [
+     "2026-11-02",
+     85.33,
+     91.29
+    ],
+    [
+     "2026-11-03",
+     83.92,
+     91.86
+    ],
+    [
+     "2026-11-04",
+     82.15,
+     92.75
+    ],
+    [
+     "2026-11-05",
+     74.16,
+     86.73
+    ],
+    [
+     "2026-11-06",
+     76.74,
+     87.94
+    ],
+    [
+     "2026-11-09",
+     80.96,
+     91.06
+    ]
+   ],
+   "rank": 8,
+   "primary": "fading",
+   "categories": [
+    "fading"
+   ],
+   "category_label": "強者失勢",
+   "reason": "21 個交易日前屬領導股，現時已跌出現行領導股名單；RS21 -9.49 個百分點，距 60 日高位 -20.54%。",
+   "peers": [],
+   "setup": false,
+   "watchlist": false,
+   "first_seen": "2026-11-09",
+   "days_following": 1,
+   "review_note": "軟件內部分化：BSY 強而 PLTR 的 RS21 仍係負值、防守 3／10；只跟修復或續弱劇本，唔提供新入場價。",
+   "scenario_a": "修復劇本：重新收上 EMA21、RS5 轉正，再有同業同步轉強，先將失勢降級為觀察中的修復。",
+   "scenario_b": "退潮劇本：RS21 維持負值並繼續遠離 60 日高位，優先提防舊領導退潮，而唔係假設一定可低吸。",
+   "invalid": "觀察失效：收市重新站上 EMA21 且 RS5 轉正；呢個係觀察理由失效，唔係交易止損。"
+  }
+ ],
+ "shortlist": [
+  {
+   "t": "BSY",
+   "industry": "Software & IT Services",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 7.33,
+   "rs21": 39.4,
+   "defense_wins": 10,
+   "defense_n": 10,
+   "selected": true
+  },
+  {
+   "t": "PAR",
+   "industry": "Industrial Machinery & Electronics",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 21.35,
+   "rs21": 50.19,
+   "defense_wins": 9,
+   "defense_n": 10,
+   "selected": false
+  },
+  {
+   "t": "EXEL",
+   "industry": "Biotech & Pharma",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 2.55,
+   "rs21": 29.42,
+   "defense_wins": 9,
+   "defense_n": 10,
+   "selected": true
+  },
+  {
+   "t": "BBY",
+   "industry": "Retail",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 10.8,
+   "rs21": 31.72,
+   "defense_wins": 9,
+   "defense_n": 10,
+   "selected": true
+  },
+  {
+   "t": "HCA",
+   "industry": "Healthcare Services",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 8.2,
+   "rs21": 21.5,
+   "defense_wins": 9,
+   "defense_n": 10,
+   "selected": true
+  },
+  {
+   "t": "BLCO",
+   "industry": "Instruments & Measurement",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 5.0,
+   "rs21": 30.73,
+   "defense_wins": 10,
+   "defense_n": 10,
+   "selected": false
+  },
+  {
+   "t": "FISV",
+   "industry": "Business Services",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 22.57,
+   "rs21": 48.78,
+   "defense_wins": 9,
+   "defense_n": 10,
+   "selected": false
+  },
+  {
+   "t": "VERX",
+   "industry": "Software & IT Services",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 9.54,
+   "rs21": 43.16,
+   "defense_wins": 10,
+   "defense_n": 10,
+   "selected": false
+  },
+  {
+   "t": "HELE",
+   "industry": "Industrial Machinery & Electronics",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 23.73,
+   "rs21": 50.43,
+   "defense_wins": 9,
+   "defense_n": 10,
+   "selected": false
+  },
+  {
+   "t": "CHPT",
+   "industry": "Electronics",
+   "categories": [
+    "resilient"
+   ],
+   "rs5": 25.66,
+   "rs21": 66.01,
+   "defense_wins": 8,
+   "defense_n": 10,
+   "selected": false
+  },
+  {
+   "t": "SPOT",
+   "industry": "Communications",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 2.79,
+   "rs21": 24.68,
+   "defense_wins": 10,
+   "defense_n": 10,
+   "selected": true
+  },
+  {
+   "t": "HAS",
+   "industry": "Misc Manufacturing",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 2.42,
+   "rs21": 39.15,
+   "defense_wins": 10,
+   "defense_n": 10,
+   "selected": false
+  },
+  {
+   "t": "TW",
+   "industry": "Banking & Finance",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 3.67,
+   "rs21": 25.03,
+   "defense_wins": 10,
+   "defense_n": 10,
+   "selected": false
+  },
+  {
+   "t": "MORN",
+   "industry": "Capital Markets",
+   "categories": [
+    "resilient",
+    "rotation"
+   ],
+   "rs5": 3.36,
+   "rs21": 29.97,
+   "defense_wins": 10,
+   "defense_n": 10,
+   "selected": true
+  },
+  {
+   "t": "MRVL",
+   "industry": "Semiconductors",
+   "categories": [
+    "fading"
+   ],
+   "rs5": -9.55,
+   "rs21": -34.27,
+   "defense_wins": 2,
+   "defense_n": 10,
+   "selected": true
+  },
+  {
+   "t": "LITE",
+   "industry": "Industrial Machinery & Electronics",
+   "categories": [
+    "fading"
+   ],
+   "rs5": -12.64,
+   "rs21": -36.4,
+   "defense_wins": 2,
+   "defense_n": 10,
+   "selected": false
+  },
+  {
+   "t": "PLTR",
+   "industry": "Software & IT Services",
+   "categories": [
+    "fading"
+   ],
+   "rs5": -4.87,
+   "rs21": -9.49,
+   "defense_wins": 3,
+   "defense_n": 10,
+   "selected": true
+  },
+  {
+   "t": "DELL",
+   "industry": "Computer Hardware",
+   "categories": [
+    "fading"
+   ],
+   "rs5": -11.58,
+   "rs21": -31.34,
+   "defense_wins": 2,
+   "defense_n": 10,
+   "selected": false
+  },
+  {
+   "t": "UMAC",
+   "industry": "Communications Equipment",
+   "categories": [
+    "fading"
+   ],
+   "rs5": -5.28,
+   "rs21": -25.71,
+   "defense_wins": 2,
+   "defense_n": 10,
+   "selected": false
+  },
+  {
+   "t": "MSTR",
+   "industry": "Banking & Finance",
+   "categories": [
+    "fading"
+   ],
+   "rs5": -3.7,
+   "rs21": -9.05,
+   "defense_wins": 4,
+   "defense_n": 10,
+   "selected": false
+  }
+ ],
+ "removals": [],
+ "method": {
+  "universe": "現行領導股 ∪ 21 個交易日前領導股 ∪ 現役落單紙 ∪ MAIN FOCUS LIST；只作候選來源，唔係新入場閘。",
+  "resilient": "現行領導股；5 日回報 > 0；RS5 ≥ +2 個百分點；最近至少 6 個 QQQ 下跌日有有效樣本，跑贏比例 ≥ 60%。",
+  "fading": "21 個交易日前屬領導股；RS5、RS21 均 < 0；已跌出領導股或收市低於 EMA21；並且距 60 日高位 ≤ −8% 或低於 EMA50。",
+  "rotation": "同一 SIC 歸納行業至少兩隻現行領導股，同時 5 日回報 > 0、RS5 ≥ +2 個百分點、收市在 EMA21 上。",
+  "rs": "RS5＝股票 5 交易日回報 − QQQ 5 交易日回報；RS21 同理，單位係百分點，唔係 RSI。",
+  "defense": "最近 10 個 QQQ 下跌交易日，比較股票與 QQQ 當日回報；股票需當日及前一交易日都有有效 bar，不足 10 次如實顯示樣本數。",
+  "chart": "最近 21 個交易日（約 20 日跨度）收市價 normalize，同日起點＝100。",
+  "selection": "規則初選最多 20 隻：7 個輪動行業代表、7 個抗跌及 6 個失勢候選；同類盡量分散行業，科技優先，再以防守紀錄及 20 日成交額中位數排代表性。覆核後最多 8 隻，同一行業最多 2 隻；冇足夠理由唔補滿。",
+  "boundary": "焦點 8 只係注意力配置，唔係新交易訊號；觀察失效唔係交易 SL，亦唔納入正式交易統計。"
+ },
+ "sources": [
+  "Massive grouped daily（adjusted=true）",
+  "現有 data.json／box_scanner.json／watchlist.json",
+  "SEC SIC 行業歸納快取"
+ ]
+}

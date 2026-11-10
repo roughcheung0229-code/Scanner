@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>焦點 8｜Market Focus</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700;800&family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<style>
+body{max-width:1240px;padding-top:22px}
+.nav{display:flex;flex-wrap:wrap;gap:7px 0;margin-bottom:22px}
+.focus-hero{border-top:1px solid var(--golddim);border-bottom:1px solid var(--line2);padding:24px 0 20px;margin-bottom:16px}
+.eyebrow{font-size:11px;letter-spacing:2.2px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.focus-title{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.focus-title h1{font-size:42px;line-height:1.08;letter-spacing:-1px;margin:0}
+.focus-title .en{font-size:14px;letter-spacing:1.8px;color:var(--tx2)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);gap:32px;align-items:end}
+.hero-copy{font-size:14px;line-height:1.85;color:var(--tx2);max-width:700px;margin-top:12px}
+.hero-copy b{color:var(--tx)}
+.review-box{border-left:2px solid var(--gold);padding:4px 0 4px 16px}
+.review-status{font-size:13px;color:var(--gold2);font-weight:700;margin-bottom:5px}
+.review-meta{font-size:11.5px;line-height:1.75;color:var(--tx2)}
+.focus-tape{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);margin:18px 0 14px}
+.tape-cell{padding:14px 16px;border-left:1px solid var(--line);min-width:0}
+.tape-cell:first-child{border-left:0;padding-left:0}
+.tape-label{font-size:10px;color:var(--golddim);letter-spacing:1.2px;font-weight:700;margin-bottom:5px}
+.tape-value{font-size:23px;font-weight:800;line-height:1.2;font-variant-numeric:tabular-nums}
+.tape-sub{font-size:10.5px;color:var(--tx3);margin-top:4px;line-height:1.5}
+.boundary{font-size:12.5px;line-height:1.8;color:var(--tx2);margin:14px 0 18px;max-width:980px}
+.boundary b{color:var(--tx)}
+.filterbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:20px 0 14px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.filter-label{font-size:11px;color:var(--tx3);letter-spacing:1px;margin-right:6px}
+.filter-btn{appearance:none;border:1px solid var(--line2);background:transparent;color:var(--tx2);padding:7px 12px;font:inherit;font-size:12px;cursor:pointer;border-radius:2px;min-height:36px}
+.filter-btn:hover{color:var(--gold2);border-color:var(--golddim)}
+.filter-btn[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#17130a;font-weight:800}
+.filter-count{margin-left:auto;color:var(--tx3);font-size:11.5px}
+.focus-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.focus-card{border:1px solid var(--line2);background:var(--card);padding:18px 18px 16px;min-width:0;position:relative}
+.focus-card[hidden]{display:none}
+.card-head{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:11px;align-items:start;border-bottom:1px solid var(--line);padding-bottom:12px}
+.rank{font-size:27px;line-height:1;color:var(--golddim);font-weight:400;font-variant-numeric:tabular-nums}
+.ticker-line{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.ticker{font-size:28px;line-height:1;font-weight:800;letter-spacing:.3px}
+.ticker a{color:var(--tx);text-decoration:none}
+.ticker a:hover{color:var(--gold2)}
+.industry{font-size:10.5px;color:var(--tx2);line-height:1.4}
+.primary-cat{font-size:11px;letter-spacing:1px;color:var(--gold2);font-weight:700;margin-top:6px}
+.setup-badge{display:inline-flex;align-items:center;justify-content:center;min-height:27px;padding:4px 8px;border:1px solid var(--line2);font-size:10px;white-space:nowrap;color:var(--tx2);border-radius:2px}
+.setup-badge.hot{color:var(--liteG-tx);border-color:#315d43;background:var(--liteG-bg);font-weight:700}
+.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:13px 0 8px}
+.metric{padding:0 10px;border-left:1px solid var(--line);min-width:0}
+.metric:first-child{border-left:0;padding-left:0}
+.metric-label{font-size:9.5px;color:var(--tx3);letter-spacing:.7px;margin-bottom:4px}
+.metric-value{font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.metric-sub{font-size:9.5px;color:var(--tx3);margin-top:2px}
+.pos{color:var(--up)}.neg{color:var(--dn)}
+.chart-wrap{margin:10px 0 8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:8px 0 4px}
+.chart-title{display:flex;justify-content:space-between;gap:10px;font-size:10px;color:var(--tx3);line-height:1.6}
+.chart-key{display:flex;gap:12px;white-space:nowrap}
+.key::before{content:"";display:inline-block;width:13px;height:2px;background:var(--gold);margin:0 5px 3px 0}
+.key.qqq::before{background:#928a7b}
+.focus-chart{display:block;width:100%;height:auto;max-height:190px}
+.price-context{display:flex;gap:8px 14px;flex-wrap:wrap;color:var(--tx3);font-size:10.5px;line-height:1.6;margin:8px 0 11px;font-variant-numeric:tabular-nums}
+.reason{font-size:12.5px;line-height:1.8;color:var(--tx);margin:10px 0}
+.review-note{border-left:2px solid var(--golddim);padding:7px 0 7px 11px;color:var(--tx2);font-size:11.5px;line-height:1.75;margin:10px 0 12px}
+.scenarios{border-top:1px solid var(--line);padding-top:8px}
+.scenario{display:grid;grid-template-columns:20px minmax(0,1fr);gap:7px;font-size:11.5px;line-height:1.75;color:var(--tx2);margin:7px 0}
+.scenario-tag{color:var(--gold);font-weight:800}
+.invalid{border-top:1px dashed var(--line2);margin-top:10px;padding-top:9px;color:#d2a093;font-size:11px;line-height:1.75}
+.card-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px;color:var(--tx3);font-size:10px;line-height:1.6}
+.division{margin-top:32px;border-top:1px solid var(--golddim);padding-top:18px}
+.division h2{margin:0 0 12px;color:var(--gold2);font-size:18px}
+.division-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.division-item{border-top:1px solid var(--line2);padding-top:11px}
+.division-item h3{font-size:13px;color:var(--tx);margin:0 0 6px}
+.division-item p{font-size:11.5px;color:var(--tx2);line-height:1.8}
+.method{margin-top:26px;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.method summary{cursor:pointer;list-style:none;padding:14px 0;color:var(--gold);font-size:12px;font-weight:700;min-height:44px;display:flex;align-items:center}
+.method summary::-webkit-details-marker{display:none}
+.method summary::after{content:"＋";margin-left:auto}
+.method[open] summary::after{content:"−"}
+.method-body{padding:0 0 16px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 28px}
+.method-row{font-size:11px;line-height:1.75;color:var(--tx2)}
+.method-row b{display:block;color:var(--tx);font-size:11.5px;margin-bottom:2px}
+.source-line{font-size:10.5px;color:var(--tx3);line-height:1.75;margin-top:16px}
+.empty{border:1px solid var(--line2);padding:24px;color:var(--tx2);font-size:13px;line-height:1.8}
+@media(max-width:900px){
+ .hero-grid{grid-template-columns:1fr;gap:18px}.focus-tape{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .tape-cell:nth-child(4){border-left:0;padding-left:0}.tape-cell:nth-child(n+4){border-top:1px solid var(--line)}
+ .focus-grid{grid-template-columns:1fr}.division-grid{grid-template-columns:1fr;gap:14px}
+}
+@media(max-width:640px){
+ body{padding:16px 12px 48px}.nav{font-size:12px;margin-bottom:16px}.nav a,.nav .here{margin-right:11px}
+ .focus-hero{padding-top:18px}.focus-title h1{font-size:34px}.focus-title .en{font-size:11px;letter-spacing:1.2px}
+ .hero-copy{font-size:12.5px}.focus-tape{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tape-cell{padding:11px 10px}.tape-cell:nth-child(odd){border-left:0;padding-left:0}.tape-cell:nth-child(n+3){border-top:1px solid var(--line)}
+ .tape-cell:nth-child(4){padding-left:10px}.tape-value{font-size:20px}.filter-count{width:100%;margin-left:0}
+ .focus-card{padding:14px 12px}.card-head{grid-template-columns:34px minmax(0,1fr);gap:8px}
+ .setup-badge{grid-column:2;justify-self:start}.ticker{font-size:25px}.rank{font-size:23px}
+ .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 0}.metric:nth-child(3){border-left:0;padding-left:0}
+ .chart-title{display:block}.chart-key{margin-top:3px}.method-body{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">市寬動能表</a><a href="sectors.html">行業 ETF</a><span class="here">焦點 8</span><a href="p2.html">落單紙</a><a href="p2w.html">觀察名單</a><a href="research.html">研究覆盤</a></div>
+<main>
+<section class="focus-hero">
+ <div class="hero-grid">
+  <div>
+   <div class="eyebrow" id="eyebrow">MARKET FOCUS · DAILY EVIDENCE</div>
+   <div class="focus-title"><h1>焦點 <span id="titleN">8</span></h1><span class="en">MARKET FOCUS</span></div>
+   <div class="hero-copy"><b>少睇啲，但更快搵到市場重點。</b>每日最多 8 隻，唔需要有 Setup 先上榜；每隻都要有相對強弱、QQQ 下跌日防守紀錄或同業確認。科技優先審視，同一行業最多兩隻，冇足夠理由唔補滿。</div>
+  </div>
+  <div class="review-box"><div class="review-status" id="reviewStatus">讀取中…</div><div class="review-meta" id="reviewMeta"></div></div>
+ </div>
+</section>
+<section class="focus-tape" aria-label="焦點摘要">
+ <div class="tape-cell"><div class="tape-label">強勢抗跌</div><div class="tape-value" id="nResilient">—</div><div class="tape-sub">下一浪領導／強者補跌</div></div>
+ <div class="tape-cell"><div class="tape-label">強者失勢</div><div class="tape-value" id="nFading">—</div><div class="tape-sub">舊領導退潮警報</div></div>
+ <div class="tape-cell"><div class="tape-label">輪動線索</div><div class="tape-value" id="nRotation">—</div><div class="tape-sub">至少兩隻同業確認</div></div>
+ <div class="tape-cell"><div class="tape-label">QQQ 5 日</div><div class="tape-value" id="qqq5">—</div><div class="tape-sub" id="qqq21">21 日 —</div></div>
+ <div class="tape-cell"><div class="tape-label">初選漏斗</div><div class="tape-value" id="funnel">—</div><div class="tape-sub">候選宇宙 → 初選 → 最後焦點</div></div>
+</section>
+<p class="boundary"><b>分工：</b>焦點 8 解釋「點解而家值得留意」；MAIN FOCUS LIST 搵「邊啲接近 9／21 EMA」；現役落單紙先處理「掛線、SL、TP1」。<b>焦點 8 唔係新交易訊號</b>，觀察失效唔等於交易 SL，亦唔納入正式交易統計。</p>
+<div class="filterbar" role="group" aria-label="篩選焦點類別">
+ <span class="filter-label">FILTER</span>
+ <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">全部</button>
+ <button class="filter-btn" type="button" data-filter="resilient" aria-pressed="false">強勢抗跌</button>
+ <button class="filter-btn" type="button" data-filter="fading" aria-pressed="false">強者失勢</button>
+ <button class="filter-btn" type="button" data-filter="rotation" aria-pressed="false">輪動線索</button>
+ <span class="filter-count" id="filterCount"></span>
+</div>
+<section class="focus-grid" id="focusGrid" aria-live="polite"><div class="empty">載入焦點證據中…</div></section>
+<section class="division">
+ <h2>三頁分工，唔再重複睇同一批股票</h2>
+ <div class="division-grid">
+  <div class="division-item"><h3>01 · 焦點 8</h3><p>市場脈絡與注意力：強勢抗跌、強者失勢、輪動線索。冇 Setup 都可以齋睇。</p></div>
+  <div class="division-item"><h3>02 · MAIN FOCUS LIST</h3><p>位置篩選：64 隻入面邊啲接近 9／21 EMA、受業績牆限制或已跌穿兩線。</p></div>
+  <div class="division-item"><h3>03 · 現役落單紙</h3><p>執行規格：只有已通過現有規則嘅 Setup，先沿用原有掛線、SL、TP1；焦點頁唔會新造買入價。</p></div>
+ </div>
+</section>
+<details class="method"><summary>計算方法、初選規則與移除紀錄</summary><div class="method-body" id="methodBody"></div></details>
+<div class="source-line" id="sourceLine"></div>
+</main>
+<script>
+const fmt=(v,d=2,suffix='')=>v===null||v===undefined?'—':`${v>0?'+':''}${Number(v).toFixed(d)}${suffix}`;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const catLabel={resilient:'強勢抗跌',fading:'強者失勢',rotation:'輪動線索'};
+function chartSvg(item){
+ const pts=item.chart20||[];if(pts.length<2)return '<div class="empty">圖表數據不足</div>';
+ const W=600,H=184,L=42,R=12,T=13,B=27,pw=W-L-R,ph=H-T-B;
+ const vals=pts.flatMap(p=>[p[1],p[2]]).concat([100]);let lo=Math.min(...vals),hi=Math.max(...vals);
+ const pad=Math.max(1,(hi-lo)*.12);lo-=pad;hi+=pad;
+ const x=i=>L+i*pw/(pts.length-1),y=v=>T+(hi-v)*ph/(hi-lo);
+ const path=k=>pts.map((p,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(p[k]).toFixed(1)}`).join(' ');
+ const ticks=[lo+(hi-lo)*.2,lo+(hi-lo)*.5,lo+(hi-lo)*.8];
+ const grid=ticks.map(v=>`<line x1="${L}" y1="${y(v)}" x2="${W-R}" y2="${y(v)}" stroke="#2c2a24" stroke-width="1"/><text x="${L-6}" y="${y(v)+3}" text-anchor="end" fill="#71695a" font-size="9">${v.toFixed(0)}</text>`).join('');
+ const base=`<line x1="${L}" y1="${y(100)}" x2="${W-R}" y2="${y(100)}" stroke="#71695a" stroke-width="1" stroke-dasharray="4 4"/>`;
+ const dates=`<text x="${L}" y="${H-7}" fill="#71695a" font-size="9">${pts[0][0].slice(5)}</text><text x="${W-R}" y="${H-7}" text-anchor="end" fill="#71695a" font-size="9">${pts.at(-1)[0].slice(5)}</text>`;
+ const last=pts.at(-1);
+ return `<svg class="focus-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(item.t)} 與 QQQ 最近 20 日 normalized 走勢">${grid}${base}<path d="${path(2)}" fill="none" stroke="#928a7b" stroke-width="1.8"/><path d="${path(1)}" fill="none" stroke="#d9a441" stroke-width="2.5"/><circle cx="${x(pts.length-1)}" cy="${y(last[1])}" r="3.2" fill="#f0c05a"/><text x="${Math.min(W-42,x(pts.length-1)+5)}" y="${Math.max(11,y(last[1])-6)}" fill="#f0c05a" font-size="10" font-weight="700">${last[1].toFixed(1)}</text>${dates}</svg>`;
+}
+function card(item){
+ const signedCls=v=>v>0?'pos':v<0?'neg':'';
+ const setup=item.setup?'<a class="setup-badge hot" href="p2.html">已有 9／21 Setup →</a>':'<span class="setup-badge">齋睇 · 冇新買入價</span>';
+ const tags=item.categories.map(c=>catLabel[c]).join('＋');
+ return `<article class="focus-card" data-cats="${item.categories.join(' ')}" data-ticker="${esc(item.t)}">
+  <div class="card-head"><div class="rank">${String(item.rank).padStart(2,'0')}</div><div><div class="ticker-line"><div class="ticker"><a href="https://www.tradingview.com/chart/?symbol=${encodeURIComponent(item.t)}" target="_blank" rel="noopener">${esc(item.t)}</a></div><div class="industry">${esc(item.industry)}</div></div><div class="primary-cat">${esc(tags)}</div></div>${setup}</div>
+  <div class="metric-grid">
+   <div class="metric"><div class="metric-label">RS5 · pp</div><div class="metric-value ${signedCls(item.rs5)}">${fmt(item.rs5)}</div><div class="metric-sub">股 ${fmt(item.ret5)}%</div></div>
+   <div class="metric"><div class="metric-label">RS21 · pp</div><div class="metric-value ${signedCls(item.rs21)}">${fmt(item.rs21)}</div><div class="metric-sub">股 ${fmt(item.ret21)}%</div></div>
+   <div class="metric"><div class="metric-label">QQQ 跌日防守</div><div class="metric-value">${item.defense.wins}／${item.defense.n}</div><div class="metric-sub">${item.defense.rate===null?'樣本不足':item.defense.rate.toFixed(0)+'% 跑贏'}</div></div>
+   <div class="metric"><div class="metric-label">距 60 日高位</div><div class="metric-value ${signedCls(item.dist60h)}">${fmt(item.dist60h,2,'%')}</div><div class="metric-sub">收市 ${item.close.toFixed(2)}</div></div>
+  </div>
+  <div class="chart-wrap"><div class="chart-title"><span>20 日 NORMALIZED · 同日起點＝100</span><span class="chart-key"><span class="key">${esc(item.t)}</span><span class="key qqq">QQQ</span></span></div>${chartSvg(item)}</div>
+  <div class="price-context"><span>EMA21 ${item.ema21??'—'} · ${item.above_ema21?'線上':'線下'}</span><span>EMA50 ${item.ema50??'—'} · ${item.above_ema50?'線上':'線下'}</span><span>20 日成交額中位數 US$${item.dollar_vol20_m??'—'}M</span></div>
+  <p class="reason">${esc(item.reason)}</p>
+  ${item.review_note?`<div class="review-note"><b>Kimi 覆核：</b>${esc(item.review_note)}</div>`:''}
+  <div class="scenarios"><div class="scenario"><span class="scenario-tag">A</span><span>${esc(item.scenario_a)}</span></div><div class="scenario"><span class="scenario-tag">B</span><span>${esc(item.scenario_b)}</span></div></div>
+  <div class="invalid">${esc(item.invalid)}</div>
+  <div class="card-foot"><span>首次加入 ${item.first_seen} · 已關注 ${item.days_following} 日</span><span>${item.watchlist?'同時在 MAIN FOCUS LIST':'不在 MAIN FOCUS LIST'}</span></div>
+ </article>`;
+}
+async function init(){
+ try{
+  const res=await fetch('focus.json?v='+Date.now());if(!res.ok)throw new Error('HTTP '+res.status);const d=await res.json();
+  document.getElementById('titleN').textContent=d.n;document.getElementById('eyebrow').textContent=`MARKET FOCUS · ${d.asof}`;
+  document.getElementById('reviewStatus').textContent=d.review_status;
+  document.getElementById('reviewMeta').innerHTML=`數據日 <b>${d.asof}</b><br>舊領導對照日 ${d.previous_leader_date}<br>生成時間 ${esc(d.generated_at.replace('T',' '))} HKT`;
+  document.getElementById('nResilient').textContent=d.category_counts.resilient;document.getElementById('nFading').textContent=d.category_counts.fading;document.getElementById('nRotation').textContent=d.category_counts.rotation;
+  const q5=document.getElementById('qqq5');q5.textContent=fmt(d.qqq.ret5,2,'%');q5.className='tape-value '+(d.qqq.ret5>=0?'pos':'neg');document.getElementById('qqq21').textContent='21 日 '+fmt(d.qqq.ret21,2,'%');
+  document.getElementById('funnel').textContent=`${d.universe_n}→${d.shortlist_n}→${d.n}`;
+  const grid=document.getElementById('focusGrid');grid.innerHTML=d.items.length?d.items.map(card).join(''):'<div class="empty">今日冇足夠理由組成焦點名單，唔會為咗補滿而硬塞股票。</div>';
+  const buttons=[...document.querySelectorAll('.filter-btn')];
+  function applyFilter(f){let n=0;document.querySelectorAll('.focus-card').forEach(c=>{const show=f==='all'||c.dataset.cats.split(' ').includes(f);c.hidden=!show;if(show)n++});buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===f)));document.getElementById('filterCount').textContent=`顯示 ${n}／${d.n} 隻`}
+  buttons.forEach(b=>b.addEventListener('click',()=>applyFilter(b.dataset.filter)));applyFilter('all');
+  const methodNames={universe:'候選宇宙',resilient:'強勢抗跌',fading:'強者失勢',rotation:'輪動線索',rs:'RS 定義',defense:'防守紀錄',chart:'對比圖',selection:'初選與覆核',boundary:'用途邊界'};
+  let methodHtml=Object.entries(d.method).map(([k,v])=>`<div class="method-row"><b>${methodNames[k]||k}</b>${esc(v)}</div>`).join('');
+  if(d.removals?.length)methodHtml+=`<div class="method-row"><b>最近移除</b>${d.removals.map(r=>`${r.date} ${esc(r.t)}：${esc(r.reason)}`).join('<br>')}</div>`;
+  document.getElementById('methodBody').innerHTML=methodHtml;
+  document.getElementById('sourceLine').textContent='資料來源：'+d.sources.join('；')+'。RS 單位係百分點（pp），唔係 RSI；所有價位均以收市數據計算。';
+ }catch(e){document.getElementById('focusGrid').innerHTML=`<div class="empty">焦點資料載入失敗：${esc(e.message)}。請稍後重新整理；落單紙及其他頁面不受影響。</div>`;document.getElementById('reviewStatus').textContent='載入失敗';}
+}
+init();
+</script>
+</body>
+</html>
