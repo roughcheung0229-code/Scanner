@@ -1,0 +1,66 @@
+{
+  "asof": "2026-11-25",
+  "mode": "manual_snapshot",
+  "headline": "短線修復線索增加；外部開閘與 ZBT-WATCH 均不改變主燈或開倉許可。",
+  "original_summary": "分享者原圖：3 開閘・1 不適用",
+  "source_note": "來源：Cup Sir 2026-11-25 分享截圖；Ryan Detrick（Carson Group）2026-11-25 圖。ZBT 公式對照 StockCharts；未用同源原始數據獨立重算。",
+  "gates": [
+    {
+      "id": "nh_nl",
+      "category": "市場寬度",
+      "name": "新高減新低 ÷ 流動股",
+      "value": "+2.3%",
+      "comparison": "最差 −11.8%｜11/20",
+      "threshold": "低於 −2% 落閘",
+      "state": "open",
+      "status": "開閘",
+      "note": "由最差位修復 +14.1 個百分點；同 Up4／Dn4、P20／P50 唔係同一口徑，唔重複加分。"
+    },
+    {
+      "id": "leadership",
+      "category": "領導股",
+      "name": "強勢股上月相對表現",
+      "value": "第 5.0 百分位",
+      "comparison": "最差第 4.0｜11/19",
+      "threshold": "過去三年第 5 百分位",
+      "state": "watch",
+      "status": "開閘・貼線",
+      "note": "啱啱企喺門檻，唔等於全面轉強；同 R10／領導股池只作輔證，唔可互換。"
+    },
+    {
+      "id": "account",
+      "category": "帳戶風控",
+      "name": "自己倉位一半或以上浮虧",
+      "value": "分享者帳戶：未觸發",
+      "comparison": "持倉四隻或以上時計算",
+      "threshold": "帳戶級條件，唔係市場燈",
+      "state": "unknown",
+      "status": "我哋未對賬",
+      "note": "呢個「未觸發」屬分享者帳戶；Steven 呢邊要另行對賬，未知唔當開閘，浮虧亦唔等於 R$ 回撤。"
+    },
+    {
+      "id": "spy_iwm_200d",
+      "category": "長線背景",
+      "name": "SPY 守 200 天線、IWM 跌穿",
+      "value": "兩者同在 200 天線下",
+      "comparison": "SPY 716.70／200D 733.16",
+      "threshold": "IWM 268.87／200D 279.59",
+      "state": "na",
+      "status": "不適用・非利好",
+      "note": "不適用只係大細股分歧條件未成立；兩者同穿 200 天線仍係長線弱勢背景。"
+    }
+  ],
+  "zbt": {
+    "name": "Zweig Breadth Thrust",
+    "value": 0.49,
+    "trigger": 0.615,
+    "reset": 0.4,
+    "deadline": "2026-12-07",
+    "scale_min": 0.3,
+    "scale_max": 0.7,
+    "state": "watch",
+    "status": "WATCH・未觸發",
+    "formula": "10 日 EMA［NYSE Advancers ÷（Advancers＋Decliners）］",
+    "note": "要喺時限內由 0.40 以下升穿 0.615 先算 THRUST；0.49 只係 SETUP 修復中。"
+  }
+}

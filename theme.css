@@ -275,6 +275,82 @@ a:focus-visible, summary:focus-visible{ outline:2px solid var(--gold2); outline-
   .letter blockquote{ font-size:16px; padding:14px; }
   .action-grid{ grid-template-columns:1fr; gap:20px; }
 }
+/* ---- 2026-11-26 外部四閘＋ZBT-WATCH：只讀對照，唔改主燈／POST-CAP／開倉閘 ---- */
+.external-panel{
+  --ext-green:#4cc07e; --ext-amber:#f0c05a; --ext-red:#e06552;
+  margin:14px 0 10px; padding:13px 14px 4px; border:1px solid rgba(217,164,65,.34);
+  border-radius:10px; background:rgba(255,255,255,.018);
+}
+.ext-top{ display:flex; justify-content:space-between; align-items:center; gap:12px; padding-bottom:10px; }
+.ext-kicker{ color:var(--tx2); font-size:10px; font-weight:700; letter-spacing:.18em; line-height:1.4; }
+.ext-title{ color:var(--tx); font-size:16px; font-weight:800; line-height:1.45; }
+.ext-record{ color:var(--gold2); border:1px solid var(--line2); border-radius:20px; padding:3px 9px; font-size:10.5px; line-height:1.5; text-align:center; overflow-wrap:anywhere; }
+.ext-subline{ color:var(--tx2); font-size:11.5px; line-height:1.65; padding-bottom:10px; overflow-wrap:anywhere; }
+.ext-headline{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:10px 0; color:var(--gold2); font-size:12.5px; line-height:1.7; }
+.ext-gate{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) minmax(130px,.55fr); gap:5px 16px; padding:12px 0; border-bottom:1px solid var(--line); }
+.ext-gate:last-of-type{ border-bottom:0; }
+.ext-category{ color:var(--golddim); font-size:10px; font-weight:700; letter-spacing:.08em; line-height:1.4; }
+.ext-name{ color:var(--tx); font-size:13px; font-weight:700; line-height:1.5; margin-top:2px; overflow-wrap:anywhere; }
+.ext-value{ color:var(--tx); font-size:15px; font-weight:800; line-height:1.45; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+.ext-meta{ color:var(--tx2); font-size:10.5px; line-height:1.55; margin-top:3px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+.ext-status{ justify-self:end; align-self:start; font-size:12px; font-weight:800; line-height:1.5; text-align:right; overflow-wrap:anywhere; }
+.ext-status.open{ color:var(--ext-green); }
+.ext-status.watch{ color:var(--ext-amber); }
+.ext-status.unknown, .ext-status.na{ color:var(--tx2); }
+.ext-note{ grid-column:1/-1; color:var(--tx2); font-size:11px; line-height:1.65; overflow-wrap:anywhere; }
+.ext-zbt{ border-top:1px solid var(--line2); padding:13px 0 11px; }
+.ext-zbt-head{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:5px 12px; }
+.ext-zbt-title{ color:var(--tx); font-size:13px; font-weight:800; line-height:1.5; }
+.ext-zbt-status{ color:var(--ext-amber); font-size:13px; font-weight:800; line-height:1.5; }
+.ext-zbt-numbers{ display:flex; flex-wrap:wrap; align-items:baseline; gap:5px 18px; margin-top:8px; }
+.ext-zbt-now{ color:var(--gold2); font-size:28px; font-weight:800; line-height:1.1; font-variant-numeric:tabular-nums; }
+.ext-zbt-target{ color:var(--tx2); font-size:11.5px; line-height:1.6; font-variant-numeric:tabular-nums; }
+.ext-zbt-target b{ color:var(--tx); }
+.zbt-gauge{ position:relative; height:8px; margin:17px 4px 8px; border-radius:4px; background:linear-gradient(90deg,rgba(224,101,82,.2),rgba(240,192,90,.16) 45%,rgba(76,192,126,.18)); }
+.zbt-mark{ position:absolute; top:-5px; width:2px; height:18px; transform:translateX(-1px); }
+.zbt-mark.reset{ background:var(--ext-red); }
+.zbt-mark.trigger{ background:var(--ext-green); }
+.zbt-mark.now{ top:-6px; width:12px; height:12px; margin-top:2px; border:2px solid var(--bg); border-radius:50%; background:var(--ext-amber); transform:translateX(-6px); }
+.zbt-scale{ display:flex; justify-content:space-between; color:var(--tx3); font-size:10px; font-variant-numeric:tabular-nums; }
+.zbt-legend{ display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:8px; color:var(--tx2); font-size:10.5px; line-height:1.6; font-variant-numeric:tabular-nums; }
+.zbt-legend .reset{ color:var(--ext-red); }
+.zbt-legend .now{ color:var(--ext-amber); }
+.zbt-legend .trigger{ color:var(--ext-green); }
+.ext-method{ border-top:1px solid var(--line); }
+.ext-method>summary{ min-height:44px; display:flex; align-items:center; cursor:pointer; list-style:none; color:var(--tx2); font-size:11.5px; font-weight:700; }
+.ext-method>summary::-webkit-details-marker{ display:none; }
+.ext-method>summary::after{ content:'＋'; margin-left:auto; color:var(--golddim); font-size:15px; }
+.ext-method[open]>summary::after{ content:'−'; }
+.ext-method>summary:hover{ color:var(--gold2); }
+.ext-method-body{ padding:0 4px 12px 0; max-width:90ch; }
+.ext-method-body p{ color:var(--tx2); font-size:11.5px; line-height:1.75; margin:5px 0; }
+.ext-method-body b{ color:var(--tx); }
+.ext-empty{ color:var(--tx2); font-size:12px; line-height:1.7; padding:12px 0; }
+@media (max-width:640px){
+  .external-panel{ padding:12px 10px 3px; }
+  .ext-top{ flex-direction:column; align-items:flex-start; gap:7px; }
+  .ext-kicker, .ext-category{ font-size:12px; }
+  .ext-title{ font-size:17px; }
+  .ext-record{ text-align:left; font-size:12px; }
+  .ext-subline{ font-size:12px; }
+  .ext-headline{ font-size:14px; }
+  .ext-gate{ grid-template-columns:minmax(0,1fr) auto; gap:5px 10px; padding:12px 0; }
+  .ext-reading{ grid-column:1/-1; grid-row:2; }
+  .ext-status{ grid-column:2; grid-row:1; max-width:118px; font-size:12px; }
+  .ext-name{ font-size:14px; }
+  .ext-value{ font-size:15px; }
+  .ext-meta{ font-size:12px; }
+  .ext-note{ grid-row:3; font-size:12px; }
+  .ext-zbt-title, .ext-zbt-status{ font-size:14px; }
+  .ext-zbt-now{ font-size:26px; }
+  .ext-zbt-target{ font-size:12px; }
+  .zbt-scale, .zbt-legend{ font-size:12px; }
+  .zbt-legend{ gap:4px 10px; }
+  .ext-method>summary{ font-size:12px; }
+  .ext-method-body p{ font-size:14px; }
+  .ext-empty{ font-size:14px; }
+}
+
 @media (prefers-reduced-motion:reduce){
   .study>summary{ transition:none; }
 }

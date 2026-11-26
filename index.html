@@ -41,6 +41,9 @@
 <!-- 【2026-10-02 Steven 批准】Qullamaggie 市場濾網：SPY 10/20 日線三色帶（來自 Claude 筆記 p.16-17 嘅模擬圖，呢度用真 SPY 每日自動更新） -->
 <div class="qqf" id="qqf"></div>
 
+<!-- 【2026-11-26 Steven 批准】外部四閘＋ZBT-WATCH：手動快照、只讀對照，唔接主燈或開倉閘 -->
+<section class="external-panel" id="externalGates" aria-live="polite" aria-label="外部四閘與 ZBT 觀察"></section>
+
 <!-- 【2026-10-18 Claude 指令第 3 點】持倉業績提醒：業績前一交易日 MOC 全走，朝早鏈 earn_reminder.py 每日寫入 data.json -->
 <div class="qqf" id="earnAlerts" style="display:none"></div>
 
@@ -551,6 +554,51 @@ fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(D=>{
   const b=document.getElementById('stalebar');
   b.style.display='block';
   b.textContent='⚠️ 數據 load 唔到（'+(e&&e.message||e)+'）——試下重新整理；都係唔得就同 Kimi 講聲「monitor 死咗」。';
+});
+
+// 【2026-11-26 Steven 批准】外部分享快照：獨立 fetch，失敗唔影響原有儀表板。
+fetch('external_gates.json?v='+Date.now(),{cache:'no-store'}).then(r=>{
+  if(!r.ok) throw new Error('external snapshot unavailable');
+  return r.json();
+}).then(E=>{
+  const box=document.getElementById('externalGates');
+  const head=`<div class="ext-top"><div><div class="ext-kicker">EXTERNAL CONFIRMATION</div><div class="ext-title">外部四閘 × ZBT</div></div><span class="ext-record">EXTERNAL-ONLY（外部對照，唔改開倉閘）</span></div>`;
+  if(!E||!Array.isArray(E.gates)||!E.zbt){
+    box.innerHTML=head+'<div class="ext-empty">⚪ 外部快照格式未齊；原有主燈及市場濾網照常使用。</div>';
+    return;
+  }
+  const stateClass={open:'open',watch:'watch',unknown:'unknown',na:'na'};
+  const stateIcon={open:'🟢',watch:'🟡',unknown:'⚪',na:'⚪'};
+  const gateRows=E.gates.map(g=>`
+    <div class="ext-gate" data-gate="${g.id}">
+      <div class="ext-label"><div class="ext-category">${g.category}</div><div class="ext-name">${g.name}</div></div>
+      <div class="ext-reading"><div class="ext-value">${g.value}</div><div class="ext-meta">${g.comparison}<br>${g.threshold}</div></div>
+      <div class="ext-status ${stateClass[g.state]||'unknown'}">${stateIcon[g.state]||'⚪'} ${g.status}</div>
+      <div class="ext-note">${g.note}</div>
+    </div>`).join('');
+  const z=E.zbt, lo=Number(z.scale_min), hi=Number(z.scale_max);
+  const pos=v=>Math.max(0,Math.min(100,(Number(v)-lo)/(hi-lo)*100));
+  const gap=((Number(z.trigger)-Number(z.value))*100).toFixed(1);
+  const zbt=`<div class="ext-zbt" data-state="${z.state}">
+    <div class="ext-zbt-head"><div class="ext-zbt-title">ZBT-WATCH（十日市寬爆發觀察）</div><div class="ext-zbt-status">🟡 ${z.status}</div></div>
+    <div class="ext-zbt-numbers"><span class="ext-zbt-now">${Number(z.value).toFixed(2)}</span><span class="ext-zbt-target">目標 <b>&gt;${Number(z.trigger).toFixed(3)}</b>｜差距 <b>${gap}pp</b>｜期限 <b>${z.deadline}</b></span></div>
+    <div class="zbt-gauge" role="img" aria-label="ZBT 現值 ${z.value}，重置線 ${z.reset}，觸發線 ${z.trigger}">
+      <span class="zbt-mark reset" style="left:${pos(z.reset)}%"></span><span class="zbt-mark trigger" style="left:${pos(z.trigger)}%"></span><span class="zbt-mark now" style="left:${pos(z.value)}%"></span>
+    </div>
+    <div class="zbt-scale"><span>${lo.toFixed(2)}</span><span>${hi.toFixed(2)}</span></div>
+    <div class="zbt-legend"><span class="reset">RESET・先跌返 ${Number(z.reset).toFixed(2)} 以下</span><span class="now">NOW・${Number(z.value).toFixed(2)}</span><span class="trigger">THRUST・升穿 ${Number(z.trigger).toFixed(3)}</span></div>
+    <div class="ext-note">${z.note}</div>
+  </div>`;
+  const method=`<details class="ext-method"><summary>門檻、來源同整合邊界</summary><div class="ext-method-body">
+    <p><b>MAIN-LIGHT FIRST（主燈優先）：</b>外部開閘、ZBT 觸發與否，都唔會自動改變主燈、FAST LIGHT、POST-CAP 或正式開倉閘。四閘同現有 Up4／Dn4、P20／P50、R10 有重疊用途，所以唔會重複計分。</p>
+    <p><b>快照限制：</b>呢版只記錄外部分享數值，唔係用同源歷史庫重算。新高新低／流動股、強勢股名單及相對基準未齊；帳戶浮虧閘亦只屬分享者狀態，我哋未對賬就維持灰色未知。</p>
+    <p><b>ZBT 公式：</b>${z.formula}。正式觸發係 10 個交易日內由 0.40 以下升穿 0.615；未觸發前跌返 0.40 以下＝RESET，期限屆滿未升穿＝EXPIRED（只係冇訊號，唔等於造淡）。原版只用 NYSE，唔包括 Nasdaq，所以對科技股池只係大市輔證。</p>
+    <p><b>資料來源：</b>${E.source_note}</p>
+  </div></details>`;
+  box.innerHTML=head+`<div class="ext-subline">外部分享快照 ${E.asof} 收市｜固定手動記錄，唔會跟主表自動重算｜${E.original_summary}</div><div class="ext-headline">🟡 綜合：${E.headline}</div>`+gateRows+zbt+method;
+}).catch(()=>{
+  const box=document.getElementById('externalGates');
+  box.innerHTML='<div class="ext-top"><div><div class="ext-kicker">EXTERNAL CONFIRMATION</div><div class="ext-title">外部四閘 × ZBT</div></div><span class="ext-record">EXTERNAL-ONLY（外部對照）</span></div><div class="ext-empty">⚪ 外部快照暫時 load 唔到；原有主燈及市場濾網不受影響。</div>';
 });
 </script>
 </body>
